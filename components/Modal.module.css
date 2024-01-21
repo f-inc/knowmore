@@ -1,0 +1,6 @@
+@layer utilities {
+    .bg-blur {
+      @apply bg-opacity-50 backdrop-filter backdrop-blur-lg;
+    }
+  }
+  
