@@ -2,6 +2,7 @@
 import React, { useState, ChangeEvent, useEffect } from 'react';
 import { ModalComponent } from './Modal';
 import Papa from 'papaparse';
+
 const CsvDownload: React.FC = () => {
   const [selectedFile, setSelectedFile] = useState<File | null>(null);
   const [csvData, setCsvData] = useState<string[][] | null>(null);
@@ -16,6 +17,7 @@ const CsvDownload: React.FC = () => {
 
   const closeModal = () => {
     setIsModalOpen(false);
+    
     setBlurData(true)
   };
   const handleFileChange = (e: ChangeEvent<HTMLInputElement>) => {
@@ -129,7 +131,7 @@ const CsvDownload: React.FC = () => {
               </tbody>
             </table>
             <div
-              className=" absolute  w-full h-[66%]  top-[370px] bottom-4 left-0 bg-blur"
+              className=" absolute  w-full h-[66%]  top-[420px] bottom-4 left-0 bg-blur"
               style={{
                 backgroundColor: 'rgba(255, 255, 255, 0.2)', // Adjust the opacity if needed
                 backdropFilter: !blurData ? 'blur(8px)' : 'blur(0px)',
