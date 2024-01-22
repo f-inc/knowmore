@@ -46,7 +46,9 @@ const CsvDownload: React.FC = () => {
       });
     }
   };
-
+  const handleBlurToggle = () => {
+    setBlurData(!blurData);
+  };
   useEffect(() => {
     console.log(csvData);
   }, [csvData]);
@@ -127,7 +129,7 @@ const CsvDownload: React.FC = () => {
               </tbody>
             </table>
             <div
-              className=" absolute  inset-0 bg-blur"
+              className=" absolute  w-full h-[66%]  top-[370px] bottom-4 left-0 bg-blur"
               style={{
                 backgroundColor: 'rgba(255, 255, 255, 0.2)', // Adjust the opacity if needed
                 backdropFilter: !blurData ? 'blur(8px)' : 'blur(0px)',
@@ -136,7 +138,7 @@ const CsvDownload: React.FC = () => {
               {!blurData && (
                 <span
                   onClick={() => openModal()}
-                  className=" cursor-pointer text-[#0047FF] font-bold flex px-4 py-2 rounded absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2"
+                  className=" cursor-pointer text-[#0047FF] font-bold flex px-4  rounded absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2"
                 >
                   Subscribe <p className='text-black px-2'> to continue</p>
                 </span>
