@@ -50,13 +50,12 @@ export default function RootLayout({
 }: PropsWithChildren) {
   return (
     <html lang="en">
-      <body className="bg-light loading">
+      <body className="bg-dark loading">
         <SupabaseProvider>
-          {/* @ts-expect-error */}
           <Navbar />
           <main
             id="skip"
-            className={`bg-[#F1F3F4] min-h-[calc(100dvh-4rem)] md:min-h[calc(100dvh-5rem)] ${jakarta.className}`}
+            className={`bg-black min-h-[calc(100dvh-4rem)] md:min-h[calc(100dvh-5rem)] ${jakarta.className}`}
           >
             {children}
           </main>

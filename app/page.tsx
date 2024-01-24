@@ -1,10 +1,11 @@
-import Pricing from '@/components/Pricing';
 import {
+  getActiveProductsWithPrices,
   getSession,
-  getSubscription,
-  getActiveProductsWithPrices
+  getSubscription
 } from '@/app/supabase-server';
-import CsvDownload from '@/components/CsvDownload';
+import Home from '@/components/Home';
+import Pricing from '@/components/Pricing';
+import { useState } from 'react';
 
 export default async function PricingPage() {
   const [session, products, subscription] = await Promise.all([
@@ -13,13 +14,6 @@ export default async function PricingPage() {
     getSubscription()
   ]);
 
-  return (
-    // <Pricing
-    //   session={session}
-    //   user={session?.user}
-    //   products={products}
-    //   subscription={subscription}
-    // />
-    <CsvDownload />
-  );
+  return <Home user={session?.user} />;
+  // return <Pricing session={session} user={session?.user} products={products} subscription={subscription} />
 }
