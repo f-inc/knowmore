@@ -27,7 +27,7 @@ const Lead: React.FC<LeadProps> = ({ document_id, lead, isSample, user }) => {
   const handleCheckout = async () => {
     if (!user) {
       return router.push(
-        `/signin?redirect=${encodeURIComponent(window.location.pathname)}`
+        `/signin?redirectURL=${encodeURIComponent(window.location.pathname)}`
       );
     }
 
@@ -51,7 +51,8 @@ const Lead: React.FC<LeadProps> = ({ document_id, lead, isSample, user }) => {
           metadata: {
             document_id
           },
-          redirectURL: window.location.pathname
+          redirectURL: window.location.pathname,
+          quantity: 1
         }
       });
       const stripe = await getStripe();
@@ -123,7 +124,7 @@ export default function Document({
 }) {
   const { supabase } = useSupabase();
 
-  const [document, setDocument] = useState(null);
+  const [document, setDocument] = useState<any>();
   const [leads, setLeads] = useState<LeadDataType[]>([]);
   const [isPaid, setIsPaid] = useState(false);
 

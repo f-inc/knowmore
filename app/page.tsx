@@ -4,7 +4,6 @@ import {
   getSubscription
 } from '@/app/supabase-server';
 import Home from '@/components/Home';
-import Pricing from '@/components/Pricing';
 import { useState } from 'react';
 
 export default async function PricingPage() {

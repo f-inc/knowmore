@@ -34,7 +34,7 @@ export default function Home({ user }: Props) {
             // Go through each row and find any email using regex and add it to set.
             const emails = new Set<string>();
             for (const row of results.data) {
-              for (const cell of row) {
+              for (const cell of row as any) {
                 const emailRegex = /\S+@\S+\.\S+/;
                 if (emailRegex.test(cell)) {
                   emails.add(cell);
