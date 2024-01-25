@@ -1,4 +1,3 @@
-import { useSupabase } from '@/app/supabase-provider';
 import { getSession } from '@/app/supabase-server';
 import Document from '@/components/Document';
 import { User } from '@supabase/supabase-js';
