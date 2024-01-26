@@ -1,17 +1,17 @@
 .root {
-  @apply sticky top-0 bg-[#F1F3F4] z-40 transition-all duration-150 h-16 md:h-20;
+  @apply sticky top-0 bg-black z-40 transition-all duration-150 h-16 md:h-20;
 }
 
 .link {
-  @apply inline-flex items-center leading-6 font-medium transition ease-in-out duration-75 cursor-pointer text-[#000000] rounded-md p-1;
+  @apply inline-flex items-center leading-6 font-medium transition ease-in-out duration-75 cursor-pointer text-white rounded-md p-1;
 }
 
 .link:hover {
-  @apply text-black ;
+  @apply text-white ;
 }
 
 .link:focus {
-  @apply outline-none text-black ring-2  ring-opacity-50;
+  @apply outline-none text-white ring-2  ring-opacity-50;
 }
 
 .logo {

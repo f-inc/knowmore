@@ -3,6 +3,7 @@ import { stripe } from './stripe';
 import { createClient } from '@supabase/supabase-js';
 import Stripe from 'stripe';
 import type { Database } from 'types_db';
+import { v4 as uuid } from 'uuid';
 
 type Product = Database['public']['Tables']['products']['Row'];
 type Price = Database['public']['Tables']['prices']['Row'];
@@ -177,9 +178,76 @@ const manageSubscriptionStatusChange = async (
     );
 };
 
+const UploadCSV = async (csv: File) => {
+  const id = uuid();
+  const filePath = `public/${id}.csv`;
+
+  const { data: uploadData, error: uploadError } = await supabaseAdmin.storage
+    .from('documents')
+    .upload(filePath, csv);
+
+  if (uploadError) throw uploadError;
+
+  const { data: insertData, error: insertError } = await supabaseAdmin
+    .from('documents')
+    .insert([
+      {
+        id,
+        storage_path: filePath
+      }
+    ]);
+
+  if (insertError) throw insertError;
+
+  return insertData;
+};
+
+const upsertLeads = async (id: string, Leads: any[]) => {
+  try {
+    const leads = Leads.map((lead) => ({
+      document_id: id,
+      ...lead
+    }));
+
+    const { data: leadInsertData, error: leadInsertError } = await supabaseAdmin
+      .from('leads')
+      .upsert(leads);
+
+    if (leadInsertError) {
+      throw leadInsertError;
+    }
+
+    console.log('Leads upserted successfully:', leadInsertData);
+  } catch (error) {
+    console.error('Error upserting leads:', error);
+  }
+};
+
+const onPaid = async (
+  document_id: string,
+) => {
+  try {
+    const { data: documentData, error: documentError } = await supabaseAdmin
+      .from('documents')
+      .update({ paid: true })
+      .eq('id', document_id);
+
+    if (documentError) {
+      throw documentError; // Throw an error if there was an issue updating the document
+    }
+
+    console.log('Document updated successfully:', documentData);
+  } catch (error) {
+    console.error('Error updating document:', error);
+  }
+};
+
 export {
-  upsertProductRecord,
-  upsertPriceRecord,
   createOrRetrieveCustomer,
-  manageSubscriptionStatusChange
+  manageSubscriptionStatusChange,
+  upsertPriceRecord,
+  upsertProductRecord,
+  UploadCSV,
+  upsertLeads,
+  onPaid
 };

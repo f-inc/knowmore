@@ -3,7 +3,8 @@ import Footer from '@/components/ui/Footer';
 import Navbar from '@/components/ui/Navbar';
 import { PropsWithChildren } from 'react';
 import 'styles/main.css';
-import {Plus_Jakarta_Sans} from 'next/font/google';
+import { Plus_Jakarta_Sans } from 'next/font/google';
+
 const meta = {
   title: 'Next.js Subscription Starter',
   description: 'Brought to you by Vercel, Stripe, and Supabase.',
@@ -14,8 +15,9 @@ const meta = {
   type: 'website'
 };
 
-const jakarta = Plus_Jakarta_Sans({ subsets: ['latin'],
-weight: ['200', '300', '400', '500', '600', '700', '800'],
+const jakarta = Plus_Jakarta_Sans({
+  subsets: ['latin'],
+  weight: ['200', '300', '400', '500', '600', '700', '800']
 });
 
 export const metadata = {
@@ -50,13 +52,12 @@ export default function RootLayout({
 }: PropsWithChildren) {
   return (
     <html lang="en">
-      <body className="bg-light loading">
+      <body className="bg-dark loading">
         <SupabaseProvider>
-          {/* @ts-expect-error */}
           <Navbar />
           <main
             id="skip"
-            className={`bg-[#F1F3F4] min-h-[calc(100dvh-4rem)] md:min-h[calc(100dvh-5rem)] ${jakarta.className}`}
+            className={`bg-black min-h-[calc(100dvh-4rem)] md:min-h[calc(100dvh-5rem)] ${jakarta.className}`}
           >
             {children}
           </main>
@@ -66,3 +67,5 @@ export default function RootLayout({
     </html>
   );
 }
+
+export const revalidate = 0;

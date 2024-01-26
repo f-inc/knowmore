@@ -1,10 +1,11 @@
-import Stripe from 'stripe';
 import { stripe } from '@/utils/stripe';
 import {
   upsertProductRecord,
   upsertPriceRecord,
-  manageSubscriptionStatusChange
+  manageSubscriptionStatusChange,
+  onPaid
 } from '@/utils/supabase-admin';
+import Stripe from 'stripe';
 
 const relevantEvents = new Set([
   'product.created',
@@ -61,6 +62,13 @@ export async function POST(req: Request) {
               checkoutSession.customer as string,
               true
             );
+          }
+
+          console.log(checkoutSession)
+
+          if (checkoutSession.mode === 'payment') {
+            const metadata = checkoutSession?.metadata;
+            await onPaid(metadata?.document_id as string);
           }
           break;
         default:

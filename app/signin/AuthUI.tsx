@@ -25,7 +25,7 @@ export default function AuthUI() {
             }
           }
         }}
-        theme="light"
+        theme="dark"
       />
     </div>
   );
