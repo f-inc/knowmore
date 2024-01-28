@@ -69,7 +69,7 @@ const Lead: React.FC<LeadProps> = ({ document_id, lead, isSample, user }) => {
   };
 
   return (
-    <div className="flex flex-col justify-center items-center rounded-lg border-1 border-gray-100 bg-opacity-10 bg-white backdrop-blur-25 mb-8 break-words">
+    <div className="flex flex-col justify-center items-center rounded-lg border-1 border-gray-100 bg-opacity-10 bg-white backdrop-blur-25 mb-8 break-words max-w-[600px]">
       <div
         className="w-full"
         style={{ filter: isSample ? 'blur(4px)' : 'none' }}
@@ -207,11 +207,13 @@ export default function Document({
   };
 
   useEffect(() => {
-    console.log(id);
-    if (id) {
-      fetchRecord(id as string);
-    }
-  }, [id]);
+    const interval = setInterval(() => {
+      if (id && !isProcessed) {
+        fetchRecord(id as string);
+      }
+    }, 10000);
+    return () => clearInterval(interval);
+  }, [id, isProcessed]);
 
   return (
     <div className="text-white py-20 px-5 bg-opacity-10">
@@ -247,7 +249,7 @@ export default function Document({
           )) : (
             <>
               <Lead
-                document_id={(document && document.id) || ''}
+                document_id={(id)}
                 isSample
                 user={user}
               />

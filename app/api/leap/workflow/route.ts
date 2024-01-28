@@ -11,8 +11,7 @@ export async function POST(req: Request) {
     const response = await leap.workflowRuns.workflow(
         {
             workflow_id: "wkf_LhHiATZN4uI11H",
-            webhook_url:
-                "https://1c49-80-112-133-231.ngrok-free.app/api/leap/webhook",
+            webhook_url: process.env.LEAP_WEBHOOK,
             input: { csv: "furqan@thirdweb.com", document_id: "string" },
         },
     );

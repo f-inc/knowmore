@@ -19,5 +19,5 @@ export async function POST(req: Request) {
     const regex = /\[([^[\]]*)\]/;
     const matches: any = output.match(regex);
 
-    onProcessed(response.id, response.input.document_id, matches[0]);
+    onProcessed(response.id, response.input.document_id, JSON.parse(matches[0]));
 }
