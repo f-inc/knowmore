@@ -4,9 +4,15 @@ import { createClient } from '@supabase/supabase-js';
 import Stripe from 'stripe';
 import type { Database } from 'types_db';
 import { v4 as uuid } from 'uuid';
+import { Leap } from "@leap-ai/workflows";
+
 
 type Product = Database['public']['Tables']['products']['Row'];
 type Price = Database['public']['Tables']['prices']['Row'];
+
+const leap = new Leap({
+    apiKey: process.env.LEAP_API_KEY as string,
+});
 
 // Note: supabaseAdmin uses the SERVICE_ROLE_KEY which you must only use in a secure server-side context
 // as it has admin privileges and overwrites RLS policies!
@@ -227,10 +233,87 @@ const onPaid = async (
   document_id: string,
 ) => {
   try {
+    
+    const { data: leadData, error: leadError } = await supabaseAdmin
+      .from('leads')
+      .select('email')
+      .eq('document_id', document_id);
+
+    if(!leadData) {throw leadError;}
+
+    console.log(leadData);
+
+    // call leap API here
+    const response = await leap.workflowRuns.workflow(
+      {
+          workflow_id: "wkf_LhHiATZN4uI11H",
+          webhook_url:
+              "https://1c49-80-112-133-231.ngrok-free.app/api/leap/webhook",
+          input: { csv: JSON.stringify(Object.values(leadData)), document_id: document_id },
+      },
+  );
+
     const { data: documentData, error: documentError } = await supabaseAdmin
       .from('documents')
-      .update({ paid: true })
+      .update({ paid: true, processed_rows: 0, workflow_run_id: response.data.id})
       .eq('id', document_id);
+
+
+    if (documentError) {
+      throw documentError; // Throw an error if there was an issue updating the document
+    }
+
+    console.log('Document updated successfully:', documentData);
+  } catch (error) {
+    console.error('Error updating document:', error);
+  }
+};
+
+const onProcessed = async (
+  workflow_id: string,
+  document_id: string,
+  processedData: any
+) => {
+  try {
+
+    console.log(processedData);
+
+    const { data: documentData, error: documentError } = await supabaseAdmin
+      .from('documents')
+      .update({ paid: true, processed_rows: 1})
+      .eq('workflow_run_id', workflow_id);
+
+      for (const lead of processedData) {
+        console.log({
+          email: lead.email,
+          name: lead.name,
+          linkedin: lead.linkedin?lead.linkedin:(lead.linkedIn?lead.linkedIn:""),
+          company: lead.company?lead.company:(lead.companyName?lead.companyName:""),
+          role: lead.role,
+          location: lead.location,
+          salary: lead.salary,
+          website: lead.website
+        }, document_id, workflow_id);
+        if(!lead.email) {continue}
+        const { data, error } = await supabaseAdmin
+          .from('leads')
+          .update({
+            email: lead.email,
+            name: lead.name,
+            linkedin: lead.linkedin?lead.linkedin:(lead.linkedIn?lead.linkedIn:""),
+            company: lead.company?lead.company:(lead.companyName?lead.companyName:""),
+            role: lead.role,
+            location: lead.location,
+            salary: lead.salary,
+            website: lead.website
+          })
+          .eq('document_id', document_id)
+          .eq('email', lead.email)
+        if (error) {
+          throw error;
+        }
+      }
+
 
     if (documentError) {
       throw documentError; // Throw an error if there was an issue updating the document
@@ -249,5 +332,6 @@ export {
   upsertProductRecord,
   UploadCSV,
   upsertLeads,
-  onPaid
+  onPaid,
+  onProcessed
 };
