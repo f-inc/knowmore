@@ -12,7 +12,7 @@ export default async function SignIn() {
     // const redirectURL = query.redirectURL || '/account'; // Use the query parameter or specify a default redirect URL
 
     // const redirectURL = (query.redirectURL as string) || '/account';
-    return redirect('/account');
+    return redirect('/');
   }
 
   return (
