@@ -206,11 +206,16 @@ export default function Document({
     }
   };
 
+  const fetchData = async (id: string) => {
+    if (id && !isProcessed) {
+      fetchRecord(id as string);
+    }
+  };
+
   useEffect(() => {
+    fetchData(id as string);
     const interval = setInterval(() => {
-      if (id && !isProcessed) {
-        fetchRecord(id as string);
-      }
+      fetchData(id as string);
     }, 10000);
     return () => clearInterval(interval);
   }, [id, isProcessed]);

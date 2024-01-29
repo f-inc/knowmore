@@ -1,18 +1,13 @@
 import AuthUI from './AuthUI';
 import { getSession } from '@/app/supabase-server';
-import Logo from '@/components/icons/Logo';
 import Link from 'next/link';
-import { redirect } from 'next/navigation';
-import { useRouter } from 'next/router';
+import RedirectUI from './RedirectUI';
 
 export default async function SignIn() {
   const session = await getSession();
 
   if (session) {
-    // const redirectURL = query.redirectURL || '/account'; // Use the query parameter or specify a default redirect URL
-
-    // const redirectURL = (query.redirectURL as string) || '/account';
-    return redirect('/');
+    return <RedirectUI></RedirectUI>;
   }
 
   return (
