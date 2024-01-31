@@ -26,7 +26,6 @@ body {
     'Helvetica', sans-serif;
   text-rendering: optimizeLegibility;
   -moz-osx-font-smoothing: grayscale;
-  background-image: linear-gradient(to bottom, #120704, #120704);
 }
 
 body {
