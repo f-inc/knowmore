@@ -5,6 +5,7 @@ import Logo from '@/components/icons/Logo';
 import SignOutButton from './SignOutButton';
 
 import s from './Navbar.module.css';
+import SignInButton from './SignInButton';
 
 export default async function Navbar() {
   const supabase = createServerSupabaseClient();
@@ -39,9 +40,7 @@ export default async function Navbar() {
             {user ? (
               <SignOutButton />
             ) : (
-              <Link href="/signin" className={s.link}>
-                Sign in
-              </Link>
+              <SignInButton />
             )}
 
             <button className='border border-[#E85533] px-4 py-2 text-[#E85533] font-bold rounded-full hidden md:block'>
