@@ -18,9 +18,9 @@ export default async function SignIn() {
           className="inline-flex justify-center items-center text-3xl font-bold"
           aria-label="Logo"
         >
-          <span className="inline-flex items-center leading-6 font-medium transition ease-in-out duration-75 cursor-pointer text-[#000000] rounded-md p-1">
-            knowmore
-          </span>
+          <Link href="/" className="inline-flex items-center text-3xl font-bold mb-5" aria-label="Logo">
+            <img className='w-[100px]' src="/logo.png"></img>
+          </Link>
         </Link>
         <AuthUI />
       </div>
