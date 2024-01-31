@@ -6,12 +6,12 @@ import 'styles/main.css';
 import { Plus_Jakarta_Sans } from 'next/font/google';
 
 const meta = {
-  title: 'Next.js Subscription Starter',
-  description: 'Brought to you by Vercel, Stripe, and Supabase.',
+  title: 'Know More',
+  description: 'Turn website leads into paid customers, fast.',
   cardImage: '/og.png',
   robots: 'follow, index',
   favicon: '/favicon.ico',
-  url: 'https://subscription-starter.vercel.app',
+  url: 'https://knowmore.bot',
   type: 'website'
 };
 
