@@ -1,0 +1,6 @@
+name,email,company name,role,location,est. salary,linkedin,website
+John,john.doe@abccorp.com,Vercel,Product Manager,San Francisco,"$200k-350k",linkedin.com/johndoe,vercel.com/johndoe
+Alice,alice.smith@xyzinc.com,XYZ Inc,Software Engineer,New York,"$150k-250k",linkedin.com/alicesmith,xyzinc.com/alicesmith
+Bob,bob.jones@company123.com,Company123,Marketing Specialist,Los Angeles,"$120k-200k",linkedin.com/bobjones,company123.com/bobjones
+Emily,emily.white@techco.net,TechCo,Data Analyst,Seattle,"$180k-300k",linkedin.com/emilywhite,techco.net/emilywhite
+Chris,chris.green@innovatebiz.org,InnovateBiz,UX Designer,Chicago,"$160k-280k",linkedin.com/chrisgreen,innovatebiz.org/chrisgreen

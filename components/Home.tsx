@@ -7,6 +7,8 @@ import { useRouter } from 'next/navigation';
 import Papa from 'papaparse';
 import { ChangeEvent, useState } from 'react';
 import { v4 as uuid } from 'uuid';
+import { useCallback } from 'react';
+import { BarLoader, ClipLoader, DotLoader } from 'react-spinners';
 
 interface Props {
   user: User | null | undefined;
@@ -20,8 +22,10 @@ export default function Home({ user }: Props) {
 
   const { supabase } = useSupabase();
 
+
   const handleFileUpload = async (e: ChangeEvent<HTMLInputElement>) => {
-    setLoading(true);
+    await toggleLoading();
+    console.log("loading...");
     const file = e.target.files && e.target.files[0];
 
     // validate the file to see if it has a column named email.
@@ -59,7 +63,7 @@ export default function Home({ user }: Props) {
               return;
             }
 
-            
+
 
             // Insert the document into the documents table.
             const { data: insertData, error: insertError } = await supabase
@@ -98,31 +102,33 @@ export default function Home({ user }: Props) {
               return;
             }
 
-            setLoading(false);
             router.push(`/view/${id}`);
           }
         });
       } catch (error) {
         console.error('Error uploading CSV:', error);
-      } finally {
-        setLoading(false);
       }
     }
   };
+
+  async function toggleLoading() {
+    setLoading(!loading)
+  }
+
 
   const handleBlurToggle = () => {
     setBlurData(!blurData);
   };
 
   return (
-    <div className="min-h-screen bg-black">
-      <div className="text-white py-20 bg-opacity-10">
+    <div className="max-w-6xl mx-auto min-h-screen px-6">
+
+      <div className="text-white py-10 md:py-20 bg-opacity-10">
         <div className="container mx-auto flex flex-col lg:flex-row justify-between items-center">
           <div className="flex flex-col w-full lg:w-1/2 mb-8 lg:mb-0 lg:pr-8 gap-8">
             <h1
-              className="text-4xl lg:text-6xl font-bold mb-4 gap-4"
+              className="text-5xl lg:text-[64px] font-bold gap-4"
               style={{
-                fontSize: '64px',
                 fontStyle: 'normal',
                 fontWeight: 700,
                 lineHeight: '110%',
@@ -136,7 +142,8 @@ export default function Home({ user }: Props) {
             >
               Turn website leads into paid customers fast.
             </h1>
-            <p className="text-lg">
+            <p className="text-sm md:text-lg text-gray-300">
+
               Our AI bot scrapes every B2B lead you pull from your website so
               that you know exactly who your potential customers are. Stop
               leaving money on the table.
@@ -154,15 +161,18 @@ export default function Home({ user }: Props) {
                 border: '1px solid rgba(255, 255, 255, 0.12)',
                 background: 'rgba(0, 0, 0, 0.15)'
               }}
-              //   onDragOver={handleDragOver}
-              //   onDrop={handleDrop}
+            //   onDragOver={handleDragOver}
+            //   onDrop={handleDrop}
             >
               {loading ? (
-                <p>Loading</p>
+                <div className="loading-spinner py-10">
+                  <BarLoader className='m-auto' color="white"/>
+                  <p className='text-xs text-center mt-5'>uploading your file</p>
+                </div>
               ) : (
                 <>
                   <label htmlFor="file-upload" className="file-upload-label">
-                    <span style={{ display: 'none' }}>Upload File</span>
+                    <span style={{ display: 'none' }}>Upload CSV</span>
                     <div
                       style={{
                         display: 'flex',
@@ -177,7 +187,7 @@ export default function Home({ user }: Props) {
                         fontWeight: 700
                       }}
                     >
-                      Upload File
+                      Upload CSV
                     </div>
                   </label>
                   <input
@@ -187,19 +197,81 @@ export default function Home({ user }: Props) {
                     onChange={handleFileUpload}
                     style={{ display: 'none' }}
                   />
+                  <p className='text-xs'>or drop a file</p>
                 </>
               )}
             </div>
           </div>
-          <div className="w-full lg:w-1/2 flex justify-center items-center">
+          <div className="w-full lg:w-1/2 flex justify-center lg:justify-end items-center">
             <Image
               alt="hero"
               src={'/hero-image.png'}
-              width={300}
-              height={300}
+              width={400}
+              height={400}
             />
           </div>
         </div>
+
+        <div className='my-24'>
+          <h1
+            className="text-4xl max-w-md gap-4 text-center m-auto"
+            style={{
+              fontStyle: 'normal',
+              fontWeight: 700,
+              lineHeight: '110%',
+              letterSpacing: '-1.28px',
+              background:
+                'linear-gradient(146deg, #FFF 45.88%, rgba(255, 255, 255, 0.50) 88.34%)',
+              backgroundClip: 'text',
+              WebkitBackgroundClip: 'text',
+              WebkitTextFillColor: 'transparent'
+            }}
+          >
+            Make every lead worth so much more.
+          </h1>
+          <div className='mt-14 flex flex-col md:flex-row gap-5'>
+            <div className='p-5 py-6 rounded-[15px] flex gap-5 items-center'
+              style={{
+                border: '1px solid rgba(255, 255, 255, 0.15)',
+                background: 'rgba(0, 0, 0, 0.15)',
+              }}
+            >
+              <img className='h-[50px]' src="icon1.png"></img>
+              <div className='flex flex-col gap-2'>
+                <p className='text-[#E85533] text-sm'>User insights</p>
+                <p className='text-gray-200 text-xs'>See Linkedin breakdowns of leads who submit a form on your site.</p>
+
+              </div>
+            </div>
+            <div className='p-5 py-6 rounded-[15px] flex gap-5 items-center'
+              style={{
+                border: '1px solid rgba(255, 255, 255, 0.15)',
+                background: 'rgba(0, 0, 0, 0.15)',
+              }}
+            >
+              <img className='h-[50px]' src="icon2.png"></img>
+              <div className='flex flex-col gap-2'>
+                <p className='text-[#E85533] text-sm'>Company insights</p>
+                <p className='text-gray-200 text-xs'>Find out which companies are the most interested in your product.</p>
+
+              </div>
+            </div>
+            <div className='p-5 py-6 rounded-[15px] flex gap-5 items-center'
+              style={{
+                border: '1px solid rgba(255, 255, 255, 0.15)',
+                background: 'rgba(0, 0, 0, 0.15)',
+              }}
+            >
+              <img className='h-[50px]' src="icon3.png"></img>
+              <div className='flex flex-col gap-2'>
+                <p className='text-[#E85533] text-sm'>Role insights</p>
+                <p className='text-gray-200 text-xs'>Tailor your product positioning to exactly who your customers are.</p>
+
+              </div>
+            </div>
+          </div>
+        </div>
+
         <LogoCloud />
       </div>
     </div>

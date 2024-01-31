@@ -17,6 +17,7 @@ html {
   box-sizing: border-box;
   touch-action: manipulation;
   font-feature-settings: 'case' 1, 'rlig' 1, 'calt' 0;
+  
 }
 
 html,
@@ -25,7 +26,7 @@ body {
     'Helvetica', sans-serif;
   text-rendering: optimizeLegibility;
   -moz-osx-font-smoothing: grayscale;
-  @apply text-white bg-zinc-800 antialiased;
+  background-image: linear-gradient(to bottom, #120704, #120704);
 }
 
 body {
