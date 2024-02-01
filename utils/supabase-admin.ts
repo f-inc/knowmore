@@ -1,7 +1,5 @@
 import { toDateTime } from './helpers';
 import { stripe } from './stripe';
-import * as fbq from '@/lib/fb-pixel';
-import * as gtag from '@/lib/gtag';
 import { Leap } from '@leap-ai/workflows';
 import { createClient } from '@supabase/supabase-js';
 import Stripe from 'stripe';
@@ -232,9 +230,6 @@ const upsertLeads = async (id: string, Leads: any[]) => {
 
 const onPaid = async (document_id: string) => {
   try {
-    fbq.event('purchase', { value: 4, currency: 'USD' });
-    gtag.transaction({ id: document_id, label: 'purchase', value: 4 });
-
     const { data: leadData, error: leadError } = await supabaseAdmin
       .from('leads')
       .select('email')
