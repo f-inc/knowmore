@@ -61,12 +61,12 @@ export default function RootLayout({
   return (
     <html lang="en">
       <PHProvider>
-        <body className="bg-dark loading">
+        <body className="bg-[#120704] loading">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             viewBox="0 0 1244 303"
             fill="none"
-            className="absolute"
+            className="absolute -z-50"
           >
             <g opacity="0.3" filter="url(#filter0_f_0_70)">
               <path

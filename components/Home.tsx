@@ -173,6 +173,7 @@ export default function Home({ user }: Props) {
                   <label htmlFor="file-upload" className="file-upload-label">
                     <span style={{ display: 'none' }}>Upload CSV</span>
                     <div
+                    className='bg-[#E85533] hover:bg-orange-700'
                       style={{
                         display: 'flex',
                         padding: '16px 48px',
@@ -181,9 +182,9 @@ export default function Home({ user }: Props) {
                         gap: '8px',
                         borderRadius: '56px',
                         border: '1px solid rgba(255, 255, 255, 0.15)',
-                        background: '#E85533',
                         boxShadow: '0px 0px 28px 0px rgba(255, 255, 255, 0.15)',
-                        fontWeight: 700
+                        fontWeight: 700,
+                        cursor: "pointer"
                       }}
                     >
                       Upload CSV

@@ -11,9 +11,7 @@ export async function POST(req: Request) {
 
   console.log(response);
 
-  const output = response['output']['output'];
-  console.log(output);
+  const output = response;
 
-  // TODO(@naklecha): Parse the output and finish the onProcessed function
-  // onProcessed();
+  onProcessed(output);
 }
