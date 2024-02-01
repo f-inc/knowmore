@@ -1017,6 +1017,11 @@ csstype@^3.0.2:
   resolved "https://registry.npmjs.org/csstype/-/csstype-3.1.3.tgz"
   integrity sha512-M1uQkMl8rQK/szD0LNhtqxIPLpimGm8sOBwU7lLnCpSbTyY3yeU1Vc7l4KT5zT4s/yOxHH5O7tIuuLOCnLADRw==
 
+customerio-node@^4.1.1:
+  version "4.1.1"
+  resolved "https://registry.npmjs.org/customerio-node/-/customerio-node-4.1.1.tgz"
+  integrity sha512-EaQZwN9QhzZMyYZdFxXk6GZPT/zX/S3Jcn4gaUm5v7MXWbA/txr87hgPHokAHcLGdUGiAB/RwN9aqTABMgbE5g==
+
 damerau-levenshtein@^1.0.8:
   version "1.0.8"
   resolved "https://registry.npmjs.org/damerau-levenshtein/-/damerau-levenshtein-1.0.8.tgz"

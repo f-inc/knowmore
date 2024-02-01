@@ -5,6 +5,9 @@ import Stripe from 'stripe';
 import type { Database } from 'types_db';
 import { v4 as uuid } from 'uuid';
 import { Leap } from "@leap-ai/workflows";
+const { APIClient, SendEmailRequest } = require("customerio-node");
+
+const customerio_client = new APIClient(process.env.CUSTOMERIO_API_KEY as string);
 
 
 type Product = Database['public']['Tables']['products']['Row'];
@@ -244,7 +247,7 @@ const onPaid = async (
     // call leap API here
     const response = await leap.workflowRuns.workflow(
       {
-        workflow_id: "wkf_LhHiATZN4uI11H",
+        workflow_id: process.env.LEAP_WORKFLOW_ID as string,
         webhook_url: process.env.LEAP_WEBHOOK,
         input: { csv: JSON.stringify(Object.values(leadData)), document_id: document_id },
       },
@@ -277,6 +280,19 @@ const onProcessed = async (
       .from('documents')
       .update({ paid: true, processed_rows: 1 })
       .eq('workflow_run_id', workflow_run_id);
+
+    const request = new SendEmailRequest({
+      transactional_message_id: "2",
+      identifiers: {
+        id: "123",
+      },
+      to: "nishant.aklecha@gmail.com",
+      from: "naklecha@finc.studio"
+    });
+
+    customerio_client.sendEmail(request)
+    .then((res: any) => console.log(res))
+    .catch((err: any) => console.log(err.statusCode, err.message))
 
     processedData.forEach(async (lead: any) => {
 

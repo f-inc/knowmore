@@ -7,6 +7,7 @@ import { User } from '@supabase/supabase-js';
 import { useRouter } from 'next/navigation';
 import React, { useEffect, useState } from 'react';
 import { BarLoader } from 'react-spinners';
+import Papa from 'papaparse';
 
 type LeadDataType = {
   document_id: string;
@@ -110,7 +111,7 @@ const Lead: React.FC<LeadProps> = ({ document_id, lead, isSample, user }) => {
             <p>{lead?.salary}</p>
           </div>
           <div>
-            <p className='text-[12px] text-gray-300/60'>LinkedIn</p>
+            <p className='text-[12px] text-gray-300/60'>linkedin</p>
             <a className='underline' href={lead?.linkedin}>
               {lead?.linkedin}
             </a>
@@ -123,15 +124,6 @@ const Lead: React.FC<LeadProps> = ({ document_id, lead, isSample, user }) => {
           </div>
         </div>
         <div className='h-[1px] bg-gray-200/10'></div>
-
-        {/* <div className="flex p-4 items-center gap-4">
-          <p style={{ color: 'white', marginBottom: '8px' }}>
-            {lead?.linkedIn ?? 'LinkedIn URL'}
-          </p>
-          <p style={{ color: 'white', marginBottom: '8px' }}>
-            {lead?.linkedIn ?? 'LinkedIn URL'}
-          </p>
-        </div> */}
       </div>
       {isSample && (
         <button
@@ -175,6 +167,21 @@ export default function Document({
   const [leads, setLeads] = useState<LeadDataType[]>([]);
   const [isPaid, setIsPaid] = useState(false);
   const [isProcessed, setIsProcessed] = useState(false);
+
+  const downloadCsv = () => {
+    const leadsWithoutDocumentId = leads.map(({ document_id, ...rest }) => rest);
+    const csvData = Papa.unparse(leadsWithoutDocumentId, { header: true });
+
+    const blob = new Blob([csvData], { type: 'text/csv' });
+    const url = URL.createObjectURL(blob);
+
+    const a = window.document.createElement('a');
+    a.href = url;
+    a.download = 'leads.csv';
+    window.document.body.appendChild(a);
+    a.click();
+    window.document.body.removeChild(a);
+  };
 
   const fetchRecord = async (id: string) => {
     console.log(id);
@@ -242,8 +249,56 @@ export default function Document({
           <p className='max-w-md text-center m-auto text-gray-300 text-sm'>Our AI bot scrapes every B2B lead you pull from your website so that you know exactly who your potential customers are. Stop leaving money on the table.</p>
         </div>
         <div className='mt-10'>
-          {isPaid ? (isProcessed ? (
-            leads.map((lead) => <Lead lead={lead} user={user} />)
+          {true ? (true ? (
+            <div className="text-right text-xs px-5">
+              <p className='mt-3'>To view all {leads.length} results, please download the CSV file.</p>
+              <button
+                onClick={downloadCsv}
+                className="mt-3 px-4 py-2 bg-[#E85533] text-white rounded-full text-sm hover:bg-orange-700 focus:outline-none"
+              >
+                Download CSV
+              </button>
+              <div className='overflow-x-auto max-w-[90vw] text-left'>
+                <table className="border table-auto text-sm text-gray-200 mt-5">
+                  <thead className='bg-orange-100/10'>
+                    <tr>
+                      <th className="py-2 px-4 border">Email</th>
+                      <th className="py-2 px-4 border">Company Name</th>
+                      <th className="py-2 px-4 border">Role</th>
+                      <th className="py-2 px-4 border">Location</th>
+                      <th className="py-2 px-4 border">Est. Salary</th>
+                      <th className="py-2 px-4 border">linkedin</th>
+                      <th className="py-2 px-4 border">Website</th>
+                    </tr>
+                  </thead>
+                  <tbody className='bg-orange-100/5'>
+                    {leads.slice(0, 20).map((lead, index) => (
+                      <tr key={index}>
+                        <td className="py-2 px-4 border">{lead?.email}</td>
+                        <td className="py-2 px-4 border">{lead?.company}</td>
+                        <td className="py-2 px-4 border">{lead?.role}</td>
+                        <td className="py-2 px-4 border">{lead?.location}</td>
+                        <td className="py-2 px-4 border">{lead?.salary}</td>
+                        <td className="py-2 px-4 border">
+                          <a className='underline ' href={lead?.linkedin} target="_blank" rel="noopener noreferrer">
+                            {lead?.linkedin}
+                          </a>
+                        </td>
+                        <td className="py-2 px-4 border">
+                          <a className='underline' href={lead?.website} target="_blank" rel="noopener noreferrer">
+                            {lead?.website}
+                          </a>
+                        </td>
+                      </tr>
+                    ))}
+                  </tbody>
+                </table>
+              <p className='mt-3 text-center'>To view all {leads.length} results, please <a className='underline cursor-pointer' onClick={downloadCsv}>download the CSV file</a>.</p>
+              </div>
+
+            </div>
+
+
           ) : (
             <>
               <div className="loading-spinner py-10">

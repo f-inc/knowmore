@@ -1,20 +1,20 @@
-import { Leap } from "@leap-ai/workflows";
+const { APIClient, SendEmailRequest } = require("customerio-node");
 
-const leap = new Leap({
-    apiKey: process.env.LEAP_API_KEY as string,
-});
+const customerio_client = new APIClient(process.env.CUSTOMERIO_API_KEY as string);
 
 export async function POST(req: Request) {
 
-    console.log(await (req.json()));
+    const request = new SendEmailRequest({
+      transactional_message_id: "2",
+      identifiers: {
+        id: "123",
+      },
+      to: "nishant.aklecha@gmail.com",
+      from: "omar@knowmore.bot"
+    });
 
-    const response = await leap.workflowRuns.workflow(
-        {
-            workflow_id: "wkf_LhHiATZN4uI11H",
-            webhook_url: process.env.LEAP_WEBHOOK,
-            input: { csv: "furqan@thirdweb.com", document_id: "string" },
-        },
-    );
-    console.log(response.data);
+    customerio_client.sendEmail(request)
+    .then((res: any) => console.log(res))
+    .catch((err: any) => console.log(err.statusCode, err.message))
 
 }
