@@ -51,10 +51,11 @@ export default function RootLayout({
   children
 }: PropsWithChildren) {
   return (
-    <html lang="en">
-      <body className="bg-dark loading">
+    <html lang="en" className='bg-[#120704]'>
+      
+      <body className="loading">
 
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1244 303" fill="none" className='absolute'>
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1244 303" fill="none" className='absolute -z-50'>
         <g opacity="0.3" filter="url(#filter0_f_0_70)">
           <path fill-rule="evenodd" clip-rule="evenodd" d="M188 -112C286.902 25.8278 444.489 115 622 115C799.511 115 957.098 25.8278 1056 -112H188Z" fill="#E85533" />
           <path d="M622 114.5C445.002 114.5 287.825 25.757 188.975 -111.5H1055.02C956.175 25.757 798.998 114.5 622 114.5Z" stroke="black" />
