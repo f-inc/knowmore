@@ -1,23 +1,19 @@
-
-import { Leap } from "@leap-ai/workflows";
-import {
-    onProcessed
-} from '@/utils/supabase-admin';
+import { onProcessed } from '@/utils/supabase-admin';
+import { Leap } from '@leap-ai/workflows';
+import { parseString } from 'xml2js';
 
 const leap = new Leap({
-    apiKey: process.env.LEAP_API_KEY as string,
+  apiKey: process.env.LEAP_API_KEY as string
 });
 
 export async function POST(req: Request) {
+  const response = await req.json();
 
-    const response = (await (req.json()));
+  console.log(response);
 
-    console.log(response);
+  const output = response['output']['output'];
+  console.log(output);
 
-    const output = response["output"]["step1"]["choices"][0]["message"]["content"];
-
-    const regex = /\[([^[\]]*)\]/;
-    const matches: any = output.match(regex);
-
-    onProcessed(response.id, response.input.document_id, JSON.parse(matches[0]));
+  // TODO(@naklecha): Parse the output and finish the onProcessed function
+  // onProcessed();
 }

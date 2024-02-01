@@ -1,17 +1,16 @@
 import { toDateTime } from './helpers';
 import { stripe } from './stripe';
+import { Leap } from '@leap-ai/workflows';
 import { createClient } from '@supabase/supabase-js';
 import Stripe from 'stripe';
 import type { Database } from 'types_db';
 import { v4 as uuid } from 'uuid';
-import { Leap } from "@leap-ai/workflows";
-
 
 type Product = Database['public']['Tables']['products']['Row'];
 type Price = Database['public']['Tables']['prices']['Row'];
 
 const leap = new Leap({
-  apiKey: process.env.LEAP_API_KEY as string,
+  apiKey: process.env.LEAP_API_KEY as string
 });
 
 // Note: supabaseAdmin uses the SERVICE_ROLE_KEY which you must only use in a secure server-side context
@@ -71,11 +70,11 @@ const createOrRetrieveCustomer = async ({
   if (error || !data?.stripe_customer_id) {
     // No customer record found, let's create one.
     const customerData: { metadata: { supabaseUUID: string }; email?: string } =
-    {
-      metadata: {
-        supabaseUUID: uuid
-      }
-    };
+      {
+        metadata: {
+          supabaseUUID: uuid
+        }
+      };
     if (email) customerData.email = email;
     const customer = await stripe.customers.create(customerData);
     // Now insert the customer ID into our Supabase mapping table.
@@ -132,39 +131,39 @@ const manageSubscriptionStatusChange = async (
   });
   // Upsert the latest status of the subscription object.
   const subscriptionData: Database['public']['Tables']['subscriptions']['Insert'] =
-  {
-    id: subscription.id,
-    user_id: uuid,
-    metadata: subscription.metadata,
-    status: subscription.status,
-    price_id: subscription.items.data[0].price.id,
-    //TODO check quantity on subscription
-    // @ts-ignore
-    quantity: subscription.quantity,
-    cancel_at_period_end: subscription.cancel_at_period_end,
-    cancel_at: subscription.cancel_at
-      ? toDateTime(subscription.cancel_at).toISOString()
-      : null,
-    canceled_at: subscription.canceled_at
-      ? toDateTime(subscription.canceled_at).toISOString()
-      : null,
-    current_period_start: toDateTime(
-      subscription.current_period_start
-    ).toISOString(),
-    current_period_end: toDateTime(
-      subscription.current_period_end
-    ).toISOString(),
-    created: toDateTime(subscription.created).toISOString(),
-    ended_at: subscription.ended_at
-      ? toDateTime(subscription.ended_at).toISOString()
-      : null,
-    trial_start: subscription.trial_start
-      ? toDateTime(subscription.trial_start).toISOString()
-      : null,
-    trial_end: subscription.trial_end
-      ? toDateTime(subscription.trial_end).toISOString()
-      : null
-  };
+    {
+      id: subscription.id,
+      user_id: uuid,
+      metadata: subscription.metadata,
+      status: subscription.status,
+      price_id: subscription.items.data[0].price.id,
+      //TODO check quantity on subscription
+      // @ts-ignore
+      quantity: subscription.quantity,
+      cancel_at_period_end: subscription.cancel_at_period_end,
+      cancel_at: subscription.cancel_at
+        ? toDateTime(subscription.cancel_at).toISOString()
+        : null,
+      canceled_at: subscription.canceled_at
+        ? toDateTime(subscription.canceled_at).toISOString()
+        : null,
+      current_period_start: toDateTime(
+        subscription.current_period_start
+      ).toISOString(),
+      current_period_end: toDateTime(
+        subscription.current_period_end
+      ).toISOString(),
+      created: toDateTime(subscription.created).toISOString(),
+      ended_at: subscription.ended_at
+        ? toDateTime(subscription.ended_at).toISOString()
+        : null,
+      trial_start: subscription.trial_start
+        ? toDateTime(subscription.trial_start).toISOString()
+        : null,
+      trial_end: subscription.trial_end
+        ? toDateTime(subscription.trial_end).toISOString()
+        : null
+    };
 
   const { error } = await supabaseAdmin
     .from('subscriptions')
@@ -229,38 +228,61 @@ const upsertLeads = async (id: string, Leads: any[]) => {
   }
 };
 
-const onPaid = async (
-  document_id: string,
-) => {
+const onPaid = async (document_id: string) => {
   try {
-
     const { data: leadData, error: leadError } = await supabaseAdmin
       .from('leads')
-      .select('email')
+      .select('id,email')
       .eq('document_id', document_id);
 
-    if (!leadData) { throw leadError; }
-
-    // call leap API here
-    const response = await leap.workflowRuns.workflow(
-      {
-        workflow_id: "wkf_LhHiATZN4uI11H",
-        webhook_url: process.env.LEAP_WEBHOOK,
-        input: { csv: JSON.stringify(Object.values(leadData)), document_id: document_id },
-      },
-    );
-
-    const { data: documentData, error: documentError } = await supabaseAdmin
-      .from('documents')
-      .update({ paid: true, processed_rows: 0, workflow_run_id: response.data.id })
-      .eq('id', document_id);
-
-
-    if (documentError) {
-      throw documentError; // Throw an error if there was an issue updating the document
+    if (!leadData) {
+      throw leadError;
     }
 
-    console.log('Document updated successfully:', documentData);
+    for (const lead in leadData) {
+      const { id, email } = leadData[lead];
+
+      console.log(process.env.LEAP_WEBHOOK_URL);
+
+      const response = await leap.workflowRuns.workflow({
+        workflow_id: process.env.LEAP_WORKFLOW_ID || 'wkf_Z2NKhgEKaL1UIL',
+        webhook_url:
+          process.env.LEAP_WEBHOOK_URL ||
+          'http://localhost:3000/api/leap/webhook',
+        input: {
+          email_of_lead: email,
+          user_website: `https://${email.split('@')[1]}`,
+          document_id: document_id
+        }
+      });
+
+      const { data: leadUpdateData, error: leadUpdateError } =
+        await supabaseAdmin
+          .from('leads')
+          .update({
+            workflow_run_id: response.data.id
+          })
+          .eq('id', id);
+
+      if (leadUpdateError) {
+        throw leadUpdateError;
+      }
+      console.log('lead updated successfully:', leadUpdateData);
+    }
+
+    // const { data: documentData, error: documentError } = await supabaseAdmin
+    //   .from('documents')
+    //   .update({
+    //     paid: true,
+    //     processed_rows: 0
+    //   })
+    //   .eq('id', document_id);
+
+    // console.log('Document updated successfully:', documentData);
+
+    // if (documentError) {
+    //   throw documentError;
+    // }
   } catch (error) {
     console.error('Error updating document:', error);
   }
@@ -272,40 +294,46 @@ const onProcessed = async (
   processedData: []
 ) => {
   try {
-
     const { data: documentData, error: documentError } = await supabaseAdmin
-      .from('documents')
-      .update({ paid: true, processed_rows: 1 })
+      .from('leads')
+      .update({ processed: true })
       .eq('workflow_run_id', workflow_run_id);
 
-    processedData.forEach(async (lead: any) => {
+    // processedData.forEach(async (lead: any) => {
+    //   console.log(lead);
+    //   if (!lead.email) {
+    //     return;
+    //   }
+    //   const { data, error } = await supabaseAdmin
+    //     .from('leads')
+    //     .update({
+    //       email: lead.email,
+    //       name: lead.name,
+    //       linkedin: lead.linkedin
+    //         ? lead.linkedin
+    //         : lead.linkedIn
+    //         ? lead.linkedIn
+    //         : '',
+    //       company: lead.company
+    //         ? lead.company
+    //         : lead.companyName
+    //         ? lead.companyName
+    //         : '',
+    //       role: lead.role,
+    //       location: lead.location,
+    //       salary: lead.salary,
+    //       website: lead.website
+    //     })
+    //     .eq('document_id', document_id)
+    //     .eq('email', lead.email);
+    //   if (error) {
+    //     throw error;
+    //   }
+    // });
 
-      console.log(lead);
-      if (!lead.email) { return }
-      const { data, error } = await supabaseAdmin
-        .from('leads')
-        .update({
-          email: lead.email,
-          name: lead.name,
-          linkedin: lead.linkedin ? lead.linkedin : (lead.linkedIn ? lead.linkedIn : ""),
-          company: lead.company ? lead.company : (lead.companyName ? lead.companyName : ""),
-          role: lead.role,
-          location: lead.location,
-          salary: lead.salary,
-          website: lead.website
-        })
-        .eq('document_id', document_id)
-        .eq('email', lead.email)
-      if (error) {
-        throw error;
-      }
-    }
-    )
-
-
-    if (documentError) {
-      throw documentError; // Throw an error if there was an issue updating the document
-    }
+    // if (documentError) {
+    //   throw documentError; // Throw an error if there was an issue updating the document
+    // }
 
     console.log('Document updated successfully:', documentData);
   } catch (error) {
