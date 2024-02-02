@@ -319,7 +319,7 @@ const onProcessed = async (
     const { data: unprocessedLeads, error: unprocessedLeadsError } = await supabaseAdmin
       .from('leads')
       .select('*')
-      .eq('processed', false)
+      .not('processed', "eq", true)
       .eq('document_id', output.input.document_id);
 
     // all leads have been processed
