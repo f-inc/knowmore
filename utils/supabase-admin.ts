@@ -232,6 +232,32 @@ const upsertLeads = async (id: string, Leads: any[]) => {
   }
 };
 
+const onUpload = async (document_id: string, user_email: string) => {
+  const { data: documents, error: documentsError } = await supabaseAdmin
+      .from('documents')
+      .select('*')
+      .eq('id', document_id);    
+
+    if(!documents || documents?.length==0) {return}
+    
+    var doc = documents[0];
+
+    if(!doc.slack_notified) {
+      if (doc.total_leads >= Number(process.env.ZAPIER_SLACK_EMAIL_LIMIT || 5000)) {
+        fetch(process.env.ZAPIER_SLACK_WEBHOOK as string, {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify({
+            "text": `${user_email || "Someone (not signed in)"} tried to upload a document with ${doc.total_leads} emails.\nDocumentID of the file they uploaded: ${document_id} \nYour current limit is set to: ${Number(process.env.ZAPIER_SLACK_EMAIL_LIMIT || 5000)}`,
+            "channel": "#studio-knowmore"
+          })
+        });
+      }
+    }
+}
+
 const onPaid = async (document_id: string, customer_email: string) => {
   try {
     const { data: leadData, error: leadError } = await supabaseAdmin
@@ -398,6 +424,7 @@ export {
   upsertProductRecord,
   UploadCSV,
   upsertLeads,
+  onUpload,
   onPaid,
   onProcessed
 };

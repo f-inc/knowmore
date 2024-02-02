@@ -127,6 +127,7 @@ const Lead: React.FC<LeadProps> = ({ document_id, lead, isSample, user }) => {
         </div >
         <div className='h-[1px] bg-gray-200/10'></div>
       </div >
+
       {isSample && (
         <button
           style={{
@@ -158,10 +159,12 @@ const Lead: React.FC<LeadProps> = ({ document_id, lead, isSample, user }) => {
 
 export default function Document({
   id,
-  user
+  user,
+  lead_limit
 }: {
   id: string;
   user: User | undefined;
+  lead_limit: number;
 }) {
   const { supabase } = useSupabase();
 
@@ -172,7 +175,7 @@ export default function Document({
 
   const downloadCsv = () => {
     console.log(leads);
-    const leadsWithoutDocumentId = leads.map((item) => ({email: item.email, company: item.company, role: item.role, location: item.location, linkedin: item.linkedin, website: item.website}));
+    const leadsWithoutDocumentId = leads.map((item) => ({ email: item.email, company: item.company, role: item.role, location: item.location, linkedin: item.linkedin, website: item.website }));
     const csvData = Papa.unparse(leadsWithoutDocumentId, { header: true });
 
     const blob = new Blob([csvData], { type: 'text/csv' });
@@ -313,7 +316,15 @@ export default function Document({
               </>
             )) : (
             <>
-              <Lead document_id={id} isSample user={user} />
+              {(user && leads.length >= lead_limit) ?
+              
+                <div className='text-center text-sm bg-gray-100/20 p-5 rounded-xl max-w-[600px]'>
+                  <p>The number of emails that you're trying to process exceeds our current limit. Our team has been notified with your email — we'll be in touch!</p>
+                </div>
+                :
+                <Lead document_id={id} isSample user={user} />
+              }
+
             </>
           )}
         </div>
