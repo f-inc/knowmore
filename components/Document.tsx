@@ -3,15 +3,23 @@
 import { useSupabase } from '@/app/supabase-provider';
 import { postData } from '@/utils/helpers';
 import { getStripe } from '@/utils/stripe-client';
+import { onPaid } from '@/utils/supabase-admin';
 import { User } from '@supabase/supabase-js';
 import { useRouter } from 'next/navigation';
 import React, { useEffect, useState } from 'react';
+import { BarLoader } from 'react-spinners';
+import Papa from 'papaparse';
 
 type LeadDataType = {
   document_id: string;
   email: string;
   name?: string;
-  linkedIn?: string;
+  linkedin?: string;
+  company?: string;
+  role?: string;
+  location?: string;
+  salary?: string;
+  website?: string;
 };
 
 type LeadProps = {
@@ -63,29 +71,62 @@ const Lead: React.FC<LeadProps> = ({ document_id, lead, isSample, user }) => {
   };
 
   return (
-    <div className="flex flex-col justify-center items-center rounded-lg border-1 border-solid border-opacity-10 bg-opacity-10 bg-white backdrop-blur-25 mb-16 min-w-[400px]">
+    <div className="flex flex-col justify-center items-center rounded-lg border-1 border-gray-100 bg-opacity-10 bg-white backdrop-blur-25 mb-8 break-words max-w-[600px]">
       <div
         className="w-full"
         style={{ filter: isSample ? 'blur(4px)' : 'none' }}
       >
-        <div className="flex p-4 items-center gap-4 self-stretch border-b border-opacity-10">
-          <div className="flex flex-col text-left">
-            <p style={{ color: 'white', fontWeight: 700 }}>
-              {lead?.name ?? lead?.email.split(/[,.;:@]+/)[0]}
-            </p>
-            <p style={{ color: 'white' }}>{lead?.email}</p>
+        <div className="flex items-center gap-3 p-4">
+          <div>
+            <img
+              className="w-[40px] rounded-full"
+              src="https://pbs.twimg.com/profile_images/1677635372770029570/0K3JhmKK_400x400.jpg"
+            ></img>
+          </div>
+
+          <div className="flex items-center gap-4 self-stretch">
+            <div className="flex flex-col text-left">
+              <p
+                className="text-md"
+                style={{ color: 'white', fontWeight: 700 }}
+              >
+                {lead?.name ?? lead?.email.split(/[,.;:@]+/)[0]}
+              </p>
+              <p className="text-[12px] text-gray-300/50">{lead?.email}</p>
+            </div>
           </div>
         </div>
 
-        <div className="flex p-4 items-center gap-4">
-          <p style={{ color: 'white', marginBottom: '8px' }}>
-            {lead?.linkedIn ?? 'LinkedIn URL'}
-          </p>
-          <p style={{ color: 'white', marginBottom: '8px' }}>
-            {lead?.linkedIn ?? 'LinkedIn URL'}
-          </p>
-        </div>
-      </div>
+        <div className="h-[1px] bg-gray-200/10"></div>
+
+        <div className="grid grid-cols-2 md:grid-cols-3 p-4 text-left gap-5 gap-x-8 text-sm">
+          <div>
+            <p className="text-[12px] text-gray-300/60">Company Name</p>
+            <p>{lead?.company}</p>
+          </div>
+          <div>
+            <p className="text-[12px] text-gray-300/60">Role</p>
+            <p>{lead?.role}</p>
+          </div>
+          <div>
+            <p className="text-[12px] text-gray-300/60">Location</p>
+            <p>{lead?.location}</p>
+          </div>
+          <div>
+            <p className='text-[12px] text-gray-300/60'>linkedin</p>
+            <a className='underline' href={lead?.linkedin}>
+              {lead?.linkedin}
+            </a>
+          </div>
+          <div>
+            <p className="text-[12px] text-gray-300/60">Website</p>
+            <a className="underline" href={lead?.website}>
+              {lead?.website}
+            </a>
+          </div>
+        </div >
+        <div className='h-[1px] bg-gray-200/10'></div>
+      </div >
       {isSample && (
         <button
           style={{
@@ -111,7 +152,7 @@ const Lead: React.FC<LeadProps> = ({ document_id, lead, isSample, user }) => {
           {user ? 'Subscribe to view' : 'Login to view'}
         </button>
       )}
-    </div>
+    </div >
   );
 };
 
@@ -127,9 +168,25 @@ export default function Document({
   const [document, setDocument] = useState<any>();
   const [leads, setLeads] = useState<LeadDataType[]>([]);
   const [isPaid, setIsPaid] = useState(false);
+  const [isProcessed, setIsProcessed] = useState(false);
+
+  const downloadCsv = () => {
+    console.log(leads);
+    const leadsWithoutDocumentId = leads.map((item) => ({email: item.email, company: item.company, role: item.role, location: item.location, linkedin: item.linkedin, website: item.website}));
+    const csvData = Papa.unparse(leadsWithoutDocumentId, { header: true });
+
+    const blob = new Blob([csvData], { type: 'text/csv' });
+    const url = URL.createObjectURL(blob);
+
+    const a = window.document.createElement('a');
+    a.href = url;
+    a.download = 'leads.csv';
+    window.document.body.appendChild(a);
+    a.click();
+    window.document.body.removeChild(a);
+  };
 
   const fetchRecord = async (id: string) => {
-    console.log(id);
     const { data: recordData, error } = await supabase
       .from('documents')
       .select('*')
@@ -154,24 +211,31 @@ export default function Document({
     if (recordData) {
       setDocument(recordData);
       setIsPaid(recordData.paid);
+      setIsProcessed(recordData.processed_rows);
+    }
+  };
+
+  const fetchData = async (id: string) => {
+    if (id && !isProcessed) {
+      fetchRecord(id as string);
     }
   };
 
   useEffect(() => {
-    console.log(id);
-    if (id) {
-      fetchRecord(id as string);
-    }
-  }, [id]);
+    fetchData(id as string);
+    const interval = setInterval(() => {
+      fetchData(id as string);
+    }, 10000);
+    return () => clearInterval(interval);
+  }, [id, isProcessed]);
 
   return (
-    <div className="text-white py-20 bg-opacity-10">
+    <div className="text-white py-20 px-5 bg-opacity-10">
       <div className="container mx-auto flex flex-col justify-center items-center text-center">
-        <div className="w-full mb-8 lg:mb-0 lg:pr-8">
+        <div className="w-full mb-8 lg:mb-0 lg:pr-8 ">
           <h1
-            className="text-4xl lg:text-6xl font-bold mb-4 gap-4"
+            className="text-4xl lg:text-5xl font-bold mb-4 gap-4"
             style={{
-              fontSize: '64px',
               fontStyle: 'normal',
               fontWeight: 700,
               lineHeight: '110%',
@@ -184,18 +248,72 @@ export default function Document({
           >
             We detected {leads.length} {leads.length > 1 ? 'emails' : 'email'}
           </h1>
+          <p className="max-w-md text-center m-auto text-gray-300 text-sm">
+            Our AI bot scrapes every B2B lead you pull from your website so that
+            you know exactly who your potential customers are. Stop leaving
+            money on the table.
+          </p>
         </div>
-        <div>
+        <div className="mt-10">
           {isPaid ? (
-            leads.map((lead) => <Lead lead={lead} user={user} />)
-          ) : (
+            isProcessed ? (
+              <div className="text-right text-xs px-5">
+                <p className='mt-3'>Processed all {leads.length} results, please download the CSV file.</p>
+                <button
+                  onClick={downloadCsv}
+                  className="mt-3 px-4 py-2 bg-[#E85533] text-white rounded-full text-sm hover:bg-orange-700 focus:outline-none"
+                >
+                  Download CSV
+                </button>
+                <div className='overflow-x-auto max-w-[90vw] text-left'>
+                  <table className="border table-auto text-sm text-gray-200 mt-5">
+                    <thead className='bg-orange-100/10'>
+                      <tr>
+                        <th className="py-2 px-4 border">Email</th>
+                        <th className="py-2 px-4 border">Company Name</th>
+                        <th className="py-2 px-4 border">Role</th>
+                        <th className="py-2 px-4 border">Location</th>
+                        <th className="py-2 px-4 border">linkedin</th>
+                        <th className="py-2 px-4 border">Website</th>
+                      </tr>
+                    </thead>
+                    <tbody className='bg-orange-100/5'>
+                      {leads.slice(0, 20).map((lead, index) => (
+                        <tr key={index}>
+                          <td className="py-2 px-4 border">{lead?.email}</td>
+                          <td className="py-2 px-4 border">{lead?.company}</td>
+                          <td className="py-2 px-4 border">{lead?.role}</td>
+                          <td className="py-2 px-4 border">{lead?.location}</td>
+                          <td className="py-2 px-4 border">
+                            <a className='underline ' href={lead?.linkedin} target="_blank" rel="noopener noreferrer">
+                              {lead?.linkedin}
+                            </a>
+                          </td>
+                          <td className="py-2 px-4 border">
+                            <a className='underline' href={lead?.website} target="_blank" rel="noopener noreferrer">
+                              {lead?.website}
+                            </a>
+                          </td>
+                        </tr>
+                      ))}
+                    </tbody>
+                  </table>
+                  <p className='mt-3 text-center'>To view all of your results please <a className='underline cursor-pointer' onClick={downloadCsv}>download the CSV file</a>.</p>
+                </div>
+
+              </div>
+            ) : (
+              <>
+                <div className="loading-spinner py-10">
+                  <BarLoader className="m-auto" color="white" />
+                  <p className="text-xs text-center mt-5">
+                    processing your file
+                  </p>
+                </div>
+              </>
+            )) : (
             <>
-              <Lead lead={leads[0]} user={user} />
-              <Lead
-                document_id={(document && document.id) || ''}
-                isSample
-                user={user}
-              />
+              <Lead document_id={id} isSample user={user} />
             </>
           )}
         </div>

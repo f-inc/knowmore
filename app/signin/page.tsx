@@ -1,18 +1,13 @@
 import AuthUI from './AuthUI';
 import { getSession } from '@/app/supabase-server';
-import Logo from '@/components/icons/Logo';
 import Link from 'next/link';
-import { redirect } from 'next/navigation';
-import { useRouter } from 'next/router';
+import RedirectUI from './RedirectUI';
 
 export default async function SignIn() {
   const session = await getSession();
 
   if (session) {
-    // const redirectURL = query.redirectURL || '/account'; // Use the query parameter or specify a default redirect URL
-
-    // const redirectURL = (query.redirectURL as string) || '/account';
-    return redirect('/account');
+    return <RedirectUI></RedirectUI>;
   }
 
   return (
@@ -23,9 +18,9 @@ export default async function SignIn() {
           className="inline-flex justify-center items-center text-3xl font-bold"
           aria-label="Logo"
         >
-          <span className="inline-flex items-center leading-6 font-medium transition ease-in-out duration-75 cursor-pointer text-[#000000] rounded-md p-1">
-            knowmore
-          </span>
+          <Link href="/" className="inline-flex items-center text-3xl font-bold mb-5" aria-label="Logo">
+            <img className='w-[100px]' src="/logo.png"></img>
+          </Link>
         </Link>
         <AuthUI />
       </div>
