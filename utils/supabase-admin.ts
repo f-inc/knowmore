@@ -246,8 +246,6 @@ const onPaid = async (document_id: string, customer_email: string) => {
     for (const lead in leadData) {
       const { id, email } = leadData[lead];
 
-      console.log("printing here", process.env.LEAP_WEBHOOK_URL);
-
       const response = await leap.workflowRuns.workflow({
         workflow_id: process.env.LEAP_WORKFLOW_ID || 'wkf_Z2NKhgEKaL1UIL',
         webhook_url:
@@ -285,8 +283,11 @@ const onPaid = async (document_id: string, customer_email: string) => {
 
     const request = new SendEmailRequest({
       transactional_message_id: "3",
+      message_data: {
+        lead_count: leadData.length,
+      },
       identifiers: {
-        id: "123",
+        id: document_id,
       },
       to: customer_email,
       from: "omar@knowmore.bot"
@@ -337,8 +338,11 @@ const onProcessed = async (
 
         const request = new SendEmailRequest({
           transactional_message_id: "2",
+          message_data: {
+            link: `https://www.knowmore.bot/view/${output.input.document_id}`,
+          },
           identifiers: {
-            id: "123",
+            id: output.input.document_id,
           },
           to: documentData[0].customer_to_email,
           from: "omar@knowmore.bot"
