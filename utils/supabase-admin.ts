@@ -315,40 +315,11 @@ const onProcessed = async (
       .update({ processed: true })
       .eq('workflow_run_id', output.id);
 
-    console.log(output.output.output)
-
-    const lead = JSON.parse((output.output.output as string).replaceAll("\n", "").replaceAll("\t", "").replaceAll("'", "\""));
-
-    if (!lead.email) {
-      return;
-    }
-    const { data, error } = await supabaseAdmin
-      .from('leads')
-      .update({
-        email: lead.email,
-        name: lead.name || lead.full_name,
-        linkedin: lead.linkedin || lead.linkedIn || lead.linkedin_url,
-        company: lead.company || lead.companyName || lead.job_history[0].company,
-        role: lead.role || lead.current_job_position,
-        location: lead.location
-      })
-      .eq('document_id', output.input.document_id)
-      .eq('email', lead.email);
-    if (error) {
-      throw error;
-    }
-
-    if (documentError) {
-      throw documentError; // Throw an error if there was an issue updating the document
-    }
-
     const { data: unprocessedLeads, error: unprocessedLeadsError } = await supabaseAdmin
       .from('leads')
       .select('*')
       .eq('processed', false)
       .eq('document_id', output.input.document_id);
-
-    console.log(unprocessedLeads);
 
     // all leads have been processed
     if (unprocessedLeads?.length == 0) {
@@ -377,6 +348,33 @@ const onProcessed = async (
           .then((res: any) => console.log(res))
           .catch((err: any) => console.log(err.statusCode, err.message))
       }
+    }
+
+    console.log(output.output.output as string);
+
+    const lead = JSON.parse((output.output.output as string).replaceAll("\n", "").replaceAll("\t", "").replaceAll("'", "\""));
+
+    if (!lead.email) {
+      return;
+    }
+    const { data, error } = await supabaseAdmin
+      .from('leads')
+      .update({
+        email: lead.email,
+        name: lead.name || lead.full_name,
+        linkedin: lead.linkedin || lead.linkedIn || lead.linkedin_url,
+        company: lead.company || lead.companyName || lead.job_history[0].company,
+        role: lead.role || lead.current_job_position,
+        location: lead.location
+      })
+      .eq('document_id', output.input.document_id)
+      .eq('email', lead.email);
+    if (error) {
+      throw error;
+    }
+
+    if (documentError) {
+      throw documentError; // Throw an error if there was an issue updating the document
     }
 
     if (unprocessedLeadsError) {
