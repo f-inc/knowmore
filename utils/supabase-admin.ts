@@ -283,6 +283,19 @@ const onPaid = async (document_id: string, customer_email: string) => {
       })
       .eq('id', document_id);
 
+    const request = new SendEmailRequest({
+      transactional_message_id: "3",
+      identifiers: {
+        id: "123",
+      },
+      to: customer_email,
+      from: "omar@knowmore.bot"
+    });
+
+    customerio_client.sendEmail(request)
+      .then((res: any) => console.log(res))
+      .catch((err: any) => console.log(err.statusCode, err.message))
+
     console.log('Document updated successfully:', documentData);
 
     if (documentError) {

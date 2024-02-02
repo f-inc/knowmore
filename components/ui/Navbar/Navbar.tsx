@@ -43,9 +43,9 @@ export default async function Navbar() {
               <SignInButton />
             )}
 
-            <button className='border border-[#E85533] px-4 py-2 text-[#E85533] font-bold rounded-full hidden md:block'>
+            {/* <button className='border border-[#E85533] px-4 py-2 text-[#E85533] font-bold rounded-full hidden md:block'>
                 Upload CSV
-            </button>
+            </button> */}
           </div>
         </div>
       </div>
