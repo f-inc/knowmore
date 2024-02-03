@@ -38,10 +38,10 @@ export default async function Navbar() {
             </nav> */}
           </div>
           <div className="flex items-center gap-x-6">
-            <div className="text-white font-semibold text-base">Login</div>
+            {/* <div className="text-white font-semibold text-base">Login</div>
             <button className="bg-none border-2 border-[#0C8CE9] text-[#0C8CE9] text-sm px-4 py-2 font-semibold rounded-full">
               Upload CSV
-            </button>
+            </button> */}
           </div>
           {/* <div className="flex justify-end flex-1 space-x-8"> */}
           {/* {user ? (

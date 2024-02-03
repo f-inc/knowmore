@@ -3,7 +3,7 @@
 //   getSession,
 //   getSubscription
 // } from '@/app/supabase-server';
-import Home from '@/components/Home';
+import Home from '@/components/home';
 import { useState } from 'react';
 
 export default async function PricingPage() {

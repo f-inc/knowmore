@@ -11,6 +11,7 @@ import { ChangeEvent, useState } from 'react';
 import { useCallback } from 'react';
 import { BarLoader, ClipLoader, DotLoader } from 'react-spinners';
 import { v4 as uuid } from 'uuid';
+import Form from './Form';
 
 interface Props {
   user: User | null | undefined;
@@ -149,36 +150,21 @@ export default function Home({ user }: Props) {
                   WebkitTextFillColor: 'transparent'
                 }}
               >
-                An personal brand coach for your Twitter.{' '}
+                A personal brand coach for your Twitter.
               </h1>
               <p className="text-sm md:text-lg text-gray-300 max-w-lg text-center">
                 Our AI bot scrapes your Twitter and helps you come up with
-                tweets that don’t suck.{' '}
+                tweets that don’t suck.
               </p>
             </div>
           </div>
-          <div className="flex flex-col items-center justify-center mt-10 lg:mt-20 gap-y-10">
-            {' '}
-            <textarea
-              className="w-full overflow-hidden lg:w-1/2 text-white outline-none bg-[#00000026] rounded-2xl p-5 border-2 border-solid border-white border-opacity-25 placeholder-white placeholder-opacity-25 h-40 resize-none"
-              placeholder="Start typing or paste your tweet."
-            ></textarea>
-            <input
-              type="text"
-              className="w-full lg:w-1/2 text-white outline-none bg-[#00000026] rounded-lg p-4 border-2 border-solid border-white border-opacity-25 placeholder-white placeholder-opacity-25 h-10"
-              placeholder="Enter text"
-            />{' '}
-            <button className="text-[#8D5BDF] bg-[#5A25B080] rounded-xl font-medium text-base px-6 py-3">
-              We need your Twitter @ to give you accurate feedback, based on
-              your past tweets.
-            </button>
-          </div>
+          <Form />
 
           {/* <LogoCloud /> */}
         </div>
       </div>
-      <div className="flex justify-center">
-        <div className="mt-14 grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-5">
+      <div className="flex justify-center mb-28">
+        <div className=" grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-5">
           <div
             className="px-6 py-5 rounded-2xl flex gap-5 items-center"
             style={{
