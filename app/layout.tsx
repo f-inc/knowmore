@@ -103,7 +103,7 @@ export default function RootLayout({
               </filter>
             </defs>
           </svg>
-          <SupabaseProvider>
+          {/* <SupabaseProvider> */}
             <Navbar />
             <main
               id="skip"
@@ -113,7 +113,7 @@ export default function RootLayout({
               {children}
             </main>
             {/* <Footer /> */}
-          </SupabaseProvider>
+          {/* </SupabaseProvider> */}
         </body>
       </PHProvider>
     </html>

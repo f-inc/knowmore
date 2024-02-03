@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import { createServerSupabaseClient } from '@/app/supabase-server';
+// import { createServerSupabaseClient } from '@/app/supabase-server';
 
 import Logo from '@/components/icons/Logo';
 import SignOutButton from './SignOutButton';
@@ -8,10 +8,10 @@ import s from './Navbar.module.css';
 import SignInButton from './SignInButton';
 
 export default async function Navbar() {
-  const supabase = createServerSupabaseClient();
-  const {
-    data: { user }
-  } = await supabase.auth.getUser();
+  // const supabase = createServerSupabaseClient();
+  // const {
+  //   data: { user }
+  // } = await supabase.auth.getUser();
 
   return (
     <div className={s.root}>
@@ -37,11 +37,11 @@ export default async function Navbar() {
           </div>
           <div className="flex justify-end flex-1 space-x-8">
 
-            {user ? (
+            {/* {user ? (
               <SignOutButton />
             ) : (
               <SignInButton />
-            )}
+            )} */}
 
             {/* <button className='border border-[#E85533] px-4 py-2 text-[#E85533] font-bold rounded-full hidden md:block'>
                 Upload CSV

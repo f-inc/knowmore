@@ -1,6 +1,6 @@
 'use client';
 
-import { useSupabase } from '@/app/supabase-provider';
+// import { useSupabase } from '@/app/supabase-provider';
 import { AnalyticsEvents } from '@/utils/constants/AnalyticsEvents';
 import { User } from '@supabase/supabase-js';
 import Image from 'next/image';
@@ -16,111 +16,111 @@ interface Props {
   user: User | null | undefined;
 }
 
-export default function Home({ user }: Props) {
+export default function Home({ user  }: Props) {
   const router = useRouter();
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(false);
   const [blurData, setBlurData] = useState(false);
 
-  const { supabase } = useSupabase();
+  // const { supabase } = useSupabase();
 
-  const handleFileUpload = async (e: ChangeEvent<HTMLInputElement>) => {
-    posthog.capture(AnalyticsEvents.Upload.FileUploading);
-    await toggleLoading();
-    console.log('loading...');
-    const file = e.target.files && e.target.files[0];
+  // const handleFileUpload = async (e: ChangeEvent<HTMLInputElement>) => {
+  //   posthog.capture(AnalyticsEvents.Upload.FileUploading);
+  //   await toggleLoading();
+  //   console.log('loading...');
+  //   const file = e.target.files && e.target.files[0];
 
-    // validate the file to see if it has a column named email.
-    // if it does, then we can upload it.
+  //   // validate the file to see if it has a column named email.
+  //   // if it does, then we can upload it.
 
-    if (file && file.name.endsWith('.csv')) {
-      try {
-        Papa.parse(file!, {
-          complete: async function (results) {
-            // Go through each row and find any email using regex and add it to set.
-            const emails = new Set<string>();
-            for (const row of results.data) {
-              for (const cell of row as any) {
-                const emailRegex = /\S+@\S+\.\S+/;
-                if (emailRegex.test(cell)) {
-                  emails.add(cell);
-                }
-              }
-            }
+  //   if (file && file.name.endsWith('.csv')) {
+  //     try {
+  //       Papa.parse(file!, {
+  //         complete: async function (results) {
+  //           // Go through each row and find any email using regex and add it to set.
+  //           const emails = new Set<string>();
+  //           for (const row of results.data) {
+  //             for (const cell of row as any) {
+  //               const emailRegex = /\S+@\S+\.\S+/;
+  //               if (emailRegex.test(cell)) {
+  //                 emails.add(cell);
+  //               }
+  //             }
+  //           }
 
-            if (emails.size === 0) {
-              throw new Error('No emails found');
-            }
+  //           if (emails.size === 0) {
+  //             throw new Error('No emails found');
+  //           }
 
-            const id = uuid();
+  //           const id = uuid();
 
-            // Upload the file to storage.
-            const filePath = `public/${id}.csv`;
-            const bucket = 'documents';
-            const { data: uploadData, error: uploadError } =
-              await supabase.storage.from(bucket).upload(filePath, file);
+  //           // Upload the file to storage.
+  //           const filePath = `public/${id}.csv`;
+  //           const bucket = 'documents';
+  //           const { data: uploadData, error: uploadError } =
+  //             await supabase.storage.from(bucket).upload(filePath, file);
 
-            if (uploadError) {
-              console.error('Error uploading CSV:', uploadError.message);
-              return;
-            }
+  //           if (uploadError) {
+  //             console.error('Error uploading CSV:', uploadError.message);
+  //             return;
+  //           }
 
-            // Insert the document into the documents table.
-            const { data: insertData, error: insertError } = await supabase
-              .from('documents')
-              .insert([
-                {
-                  id,
-                  storage_path: filePath,
-                  owner: user?.id,
-                  customer_to_email: user?.email,
-                  total_leads: emails.size
-                }
-              ]);
+  //           // Insert the document into the documents table.
+  //           const { data: insertData, error: insertError } = await supabase
+  //             .from('documents')
+  //             .insert([
+  //               {
+  //                 id,
+  //                 storage_path: filePath,
+  //                 owner: user?.id,
+  //                 customer_to_email: user?.email,
+  //                 total_leads: emails.size
+  //               }
+  //             ]);
             
-              fetch('/api/uploaded', {
-                method: 'POST',
-                headers: {
-                  'Content-Type': 'application/json'
-                },
-                body: JSON.stringify({ document_id: id })
-              });
+  //             fetch('/api/uploaded', {
+  //               method: 'POST',
+  //               headers: {
+  //                 'Content-Type': 'application/json'
+  //               },
+  //               body: JSON.stringify({ document_id: id })
+  //             });
 
 
-            if (insertError) {
-              console.error(
-                'Error inserting row into documents table:',
-                insertError.message
-              );
-              return;
-            }
+  //           if (insertError) {
+  //             console.error(
+  //               'Error inserting row into documents table:',
+  //               insertError.message
+  //             );
+  //             return;
+  //           }
 
-            // Create lead entries for each email.
+  //           // Create lead entries for each email.
 
-            const emailArray = Array.from(emails);
-            const emailObjects = emailArray.map((email) => ({
-              email,
-              document_id: id
-            }));
-            const { data: leadInsertData, error: leadInsertError } =
-              await supabase.from('leads').insert(emailObjects);
+  //           const emailArray = Array.from(emails);
+  //           const emailObjects = emailArray.map((email) => ({
+  //             email,
+  //             document_id: id
+  //           }));
+  //           const { data: leadInsertData, error: leadInsertError } =
+  //             await supabase.from('leads').insert(emailObjects);
 
-            if (leadInsertError) {
-              console.error(
-                'Error inserting row into leads table:',
-                leadInsertError.message
-              );
-              return;
-            }
+  //           if (leadInsertError) {
+  //             console.error(
+  //               'Error inserting row into leads table:',
+  //               leadInsertError.message
+  //             );
+  //             return;
+  //           }
 
-            router.push(`/view/${id}`);
-          }
-        });
-      } catch (error) {
-        console.error('Error uploading CSV:', error);
-      }
-    }
-  };
+  //           router.push(`/view/${id}`);
+  //         }
+  //       });
+  //     } catch (error) {
+  //       console.error('Error uploading CSV:', error);
+  //     }
+  //   }
+  // };
 
   async function toggleLoading() {
     setLoading(!loading);
@@ -205,7 +205,7 @@ export default function Home({ user }: Props) {
                     type="file"
                     id="file-upload"
                     accept=".csv"
-                    onChange={handleFileUpload}
+                    // onChange={handleFileUpload}
                     style={{ display: 'none' }}
                   />
                   <p className="text-xs">or drop a file</p>
