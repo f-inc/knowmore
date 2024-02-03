@@ -16,7 +16,7 @@ interface Props {
   user: User | null | undefined;
 }
 
-export default function Home({ user  }: Props) {
+export default function Home({ user }: Props) {
   const router = useRouter();
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(false);
@@ -77,7 +77,7 @@ export default function Home({ user  }: Props) {
   //                 total_leads: emails.size
   //               }
   //             ]);
-            
+
   //             fetch('/api/uploaded', {
   //               method: 'POST',
   //               headers: {
@@ -85,7 +85,6 @@ export default function Home({ user  }: Props) {
   //               },
   //               body: JSON.stringify({ document_id: id })
   //             });
-
 
   //           if (insertError) {
   //             console.error(
@@ -131,170 +130,104 @@ export default function Home({ user  }: Props) {
   };
 
   return (
-    <div className="max-w-6xl mx-auto min-h-screen px-6">
-      <div className="text-white py-10 md:py-20 bg-opacity-10">
-        <div className="container mx-auto flex flex-col lg:flex-row justify-between items-center">
-          <div className="flex flex-col w-full lg:w-1/2 mb-8 lg:mb-0 lg:pr-8 gap-8">
-            <h1
-              className="text-5xl lg:text-[64px] font-bold gap-4"
-              style={{
-                fontStyle: 'normal',
-                fontWeight: 700,
-                lineHeight: '110%',
-                letterSpacing: '-1.28px',
-                background:
-                  'linear-gradient(146deg, #FFF 45.88%, rgba(255, 255, 255, 0.50) 88.34%)',
-                backgroundClip: 'text',
-                WebkitBackgroundClip: 'text',
-                WebkitTextFillColor: 'transparent'
-              }}
-            >
-              Turn website leads into paid customers fast.
-            </h1>
-            <p className="text-sm md:text-lg text-gray-300">
-              Our AI bot scrapes every B2B lead you pull from your website so
-              that you know exactly who your potential customers are. Stop
-              leaving money on the table.
-            </p>
-
-            <div
-              style={{
-                display: 'flex',
-                padding: '48px',
-                flexDirection: 'column',
-                alignItems: 'center',
-                gap: '16px',
-                alignSelf: 'stretch',
-                borderRadius: '16px',
-                border: '1px solid rgba(255, 255, 255, 0.12)',
-                background: 'rgba(0, 0, 0, 0.15)'
-              }}
-            //   onDragOver={handleDragOver}
-            //   onDrop={handleDrop}
-            >
-              {loading ? (
-                <div className="loading-spinner py-10">
-                  <BarLoader className="m-auto" color="white" />
-                  <p className="text-xs text-center mt-5">
-                    uploading your file
-                  </p>
-                </div>
-              ) : (
-                <>
-                  <label htmlFor="file-upload" className="file-upload-label">
-                    <span style={{ display: 'none' }}>Upload CSV</span>
-                    <div
-                      className='bg-[#E85533] hover:bg-orange-700'
-                      style={{
-                        display: 'flex',
-                        padding: '16px 48px',
-                        justifyContent: 'center',
-                        alignItems: 'center',
-                        gap: '8px',
-                        borderRadius: '56px',
-                        border: '1px solid rgba(255, 255, 255, 0.15)',
-                        boxShadow: '0px 0px 28px 0px rgba(255, 255, 255, 0.15)',
-                        fontWeight: 700,
-                        cursor: "pointer"
-                      }}
-                    >
-                      Upload CSV
-                    </div>
-                  </label>
-                  <input
-                    type="file"
-                    id="file-upload"
-                    accept=".csv"
-                    // onChange={handleFileUpload}
-                    style={{ display: 'none' }}
-                  />
-                  <p className="text-xs">or drop a file</p>
-                </>
-              )}
+    <>
+      <div className="max-w-7xl mx-auto min-h-screen px-6">
+        <div className="text-white py-10 md:py-20 bg-opacity-10">
+          <div className="container flex flex-col lg:flex-row justify-between items-center">
+            <div className="flex flex-col w-full items-center gap-y-8">
+              <h1
+                className="text-5xl lg:text-[64px] font-bold gap-4 max-w-[45rem] text-center"
+                style={{
+                  fontStyle: 'normal',
+                  fontWeight: 700,
+                  lineHeight: '110%',
+                  letterSpacing: '-1.28px',
+                  background:
+                    'linear-gradient(146deg, #FFF 45.88%, rgba(255, 255, 255, 0.50) 88.34%)',
+                  backgroundClip: 'text',
+                  WebkitBackgroundClip: 'text',
+                  WebkitTextFillColor: 'transparent'
+                }}
+              >
+                An personal brand coach for your Twitter.{' '}
+              </h1>
+              <p className="text-sm md:text-lg text-gray-300 max-w-lg text-center">
+                Our AI bot scrapes your Twitter and helps you come up with
+                tweets that don’t suck.{' '}
+              </p>
             </div>
           </div>
-          <div className="w-full lg:w-1/2 flex justify-center lg:justify-end items-center">
-            <Image
-              alt="hero"
-              src={'/hero-image.png'}
-              width={400}
-              height={400}
-            />
+          <div className="flex flex-col items-center justify-center mt-10 lg:mt-20 gap-y-10">
+            {' '}
+            <textarea
+              className="w-full overflow-hidden lg:w-1/2 text-white outline-none bg-[#00000026] rounded-2xl p-5 border-2 border-solid border-white border-opacity-25 placeholder-white placeholder-opacity-25 h-40 resize-none"
+              placeholder="Start typing or paste your tweet."
+            ></textarea>
+            <input
+              type="text"
+              className="w-full lg:w-1/2 text-white outline-none bg-[#00000026] rounded-lg p-4 border-2 border-solid border-white border-opacity-25 placeholder-white placeholder-opacity-25 h-10"
+              placeholder="Enter text"
+            />{' '}
+            <button className="text-[#8D5BDF] bg-[#5A25B080] rounded-xl font-medium text-base px-6 py-3">
+              We need your Twitter @ to give you accurate feedback, based on
+              your past tweets.
+            </button>
           </div>
-        </div>
 
-        <div className="my-24">
-          <h1
-            className="text-4xl max-w-md gap-4 text-center m-auto"
+          {/* <LogoCloud /> */}
+        </div>
+      </div>
+      <div className="flex justify-center">
+        <div className="mt-14 grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-5">
+          <div
+            className="px-6 py-5 rounded-2xl flex gap-5 items-center"
             style={{
-              fontStyle: 'normal',
-              fontWeight: 700,
-              lineHeight: '110%',
-              letterSpacing: '-1.28px',
-              background:
-                'linear-gradient(146deg, #FFF 45.88%, rgba(255, 255, 255, 0.50) 88.34%)',
-              backgroundClip: 'text',
-              WebkitBackgroundClip: 'text',
-              WebkitTextFillColor: 'transparent'
+              border: '1px solid rgba(255, 255, 255, 0.15)',
+              background: 'rgba(0, 0, 0, 0.15)'
             }}
           >
-            Make every lead worth so much more.
-          </h1>
-          <div className="mt-14 flex flex-col md:flex-row gap-5">
-            <div
-              className="p-5 py-6 rounded-[15px] flex gap-5 items-center"
-              style={{
-                border: '1px solid rgba(255, 255, 255, 0.15)',
-                background: 'rgba(0, 0, 0, 0.15)'
-              }}
-            >
-              <img className="h-[50px]" src="icon1.png"></img>
-              <div className="flex flex-col gap-2">
-                <p className="text-[#E85533] text-sm">User insights</p>
-                <p className="text-gray-200 text-xs">
-                  See Linkedin breakdowns of leads who submit a form on your
-                  site.
-                </p>
-              </div>
+            <img className="w-16" src="icon1.png"></img>
+            <div className="flex flex-col gap-2">
+              <a className="text-[#0C8CE9] text-base">@elonmusk</a>
+              <p className="text-[#FFFFFFCC] text-base font-medium max-w-[15rem]">
+                Cybertruck handles like a sports car because it is one.
+              </p>
             </div>
-            <div
-              className="p-5 py-6 rounded-[15px] flex gap-5 items-center"
-              style={{
-                border: '1px solid rgba(255, 255, 255, 0.15)',
-                background: 'rgba(0, 0, 0, 0.15)'
-              }}
-            >
-              <img className="h-[50px]" src="icon2.png"></img>
-              <div className="flex flex-col gap-2">
-                <p className="text-[#E85533] text-sm">Company insights</p>
-                <p className="text-gray-200 text-xs">
-                  Find out which companies are the most interested in your
-                  product.
-                </p>
-              </div>
+          </div>
+          <div
+            className="px-6 py-5 rounded-2xl flex gap-5 items-center"
+            style={{
+              border: '1px solid rgba(255, 255, 255, 0.15)',
+              background: 'rgba(0, 0, 0, 0.15)'
+            }}
+          >
+            <img className="w-16" src="icon2.png"></img>
+            <div className="flex flex-col gap-2">
+              <a className="text-[#0C8CE9] text-base">@aggressivepet</a>
+              <p className="text-[#FFFFFFCC] text-base font-medium max-w-[15rem]">
+                i dont like to overshare unless its with people i love{' '}
+              </p>
             </div>
-            <div
-              className="p-5 py-6 rounded-[15px] flex gap-5 items-center"
-              style={{
-                border: '1px solid rgba(255, 255, 255, 0.15)',
-                background: 'rgba(0, 0, 0, 0.15)'
-              }}
-            >
-              <img className="h-[50px]" src="icon3.png"></img>
-              <div className="flex flex-col gap-2">
-                <p className="text-[#E85533] text-sm">Role insights</p>
-                <p className="text-gray-200 text-xs">
-                  Tailor your product positioning to exactly who your customers
-                  are.
-                </p>
-              </div>
+          </div>
+          <div
+            className="px-6 py-5 rounded-2xl flex gap-5 items-center"
+            style={{
+              border: '1px solid rgba(255, 255, 255, 0.15)',
+              background: 'rgba(0, 0, 0, 0.15)'
+            }}
+          >
+            <img className="w-16" src="icon3.png"></img>
+            <div className="flex flex-col gap-2">
+              <a className="text-[#0C8CE9] text-base">@dril</a>
+              <p className="text-[#FFFFFFCC] text-base font-medium max-w-[15rem]">
+                im getting so tired of jordan peterson that im gonna start
+                calling him jordan jenkins{' '}
+              </p>
             </div>
           </div>
         </div>
-
-        <LogoCloud />
       </div>
-    </div>
+    </>
   );
 }
 
