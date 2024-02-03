@@ -288,6 +288,7 @@ const onPaid = async (document_id: string, customer_email: string) => {
         await supabaseAdmin
           .from('leads')
           .update({
+            processed: false,
             workflow_run_id: response.data.id
           })
           .eq('id', id);
@@ -345,7 +346,7 @@ const onProcessed = async (
     const { data: unprocessedLeads, error: unprocessedLeadsError } = await supabaseAdmin
       .from('leads')
       .select('*')
-      .not('processed', "eq", true)
+      .eq('processed', false)
       .eq('document_id', output.input.document_id);
 
     // all leads have been processed
