@@ -1,6 +1,7 @@
 'use client';
 
 // import { useSupabase } from '@/app/supabase-provider';
+import Form from './Form';
 import { AnalyticsEvents } from '@/utils/constants/AnalyticsEvents';
 import { User } from '@supabase/supabase-js';
 import Image from 'next/image';
@@ -11,7 +12,6 @@ import { ChangeEvent, useState } from 'react';
 import { useCallback } from 'react';
 import { BarLoader, ClipLoader, DotLoader } from 'react-spinners';
 import { v4 as uuid } from 'uuid';
-import Form from './Form';
 
 interface Props {
   user: User | null | undefined;
@@ -163,7 +163,26 @@ export default function Home({ user }: Props) {
           {/* <LogoCloud /> */}
         </div>
       </div>
-      <div className="flex justify-center mb-28">
+      <div className="flex justify-center">
+        <h1
+          className="text-3xl lg:text-5xl font-bold gap-4 text-center px-4"
+          style={{
+            fontStyle: 'normal',
+            fontWeight: 700,
+            lineHeight: '110%',
+            letterSpacing: '-1.28px',
+            background:
+              'linear-gradient(146deg, #FFF 45.88%, rgba(255, 255, 255, 0.50) 88.34%)',
+            backgroundClip: 'text',
+            WebkitBackgroundClip: 'text',
+            WebkitTextFillColor: 'transparent'
+          }}
+        >
+          Latest generated tweets from the community.{' '}
+        </h1>
+      </div>
+
+      <div className="flex justify-center mt-12 mb-28">
         <div className=" grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-5">
           <div
             className="px-6 py-5 rounded-2xl flex gap-5 items-center"

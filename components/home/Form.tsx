@@ -1,6 +1,6 @@
-import { useState } from 'react';
-import { getFeedback } from './analyze';
 import LoadingDots from '../ui/LoadingDots';
+import { getFeedback } from './analyze';
+import { useState } from 'react';
 
 const Form = () => {
   const [tweet, setTweet] = useState<string>('');
@@ -56,10 +56,13 @@ const Form = () => {
         </button>
       </div>
 
-      <div>
+      <div className="mt-10 lg:mt-16 font-medium text-base tracking-wide">
         {result && (
           <div>
-            Output:
+            <div className="text-white text-xl font-medium flex justify-center">
+              {' '}
+              Output:
+            </div>
             <br />
             <br />
             {/* line break when theres a new line*/}
