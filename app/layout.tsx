@@ -61,7 +61,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <PHProvider>
-        <body className="bg-[#120704] loading">
+        <body className="bg-[#010b13] loading">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             viewBox="0 0 1244 303"
@@ -73,7 +73,7 @@ export default function RootLayout({
                 fill-rule="evenodd"
                 clip-rule="evenodd"
                 d="M188 -112C286.902 25.8278 444.489 115 622 115C799.511 115 957.098 25.8278 1056 -112H188Z"
-                fill="#E85533"
+                fill="#0C8CE9"
               />
               <path
                 d="M622 114.5C445.002 114.5 287.825 25.757 188.975 -111.5H1055.02C956.175 25.757 798.998 114.5 622 114.5Z"
@@ -103,17 +103,17 @@ export default function RootLayout({
               </filter>
             </defs>
           </svg>
-          <SupabaseProvider>
-            <Navbar />
-            <main
-              id="skip"
-              className={`min-h-[calc(100dvh-4rem)] md:min-h[calc(100dvh-5rem)] ${jakarta.className}`}
-            >
-              <PostHogPageView />
-              {children}
-            </main>
-            {/* <Footer /> */}
-          </SupabaseProvider>
+          {/* <SupabaseProvider> */}
+          <Navbar />
+          <main
+            id="skip"
+            className={`min-h-[calc(100dvh-4rem)] md:min-h[calc(100dvh-5rem)] ${jakarta.className}`}
+          >
+            <PostHogPageView />
+            {children}
+          </main>
+          {/* <Footer /> */}
+          {/* </SupabaseProvider> */}
         </body>
       </PHProvider>
     </html>
