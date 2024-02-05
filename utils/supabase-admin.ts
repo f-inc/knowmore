@@ -269,7 +269,7 @@ const onPaid = async (document_id: string, customer_email: string) => {
       throw leadError;
     }
 
-    console.log(process.env.LEAP_WEBHOOK_URL)
+    console.log("LEAP_WEBHOOK_URL", process.env.LEAP_WEBHOOK_URL)
 
     for (const lead in leadData) {
       const { id, email } = leadData[lead];
