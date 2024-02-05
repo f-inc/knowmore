@@ -5,7 +5,7 @@ import SignOutButton from './SignOutButton';
 import Logo from '@/components/icons/Logo';
 import Link from 'next/link';
 
-export default async function Navbar() {
+export default function Navbar() {
   // const supabase = createServerSupabaseClient();
   // const {
   //   data: { user }
