@@ -358,7 +358,7 @@ const checkProcessed = async (): Promise<any[]> => {
     .select('*')
     .eq('processed', false);
 
-  console.log("unprocessed documents found", unprocessedDocuments);
+  console.log("unprocessed documents found", unprocessedDocuments?.length);
 
   if (unprocessedDocumentsError) {
     throw unprocessedDocumentsError;
@@ -374,7 +374,7 @@ const checkProcessed = async (): Promise<any[]> => {
       .eq('processed', false)
       .eq('document_id', doc.id);
 
-    console.log('unprocessed leads found', unprocessedLeads);
+    console.log('unprocessed leads found', unprocessedLeads?.length);
 
     // all leads have been processed
     if (unprocessedLeads?.length == 0) {
