@@ -2,13 +2,14 @@ import { toDateTime } from './helpers';
 import { stripe } from './stripe';
 import { Leap } from '@leap-ai/workflows';
 import { createClient } from '@supabase/supabase-js';
+import { APIClient, SendEmailRequest } from 'customerio-node';
 import Stripe from 'stripe';
 import type { Database } from 'types_db';
 import { v4 as uuid } from 'uuid';
-import { APIClient, SendEmailRequest } from "customerio-node";
 
-const customerio_client = new APIClient(process.env.CUSTOMERIO_API_KEY as string);
-
+const customerio_client = new APIClient(
+  process.env.CUSTOMERIO_API_KEY as string
+);
 
 type Product = Database['public']['Tables']['products']['Row'];
 type Price = Database['public']['Tables']['prices']['Row'];
@@ -74,11 +75,11 @@ const createOrRetrieveCustomer = async ({
   if (error || !data?.stripe_customer_id) {
     // No customer record found, let's create one.
     const customerData: { metadata: { supabaseUUID: string }; email?: string } =
-    {
-      metadata: {
-        supabaseUUID: uuid
-      }
-    };
+      {
+        metadata: {
+          supabaseUUID: uuid
+        }
+      };
     if (email) customerData.email = email;
     const customer = await stripe.customers.create(customerData);
     // Now insert the customer ID into our Supabase mapping table.
@@ -135,39 +136,39 @@ const manageSubscriptionStatusChange = async (
   });
   // Upsert the latest status of the subscription object.
   const subscriptionData: Database['public']['Tables']['subscriptions']['Insert'] =
-  {
-    id: subscription.id,
-    user_id: uuid,
-    metadata: subscription.metadata,
-    status: subscription.status,
-    price_id: subscription.items.data[0].price.id,
-    //TODO check quantity on subscription
-    // @ts-ignore
-    quantity: subscription.quantity,
-    cancel_at_period_end: subscription.cancel_at_period_end,
-    cancel_at: subscription.cancel_at
-      ? toDateTime(subscription.cancel_at).toISOString()
-      : null,
-    canceled_at: subscription.canceled_at
-      ? toDateTime(subscription.canceled_at).toISOString()
-      : null,
-    current_period_start: toDateTime(
-      subscription.current_period_start
-    ).toISOString(),
-    current_period_end: toDateTime(
-      subscription.current_period_end
-    ).toISOString(),
-    created: toDateTime(subscription.created).toISOString(),
-    ended_at: subscription.ended_at
-      ? toDateTime(subscription.ended_at).toISOString()
-      : null,
-    trial_start: subscription.trial_start
-      ? toDateTime(subscription.trial_start).toISOString()
-      : null,
-    trial_end: subscription.trial_end
-      ? toDateTime(subscription.trial_end).toISOString()
-      : null
-  };
+    {
+      id: subscription.id,
+      user_id: uuid,
+      metadata: subscription.metadata,
+      status: subscription.status,
+      price_id: subscription.items.data[0].price.id,
+      //TODO check quantity on subscription
+      // @ts-ignore
+      quantity: subscription.quantity,
+      cancel_at_period_end: subscription.cancel_at_period_end,
+      cancel_at: subscription.cancel_at
+        ? toDateTime(subscription.cancel_at).toISOString()
+        : null,
+      canceled_at: subscription.canceled_at
+        ? toDateTime(subscription.canceled_at).toISOString()
+        : null,
+      current_period_start: toDateTime(
+        subscription.current_period_start
+      ).toISOString(),
+      current_period_end: toDateTime(
+        subscription.current_period_end
+      ).toISOString(),
+      created: toDateTime(subscription.created).toISOString(),
+      ended_at: subscription.ended_at
+        ? toDateTime(subscription.ended_at).toISOString()
+        : null,
+      trial_start: subscription.trial_start
+        ? toDateTime(subscription.trial_start).toISOString()
+        : null,
+      trial_end: subscription.trial_end
+        ? toDateTime(subscription.trial_end).toISOString()
+        : null
+    };
 
   const { error } = await supabaseAdmin
     .from('subscriptions')
@@ -238,25 +239,35 @@ const onUpload = async (document_id: string, user_email: string) => {
     .select('*')
     .eq('id', document_id);
 
-  if (!documents || documents?.length == 0) { return }
+  if (!documents || documents?.length == 0) {
+    return;
+  }
 
   var doc = documents[0];
 
   if (!doc.slack_notified) {
-    if (doc.total_leads >= Number(process.env.ZAPIER_SLACK_EMAIL_LIMIT || 5000)) {
+    if (
+      doc.total_leads >= Number(process.env.ZAPIER_SLACK_EMAIL_LIMIT || 5000)
+    ) {
       fetch(process.env.ZAPIER_SLACK_WEBHOOK as string, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'
         },
         body: JSON.stringify({
-          "text": `${user_email || "Someone (not signed in)"} tried to upload a document with ${doc.total_leads} emails.\nDocumentID of the file they uploaded: ${document_id} \nYour current limit is set to: ${Number(process.env.ZAPIER_SLACK_EMAIL_LIMIT || 5000)}`,
-          "channel": "#studio-knowmore"
+          text: `${
+            user_email || 'Someone (not signed in)'
+          } tried to upload a document with ${
+            doc.total_leads
+          } emails.\nDocumentID of the file they uploaded: ${document_id} \nYour current limit is set to: ${Number(
+            process.env.ZAPIER_SLACK_EMAIL_LIMIT || 5000
+          )}`,
+          channel: '#studio-knowmore'
         })
       });
     }
   }
-}
+};
 
 const onPaid = async (document_id: string, customer_email: string) => {
   try {
@@ -269,16 +280,14 @@ const onPaid = async (document_id: string, customer_email: string) => {
       throw leadError;
     }
 
-    console.log("LEAP_WEBHOOK_URL", process.env.LEAP_WEBHOOK_URL)
+    console.log('LEAP_WEBHOOK_URL', process.env.LEAP_WEBHOOK_URL);
 
     for (const lead in leadData) {
       const { id, email } = leadData[lead];
 
       const response = await leap.workflowRuns.workflow({
         workflow_id: process.env.LEAP_WORKFLOW_ID || 'wkf_Z2NKhgEKaL1UIL',
-        webhook_url:
-          process.env.LEAP_WEBHOOK_URL ||
-          'http://localhost:3000/api/leap/webhook',
+        webhook_url: process.env.LEAP_WEBHOOK_URL,
         input: {
           email_of_lead: email,
           user_website: `https://${email.split('@')[1]}`,
@@ -311,22 +320,23 @@ const onPaid = async (document_id: string, customer_email: string) => {
       .eq('id', document_id);
 
     const request = new SendEmailRequest({
-      transactional_message_id: "3",
+      transactional_message_id: '3',
       message_data: {
-        lead_count: leadData.length,
+        lead_count: leadData.length
       },
       identifiers: {
-        id: document_id,
+        id: document_id
       },
       to: customer_email,
-      from: "omar@knowmore.bot"
+      from: 'omar@knowmore.bot'
     });
 
-    console.log("sending an email (processing leads) to", customer_email);
+    console.log('sending an email (processing leads) to', customer_email);
 
-    await customerio_client.sendEmail(request)
+    await customerio_client
+      .sendEmail(request)
       .then((res: any) => console.log(res))
-      .catch((err: any) => console.log(err.statusCode, err.message))
+      .catch((err: any) => console.log(err.statusCode, err.message));
 
     console.log('Document updated successfully:', documentData);
 
@@ -339,13 +349,10 @@ const onPaid = async (document_id: string, customer_email: string) => {
 };
 
 const checkProcessed = async (): Promise<any[]> => {
+  const { data: unprocessedDocuments, error: unprocessedDocumentsError } =
+    await supabaseAdmin.from('documents').select('*').eq('processed', false);
 
-  const { data: unprocessedDocuments, error: unprocessedDocumentsError } = await supabaseAdmin
-    .from('documents')
-    .select('*')
-    .eq('processed', false);
-
-  console.log("unprocessed documents found", unprocessedDocuments);
+  console.log('unprocessed documents found', unprocessedDocuments);
 
   if (unprocessedDocumentsError) {
     throw unprocessedDocumentsError;
@@ -354,13 +361,14 @@ const checkProcessed = async (): Promise<any[]> => {
   const updatedDocs: any[] = [];
 
   for (const doc of unprocessedDocuments) {
-    const { data: unprocessedLeads, error: unprocessedLeadsError } = await supabaseAdmin
-      .from('leads')
-      .select('*')
-      .eq('processed', false)
-      .eq('document_id', doc.id);
+    const { data: unprocessedLeads, error: unprocessedLeadsError } =
+      await supabaseAdmin
+        .from('leads')
+        .select('*')
+        .eq('processed', false)
+        .eq('document_id', doc.id);
 
-      console.log("unprocessed leads found", unprocessedLeads);
+    console.log('unprocessed leads found', unprocessedLeads);
 
     // all leads have been processed
     if (unprocessedLeads?.length == 0) {
@@ -371,64 +379,64 @@ const checkProcessed = async (): Promise<any[]> => {
         .update({ processed: true })
         .eq('id', doc.id);
 
-        
-      console.log("sending an email (processed leads) to", doc.customer_to_email);
+      console.log(
+        'sending an email (processed leads) to',
+        doc.customer_to_email
+      );
 
       const request = new SendEmailRequest({
-        transactional_message_id: "2",
+        transactional_message_id: '2',
         message_data: {
-          link: `https://www.knowmore.bot/view/${doc.id}`,
+          link: `https://www.knowmore.bot/view/${doc.id}`
         },
         identifiers: {
-          id: doc.id,
+          id: doc.id
         },
         to: doc.customer_to_email,
-        from: "omar@knowmore.bot"
+        from: 'omar@knowmore.bot'
       });
 
-      await customerio_client.sendEmail(request)
+      await customerio_client
+        .sendEmail(request)
         .then((res: any) => console.log(res))
-        .catch((err: any) => console.log(err.statusCode, err.message))
+        .catch((err: any) => console.log(err.statusCode, err.message));
     }
   }
   return updatedDocs;
-}
+};
 
-const onProcessed = async (
-  output: any
-) => {
+const onProcessed = async (output: any) => {
   try {
-
     const { data: documentData, error: documentError } = await supabaseAdmin
       .from('leads')
       .update({ processed: true })
       .eq('workflow_run_id', output.id);
 
-    console.log(output.output.output as string);
+    const { data: lead } = output.output.output;
+    const { document_id, email_of_lead } = output.input;
 
-    const lead = JSON.parse((output.output.output as string).replaceAll("\n", "").replaceAll("\t", "").replaceAll("'", "\""));
-
-    if (!lead.email) {
-      return;
-    }
     const { data, error } = await supabaseAdmin
       .from('leads')
       .update({
-        email: lead.email,
-        name: lead.name || lead.full_name,
-        linkedin: lead.linkedin || lead.linkedIn || lead.linkedin_url,
-        company: lead.company || lead.companyName || lead.job_history[0].company,
-        role: lead.role || lead.current_job_position,
-        location: lead.location
+        name: lead.full_name,
+        linkedin: lead.linkedin_url,
+        location: lead.location,
+        company: lead.company,
+        role: lead.headline,
+        about: lead.about,
+        summary: lead.summary,
+        education: lead.school,
+        processed: true
       })
-      .eq('document_id', output.input.document_id)
-      .eq('email', lead.email);
+      .eq('document_id', document_id)
+      .eq('email', email_of_lead);
+
     if (error) {
       throw error;
     }
 
     if (documentError) {
-      throw documentError; // Throw an error if there was an issue updating the document
+      throw documentError;
     }
 
     console.log('Document updated successfully:', documentData);
