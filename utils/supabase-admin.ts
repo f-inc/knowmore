@@ -339,7 +339,9 @@ const onPaid = async (document_id: string, customer_email: string) => {
 };
 
 const checkProcessed = async (): Promise<any[]> => {
+  console.log("checking if unprocessed documents have finished processing");
 
+  // gets all unprocessed docs
   const { data: unprocessedDocuments, error: unprocessedDocumentsError } = await supabaseAdmin
     .from('documents')
     .select('*')
@@ -354,6 +356,8 @@ const checkProcessed = async (): Promise<any[]> => {
   const updatedDocs: any[] = [];
 
   for (const doc of unprocessedDocuments) {
+
+    // gets all unprocessedLeads docs
     const { data: unprocessedLeads, error: unprocessedLeadsError } = await supabaseAdmin
       .from('leads')
       .select('*')
