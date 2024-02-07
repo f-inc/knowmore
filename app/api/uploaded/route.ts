@@ -7,7 +7,5 @@ export async function POST(req: Request) {
 
   const output = response;
 
-  console.log(output.document_id, session?.user.email as string);
-
   onUpload(output.document_id, session?.user.email as string);
 }

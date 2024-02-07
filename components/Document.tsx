@@ -214,7 +214,7 @@ export default function Document({
     if (recordData) {
       setDocument(recordData);
       setIsPaid(recordData.paid);
-      setIsProcessed(recordData.processed_rows);
+      setIsProcessed(recordData.processed_rows || recordData.processed);
     }
   };
 

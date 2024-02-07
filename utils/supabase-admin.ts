@@ -234,28 +234,28 @@ const upsertLeads = async (id: string, Leads: any[]) => {
 
 const onUpload = async (document_id: string, user_email: string) => {
   const { data: documents, error: documentsError } = await supabaseAdmin
-      .from('documents')
-      .select('*')
-      .eq('id', document_id);    
+    .from('documents')
+    .select('*')
+    .eq('id', document_id);
 
-    if(!documents || documents?.length==0) {return}
-    
-    var doc = documents[0];
+  if (!documents || documents?.length == 0) { return }
 
-    if(!doc.slack_notified) {
-      if (doc.total_leads >= Number(process.env.ZAPIER_SLACK_EMAIL_LIMIT || 5000)) {
-        fetch(process.env.ZAPIER_SLACK_WEBHOOK as string, {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json'
-          },
-          body: JSON.stringify({
-            "text": `${user_email || "Someone (not signed in)"} tried to upload a document with ${doc.total_leads} emails.\nDocumentID of the file they uploaded: ${document_id} \nYour current limit is set to: ${Number(process.env.ZAPIER_SLACK_EMAIL_LIMIT || 5000)}`,
-            "channel": "#studio-knowmore"
-          })
-        });
-      }
+  var doc = documents[0];
+
+  if (!doc.slack_notified) {
+    if (doc.total_leads >= Number(process.env.ZAPIER_SLACK_EMAIL_LIMIT || 5000)) {
+      fetch(process.env.ZAPIER_SLACK_WEBHOOK as string, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+          "text": `${user_email || "Someone (not signed in)"} tried to upload a document with ${doc.total_leads} emails.\nDocumentID of the file they uploaded: ${document_id} \nYour current limit is set to: ${Number(process.env.ZAPIER_SLACK_EMAIL_LIMIT || 5000)}`,
+          "channel": "#studio-knowmore"
+        })
+      });
     }
+  }
 }
 
 const onPaid = async (document_id: string, customer_email: string) => {
@@ -305,7 +305,7 @@ const onPaid = async (document_id: string, customer_email: string) => {
       .from('documents')
       .update({
         paid: true,
-        processed_rows: 0,
+        processed: false,
         customer_to_email: customer_email
       })
       .eq('id', document_id);
@@ -336,52 +336,62 @@ const onPaid = async (document_id: string, customer_email: string) => {
   }
 };
 
-const onProcessed = async (
-  output: any
-) => {
-  try {
-    const { data: documentData, error: documentError } = await supabaseAdmin
-      .from('leads')
-      .update({ processed: true })
-      .eq('workflow_run_id', output.id);
+const checkProcessed = async () => {
 
+  const { data: unprocessedDocuments, error: unprocessedDocumentsError } = await supabaseAdmin
+    .from('documents')
+    .select('*')
+    .eq('processed', false);
+
+  console.log(unprocessedDocuments);
+
+  if (unprocessedDocumentsError) {
+    throw unprocessedDocumentsError;
+  }
+
+  for (const doc of unprocessedDocuments) {
     const { data: unprocessedLeads, error: unprocessedLeadsError } = await supabaseAdmin
       .from('leads')
       .select('*')
       .eq('processed', false)
-      .eq('document_id', output.input.document_id);
+      .eq('document_id', doc.id);
 
     // all leads have been processed
     if (unprocessedLeads?.length == 0) {
       await supabaseAdmin
         .from('documents')
-        .update({ processed_rows: 1 })
-        .eq('id', output.input.document_id);
+        .update({ processed: true })
+        .eq('id', doc.id);
 
-      const { data: documentData, error: documentError } = await supabaseAdmin
-        .from('documents')
-        .select("*")
-        .eq('id', output.input.document_id);
+      const request = new SendEmailRequest({
+        transactional_message_id: "2",
+        message_data: {
+          link: `https://www.knowmore.bot/view/${doc.id}`,
+        },
+        identifiers: {
+          id: doc.id,
+        },
+        to: doc.customer_to_email,
+        from: "omar@knowmore.bot"
+      });
 
-      if (documentData) {
-
-        const request = new SendEmailRequest({
-          transactional_message_id: "2",
-          message_data: {
-            link: `https://www.knowmore.bot/view/${output.input.document_id}`,
-          },
-          identifiers: {
-            id: output.input.document_id,
-          },
-          to: documentData[0].customer_to_email,
-          from: "omar@knowmore.bot"
-        });
-
-        customerio_client.sendEmail(request)
-          .then((res: any) => console.log(res))
-          .catch((err: any) => console.log(err.statusCode, err.message))
-      }
+      customerio_client.sendEmail(request)
+        .then((res: any) => console.log(res))
+        .catch((err: any) => console.log(err.statusCode, err.message))
     }
+  }
+
+}
+
+const onProcessed = async (
+  output: any
+) => {
+  try {
+
+    const { data: documentData, error: documentError } = await supabaseAdmin
+      .from('leads')
+      .update({ processed: true })
+      .eq('workflow_run_id', output.id);
 
     console.log(output.output.output as string);
 
@@ -410,10 +420,6 @@ const onProcessed = async (
       throw documentError; // Throw an error if there was an issue updating the document
     }
 
-    if (unprocessedLeadsError) {
-      throw unprocessedLeadsError;
-    }
-
     console.log('Document updated successfully:', documentData);
   } catch (error) {
     console.error('Error updating document:', error);
@@ -429,5 +435,6 @@ export {
   upsertLeads,
   onUpload,
   onPaid,
-  onProcessed
+  onProcessed,
+  checkProcessed
 };
