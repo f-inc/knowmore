@@ -5,7 +5,7 @@ import { createClient } from '@supabase/supabase-js';
 import Stripe from 'stripe';
 import type { Database } from 'types_db';
 import { v4 as uuid } from 'uuid';
-const { APIClient, SendEmailRequest } = require("customerio-node");
+import { APIClient, SendEmailRequest } from "customerio-node";
 
 const customerio_client = new APIClient(process.env.CUSTOMERIO_API_KEY as string);
 
@@ -322,7 +322,9 @@ const onPaid = async (document_id: string, customer_email: string) => {
       from: "omar@knowmore.bot"
     });
 
-    customerio_client.sendEmail(request)
+    console.log("sending an email (processing leads) to", customer_email);
+
+    await customerio_client.sendEmail(request)
       .then((res: any) => console.log(res))
       .catch((err: any) => console.log(err.statusCode, err.message))
 
@@ -343,6 +345,8 @@ const checkProcessed = async (): Promise<any[]> => {
     .select('*')
     .eq('processed', false);
 
+  console.log("unprocessed documents found", unprocessedDocuments);
+
   if (unprocessedDocumentsError) {
     throw unprocessedDocumentsError;
   }
@@ -356,6 +360,8 @@ const checkProcessed = async (): Promise<any[]> => {
       .eq('processed', false)
       .eq('document_id', doc.id);
 
+      console.log("unprocessed leads found", unprocessedLeads);
+
     // all leads have been processed
     if (unprocessedLeads?.length == 0) {
       updatedDocs.push(doc);
@@ -364,6 +370,9 @@ const checkProcessed = async (): Promise<any[]> => {
         .from('documents')
         .update({ processed: true })
         .eq('id', doc.id);
+
+        
+      console.log("sending an email (processed leads) to", doc.customer_to_email);
 
       const request = new SendEmailRequest({
         transactional_message_id: "2",
@@ -377,7 +386,7 @@ const checkProcessed = async (): Promise<any[]> => {
         from: "omar@knowmore.bot"
       });
 
-      customerio_client.sendEmail(request)
+      await customerio_client.sendEmail(request)
         .then((res: any) => console.log(res))
         .catch((err: any) => console.log(err.statusCode, err.message))
     }
