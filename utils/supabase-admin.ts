@@ -5,10 +5,12 @@ import { createClient } from '@supabase/supabase-js';
 import Stripe from 'stripe';
 import type { Database } from 'types_db';
 import { v4 as uuid } from 'uuid';
-const { APIClient, SendEmailRequest } = require("customerio-node");
 
-const customerio_client = new APIClient(process.env.CUSTOMERIO_API_KEY as string);
+const { APIClient, SendEmailRequest } = require('customerio-node');
 
+const customerio_client = new APIClient(
+  process.env.CUSTOMERIO_API_KEY as string
+);
 
 type Product = Database['public']['Tables']['products']['Row'];
 type Price = Database['public']['Tables']['prices']['Row'];
@@ -74,11 +76,11 @@ const createOrRetrieveCustomer = async ({
   if (error || !data?.stripe_customer_id) {
     // No customer record found, let's create one.
     const customerData: { metadata: { supabaseUUID: string }; email?: string } =
-    {
-      metadata: {
-        supabaseUUID: uuid
-      }
-    };
+      {
+        metadata: {
+          supabaseUUID: uuid
+        }
+      };
     if (email) customerData.email = email;
     const customer = await stripe.customers.create(customerData);
     // Now insert the customer ID into our Supabase mapping table.
@@ -135,39 +137,39 @@ const manageSubscriptionStatusChange = async (
   });
   // Upsert the latest status of the subscription object.
   const subscriptionData: Database['public']['Tables']['subscriptions']['Insert'] =
-  {
-    id: subscription.id,
-    user_id: uuid,
-    metadata: subscription.metadata,
-    status: subscription.status,
-    price_id: subscription.items.data[0].price.id,
-    //TODO check quantity on subscription
-    // @ts-ignore
-    quantity: subscription.quantity,
-    cancel_at_period_end: subscription.cancel_at_period_end,
-    cancel_at: subscription.cancel_at
-      ? toDateTime(subscription.cancel_at).toISOString()
-      : null,
-    canceled_at: subscription.canceled_at
-      ? toDateTime(subscription.canceled_at).toISOString()
-      : null,
-    current_period_start: toDateTime(
-      subscription.current_period_start
-    ).toISOString(),
-    current_period_end: toDateTime(
-      subscription.current_period_end
-    ).toISOString(),
-    created: toDateTime(subscription.created).toISOString(),
-    ended_at: subscription.ended_at
-      ? toDateTime(subscription.ended_at).toISOString()
-      : null,
-    trial_start: subscription.trial_start
-      ? toDateTime(subscription.trial_start).toISOString()
-      : null,
-    trial_end: subscription.trial_end
-      ? toDateTime(subscription.trial_end).toISOString()
-      : null
-  };
+    {
+      id: subscription.id,
+      user_id: uuid,
+      metadata: subscription.metadata,
+      status: subscription.status,
+      price_id: subscription.items.data[0].price.id,
+      //TODO check quantity on subscription
+      // @ts-ignore
+      quantity: subscription.quantity,
+      cancel_at_period_end: subscription.cancel_at_period_end,
+      cancel_at: subscription.cancel_at
+        ? toDateTime(subscription.cancel_at).toISOString()
+        : null,
+      canceled_at: subscription.canceled_at
+        ? toDateTime(subscription.canceled_at).toISOString()
+        : null,
+      current_period_start: toDateTime(
+        subscription.current_period_start
+      ).toISOString(),
+      current_period_end: toDateTime(
+        subscription.current_period_end
+      ).toISOString(),
+      created: toDateTime(subscription.created).toISOString(),
+      ended_at: subscription.ended_at
+        ? toDateTime(subscription.ended_at).toISOString()
+        : null,
+      trial_start: subscription.trial_start
+        ? toDateTime(subscription.trial_start).toISOString()
+        : null,
+      trial_end: subscription.trial_end
+        ? toDateTime(subscription.trial_end).toISOString()
+        : null
+    };
 
   const { error } = await supabaseAdmin
     .from('subscriptions')
@@ -234,29 +236,39 @@ const upsertLeads = async (id: string, Leads: any[]) => {
 
 const onUpload = async (document_id: string, user_email: string) => {
   const { data: documents, error: documentsError } = await supabaseAdmin
-      .from('documents')
-      .select('*')
-      .eq('id', document_id);    
+    .from('documents')
+    .select('*')
+    .eq('id', document_id);
 
-    if(!documents || documents?.length==0) {return}
-    
-    var doc = documents[0];
+  if (!documents || documents?.length == 0) {
+    return;
+  }
 
-    if(!doc.slack_notified) {
-      if (doc.total_leads >= Number(process.env.ZAPIER_SLACK_EMAIL_LIMIT || 5000)) {
-        fetch(process.env.ZAPIER_SLACK_WEBHOOK as string, {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json'
-          },
-          body: JSON.stringify({
-            "text": `${user_email || "Someone (not signed in)"} tried to upload a document with ${doc.total_leads} emails.\nDocumentID of the file they uploaded: ${document_id} \nYour current limit is set to: ${Number(process.env.ZAPIER_SLACK_EMAIL_LIMIT || 5000)}`,
-            "channel": "#studio-knowmore"
-          })
-        });
-      }
+  var doc = documents[0];
+
+  if (!doc.slack_notified) {
+    if (
+      doc.total_leads >= Number(process.env.ZAPIER_SLACK_EMAIL_LIMIT || 5000)
+    ) {
+      fetch(process.env.ZAPIER_SLACK_WEBHOOK as string, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+          text: `${
+            user_email || 'Someone (not signed in)'
+          } tried to upload a document with ${
+            doc.total_leads
+          } emails.\nDocumentID of the file they uploaded: ${document_id} \nYour current limit is set to: ${Number(
+            process.env.ZAPIER_SLACK_EMAIL_LIMIT || 5000
+          )}`,
+          channel: '#studio-knowmore'
+        })
+      });
     }
-}
+  }
+};
 
 const onPaid = async (document_id: string, customer_email: string) => {
   try {
@@ -309,20 +321,21 @@ const onPaid = async (document_id: string, customer_email: string) => {
       .eq('id', document_id);
 
     const request = new SendEmailRequest({
-      transactional_message_id: "3",
+      transactional_message_id: '3',
       message_data: {
-        lead_count: leadData.length,
+        lead_count: leadData.length
       },
       identifiers: {
-        id: document_id,
+        id: document_id
       },
       to: customer_email,
-      from: "omar@knowmore.bot"
+      from: 'omar@knowmore.bot'
     });
 
-    customerio_client.sendEmail(request)
+    customerio_client
+      .sendEmail(request)
       .then((res: any) => console.log(res))
-      .catch((err: any) => console.log(err.statusCode, err.message))
+      .catch((err: any) => console.log(err.statusCode, err.message));
 
     console.log('Document updated successfully:', documentData);
 
@@ -334,20 +347,19 @@ const onPaid = async (document_id: string, customer_email: string) => {
   }
 };
 
-const onProcessed = async (
-  output: any
-) => {
+const onProcessed = async (output: any) => {
   try {
     const { data: documentData, error: documentError } = await supabaseAdmin
       .from('leads')
       .update({ processed: true })
       .eq('workflow_run_id', output.id);
 
-    const { data: unprocessedLeads, error: unprocessedLeadsError } = await supabaseAdmin
-      .from('leads')
-      .select('*')
-      .eq('processed', false)
-      .eq('document_id', output.input.document_id);
+    const { data: unprocessedLeads, error: unprocessedLeadsError } =
+      await supabaseAdmin
+        .from('leads')
+        .select('*')
+        .eq('processed', false)
+        .eq('document_id', output.input.document_id);
 
     // all leads have been processed
     if (unprocessedLeads?.length == 0) {
@@ -358,32 +370,37 @@ const onProcessed = async (
 
       const { data: documentData, error: documentError } = await supabaseAdmin
         .from('documents')
-        .select("*")
+        .select('*')
         .eq('id', output.input.document_id);
 
       if (documentData) {
-
         const request = new SendEmailRequest({
-          transactional_message_id: "2",
+          transactional_message_id: '2',
           message_data: {
-            link: `https://www.knowmore.bot/view/${output.input.document_id}`,
+            link: `https://www.knowmore.bot/view/${output.input.document_id}`
           },
           identifiers: {
-            id: output.input.document_id,
+            id: output.input.document_id
           },
           to: documentData[0].customer_to_email,
-          from: "omar@knowmore.bot"
+          from: 'omar@knowmore.bot'
         });
 
-        customerio_client.sendEmail(request)
+        customerio_client
+          .sendEmail(request)
           .then((res: any) => console.log(res))
-          .catch((err: any) => console.log(err.statusCode, err.message))
+          .catch((err: any) => console.log(err.statusCode, err.message));
       }
     }
 
     console.log(output.output.output as string);
 
-    const lead = JSON.parse((output.output.output as string).replaceAll("\n", "").replaceAll("\t", "").replaceAll("'", "\""));
+    const lead = JSON.parse(
+      (output.output.output as string)
+        .replaceAll('\n', '')
+        .replaceAll('\t', '')
+        .replaceAll("'", '"')
+    );
 
     if (!lead.email) {
       return;
@@ -391,12 +408,14 @@ const onProcessed = async (
     const { data, error } = await supabaseAdmin
       .from('leads')
       .update({
-        email: lead.email,
-        name: lead.name || lead.full_name,
+        name: lead.full_name || lead.name || lead.first_name,
         linkedin: lead.linkedin || lead.linkedIn || lead.linkedin_url,
-        company: lead.company || lead.companyName || lead.job_history[0].company,
+        location: lead.location,
+        company: lead.current_company || lead.company,
         role: lead.role || lead.current_job_position,
-        location: lead.location
+        about: lead.about || lead.bio || lead.job_history[0].description,
+        summary: lead.summary,
+        education: lead.education_summary
       })
       .eq('document_id', output.input.document_id)
       .eq('email', lead.email);
