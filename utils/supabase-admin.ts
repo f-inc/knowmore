@@ -2,11 +2,10 @@ import { toDateTime } from './helpers';
 import { stripe } from './stripe';
 import { Leap } from '@leap-ai/workflows';
 import { createClient } from '@supabase/supabase-js';
+import { APIClient, SendEmailRequest } from 'customerio-node';
 import Stripe from 'stripe';
 import type { Database } from 'types_db';
 import { v4 as uuid } from 'uuid';
-
-const { APIClient, SendEmailRequest } = require('customerio-node');
 
 const customerio_client = new APIClient(
   process.env.CUSTOMERIO_API_KEY as string
@@ -281,14 +280,14 @@ const onPaid = async (document_id: string, customer_email: string) => {
       throw leadError;
     }
 
+    console.log('LEAP_WEBHOOK_URL', process.env.LEAP_WEBHOOK_URL);
+
     for (const lead in leadData) {
       const { id, email } = leadData[lead];
 
       const response = await leap.workflowRuns.workflow({
         workflow_id: process.env.LEAP_WORKFLOW_ID || 'wkf_Z2NKhgEKaL1UIL',
-        webhook_url:
-          process.env.LEAP_WEBHOOK_URL ||
-          'http://localhost:3000/api/leap/webhook',
+        webhook_url: process.env.LEAP_WEBHOOK_URL,
         input: {
           email_of_lead: email,
           user_website: `https://${email.split('@')[1]}`,
@@ -315,7 +314,7 @@ const onPaid = async (document_id: string, customer_email: string) => {
       .from('documents')
       .update({
         paid: true,
-        processed_rows: 0,
+        processed: false,
         customer_to_email: customer_email
       })
       .eq('id', document_id);
@@ -332,7 +331,9 @@ const onPaid = async (document_id: string, customer_email: string) => {
       from: 'omar@knowmore.bot'
     });
 
-    customerio_client
+    console.log('sending an email (processing leads) to', customer_email);
+
+    await customerio_client
       .sendEmail(request)
       .then((res: any) => console.log(res))
       .catch((err: any) => console.log(err.statusCode, err.message));
@@ -347,6 +348,63 @@ const onPaid = async (document_id: string, customer_email: string) => {
   }
 };
 
+const checkProcessed = async (): Promise<any[]> => {
+  const { data: unprocessedDocuments, error: unprocessedDocumentsError } =
+    await supabaseAdmin.from('documents').select('*').eq('processed', false);
+
+  console.log('unprocessed documents found', unprocessedDocuments);
+
+  if (unprocessedDocumentsError) {
+    throw unprocessedDocumentsError;
+  }
+
+  const updatedDocs: any[] = [];
+
+  for (const doc of unprocessedDocuments) {
+    const { data: unprocessedLeads, error: unprocessedLeadsError } =
+      await supabaseAdmin
+        .from('leads')
+        .select('*')
+        .eq('processed', false)
+        .eq('document_id', doc.id);
+
+    console.log('unprocessed leads found', unprocessedLeads);
+
+    // all leads have been processed
+    if (unprocessedLeads?.length == 0) {
+      updatedDocs.push(doc);
+
+      await supabaseAdmin
+        .from('documents')
+        .update({ processed: true })
+        .eq('id', doc.id);
+
+      console.log(
+        'sending an email (processed leads) to',
+        doc.customer_to_email
+      );
+
+      const request = new SendEmailRequest({
+        transactional_message_id: '2',
+        message_data: {
+          link: `https://www.knowmore.bot/view/${doc.id}`
+        },
+        identifiers: {
+          id: doc.id
+        },
+        to: doc.customer_to_email,
+        from: 'omar@knowmore.bot'
+      });
+
+      await customerio_client
+        .sendEmail(request)
+        .then((res: any) => console.log(res))
+        .catch((err: any) => console.log(err.statusCode, err.message));
+    }
+  }
+  return updatedDocs;
+};
+
 const onProcessed = async (output: any) => {
   try {
     const { data: documentData, error: documentError } = await supabaseAdmin
@@ -354,81 +412,31 @@ const onProcessed = async (output: any) => {
       .update({ processed: true })
       .eq('workflow_run_id', output.id);
 
-    const { data: unprocessedLeads, error: unprocessedLeadsError } =
-      await supabaseAdmin
-        .from('leads')
-        .select('*')
-        .eq('processed', false)
-        .eq('document_id', output.input.document_id);
+    const { data: lead } = output.output.output;
+    const { document_id, email_of_lead } = output.input;
 
-    // all leads have been processed
-    if (unprocessedLeads?.length == 0) {
-      await supabaseAdmin
-        .from('documents')
-        .update({ processed_rows: 1 })
-        .eq('id', output.input.document_id);
-
-      const { data: documentData, error: documentError } = await supabaseAdmin
-        .from('documents')
-        .select('*')
-        .eq('id', output.input.document_id);
-
-      if (documentData) {
-        const request = new SendEmailRequest({
-          transactional_message_id: '2',
-          message_data: {
-            link: `https://www.knowmore.bot/view/${output.input.document_id}`
-          },
-          identifiers: {
-            id: output.input.document_id
-          },
-          to: documentData[0].customer_to_email,
-          from: 'omar@knowmore.bot'
-        });
-
-        customerio_client
-          .sendEmail(request)
-          .then((res: any) => console.log(res))
-          .catch((err: any) => console.log(err.statusCode, err.message));
-      }
-    }
-
-    console.log(output.output.output as string);
-
-    const lead = JSON.parse(
-      (output.output.output as string)
-        .replaceAll('\n', '')
-        .replaceAll('\t', '')
-        .replaceAll("'", '"')
-    );
-
-    if (!lead.email) {
-      return;
-    }
     const { data, error } = await supabaseAdmin
       .from('leads')
       .update({
-        name: lead.full_name || lead.name || lead.first_name,
-        linkedin: lead.linkedin || lead.linkedIn || lead.linkedin_url,
+        name: lead.full_name,
+        linkedin: lead.linkedin_url,
         location: lead.location,
-        company: lead.current_company || lead.company,
-        role: lead.role || lead.current_job_position,
-        about: lead.about || lead.bio || lead.job_history[0].description,
+        company: lead.company,
+        role: lead.headline,
+        about: lead.about,
         summary: lead.summary,
-        education: lead.education_summary
+        education: lead.school,
+        processed: true
       })
-      .eq('document_id', output.input.document_id)
-      .eq('email', lead.email);
+      .eq('document_id', document_id)
+      .eq('email', email_of_lead);
+
     if (error) {
       throw error;
     }
 
     if (documentError) {
-      throw documentError; // Throw an error if there was an issue updating the document
-    }
-
-    if (unprocessedLeadsError) {
-      throw unprocessedLeadsError;
+      throw documentError;
     }
 
     console.log('Document updated successfully:', documentData);
@@ -446,5 +454,6 @@ export {
   upsertLeads,
   onUpload,
   onPaid,
-  onProcessed
+  onProcessed,
+  checkProcessed
 };

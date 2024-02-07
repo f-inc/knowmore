@@ -170,6 +170,7 @@ export default function Document({
 
   const [document, setDocument] = useState<any>();
   const [leads, setLeads] = useState<LeadDataType[]>([]);
+  const [filteredLeads, setFilteredLeads] = useState<LeadDataType[]>([]);
   const [isPaid, setIsPaid] = useState(false);
   const [isProcessed, setIsProcessed] = useState(false);
 
@@ -210,9 +211,10 @@ export default function Document({
 
     if (leadData) {
       console.log(leadData);
-      const filtedLeads = leadData.filter((lead) => lead.processed);
+      const filteredLeadData = leadData.filter((lead) => lead.processed);
 
-      setLeads(filtedLeads as LeadDataType[]);
+      setFilteredLeads(filteredLeadData as LeadDataType[]);
+      setLeads(leadData as LeadDataType[]);
     }
 
     if (error) {
@@ -223,7 +225,7 @@ export default function Document({
     if (recordData) {
       setDocument(recordData);
       setIsPaid(recordData.paid);
-      setIsProcessed(recordData.processed_rows);
+      setIsProcessed(recordData.processed_rows || recordData.processed);
     }
   };
 
@@ -269,18 +271,20 @@ export default function Document({
         <div className="mt-10">
           {isPaid ? (
             <div className="text-right text-xs px-5">
-              <>
-                <p className="mt-3">
-                  Processed all {leads.length} results, please download the CSV
-                  file.
-                </p>
-                <button
-                  onClick={downloadCsv}
-                  className="mt-3 px-4 py-2 bg-[#E85533] text-white rounded-full text-sm hover:bg-orange-700 focus:outline-none"
-                >
-                  Download CSV
-                </button>
-              </>
+              {isProcessed && (
+                <>
+                  <p className="mt-3">
+                    Processed all {leads.length} results, please download the
+                    CSV file.
+                  </p>
+                  <button
+                    onClick={downloadCsv}
+                    className="mt-3 px-4 py-2 bg-[#E85533] text-white rounded-full text-sm hover:bg-orange-700 focus:outline-none"
+                  >
+                    Download CSV
+                  </button>
+                </>
+              )}
 
               <div className="overflow-x-auto max-w-[90vw] text-left">
                 <table className="border table-auto text-sm text-gray-200 mt-5">
@@ -295,7 +299,7 @@ export default function Document({
                     </tr>
                   </thead>
                   <tbody className="bg-orange-100/5">
-                    {leads.slice(0, 20).map((lead, index) => (
+                    {filteredLeads.slice(0, 20).map((lead, index) => (
                       <tr key={index}>
                         <td className="py-2 px-4 border">{lead?.email}</td>
                         <td className="py-2 px-4 border">{lead?.company}</td>
@@ -325,13 +329,28 @@ export default function Document({
                     ))}
                   </tbody>
                 </table>
-                <p className="mt-3 text-center">
-                  To view all of your results please{' '}
-                  <a className="underline cursor-pointer" onClick={downloadCsv}>
-                    download the CSV file
-                  </a>
-                  .
-                </p>
+
+                {!isProcessed && (
+                  <div className="loading-spinner py-10">
+                    <BarLoader className="m-auto" color="white" />
+                    <p className="text-xs text-center mt-5">
+                      still processing your leads...
+                    </p>
+                  </div>
+                )}
+
+                {isProcessed && filteredLeads.length > 20 && (
+                  <p className="mt-3 text-center">
+                    To view all of your results please{' '}
+                    <a
+                      className="underline cursor-pointer"
+                      onClick={downloadCsv}
+                    >
+                      download the CSV file
+                    </a>
+                    .
+                  </p>
+                )}
               </div>
             </div>
           ) : (
