@@ -415,8 +415,17 @@ const checkProcessed = async (): Promise<any[]> => {
 const onProcessed = async (output: any) => {
   try {
 
-    const { data: lead } = output.output.output;
     const { document_id, email_of_lead } = output.input;
+
+    await supabaseAdmin
+      .from('leads')
+      .update({
+        processed: true
+      })
+      .eq('document_id', document_id)
+      .eq('email', email_of_lead);
+      
+    const { data: lead } = output.output.output;
 
     console.log('Generating data for lead:', lead);
 
