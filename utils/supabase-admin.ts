@@ -271,6 +271,16 @@ const onUpload = async (document_id: string, user_email: string) => {
 
 const onPaid = async (document_id: string, customer_email: string) => {
   try {
+
+    const { data: documentData, error: documentError } = await supabaseAdmin
+      .from('documents')
+      .update({
+        paid: true,
+        processed: false,
+        customer_to_email: customer_email
+      })
+      .eq('id', document_id);
+      
     const { data: leadData, error: leadError } = await supabaseAdmin
       .from('leads')
       .select('id,email')
@@ -310,15 +320,6 @@ const onPaid = async (document_id: string, customer_email: string) => {
 
       await new Promise(resolve => setTimeout(resolve, 100));
     }
-
-    const { data: documentData, error: documentError } = await supabaseAdmin
-      .from('documents')
-      .update({
-        paid: true,
-        processed: false,
-        customer_to_email: customer_email
-      })
-      .eq('id', document_id);
 
     const request = new SendEmailRequest({
       transactional_message_id: '3',
