@@ -39,6 +39,12 @@ const Lead: React.FC<LeadProps> = ({ document_id, lead, isSample, user }) => {
       );
     }
 
+    const priceID = process.env.NEXT_PUBLIC_STRIPE_PRICE_ID;
+    const productID = process.env.NEXT_PUBLIC_STRIPE_PRODUCT_ID;
+
+    if (!priceID) throw new Error('Stripe price ID is not defined');
+    if (!productID) throw new Error('Stripe product ID is not defined');
+
     try {
       const { sessionId } = await postData({
         url: '/api/create-checkout-session',
@@ -47,11 +53,11 @@ const Lead: React.FC<LeadProps> = ({ document_id, lead, isSample, user }) => {
             active: true,
             currency: 'usd',
             description: 'sa',
-            id: 'price_1ObxeLJuwzUkoN6WWWKPTrkr',
+            id: priceID,
             interval: null,
             interval_count: 1,
             metadata: null,
-            product_id: 'prod_PQpIXn2EWFDuev',
+            product_id: productID,
             trial_period_days: null,
             type: 'one_time',
             unit_amount: 4
