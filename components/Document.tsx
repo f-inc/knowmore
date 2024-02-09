@@ -72,7 +72,8 @@ const Lead: React.FC<LeadProps> = ({ document_id, lead, isSample, user }) => {
       const stripe = await getStripe();
       stripe?.redirectToCheckout({ sessionId });
     } catch (error) {
-      return alert((error as Error)?.message);
+      console.error('Error:', error);
+      return alert(error as Error);
     }
   };
 
@@ -156,7 +157,7 @@ const Lead: React.FC<LeadProps> = ({ document_id, lead, isSample, user }) => {
             await handleCheckout();
           }}
         >
-          {user ? 'Subscribe to view' : 'Login to view'}
+          {user ? 'Pay to view' : 'Login to view'}
         </button>
       )}
     </div>
