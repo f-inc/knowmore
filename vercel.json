@@ -1,0 +1,13 @@
+{
+  "crons": [
+    {
+      "path": "/api/check-processed",
+      "schedule": "*/5 * * * *"
+    }
+  ],
+  "functions": {
+    "app/api/**/*": {
+      "maxDuration": 300
+    }
+  }
+}
