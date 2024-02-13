@@ -42,8 +42,17 @@ export default function Home({ user }: Props) {
             for (const row of results.data) {
               for (const cell of row as any) {
                 const emailRegex = /\S+@\S+\.\S+/;
+
                 if (emailRegex.test(cell)) {
-                  emails.add(cell);
+                  if (
+                    !(
+                      cell.includes('gmail') ||
+                      cell.includes('yahoo') ||
+                      cell.includes('hotmail')
+                    )
+                  ) {
+                    emails.add(cell);
+                  }
                 }
               }
             }
@@ -77,15 +86,14 @@ export default function Home({ user }: Props) {
                   total_leads: emails.size
                 }
               ]);
-            
-              fetch('/api/uploaded', {
-                method: 'POST',
-                headers: {
-                  'Content-Type': 'application/json'
-                },
-                body: JSON.stringify({ document_id: id })
-              });
 
+            fetch('/api/uploaded', {
+              method: 'POST',
+              headers: {
+                'Content-Type': 'application/json'
+              },
+              body: JSON.stringify({ document_id: id })
+            });
 
             if (insertError) {
               console.error(
@@ -169,8 +177,8 @@ export default function Home({ user }: Props) {
                 border: '1px solid rgba(255, 255, 255, 0.12)',
                 background: 'rgba(0, 0, 0, 0.15)'
               }}
-            //   onDragOver={handleDragOver}
-            //   onDrop={handleDrop}
+              //   onDragOver={handleDragOver}
+              //   onDrop={handleDrop}
             >
               {loading ? (
                 <div className="loading-spinner py-10">
@@ -184,7 +192,7 @@ export default function Home({ user }: Props) {
                   <label htmlFor="file-upload" className="file-upload-label">
                     <span style={{ display: 'none' }}>Upload CSV</span>
                     <div
-                      className='bg-[#E85533] hover:bg-orange-700'
+                      className="bg-[#E85533] hover:bg-orange-700"
                       style={{
                         display: 'flex',
                         padding: '16px 48px',
@@ -195,7 +203,7 @@ export default function Home({ user }: Props) {
                         border: '1px solid rgba(255, 255, 255, 0.15)',
                         boxShadow: '0px 0px 28px 0px rgba(255, 255, 255, 0.15)',
                         fontWeight: 700,
-                        cursor: "pointer"
+                        cursor: 'pointer'
                       }}
                     >
                       Upload CSV
