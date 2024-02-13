@@ -1,6 +1,8 @@
 'use client';
 
 import { useSupabase } from '@/app/supabase-provider';
+import * as fbq from '@/lib/fb-pixel';
+import * as gtag from '@/lib/gtag';
 import { postData } from '@/utils/helpers';
 import { getStripe } from '@/utils/stripe-client';
 import { User } from '@supabase/supabase-js';
@@ -38,6 +40,13 @@ const Lead: React.FC<LeadProps> = ({ document_id, lead, isSample, user }) => {
     }
 
     try {
+      fbq.event('purchase_started', { value: 4, currency: 'USD' });
+      gtag.transaction({
+        id: document_id,
+        label: 'purchase_started',
+        value: 4
+      });
+
       const { sessionId } = await postData({
         url: '/api/create-checkout-session',
         data: {
@@ -74,64 +83,60 @@ const Lead: React.FC<LeadProps> = ({ document_id, lead, isSample, user }) => {
         className="w-full"
         style={{ filter: isSample ? 'blur(4px)' : 'none' }}
       >
-
-        <div className='flex items-center gap-3 p-4'>
+        <div className="flex items-center gap-3 p-4">
           <div>
-            <img className='w-[40px] rounded-full' src="https://pbs.twimg.com/profile_images/1677635372770029570/0K3JhmKK_400x400.jpg"></img>
+            <img
+              className="w-[40px] rounded-full"
+              src="https://pbs.twimg.com/profile_images/1677635372770029570/0K3JhmKK_400x400.jpg"
+            ></img>
           </div>
 
           <div className="flex items-center gap-4 self-stretch">
             <div className="flex flex-col text-left">
-              <p className='text-md' style={{ color: 'white', fontWeight: 700 }}>
+              <p
+                className="text-md"
+                style={{ color: 'white', fontWeight: 700 }}
+              >
                 {lead?.name ?? lead?.email.split(/[,.;:@]+/)[0]}
               </p>
-              <p className='text-[12px] text-gray-300/50'>{lead?.email}</p>
+              <p className="text-[12px] text-gray-300/50">{lead?.email}</p>
             </div>
           </div>
         </div>
 
-        <div className='h-[1px] bg-gray-200/10'></div>
+        <div className="h-[1px] bg-gray-200/10"></div>
 
-        <div className='grid grid-cols-2 md:grid-cols-3 p-4 text-left gap-5 gap-x-8 text-sm'>
+        <div className="grid grid-cols-2 md:grid-cols-3 p-4 text-left gap-5 gap-x-8 text-sm">
           <div>
-            <p className='text-[12px] text-gray-300/60'>Company Name</p>
+            <p className="text-[12px] text-gray-300/60">Company Name</p>
             <p>{lead?.company}</p>
           </div>
           <div>
-            <p className='text-[12px] text-gray-300/60'>Role</p>
+            <p className="text-[12px] text-gray-300/60">Role</p>
             <p>{lead?.role}</p>
           </div>
           <div>
-            <p className='text-[12px] text-gray-300/60'>Location</p>
+            <p className="text-[12px] text-gray-300/60">Location</p>
             <p>{lead?.location}</p>
           </div>
           <div>
-            <p className='text-[12px] text-gray-300/60'>Est. Salary</p>
+            <p className="text-[12px] text-gray-300/60">Est. Salary</p>
             <p>{lead?.salary}</p>
           </div>
           <div>
-            <p className='text-[12px] text-gray-300/60'>LinkedIn</p>
-            <a className='underline' href={lead?.linkedin}>
+            <p className="text-[12px] text-gray-300/60">LinkedIn</p>
+            <a className="underline" href={lead?.linkedin}>
               {lead?.linkedin}
             </a>
           </div>
           <div>
-            <p className='text-[12px] text-gray-300/60'>Website</p>
-            <a className='underline' href={lead?.website}>
+            <p className="text-[12px] text-gray-300/60">Website</p>
+            <a className="underline" href={lead?.website}>
               {lead?.website}
             </a>
           </div>
         </div>
-        <div className='h-[1px] bg-gray-200/10'></div>
-
-        {/* <div className="flex p-4 items-center gap-4">
-          <p style={{ color: 'white', marginBottom: '8px' }}>
-            {lead?.linkedIn ?? 'LinkedIn URL'}
-          </p>
-          <p style={{ color: 'white', marginBottom: '8px' }}>
-            {lead?.linkedIn ?? 'LinkedIn URL'}
-          </p>
-        </div> */}
+        <div className="h-[1px] bg-gray-200/10"></div>
       </div>
       {isSample && (
         <button
@@ -143,15 +148,6 @@ const Lead: React.FC<LeadProps> = ({ document_id, lead, isSample, user }) => {
             position: 'absolute'
           }}
           onClick={async () => {
-            // if (!user) {
-            //   router.push(
-            //     `/signin?redirect=${encodeURIComponent(
-            //       window.location.pathname
-            //     )}`
-            //   );
-            // } else {
-            //     createStripeCheckoutSession(user.id, 'price_1JZ9ZtJZ9ZtJZ9ZtJZ9ZtJZ9')
-            // }
             await handleCheckout();
           }}
         >
@@ -190,7 +186,6 @@ export default function Document({
       .eq('document_id', id);
 
     if (leadData) {
-      console.log(leadData);
       setLeads(leadData as LeadDataType[]);
     }
 
@@ -239,25 +234,29 @@ export default function Document({
           >
             We detected {leads.length} {leads.length > 1 ? 'emails' : 'email'}
           </h1>
-          <p className='max-w-md text-center m-auto text-gray-300 text-sm'>Our AI bot scrapes every B2B lead you pull from your website so that you know exactly who your potential customers are. Stop leaving money on the table.</p>
+          <p className="max-w-md text-center m-auto text-gray-300 text-sm">
+            Our AI bot scrapes every B2B lead you pull from your website so that
+            you know exactly who your potential customers are. Stop leaving
+            money on the table.
+          </p>
         </div>
-        <div className='mt-10'>
-          {isPaid ? (isProcessed ? (
-            leads.map((lead) => <Lead lead={lead} user={user} />)
+        <div className="mt-10">
+          {isPaid ? (
+            isProcessed ? (
+              leads.map((lead) => <Lead lead={lead} user={user} />)
+            ) : (
+              <>
+                <div className="loading-spinner py-10">
+                  <BarLoader className="m-auto" color="white" />
+                  <p className="text-xs text-center mt-5">
+                    processing your file
+                  </p>
+                </div>
+              </>
+            )
           ) : (
             <>
-              <div className="loading-spinner py-10">
-                <BarLoader className='m-auto' color="white" />
-                <p className='text-xs text-center mt-5'>processing your file</p>
-              </div>
-            </>
-          )) : (
-            <>
-              <Lead
-                document_id={(id)}
-                isSample
-                user={user}
-              />
+              <Lead document_id={id} isSample user={user} />
             </>
           )}
         </div>
