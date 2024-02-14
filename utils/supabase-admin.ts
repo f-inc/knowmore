@@ -296,7 +296,6 @@ const onPaid = async (document_id: string, customer_email: string) => {
     if (!leadData) {
       throw leadError;
     }
-
     console.log('LEAP_WEBHOOK_URL', process.env.LEAP_WEBHOOK_URL);
 
     for (const lead in leadData) {
@@ -307,14 +306,11 @@ const onPaid = async (document_id: string, customer_email: string) => {
       const title = await getOgTitle(website);
       const name = email.split('@')[0].replace(/[^a-zA-Z0-9]/g, ' ');
 
-      console.log('Triggering leap workflow for lead:', email, title);
-
       leap.workflowRuns.workflow({
         workflow_id: process.env.LEAP_WORKFLOW_ID || 'wkf_Z2NKhgEKaL1UIL',
         webhook_url: process.env.LEAP_WEBHOOK_URL,
         input: {
           email_of_lead: email,
-          // replace puntacation with space and make it capitalized
           search_input: name,
           user_website: title,
           document_id: document_id

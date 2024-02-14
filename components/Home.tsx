@@ -48,7 +48,12 @@ export default function Home({ user }: Props) {
                     !(
                       cell.includes('gmail') ||
                       cell.includes('yahoo') ||
-                      cell.includes('hotmail')
+                      cell.includes('hotmail') ||
+                      cell.includes('outlook') ||
+                      cell.includes('icloud') ||
+                      cell.includes('aol') ||
+                      cell.includes('protonmail') ||
+                      cell.includes('zoho')
                     )
                   ) {
                     emails.add(cell);
