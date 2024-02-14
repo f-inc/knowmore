@@ -1,4 +1,7 @@
 import { Database } from '@/types_db';
+import axios from 'axios';
+import * as cheerio from 'cheerio';
+import * as https from 'https';
 
 type Price = Database['public']['Tables']['prices']['Row'];
 
@@ -19,7 +22,7 @@ export const postData = async ({
   data
 }: {
   url: string;
-  data?: { price: Price, metadata: any, quantity: number, redirectURL: string};
+  data?: { price: Price; metadata: any; quantity: number; redirectURL: string };
 }) => {
   console.log('posting,', url, data);
 
@@ -44,3 +47,20 @@ export const toDateTime = (secs: number) => {
   t.setSeconds(secs);
   return t;
 };
+
+export async function getOgTitle(url: string): Promise<string> {
+  const httpsAgent = new https.Agent({ rejectUnauthorized: false });
+  try {
+    const { data } = await axios.get(url, { httpsAgent });
+    const $ = cheerio.load(data);
+
+    const ogSiteName = $('meta[property="og:site_name"]').attr('content');
+    const ogTitle = $('meta[property="og:title"]').attr('content');
+    const title = $('title').text();
+
+    return ogSiteName || ogTitle || title || url;
+  } catch (error: any) {
+    console.error('Error fetching data from URL:', url, error?.message);
+    return url;
+  }
+}

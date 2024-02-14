@@ -2,11 +2,10 @@
 
 import CheckoutCard from './CheckoutCard';
 import { useSupabase } from '@/app/supabase-provider';
-import * as fbq from '@/lib/fb-pixel';
-import * as gtag from '@/lib/gtag';
 import { postData } from '@/utils/helpers';
 import { getStripe } from '@/utils/stripe-client';
 import { User } from '@supabase/supabase-js';
+import { useRouter } from 'next/navigation';
 import Papa from 'papaparse';
 import React, { useEffect, useState } from 'react';
 import { BarLoader } from 'react-spinners';
@@ -29,135 +28,6 @@ type LeadProps = {
   lead?: LeadDataType;
   isSample?: boolean;
   user: User | undefined;
-};
-
-const Lead: React.FC<LeadProps> = ({ document_id, lead, isSample, user }) => {
-  const router = useRouter();
-
-  const handleCheckout = async () => {
-    if (!user) {
-      return router.push(
-        `/signin?redirectURL=${encodeURIComponent(window.location.pathname)}`
-      );
-    }
-
-    try {
-      fbq.event('purchase_started', { value: 4, currency: 'USD' });
-      gtag.transaction({
-        id: document_id,
-        label: 'purchase_started',
-        value: 4
-      });
-
-      const { sessionId } = await postData({
-        url: '/api/create-checkout-session',
-        data: {
-          price: {
-            active: true,
-            currency: 'usd',
-            description: 'sa',
-            id: 'price_1ObxeLJuwzUkoN6WWWKPTrkr',
-            interval: null,
-            interval_count: 1,
-            metadata: null,
-            product_id: 'prod_PQpIXn2EWFDuev',
-            trial_period_days: null,
-            type: 'one_time',
-            unit_amount: 4
-          },
-          metadata: {
-            document_id
-          },
-          redirectURL: window.location.pathname,
-          quantity: 1
-        }
-      });
-      const stripe = await getStripe();
-      stripe?.redirectToCheckout({ sessionId });
-    } catch (error) {
-      return alert((error as Error)?.message);
-    }
-  };
-
-  return (
-    <div className="flex flex-col justify-center items-center rounded-lg border-1 border-gray-100 bg-opacity-10 bg-white backdrop-blur-25 mb-8 break-words max-w-[600px]">
-      <div
-        className="w-full"
-        style={{ filter: isSample ? 'blur(4px)' : 'none' }}
-      >
-        <div className="flex items-center gap-3 p-4">
-          <div>
-            <img
-              className="w-[40px] rounded-full"
-              src="https://pbs.twimg.com/profile_images/1677635372770029570/0K3JhmKK_400x400.jpg"
-            ></img>
-          </div>
-
-          <div className="flex items-center gap-4 self-stretch">
-            <div className="flex flex-col text-left">
-              <p
-                className="text-md"
-                style={{ color: 'white', fontWeight: 700 }}
-              >
-                {lead?.name ?? lead?.email.split(/[,.;:@]+/)[0]}
-              </p>
-              <p className="text-[12px] text-gray-300/50">{lead?.email}</p>
-            </div>
-          </div>
-        </div>
-
-        <div className="h-[1px] bg-gray-200/10"></div>
-
-        <div className="grid grid-cols-2 md:grid-cols-3 p-4 text-left gap-5 gap-x-8 text-sm">
-          <div>
-            <p className="text-[12px] text-gray-300/60">Company Name</p>
-            <p>{lead?.company}</p>
-          </div>
-          <div>
-            <p className="text-[12px] text-gray-300/60">Role</p>
-            <p>{lead?.role}</p>
-          </div>
-          <div>
-            <p className="text-[12px] text-gray-300/60">Location</p>
-            <p>{lead?.location}</p>
-          </div>
-          <div>
-            <p className="text-[12px] text-gray-300/60">Est. Salary</p>
-            <p>{lead?.salary}</p>
-          </div>
-          <div>
-            <p className="text-[12px] text-gray-300/60">LinkedIn</p>
-            <a className="underline" href={lead?.linkedin}>
-              {lead?.linkedin}
-            </a>
-          </div>
-          <div>
-            <p className="text-[12px] text-gray-300/60">Website</p>
-            <a className="underline" href={lead?.website}>
-              {lead?.website}
-            </a>
-          </div>
-        </div>
-        <div className="h-[1px] bg-gray-200/10"></div>
-      </div>
-      {isSample && (
-        <button
-          style={{
-            borderRadius: '64px',
-            border: '1px solid rgba(255, 255, 255, 0.10)',
-            background: 'rgba(255, 255, 255, 0.10)',
-            padding: 10,
-            position: 'absolute'
-          }}
-          onClick={async () => {
-            await handleCheckout();
-          }}
-        >
-          {user ? 'Subscribe to view' : 'Login to view'}
-        </button>
-      )}
-    </div>
-  );
 };
 
 export default function Document({
@@ -212,7 +82,6 @@ export default function Document({
       .eq('document_id', id);
 
     if (leadData) {
-
       const filteredLeadData = leadData.filter((lead) => lead.processed);
 
       setFilteredLeads(filteredLeadData as LeadDataType[]);
@@ -277,7 +146,7 @@ export default function Document({
         <div className="mt-10">
           {isPaid ? (
             <div className="text-right text-xs px-5">
-              {isProcessed && (
+              {(isProcessed || filteredLeads?.length == leads?.length) && (
                 <>
                   <p className="mt-3">
                     Processed all {leads.length} results, please download the
@@ -292,7 +161,7 @@ export default function Document({
                 </>
               )}
 
-              {!isProcessed && (
+              {!(isProcessed || filteredLeads?.length == leads?.length) && (
                 <div className="loading-spinner py-10">
                   <BarLoader className="m-auto" color="white" />
                   <p className="text-xs text-center mt-5">

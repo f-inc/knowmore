@@ -3,6 +3,7 @@
 import * as fbq from '@/lib/fb-pixel';
 import * as gtag from '@/lib/gtag';
 import React, { useEffect } from 'react';
+import ReactPixel from 'react-facebook-pixel';
 
 export const TrackingProvider = ({
   children
@@ -13,9 +14,7 @@ export const TrackingProvider = ({
     gtag.pageview(window.location.pathname + window.location.search);
     fbq.pageview();
 
-    return () => {
-      // You can add any cleanup logic here if needed
-    };
+    return () => {};
   }, []);
 
   return <>{children}</>;

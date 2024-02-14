@@ -1,4 +1,4 @@
-import { toDateTime } from './helpers';
+import { getOgTitle, toDateTime } from './helpers';
 import { stripe } from './stripe';
 import { Leap } from '@leap-ai/workflows';
 import { createClient } from '@supabase/supabase-js';
@@ -297,11 +297,17 @@ const onPaid = async (document_id: string, customer_email: string) => {
       throw leadError;
     }
 
-
     console.log('LEAP_WEBHOOK_URL', process.env.LEAP_WEBHOOK_URL);
 
     for (const lead in leadData) {
       const { id, email } = leadData[lead];
+
+      const website = `https://${email.split('@')[1]}`;
+
+      const title = await getOgTitle(website);
+      const name = email.split('@')[0].replace(/[^a-zA-Z0-9]/g, ' ');
+
+      console.log('Triggering leap workflow for lead:', email, title);
 
       leap.workflowRuns.workflow({
         workflow_id: process.env.LEAP_WORKFLOW_ID || 'wkf_Z2NKhgEKaL1UIL',
@@ -309,8 +315,8 @@ const onPaid = async (document_id: string, customer_email: string) => {
         input: {
           email_of_lead: email,
           // replace puntacation with space and make it capitalized
-          search_input: email.split('@')[0].replace(/[^a-zA-Z0-9]/g, ' '),
-          user_website: `https://${email.split('@')[1]}`,
+          search_input: name,
+          user_website: title,
           document_id: document_id
         }
       });
@@ -359,7 +365,6 @@ const onPaid = async (document_id: string, customer_email: string) => {
     console.error('Error updating document:', error);
   }
 };
-
 
 /**
  * This function checks if all the leads in a document have been processed
@@ -444,43 +449,46 @@ const onProcessed = async (workflowResult: any) => {
       .eq('document_id', documentId)
       .eq('email', leadEmail);
 
-    console.log('Document updated successfully:', workflowResult);
+    if (!workflowResult.output.linkedin) {
+      console.log('No linkedin data found for lead:', leadEmail);
+      console.log(workflowResult.output);
+    } else {
+      const { data: linkedin } = workflowResult.output.linkedin;
 
-    const { data: linkedin } = workflowResult.output.linkedin;
+      // console.log('Generating data for lead:', linkedin);
 
-    console.log('Generating data for lead:', linkedin);
+      const {
+        full_name: fullName,
+        linkedin_url: linkedInUrl,
+        location,
+        company,
+        headline: role,
+        about,
+        summary,
+        school: education
+      } = linkedin;
 
-    const {
-      full_name: fullName,
-      linkedin_url: linkedInUrl,
-      location,
-      company,
-      headline: role,
-      about,
-      summary,
-      school: education
-    } = linkedin;
+      const updateData = {
+        name: fullName,
+        linkedin: linkedInUrl,
+        location,
+        company,
+        role,
+        about,
+        summary,
+        education,
+        processed: true
+      };
 
-    const updateData = {
-      name: fullName,
-      linkedin: linkedInUrl,
-      location,
-      company,
-      role,
-      about,
-      summary,
-      education,
-      processed: true
-    };
+      const { data, error } = await supabaseAdmin
+        .from('leads')
+        .update(updateData)
+        .eq('document_id', documentId)
+        .eq('email', leadEmail);
 
-    const { data, error } = await supabaseAdmin
-      .from('leads')
-      .update(updateData)
-      .eq('document_id', documentId)
-      .eq('email', leadEmail);
-
-    if (error) {
-      throw error;
+      if (error) {
+        throw error;
+      }
     }
   } catch (error) {
     console.error('Error updating document:', error);
