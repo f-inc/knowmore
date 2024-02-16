@@ -1,12 +1,16 @@
 import SupabaseProvider from './supabase-provider';
+import { TrackingProvider } from './tracking-provider';
 import Footer from '@/components/ui/Footer';
 import Navbar from '@/components/ui/Navbar';
 import posthog from 'posthog-js';
 import { PropsWithChildren, useEffect } from 'react';
 import 'styles/main.css';
 import { PHProvider } from './providers';
+import Analytics from '@/components/Analytics';
 import dynamic from 'next/dynamic';
 import { Plus_Jakarta_Sans } from 'next/font/google';
+import Head from 'next/head';
+import Script from 'next/script';
 
 const meta = {
   title: 'Know More Bot',
@@ -60,6 +64,7 @@ export default function RootLayout({
 }: PropsWithChildren) {
   return (
     <html lang="en">
+      <Analytics />
       <PHProvider>
         <body className="bg-[#120704] loading">
           <svg
@@ -103,6 +108,7 @@ export default function RootLayout({
               </filter>
             </defs>
           </svg>
+
           <SupabaseProvider>
             <Navbar />
             <main
@@ -112,7 +118,6 @@ export default function RootLayout({
               <PostHogPageView />
               {children}
             </main>
-            {/* <Footer /> */}
           </SupabaseProvider>
         </body>
       </PHProvider>

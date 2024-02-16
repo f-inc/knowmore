@@ -2,7 +2,10 @@
 
 import CheckoutCard from './CheckoutCard';
 import { useSupabase } from '@/app/supabase-provider';
+import { postData } from '@/utils/helpers';
+import { getStripe } from '@/utils/stripe-client';
 import { User } from '@supabase/supabase-js';
+import { useRouter } from 'next/navigation';
 import Papa from 'papaparse';
 import React, { useEffect, useState } from 'react';
 import { BarLoader } from 'react-spinners';
@@ -18,6 +21,13 @@ type LeadDataType = {
   salary?: string;
   website?: string;
   education?: string;
+};
+
+type LeadProps = {
+  document_id?: string;
+  lead?: LeadDataType;
+  isSample?: boolean;
+  user: User | undefined;
 };
 
 export default function Document({
@@ -136,7 +146,7 @@ export default function Document({
         <div className="mt-10">
           {isPaid ? (
             <div className="text-right text-xs px-5">
-              {isProcessed && (
+              {(isProcessed || filteredLeads?.length == leads?.length) && (
                 <>
                   <p className="mt-3">
                     Processed all {leads.length} results, please download the
@@ -151,7 +161,7 @@ export default function Document({
                 </>
               )}
 
-              {!isProcessed && (
+              {!(isProcessed || filteredLeads?.length == leads?.length) && (
                 <div className="loading-spinner py-10">
                   <BarLoader className="m-auto" color="white" />
                   <p className="text-xs text-center mt-5">
