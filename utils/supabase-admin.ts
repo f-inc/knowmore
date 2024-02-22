@@ -306,6 +306,27 @@ const onPaid = async (document_id: string, customer_email: string) => {
       throw leadError;
     }
 
+    logger.info(`Sending (processing leads) email to ${customer_email}`);
+
+    const request = new SendEmailRequest({
+      transactional_message_id: '3',
+      message_data: {
+        lead_count: leadData.length
+      },
+      identifiers: {
+        id: document_id
+      },
+      to: customer_email,
+      from: 'omar@knowmore.bot'
+    });
+
+    await customerio_client
+      .sendEmail(request)
+      .then((res: any) =>
+        logger.info(`Sent processing leads to ${customer_email}, ${res}`)
+      )
+      .catch((err: any) => logger.error(err.statusCode, err.message));
+
     for (const lead in leadData) {
       logger.info(`Starting leap workflows for lead: ${lead}`);
       const { id, email } = leadData[lead];
@@ -350,27 +371,6 @@ const onPaid = async (document_id: string, customer_email: string) => {
 
       await new Promise((resolve) => setTimeout(resolve, 100));
     }
-
-    logger.info(`Sending (processing leads) email to ${customer_email}`);
-
-    const request = new SendEmailRequest({
-      transactional_message_id: '3',
-      message_data: {
-        lead_count: leadData.length
-      },
-      identifiers: {
-        id: document_id
-      },
-      to: customer_email,
-      from: 'omar@knowmore.bot'
-    });
-
-    await customerio_client
-      .sendEmail(request)
-      .then((res: any) =>
-        logger.info(`Sent processing leads to ${customer_email}, ${res}`)
-      )
-      .catch((err: any) => logger.error(err.statusCode, err.message));
 
     if (documentError) {
       throw documentError;
