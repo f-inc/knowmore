@@ -1,4 +1,14 @@
+import fs from 'fs';
+import path from 'path';
 import winston from 'winston';
+
+const LOG_DIR = 'logs';
+
+// Ensure log directory exists
+const logDirPath = path.resolve(LOG_DIR);
+if (!fs.existsSync(logDirPath)) {
+  fs.mkdirSync(logDirPath, { recursive: true });
+}
 
 const LOG_LEVEL = process.env.LOG_LEVEL;
 const LOG_FORMAT = process.env.LOG_FORMAT;
