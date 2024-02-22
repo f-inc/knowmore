@@ -23,19 +23,24 @@ export const createOneTimeCheckoutSession = async ({
   document_id: string;
   product_id: string;
 }): Promise<{ sessionId: string }> => {
-  const { sessionId } = await postData({
-    url: '/api/create-checkout-session',
-    data: {
-      price: {
-        id: priceId,
-        type: 'one_time'
-      },
-      metadata: {
-        document_id
-      },
-      redirectURL: `/success?document_id=${document_id}`,
-      quantity: 1
-    }
-  });
-  return { sessionId };
+  try {
+    const { sessionId } = await postData({
+      url: '/api/create-checkout-session',
+      data: {
+        price: {
+          id: priceId,
+          type: 'one_time'
+        },
+        metadata: {
+          document_id
+        },
+        redirectURL: `/success?document_id=${document_id}`,
+        quantity: 1
+      }
+    });
+    return { sessionId };
+  } catch (error) {
+    console.error('Error creating checkout session', error);
+    throw error;
+  }
 };
