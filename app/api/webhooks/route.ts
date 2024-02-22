@@ -64,11 +64,12 @@ export async function POST(req: Request) {
             );
           }
 
-          console.log(checkoutSession)
-
           if (checkoutSession.mode === 'payment') {
             const metadata = checkoutSession?.metadata;
-            await onPaid(metadata?.document_id as string, checkoutSession?.customer_details?.email as string);
+            await onPaid(
+              metadata?.document_id as string,
+              checkoutSession?.customer_details?.email as string
+            );
           }
           break;
         default:
