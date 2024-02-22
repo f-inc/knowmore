@@ -4,11 +4,15 @@ import CheckoutCard from './CheckoutCard';
 import { useSupabase } from '@/app/supabase-provider';
 import { postData } from '@/utils/helpers';
 import { getStripe } from '@/utils/stripe-client';
+import { faLinkedin } from '@fortawesome/free-brands-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { User } from '@supabase/supabase-js';
 import { useRouter } from 'next/navigation';
 import Papa from 'papaparse';
 import React, { useEffect, useState } from 'react';
+import { useMemo } from 'react';
 import { BarLoader } from 'react-spinners';
+import { useTable, useSortBy, useFilters, Column } from 'react-table';
 
 type LeadDataType = {
   document_id: string;
@@ -45,6 +49,40 @@ export default function Document({
   const [filteredLeads, setFilteredLeads] = useState<LeadDataType[]>([]);
   const [isPaid, setIsPaid] = useState(false);
   const [isProcessed, setIsProcessed] = useState(false);
+  const data = useMemo(() => filteredLeads, [filteredLeads]);
+
+  const columns: Column<LeadDataType>[] = useMemo(
+    () => [
+      {
+        Header: 'Email',
+        accessor: 'email'
+      },
+      {
+        Header: 'Linkedin',
+        accessor: 'linkedin'
+      },
+      {
+        Header: 'Company Name',
+        accessor: 'company'
+      },
+      {
+        Header: 'Role',
+        accessor: 'role'
+      },
+      {
+        Header: 'Location',
+        accessor: 'location'
+      },
+      {
+        Header: 'Education',
+        accessor: 'education'
+      }
+    ],
+    []
+  );
+
+  const { getTableProps, getTableBodyProps, headerGroups, rows, prepareRow } =
+    useTable({ columns, data }, useFilters, useSortBy);
 
   const downloadCsv = () => {
     console.log(leads);
@@ -82,7 +120,11 @@ export default function Document({
       .eq('document_id', id);
 
     if (leadData) {
-      const filteredLeadData = leadData.filter((lead) => lead.processed);
+      const filteredLeadData = leadData
+        .filter((lead) => lead.processed)
+        .sort((a, b) =>
+          a.linkedin && !b.linkedin ? -1 : !a.linkedin && b.linkedin ? 1 : 0
+        );
 
       setFilteredLeads(filteredLeadData as LeadDataType[]);
       setLeads(leadData as LeadDataType[]);
@@ -169,50 +211,71 @@ export default function Document({
                   </p>
                 </div>
               )}
-
               <div className="overflow-x-auto max-w-[90vw] text-left">
-                <table className="border table-auto text-sm text-gray-200 mt-5">
+                <table
+                  {...getTableProps()}
+                  className="border table-auto text-sm text-gray-200 mt-5"
+                  style={{
+                    borderColor: 'rgba(255, 255, 255, 0.1)',
+                    borderRadius: '10px'
+                  }}
+                >
                   <thead className="bg-orange-100/10">
-                    <tr>
-                      <th className="py-2 px-4 border">Email</th>
-                      <th className="py-2 px-4 border">Company Name</th>
-                      <th className="py-2 px-4 border">Role</th>
-                      <th className="py-2 px-4 border">Location</th>
-                      <th className="py-2 px-4 border">linkedin</th>
-                      <th className="py-2 px-4 border">Website</th>
-                      <th className="py-2 px-4 border">Education</th>
-                    </tr>
-                  </thead>
-                  <tbody className="bg-orange-100/5">
-                    {filteredLeads.map((lead, index) => (
-                      <tr key={index}>
-                        <td className="py-2 px-4 border">{lead?.email}</td>
-                        <td className="py-2 px-4 border">{lead?.company}</td>
-                        <td className="py-2 px-4 border">{lead?.role}</td>
-                        <td className="py-2 px-4 border">{lead?.location}</td>
-                        <td className="py-2 px-4 border">
-                          <a
-                            className="underline "
-                            href={lead?.linkedin}
-                            target="_blank"
-                            rel="noopener noreferrer"
+                    {headerGroups.map((headerGroup) => (
+                      <tr {...headerGroup.getHeaderGroupProps()}>
+                        {headerGroup.headers.map((column) => (
+                          <th
+                            {...column.getHeaderProps(
+                              column.getSortByToggleProps()
+                            )}
+                            className="py-2 px-4"
                           >
-                            {lead?.linkedin}
-                          </a>
-                        </td>
-                        <td className="py-2 px-4 border">
-                          <a
-                            className="underline"
-                            href={lead?.website}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                          >
-                            {lead?.website}
-                          </a>
-                        </td>
-                        <td className="py-2 px-4 border">{lead?.education}</td>
+                            {column.render('Header')}
+                            <span>
+                              {column.isSorted
+                                ? column.isSortedDesc
+                                  ? ' 🔽'
+                                  : ' 🔼'
+                                : ''}
+                            </span>
+                          </th>
+                        ))}
                       </tr>
                     ))}
+                  </thead>
+                  <tbody {...getTableBodyProps()}>
+                    {rows.map((row) => {
+                      prepareRow(row);
+                      return (
+                        <tr {...row.getRowProps()}>
+                          {row.cells.map((cell) => {
+                            const isLinkedInUrl =
+                              cell.column.id === 'linkedin' && cell.value;
+                            return (
+                              <td
+                                {...cell.getCellProps()}
+                                className="py-2 px-4 border-b border-gray-300"
+                                style={{
+                                  borderColor: 'rgba(255, 255, 255, 0.2)'
+                                }}
+                              >
+                                {isLinkedInUrl ? (
+                                  <a
+                                    href={cell.value}
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                  >
+                                    <FontAwesomeIcon icon={faLinkedin} />
+                                  </a>
+                                ) : (
+                                  cell.render('Cell')
+                                )}
+                              </td>
+                            );
+                          })}
+                        </tr>
+                      );
+                    })}
                   </tbody>
                 </table>
 

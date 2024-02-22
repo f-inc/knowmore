@@ -1,13 +1,19 @@
 'use client';
 
-import { useEffect } from 'react';
 import s from './Navbar.module.css';
 import Link from 'next/link';
+import { useEffect, useState } from 'react';
 
 export default function SignInButton() {
+  const [href, setHref] = useState('/signin');
 
-  var href = `/signin?redirectURL=${encodeURIComponent(window.location.pathname)}`;
-  
+  useEffect(() => {
+    const path = `/signin?redirectURL=${encodeURIComponent(
+      window.location.pathname
+    )}`;
+    setHref(path);
+  }, []);
+
   return (
     <Link href={href} className={s.link}>
       Sign in

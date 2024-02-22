@@ -1,5 +1,6 @@
 import { getOgTitle, toDateTime } from './helpers';
 import { stripe } from './stripe';
+import logger from '@/logger';
 import { Leap } from '@leap-ai/workflows';
 import { createClient } from '@supabase/supabase-js';
 import { APIClient, SendEmailRequest } from 'customerio-node';
@@ -10,7 +11,6 @@ import { v4 as uuid } from 'uuid';
 const customerio_client = new APIClient(
   process.env.CUSTOMERIO_API_KEY as string
 );
-
 type Product = Database['public']['Tables']['products']['Row'];
 type Price = Database['public']['Tables']['prices']['Row'];
 
@@ -279,6 +279,13 @@ const onUpload = async (document_id: string, user_email: string) => {
  */
 const onPaid = async (document_id: string, customer_email: string) => {
   try {
+    const workflow_id = process.env.LEAP_WORKFLOW_ID || 'wkf_Z2NKhgEKaL1UIL';
+
+    logger.info(
+      `Starting leap workflows for document: ${document_id} with workflow: ${workflow_id}`
+    );
+
+    logger.info(`Updating document: ${document_id} to be paid`);
     const { data: documentData, error: documentError } = await supabaseAdmin
       .from('documents')
       .update({
@@ -288,6 +295,8 @@ const onPaid = async (document_id: string, customer_email: string) => {
       })
       .eq('id', document_id);
 
+    logger.info(`Updated document: ${document_id}, to be paid`);
+
     const { data: leadData, error: leadError } = await supabaseAdmin
       .from('leads')
       .select('id,email')
@@ -296,18 +305,23 @@ const onPaid = async (document_id: string, customer_email: string) => {
     if (!leadData) {
       throw leadError;
     }
-    console.log('LEAP_WEBHOOK_URL', process.env.LEAP_WEBHOOK_URL);
 
     for (const lead in leadData) {
+      logger.info(`Starting leap workflows for lead: ${lead}`);
       const { id, email } = leadData[lead];
-
       const website = `https://${email.split('@')[1]}`;
 
       const title = await getOgTitle(website);
-      const name = email.split('@')[0].replace(/[^a-zA-Z0-9]/g, ' ');
+      const name = email.split('@')[0].replace(/[^a-zA-Z]/g, ' ');
+
+      logger.info(
+        `Starting leap workflows for lead: ${lead}, with query:, ${
+          name + ' ' + title
+        } `
+      );
 
       leap.workflowRuns.workflow({
-        workflow_id: process.env.LEAP_WORKFLOW_ID || 'wkf_Z2NKhgEKaL1UIL',
+        workflow_id,
         webhook_url: process.env.LEAP_WEBHOOK_URL,
         input: {
           email_of_lead: email,
@@ -316,6 +330,9 @@ const onPaid = async (document_id: string, customer_email: string) => {
           document_id: document_id
         }
       });
+      logger.info(`Started leap workflows for lead: ${lead}`);
+
+      logger.info(`updating lead to be unprocessed: ${id}`);
 
       const { data: leadUpdateData, error: leadUpdateError } =
         await supabaseAdmin
@@ -328,10 +345,13 @@ const onPaid = async (document_id: string, customer_email: string) => {
       if (leadUpdateError) {
         throw leadUpdateError;
       }
-      console.log('lead updated successfully:', leadUpdateData);
+
+      logger.info('lead updated successfully:', leadUpdateData);
 
       await new Promise((resolve) => setTimeout(resolve, 100));
     }
+
+    logger.info(`Sending (processing leads) email to ${customer_email}`);
 
     const request = new SendEmailRequest({
       transactional_message_id: '3',
@@ -345,14 +365,12 @@ const onPaid = async (document_id: string, customer_email: string) => {
       from: 'omar@knowmore.bot'
     });
 
-    console.log('sending an email (processing leads) to', customer_email);
-
     await customerio_client
       .sendEmail(request)
-      .then((res: any) => console.log(res))
-      .catch((err: any) => console.log(err.statusCode, err.message));
-
-    console.log('Document updated successfully:', documentData);
+      .then((res: any) =>
+        logger.info(`Sent processing leads to ${customer_email}, ${res}`)
+      )
+      .catch((err: any) => logger.error(err.statusCode, err.message));
 
     if (documentError) {
       throw documentError;
@@ -368,13 +386,13 @@ const onPaid = async (document_id: string, customer_email: string) => {
  * @returns updatedDocs - the documents that have been updated
  */
 const checkProcessed = async (): Promise<any[]> => {
-  console.log('checking if unprocessed documents have finished processing');
+  logger.info('checking if unprocessed documents have finished processing');
 
   // gets all unprocessed docs
   const { data: unprocessedDocuments, error: unprocessedDocumentsError } =
     await supabaseAdmin.from('documents').select('*').eq('processed', false);
 
-  console.log('unprocessed documents found', unprocessedDocuments?.length);
+  logger.info(`unprocessed documents found ${unprocessedDocuments?.length}`);
 
   if (unprocessedDocumentsError) {
     throw unprocessedDocumentsError;
@@ -439,20 +457,25 @@ const onProcessed = async (workflowResult: any) => {
     const { document_id: documentId, email_of_lead: leadEmail } =
       workflowResult.input;
 
+    logger.info(
+      `Leap returned linkedin ${leadEmail} for document ${documentId}`
+    );
+
     await supabaseAdmin
       .from('leads')
       .update({ processed: true })
       .eq('document_id', documentId)
       .eq('email', leadEmail);
 
-    if (!workflowResult.output.linkedin) {
-      console.log('No linkedin data found for lead:', leadEmail);
-      console.log(workflowResult.output);
-    } else {
-      const { data: linkedin } = workflowResult.output.linkedin;
+    if (!workflowResult.output) {
+      logger.info(`No linkedin data found for: ${leadEmail}`);
+      return;
+    }
 
-      // console.log('Generating data for lead:', linkedin);
+    const { linkedin } = workflowResult.output;
 
+    if (linkedin) {
+      const { data: linkedinData } = linkedin;
       const {
         full_name: fullName,
         linkedin_url: linkedInUrl,
@@ -462,7 +485,7 @@ const onProcessed = async (workflowResult: any) => {
         about,
         summary,
         school: education
-      } = linkedin;
+      } = linkedinData;
 
       const updateData = {
         name: fullName,
