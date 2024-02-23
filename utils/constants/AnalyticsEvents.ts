@@ -2,7 +2,16 @@ export class AnalyticsEvents {
   static readonly Upload = {
     FileUploading: 'upload/fileUploading',
     FileUploaded: 'upload/fileUploaded',
-    FileUploadFailed: 'upload/fileUploadFailed'
+    FileUploadFailed: 'upload/fileUploadFailed',
+
+    UserLoggingIn: 'upload/userLoggingIn'
+  };
+
+  static readonly Checkout = {
+    CheckoutCreated: 'checkout/checkoutCreated',
+    CheckoutStarted: 'checkout/checkoutStarted',
+    CheckoutSuccess: 'checkout/checkoutSuccess',
+    CheckoutFailed: 'checkout/checkoutFailed'
   };
 
   static readonly Auth = {
