@@ -165,9 +165,8 @@ export default function Home({ user }: Props) {
               Turn website leads into paid customers fast.
             </h1>
             <p className="text-sm md:text-lg text-gray-300">
-              Our AI bot scrapes every B2B lead you pull from your website so
-              that you know exactly who your potential customers are. Stop
-              leaving money on the table.
+              Unlock key AI-powered insights based on emails you’ve collected
+              from leads and customers. Stop leaving money on the table.
             </p>
 
             <div
@@ -211,7 +210,7 @@ export default function Home({ user }: Props) {
                         cursor: 'pointer'
                       }}
                     >
-                      Upload CSV
+                      Upload Emails (.csv)
                     </div>
                   </label>
                   <input

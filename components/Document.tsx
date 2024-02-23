@@ -180,9 +180,8 @@ export default function Document({
             We detected {leads.length} {leads.length > 1 ? 'emails' : 'email'}
           </h1>
           <p className="max-w-md text-center m-auto text-gray-300 text-sm">
-            Our AI bot scrapes every B2B lead you pull from your website so that
-            you know exactly who your potential customers are. Stop leaving
-            money on the table.
+            Unlock key AI-powered insights based on emails you’ve collected from
+            leads and customers. Stop leaving money on the table.
           </p>
         </div>
         <div className="mt-10">
