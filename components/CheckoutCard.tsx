@@ -1,6 +1,8 @@
+import { AnalyticsEvents } from '@/utils/constants/AnalyticsEvents';
 import { createOneTimeCheckoutSession, getStripe } from '@/utils/stripe-client';
 import { User } from '@supabase/supabase-js';
 import { useRouter } from 'next/navigation';
+import posthog from 'posthog-js';
 import React from 'react';
 
 type LeadDataType = {
@@ -27,6 +29,7 @@ const CheckoutCard: React.FC<LeadCardProps> = ({ document_id, lead, user }) => {
 
   const handleCheckout = async () => {
     if (!user) {
+      posthog.capture(AnalyticsEvents.Upload.UserLoggingIn);
       return router.push(
         `/signin?redirectURL=${encodeURIComponent(window.location.pathname)}`
       );
@@ -46,9 +49,22 @@ const CheckoutCard: React.FC<LeadCardProps> = ({ document_id, lead, user }) => {
         product_id: productID
       });
 
+      posthog.capture(AnalyticsEvents.Checkout.CheckoutCreated, {
+        document_id
+      });
+
       const stripe = await getStripe();
+
+      posthog.capture(AnalyticsEvents.Checkout.CheckoutStarted, {
+        document_id
+      });
+
       await stripe?.redirectToCheckout({ sessionId });
     } catch (error) {
+      posthog.capture(AnalyticsEvents.Checkout.CheckoutFailed, {
+        document_id,
+        error
+      });
       console.error('Error:', error);
       throw error;
     }

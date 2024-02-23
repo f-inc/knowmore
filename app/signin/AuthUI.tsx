@@ -17,7 +17,7 @@ export default function AuthUI() {
       if (session?.user) {
         if (typeof window !== 'undefined') {
           const searchParams = new URLSearchParams(window.location.search);
-          console.log(searchParams);
+
           return redirect(
             (searchParams.has('redirectURL')
               ? searchParams.get('redirectURL')

@@ -1,6 +1,7 @@
 'use client';
 
 import { useSupabase } from '@/app/supabase-provider';
+import { transaction } from '@/lib/gtag';
 import { AnalyticsEvents } from '@/utils/constants/AnalyticsEvents';
 import { User } from '@supabase/supabase-js';
 import Image from 'next/image';
@@ -26,6 +27,7 @@ export default function Home({ user }: Props) {
 
   const handleFileUpload = async (e: ChangeEvent<HTMLInputElement>) => {
     posthog.capture(AnalyticsEvents.Upload.FileUploading);
+
     await toggleLoading();
     console.log('loading...');
     const file = e.target.files && e.target.files[0];
@@ -92,6 +94,8 @@ export default function Home({ user }: Props) {
                 }
               ]);
 
+            transaction(id, 0);
+
             fetch('/api/uploaded', {
               method: 'POST',
               headers: {
@@ -126,10 +130,12 @@ export default function Home({ user }: Props) {
               return;
             }
 
+            posthog.capture(AnalyticsEvents.Upload.FileUploaded, { id });
             router.push(`/view/${id}`);
           }
         });
       } catch (error) {
+        posthog.capture(AnalyticsEvents.Upload.FileUploadFailed, { error });
         console.error('Error uploading CSV:', error);
       }
     }
