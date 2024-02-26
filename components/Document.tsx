@@ -85,7 +85,6 @@ export default function Document({
     useTable({ columns, data }, useFilters, useSortBy);
 
   const downloadCsv = () => {
-    console.log(leads);
     const leadsWithoutDocumentId = leads.map((item) => ({
       email: item.email,
       company: item.company,
@@ -303,7 +302,16 @@ export default function Document({
                   </p>
                 </div>
               ) : (
-                <CheckoutCard document_id={id} user={user} />
+                <>
+                  <CheckoutCard document_id={id} user={user} />
+                  <p
+                    className="max-w-md text-gray-300 text-sm"
+                    style={{ fontStyle: 'italic' }}
+                  >
+                    We charge this small fee because processing emails with AI
+                    is expensive.
+                  </p>
+                </>
               )}
             </>
           )}

@@ -1,3 +1,4 @@
+import { CommonEmailProviders } from './constants/EmailProviders';
 import { Database } from '@/types_db';
 import axios from 'axios';
 import * as cheerio from 'cheerio';
@@ -49,6 +50,12 @@ export const toDateTime = (secs: number) => {
 };
 
 export async function getOgTitle(url: string): Promise<string> {
+  if (!url) return '';
+
+  if (url in CommonEmailProviders) {
+    return url;
+  }
+
   const httpsAgent = new https.Agent({ rejectUnauthorized: false });
   try {
     const { data } = await axios.get(url, { httpsAgent });

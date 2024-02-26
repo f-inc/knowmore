@@ -125,20 +125,21 @@ const CheckoutCard: React.FC<LeadCardProps> = ({ document_id, lead, user }) => {
         <div className="h-[1px] bg-gray-200/10"></div>
       </div>
 
-      <button
-        style={{
-          borderRadius: '64px',
-          border: '1px solid rgba(255, 255, 255, 0.10)',
-          background: 'rgba(255, 255, 255, 0.10)',
-          padding: 10,
-          position: 'absolute'
-        }}
-        onClick={async () => {
-          await handleCheckout();
-        }}
-      >
-        {user ? 'Start processing emails' : 'Login to view'}
-      </button>
+      <div style={{ position: 'absolute' }}>
+        <button
+          style={{
+            borderRadius: '64px',
+            border: '1px solid rgba(255, 255, 255, 0.10)',
+            background: 'rgba(255, 255, 255, 0.10)',
+            padding: 10
+          }}
+          onClick={async () => {
+            await handleCheckout();
+          }}
+        >
+          {user ? 'Process emails $16' : 'Login to view'}
+        </button>
+      </div>
     </div>
   );
 };

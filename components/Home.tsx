@@ -3,6 +3,7 @@
 import { useSupabase } from '@/app/supabase-provider';
 import { transaction } from '@/lib/gtag';
 import { AnalyticsEvents } from '@/utils/constants/AnalyticsEvents';
+import { CommonEmailProviders } from '@/utils/constants/EmailProviders';
 import { User } from '@supabase/supabase-js';
 import Image from 'next/image';
 import { useRouter } from 'next/navigation';
@@ -46,18 +47,7 @@ export default function Home({ user }: Props) {
                 const emailRegex = /\S+@\S+\.\S+/;
 
                 if (emailRegex.test(cell)) {
-                  if (
-                    !(
-                      cell.includes('gmail') ||
-                      cell.includes('yahoo') ||
-                      cell.includes('hotmail') ||
-                      cell.includes('outlook') ||
-                      cell.includes('icloud') ||
-                      cell.includes('aol') ||
-                      cell.includes('protonmail') ||
-                      cell.includes('zoho')
-                    )
-                  ) {
+                  if (!(cell in CommonEmailProviders)) {
                     emails.add(cell);
                   }
                 }
