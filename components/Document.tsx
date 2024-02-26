@@ -308,8 +308,8 @@ export default function Document({
                     className="max-w-md text-gray-300 text-sm"
                     style={{ fontStyle: 'italic' }}
                   >
-                    We charge this small fee because processing emails with AI
-                    is expensive.
+                    We charge a small fee because processing emails with AI is
+                    expensive for us.
                   </p>
                 </>
               )}
