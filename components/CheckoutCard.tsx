@@ -137,7 +137,7 @@ const CheckoutCard: React.FC<LeadCardProps> = ({ document_id, lead, user }) => {
             await handleCheckout();
           }}
         >
-          {user ? 'Process emails $47' : 'Login to view'}
+          {user ? 'Process emails ($47)' : 'Login to view'}
         </button>
       </div>
     </div>
