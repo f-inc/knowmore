@@ -8,9 +8,10 @@ export default async function SignIn() {
   const session = await getSession();
 
   if (session) {
+    console.log('session', session);
+
     posthog.identify(session.user.id, {
-      email: session.user.email,
-      name: session.user.user_metadata.full_name
+      email: session.user.email
     });
 
     return <RedirectUI></RedirectUI>;
