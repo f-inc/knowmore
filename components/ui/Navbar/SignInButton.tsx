@@ -8,10 +8,15 @@ export default function SignInButton() {
   const [href, setHref] = useState('/signin');
 
   useEffect(() => {
-    const path = `/signin?redirectURL=${encodeURIComponent(
-      window.location.pathname
-    )}`;
-    setHref(path);
+    const pathname = window.location.pathname;
+    const redirectURL =
+      pathname === '/signin' || pathname === '/'
+        ? ''
+        : `?redirectURL=${encodeURIComponent(pathname)}`;
+
+    const signinPath = `/signin${redirectURL}`;
+
+    setHref(signinPath);
   }, []);
 
   return (
