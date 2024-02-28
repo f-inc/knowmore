@@ -54,10 +54,10 @@ const Dashboard: React.FC<DashboardProps> = ({ user }) => {
       if (data) {
         const sampleFile = [
           {
-            id: '4aed9dc5-0f62-4854-8e71-029ddc487021',
+            id: '7969d2df-bf18-499f-8ba7-4847d48421cc',
             name: 'Sample CSV',
             paid: true,
-            total_leads: 542
+            total_leads: 9
           }
         ];
 

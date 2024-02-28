@@ -125,14 +125,13 @@ const useLeadTable = (
       .eq('id', id)
       .single();
 
-    setNumLeads(documentData.total_leads);
-
     if (documentError) {
       console.error('Error fetching document:', documentError);
       return;
     }
 
     setIsPaid(documentData.paid);
+    setNumLeads(documentData.total_leads);
 
     const { data: leadData, error: leadError } = await supabase
       .from('leads')

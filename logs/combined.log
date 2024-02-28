@@ -16254,3 +16254,91 @@
 {"level":"info","message":"Started leap workflows for lead: 8","timestamp":"2024-02-28 12:16:28"}
 {"level":"info","message":"Updating lead to be unprocessed","timestamp":"2024-02-28 12:16:28"}
 {"level":"info","message":"lead updated successfully:","timestamp":"2024-02-28 12:16:28"}
+{"level":"info","message":"Starting leap workflows for document: 2f5375b6-f168-4a3f-b773-ede0076c56f6 with workflow: wkf_H5yOYc7A6CHr73","timestamp":"2024-02-28 13:09:09"}
+{"level":"info","message":"Updating document: 2f5375b6-f168-4a3f-b773-ede0076c56f6 to be paid","timestamp":"2024-02-28 13:09:09"}
+{"level":"info","message":"Updated document: 2f5375b6-f168-4a3f-b773-ede0076c56f6, to be paid","timestamp":"2024-02-28 13:09:09"}
+{"level":"info","message":"Sending (processing leads) email to huzaifaahmed746+4242@gmail.com","timestamp":"2024-02-28 13:09:09"}
+{"level":"error","message":401,"timestamp":"2024-02-28 13:09:10"}
+{"level":"info","message":"Starting leap workflows for lead: bill.gates@gatesfoundation.org","timestamp":"2024-02-28 13:09:10"}
+{"level":"info","message":"Starting leap workflows for lead: 0, with query:, bill gates Bill & Melinda Gates Foundation ","timestamp":"2024-02-28 13:09:11"}
+{"level":"info","message":"Started leap workflows for lead: 0","timestamp":"2024-02-28 13:09:11"}
+{"level":"info","message":"Updating lead to be unprocessed","timestamp":"2024-02-28 13:09:11"}
+{"level":"info","message":"lead updated successfully:","timestamp":"2024-02-28 13:09:11"}
+{"level":"info","message":"Starting leap workflows for lead: depue@openai.com","timestamp":"2024-02-28 13:09:11"}
+{"level":"info","message":"Starting leap workflows for lead: 1, with query:, depue OpenAI ","timestamp":"2024-02-28 13:09:11"}
+{"level":"info","message":"Started leap workflows for lead: 1","timestamp":"2024-02-28 13:09:11"}
+{"level":"info","message":"Updating lead to be unprocessed","timestamp":"2024-02-28 13:09:11"}
+{"level":"info","message":"lead updated successfully:","timestamp":"2024-02-28 13:09:11"}
+{"level":"info","message":"Starting leap workflows for lead: dylan@figma.com","timestamp":"2024-02-28 13:09:11"}
+{"level":"info","message":"Starting leap workflows for lead: 2, with query:, dylan Figma ","timestamp":"2024-02-28 13:09:12"}
+{"level":"info","message":"Started leap workflows for lead: 2","timestamp":"2024-02-28 13:09:12"}
+{"level":"info","message":"Updating lead to be unprocessed","timestamp":"2024-02-28 13:09:12"}
+{"level":"info","message":"lead updated successfully:","timestamp":"2024-02-28 13:09:12"}
+{"level":"info","message":"Starting leap workflows for lead: farza@buildspace.so","timestamp":"2024-02-28 13:09:12"}
+{"level":"info","message":"Starting leap workflows for lead: 3, with query:, farza buildspace ","timestamp":"2024-02-28 13:09:14"}
+{"level":"info","message":"Started leap workflows for lead: 3","timestamp":"2024-02-28 13:09:14"}
+{"level":"info","message":"Updating lead to be unprocessed","timestamp":"2024-02-28 13:09:14"}
+{"level":"info","message":"lead updated successfully:","timestamp":"2024-02-28 13:09:14"}
+{"level":"info","message":"Starting leap workflows for lead: furqan@f.inc","timestamp":"2024-02-28 13:09:14"}
+{"level":"info","message":"Lead already exists in profiles: furqan@f.inc","timestamp":"2024-02-28 13:09:14"}
+{"level":"info","message":"Starting leap workflows for lead: hubert@f.inc","timestamp":"2024-02-28 13:09:14"}
+{"level":"info","message":"Lead already exists in profiles: hubert@f.inc","timestamp":"2024-02-28 13:09:14"}
+{"level":"info","message":"Starting leap workflows for lead: huzaifa@f.inc","timestamp":"2024-02-28 13:09:14"}
+{"level":"info","message":"Starting leap workflows for lead: 6, with query:, huzaifa Founders, Inc. ","timestamp":"2024-02-28 13:09:15"}
+{"level":"info","message":"Started leap workflows for lead: 6","timestamp":"2024-02-28 13:09:15"}
+{"level":"info","message":"Updating lead to be unprocessed","timestamp":"2024-02-28 13:09:15"}
+{"level":"info","message":"lead updated successfully:","timestamp":"2024-02-28 13:09:15"}
+{"level":"info","message":"Starting leap workflows for lead: omar@f.inc","timestamp":"2024-02-28 13:09:15"}
+{"level":"info","message":"Lead already exists in profiles: omar@f.inc","timestamp":"2024-02-28 13:09:15"}
+{"level":"info","message":"Starting leap workflows for lead: stey@vercel.com","timestamp":"2024-02-28 13:09:15"}
+{"level":"info","message":"Starting leap workflows for lead: 8, with query:, stey Vercel ","timestamp":"2024-02-28 13:09:16"}
+{"level":"info","message":"Started leap workflows for lead: 8","timestamp":"2024-02-28 13:09:16"}
+{"level":"info","message":"Updating lead to be unprocessed","timestamp":"2024-02-28 13:09:16"}
+{"level":"info","message":"lead updated successfully:","timestamp":"2024-02-28 13:09:16"}
+{"level":"info","message":"Starting leap workflows for document: 7969d2df-bf18-499f-8ba7-4847d48421cc with workflow: wkf_H5yOYc7A6CHr73","timestamp":"2024-02-28 13:56:31"}
+{"level":"info","message":"Updating document: 7969d2df-bf18-499f-8ba7-4847d48421cc to be paid","timestamp":"2024-02-28 13:56:31"}
+{"level":"info","message":"Updated document: 7969d2df-bf18-499f-8ba7-4847d48421cc, to be paid","timestamp":"2024-02-28 13:56:31"}
+{"level":"info","message":"Sending (processing leads) email to huzaifaahmed746+4242@gmail.com","timestamp":"2024-02-28 13:56:32"}
+{"level":"error","message":401,"timestamp":"2024-02-28 13:56:32"}
+{"level":"info","message":"Starting leap workflows for lead: bill.gates@gatesfoundation.org","timestamp":"2024-02-28 13:56:32"}
+{"level":"info","message":"Starting leap workflows for lead: 0, with query:, bill gates Bill & Melinda Gates Foundation ","timestamp":"2024-02-28 13:56:34"}
+{"level":"info","message":"Started leap workflows for lead: 0","timestamp":"2024-02-28 13:56:34"}
+{"level":"info","message":"Updating lead to be unprocessed","timestamp":"2024-02-28 13:56:34"}
+{"level":"info","message":"lead updated successfully:","timestamp":"2024-02-28 13:56:34"}
+{"level":"info","message":"Starting leap workflows for lead: depue@openai.com","timestamp":"2024-02-28 13:56:34"}
+{"level":"info","message":"Starting leap workflows for lead: 1, with query:, depue OpenAI ","timestamp":"2024-02-28 13:56:34"}
+{"level":"info","message":"Started leap workflows for lead: 1","timestamp":"2024-02-28 13:56:34"}
+{"level":"info","message":"Updating lead to be unprocessed","timestamp":"2024-02-28 13:56:34"}
+{"level":"info","message":"lead updated successfully:","timestamp":"2024-02-28 13:56:34"}
+{"level":"info","message":"Starting leap workflows for lead: dylan@figma.com","timestamp":"2024-02-28 13:56:34"}
+{"level":"info","message":"Starting leap workflows for lead: 2, with query:, dylan Figma ","timestamp":"2024-02-28 13:56:35"}
+{"level":"info","message":"Started leap workflows for lead: 2","timestamp":"2024-02-28 13:56:35"}
+{"level":"info","message":"Updating lead to be unprocessed","timestamp":"2024-02-28 13:56:35"}
+{"level":"info","message":"lead updated successfully:","timestamp":"2024-02-28 13:56:35"}
+{"level":"info","message":"Starting leap workflows for lead: farza@buildspace.so","timestamp":"2024-02-28 13:56:35"}
+{"level":"info","message":"Starting leap workflows for lead: 3, with query:, farza buildspace ","timestamp":"2024-02-28 13:56:36"}
+{"level":"info","message":"Started leap workflows for lead: 3","timestamp":"2024-02-28 13:56:36"}
+{"level":"info","message":"Updating lead to be unprocessed","timestamp":"2024-02-28 13:56:36"}
+{"level":"info","message":"lead updated successfully:","timestamp":"2024-02-28 13:56:36"}
+{"level":"info","message":"Starting leap workflows for lead: furqan@f.inc","timestamp":"2024-02-28 13:56:36"}
+{"level":"info","message":"Lead already exists in profiles: furqan@f.inc","timestamp":"2024-02-28 13:56:36"}
+{"level":"info","message":"Starting leap workflows for lead: hubert@f.inc","timestamp":"2024-02-28 13:56:36"}
+{"level":"info","message":"Lead already exists in profiles: hubert@f.inc","timestamp":"2024-02-28 13:56:36"}
+{"level":"info","message":"Starting leap workflows for lead: huzaifa@f.inc","timestamp":"2024-02-28 13:56:36"}
+{"level":"info","message":"Starting leap workflows for lead: 6, with query:, huzaifa Founders, Inc. ","timestamp":"2024-02-28 13:56:37"}
+{"level":"info","message":"Started leap workflows for lead: 6","timestamp":"2024-02-28 13:56:37"}
+{"level":"info","message":"Updating lead to be unprocessed","timestamp":"2024-02-28 13:56:37"}
+{"level":"info","message":"lead updated successfully:","timestamp":"2024-02-28 13:56:37"}
+{"level":"info","message":"Starting leap workflows for lead: omar@f.inc","timestamp":"2024-02-28 13:56:37"}
+{"level":"info","message":"Lead already exists in profiles: omar@f.inc","timestamp":"2024-02-28 13:56:37"}
+{"level":"info","message":"Starting leap workflows for lead: stey@vercel.com","timestamp":"2024-02-28 13:56:37"}
+{"level":"info","message":"Starting leap workflows for lead: 8, with query:, stey Vercel ","timestamp":"2024-02-28 13:56:38"}
+{"level":"info","message":"Started leap workflows for lead: 8","timestamp":"2024-02-28 13:56:38"}
+{"level":"info","message":"Updating lead to be unprocessed","timestamp":"2024-02-28 13:56:38"}
+{"level":"info","message":"lead updated successfully:","timestamp":"2024-02-28 13:56:38"}
+{"level":"info","message":"Leap returned linkedin bill.gates@gatesfoundation.org for document 7969d2df-bf18-499f-8ba7-4847d48421cc","timestamp":"2024-02-28 13:57:23"}
+{"level":"info","message":"Leap returned linkedin huzaifa@f.inc for document 7969d2df-bf18-499f-8ba7-4847d48421cc","timestamp":"2024-02-28 13:57:23"}
+{"level":"info","message":"Leap returned linkedin depue@openai.com for document 7969d2df-bf18-499f-8ba7-4847d48421cc","timestamp":"2024-02-28 13:57:25"}
+{"level":"info","message":"Leap returned linkedin dylan@figma.com for document 7969d2df-bf18-499f-8ba7-4847d48421cc","timestamp":"2024-02-28 13:57:36"}
+{"level":"info","message":"Leap returned linkedin stey@vercel.com for document 7969d2df-bf18-499f-8ba7-4847d48421cc","timestamp":"2024-02-28 13:57:38"}
+{"level":"info","message":"Leap returned linkedin farza@buildspace.so for document 7969d2df-bf18-499f-8ba7-4847d48421cc","timestamp":"2024-02-28 13:58:14"}
