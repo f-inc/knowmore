@@ -4,6 +4,7 @@ import logger from '@/logger';
 import { Leap } from '@leap-ai/workflows';
 import { createClient } from '@supabase/supabase-js';
 import { APIClient, SendEmailRequest } from 'customerio-node';
+import { jsonrepair } from 'jsonrepair';
 import Stripe from 'stripe';
 import type { Database } from 'types_db';
 import { v4 as uuid } from 'uuid';
@@ -234,16 +235,15 @@ const upsertLeads = async (id: string, Leads: any[]) => {
 };
 
 const onUpload = async (document_id: string, user_email: string) => {
-  const { data: documents, error: documentsError } = await supabaseAdmin
+  const { data: doc, error: documentsError } = await supabaseAdmin
     .from('documents')
     .select('*')
-    .eq('id', document_id);
+    .eq('id', document_id)
+    .single();
 
-  if (!documents || documents?.length == 0) {
+  if (!doc) {
     return;
   }
-
-  var doc = documents[0];
 
   if (!doc.slack_notified) {
     if (
@@ -299,7 +299,7 @@ const onPaid = async (document_id: string, customer_email: string) => {
 
     const { data: leadData, error: leadError } = await supabaseAdmin
       .from('leads')
-      .select('id,email')
+      .select('email')
       .eq('document_id', document_id);
 
     if (!leadData) {
@@ -328,48 +328,76 @@ const onPaid = async (document_id: string, customer_email: string) => {
       .catch((err: any) => logger.error(err.statusCode, err.message));
 
     for (const lead in leadData) {
-      logger.info(`Starting leap workflows for lead: ${lead}`);
-      const { id, email } = leadData[lead];
-      const website = `https://${email.split('@')[1]}`;
+      const { email } = leadData[lead];
 
-      const title = await getOgTitle(website);
-      const name = email.split('@')[0].replace(/[^a-zA-Z]/g, ' ');
+      logger.info(`Starting leap workflows for lead: ${email}`);
 
-      logger.info(
-        `Starting leap workflows for lead: ${lead}, with query:, ${
-          name + ' ' + title
-        } `
-      );
+      // first check if email already exists in profiles
+      const { data: profileData, error: profileError } = await supabaseAdmin
+        .from('profiles')
+        .select('*')
+        .eq('email', email);
 
-      leap.workflowRuns.workflow({
-        workflow_id,
-        webhook_url: process.env.LEAP_WEBHOOK_URL,
-        input: {
-          email_of_lead: email,
-          search_input: name,
-          user_website: title,
-          document_id: document_id
-        }
-      });
-      logger.info(`Started leap workflows for lead: ${lead}`);
-
-      logger.info(`updating lead to be unprocessed: ${id}`);
-
-      const { data: leadUpdateData, error: leadUpdateError } =
-        await supabaseAdmin
-          .from('leads')
-          .update({
-            processed: false
-          })
-          .eq('id', id);
-
-      if (leadUpdateError) {
-        throw leadUpdateError;
+      if (profileError) {
+        throw profileError;
       }
 
-      logger.info('lead updated successfully:', leadUpdateData);
+      if (!profileData || profileData.length == 0) {
+        const website = `https://${email.split('@')[1]}`;
 
-      await new Promise((resolve) => setTimeout(resolve, 100));
+        const title = await getOgTitle(website);
+        const name = email.split('@')[0].replace(/[^a-zA-Z]/g, ' ');
+
+        logger.info(
+          `Starting leap workflows for lead: ${lead}, with query:, ${
+            name + ' ' + title
+          } `
+        );
+
+        const run = leap.workflowRuns.workflow({
+          workflow_id,
+          webhook_url: process.env.LEAP_WEBHOOK_URL,
+          input: {
+            email_of_lead: email,
+            search_input: name,
+            user_website: title,
+            document_id: document_id
+          }
+        });
+
+        logger.info(`Started leap workflows for lead: ${lead}`);
+
+        logger.info(`Updating lead to be unprocessed`);
+
+        const { data: leadUpdateData, error: leadUpdateError } =
+          await supabaseAdmin
+            .from('leads')
+            .update({
+              processed: false
+            })
+            .eq('email', email);
+
+        if (leadUpdateError) {
+          throw leadUpdateError;
+        }
+
+        logger.info('lead updated successfully:', leadUpdateData);
+
+        await new Promise((resolve) => setTimeout(resolve, 100));
+      } else {
+        logger.info(`Lead already exists in profiles: ${email}`);
+
+        const { data: leadUpdateData, error: leadUpdateError } =
+          await supabaseAdmin
+            .from('leads')
+            .update({
+              processed: true
+            })
+            .eq('email', email)
+            .eq('document_id', document_id);
+
+        if (leadUpdateError) throw leadUpdateError;
+      }
     }
 
     if (documentError) {
@@ -475,38 +503,87 @@ const onProcessed = async (workflowResult: any) => {
     const { linkedin } = workflowResult.output;
 
     if (linkedin) {
-      const { data: linkedinData } = linkedin;
+      const repairedJSON = jsonrepair(linkedin);
+      console.log('repairedJSON:', repairedJSON);
+
+      const parsedData = JSON.parse(repairedJSON);
+      console.log('parsedData:', parsedData);
+
       const {
-        full_name: fullName,
-        linkedin_url: linkedInUrl,
-        location,
-        company,
-        headline: role,
-        about,
-        summary,
-        school: education
-      } = linkedinData;
+        person_full_name,
+        person_linkedin_url,
+        person_twitter_url,
+        person_location,
+        person_employment_title,
+        person_estimated_salary,
+        person_age,
+        person_gender,
+        person_bio,
+        person_website,
+        person_education_summary,
+        company_name,
+        company_website,
+        company_industry,
+        company_description,
+        company_address,
+        company_linkedin_url,
+        company_twitter_url,
+        company_num_employees,
+        company_money_raised,
+        company_metrics_annual_revenue,
+        company_tech_stack
+      } = parsedData;
+
+      const company_tech_stack_string =
+        company_tech_stack && company_tech_stack.join(', ');
 
       const updateData = {
-        name: fullName,
-        linkedin: linkedInUrl,
-        location,
-        company,
-        role,
-        about,
-        summary,
-        education,
+        person_full_name,
+        person_linkedin_url,
+        person_twitter_url,
+        person_location,
+        person_employment_title,
+        person_estimated_salary,
+        person_age,
+        person_gender,
+        person_bio,
+        person_website,
+        person_education_summary,
+        company_name,
+        company_website,
+        company_industry,
+        company_description,
+        company_address,
+        company_linkedin_url,
+        company_twitter_url,
+        company_num_employees,
+        company_money_raised,
+        company_metrics_annual_revenue,
+        company_tech_stack: company_tech_stack_string,
         processed: true
       };
 
-      const { data, error } = await supabaseAdmin
-        .from('leads')
-        .update(updateData)
-        .eq('document_id', documentId)
-        .eq('email', leadEmail);
+      const { data, error } = await supabaseAdmin.from('profiles').upsert({
+        email: leadEmail,
+        ...updateData
+      });
+
+      console.log('updated profile data', data);
 
       if (error) {
         throw error;
+      }
+
+      const { data: leadData, error: leadError } = await supabaseAdmin
+        .from('leads')
+        .update({
+          processed: true
+        })
+        .eq('email', leadEmail)
+        .eq('document_id', documentId);
+
+      if (leadError) {
+        throw leadError;
       }
     }
   } catch (error) {

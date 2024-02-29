@@ -1,10 +1,20 @@
 'use client';
 
-import { redirect } from "next/navigation";
+import { User } from '@supabase/supabase-js';
+import { redirect } from 'next/navigation';
+import posthog from 'posthog-js';
+import { useEffect } from 'react';
 
-export default function RedirectUI() {
-  
+export default function RedirectUI({ user }: { user: User }) {
+  useEffect(() => {
+    posthog.identify(user.id, {
+      email: user.email
+    });
+  }, []);
+
   const searchParams = new URLSearchParams(window.location.search);
-  console.log(searchParams);
-  return redirect(searchParams.has("redirectURL") ? (searchParams.get("redirectURL") as string) : "/");
+
+  const redirectURL = searchParams.get('redirectURL') || '/dashboard';
+
+  return redirect(redirectURL as string);
 }

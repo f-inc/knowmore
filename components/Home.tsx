@@ -4,15 +4,11 @@ import { useSupabase } from '@/app/supabase-provider';
 import { transaction } from '@/lib/gtag';
 import { AnalyticsEvents } from '@/utils/constants/AnalyticsEvents';
 import { CommonEmailProviders } from '@/utils/constants/EmailProviders';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { User } from '@supabase/supabase-js';
 import Image from 'next/image';
 import { useRouter } from 'next/navigation';
-import Papa from 'papaparse';
 import posthog from 'posthog-js';
-import { ChangeEvent, useState } from 'react';
-import { useCallback } from 'react';
-import { BarLoader, ClipLoader, DotLoader } from 'react-spinners';
-import { v4 as uuid } from 'uuid';
 
 interface Props {
   user: User | null | undefined;
@@ -20,123 +16,15 @@ interface Props {
 
 export default function Home({ user }: Props) {
   const router = useRouter();
-  const [loading, setLoading] = useState(false);
-  const [error, setError] = useState(false);
-  const [blurData, setBlurData] = useState(false);
 
-  const { supabase } = useSupabase();
-
-  const handleFileUpload = async (e: ChangeEvent<HTMLInputElement>) => {
-    posthog.capture(AnalyticsEvents.Upload.FileUploading);
-
-    await toggleLoading();
-    console.log('loading...');
-    const file = e.target.files && e.target.files[0];
-
-    // validate the file to see if it has a column named email.
-    // if it does, then we can upload it.
-
-    if (file && file.name.endsWith('.csv')) {
-      try {
-        Papa.parse(file!, {
-          complete: async function (results) {
-            // Go through each row and find any email using regex and add it to set.
-            const emails = new Set<string>();
-            for (const row of results.data) {
-              for (const cell of row as any) {
-                const emailRegex = /\S+@\S+\.\S+/;
-
-                if (emailRegex.test(cell)) {
-                  if (!(cell in CommonEmailProviders)) {
-                    emails.add(cell);
-                  }
-                }
-              }
-            }
-
-            if (emails.size === 0) {
-              throw new Error('No emails found');
-            }
-
-            const id = uuid();
-
-            // Upload the file to storage.
-            const filePath = `public/${id}.csv`;
-            const bucket = 'documents';
-            const { data: uploadData, error: uploadError } =
-              await supabase.storage.from(bucket).upload(filePath, file);
-
-            if (uploadError) {
-              console.error('Error uploading CSV:', uploadError.message);
-              return;
-            }
-
-            // Insert the document into the documents table.
-            const { data: insertData, error: insertError } = await supabase
-              .from('documents')
-              .insert([
-                {
-                  id,
-                  storage_path: filePath,
-                  owner: user?.id,
-                  customer_to_email: user?.email,
-                  total_leads: emails.size
-                }
-              ]);
-
-            transaction(id, 0);
-
-            fetch('/api/uploaded', {
-              method: 'POST',
-              headers: {
-                'Content-Type': 'application/json'
-              },
-              body: JSON.stringify({ document_id: id })
-            });
-
-            if (insertError) {
-              console.error(
-                'Error inserting row into documents table:',
-                insertError.message
-              );
-              return;
-            }
-
-            // Create lead entries for each email.
-
-            const emailArray = Array.from(emails);
-            const emailObjects = emailArray.map((email) => ({
-              email,
-              document_id: id
-            }));
-            const { data: leadInsertData, error: leadInsertError } =
-              await supabase.from('leads').insert(emailObjects);
-
-            if (leadInsertError) {
-              console.error(
-                'Error inserting row into leads table:',
-                leadInsertError.message
-              );
-              return;
-            }
-
-            posthog.capture(AnalyticsEvents.Upload.FileUploaded, { id });
-            router.push(`/view/${id}`);
-          }
-        });
-      } catch (error) {
-        posthog.capture(AnalyticsEvents.Upload.FileUploadFailed, { error });
-        console.error('Error uploading CSV:', error);
-      }
-    }
+  const handleGetStarted = () => {
+    posthog.capture(AnalyticsEvents.Landing.GetStartedClicked);
+    router.push('/signin');
   };
 
-  async function toggleLoading() {
-    setLoading(!loading);
-  }
-
-  const handleBlurToggle = () => {
-    setBlurData(!blurData);
+  const handleLearnMore = () => {
+    posthog.capture(AnalyticsEvents.Landing.LearnMoreClicked);
+    router.push('/case-studies');
   };
 
   return (
@@ -168,57 +56,49 @@ export default function Home({ user }: Props) {
             <div
               style={{
                 display: 'flex',
-                padding: '48px',
-                flexDirection: 'column',
+                flexDirection: 'row',
                 alignItems: 'center',
-                gap: '16px',
+                gap: '10px',
                 alignSelf: 'stretch',
-                borderRadius: '16px',
-                border: '1px solid rgba(255, 255, 255, 0.12)',
-                background: 'rgba(0, 0, 0, 0.15)'
+                borderRadius: '16px'
               }}
-              //   onDragOver={handleDragOver}
-              //   onDrop={handleDrop}
             >
-              {loading ? (
-                <div className="loading-spinner py-10">
-                  <BarLoader className="m-auto" color="white" />
-                  <p className="text-xs text-center mt-5">
-                    uploading your file
-                  </p>
-                </div>
-              ) : (
-                <>
-                  <label htmlFor="file-upload" className="file-upload-label">
-                    <span style={{ display: 'none' }}>Upload CSV</span>
-                    <div
-                      className="bg-[#E85533] hover:bg-orange-700"
-                      style={{
-                        display: 'flex',
-                        padding: '16px 48px',
-                        justifyContent: 'center',
-                        alignItems: 'center',
-                        gap: '8px',
-                        borderRadius: '56px',
-                        border: '1px solid rgba(255, 255, 255, 0.15)',
-                        boxShadow: '0px 0px 28px 0px rgba(255, 255, 255, 0.15)',
-                        fontWeight: 700,
-                        cursor: 'pointer'
-                      }}
-                    >
-                      Upload Emails (.csv)
-                    </div>
-                  </label>
-                  <input
-                    type="file"
-                    id="file-upload"
-                    accept=".csv"
-                    onChange={handleFileUpload}
-                    style={{ display: 'none' }}
-                  />
-                  <p className="text-xs">or drop a file</p>
-                </>
-              )}
+              <div
+                className="bg-[#E85533] hover:bg-orange-700"
+                style={{
+                  display: 'flex',
+                  padding: '16px 26px',
+                  justifyContent: 'center',
+                  alignItems: 'center',
+                  gap: '8px',
+                  borderRadius: '56px',
+                  border: '1px solid rgba(255, 255, 255, 0.15)',
+                  boxShadow: '0px 0px 28px 0px rgba(255, 255, 255, 0.15)',
+                  fontWeight: 700,
+                  cursor: 'pointer'
+                }}
+                onClick={handleGetStarted}
+              >
+                Get Started <FontAwesomeIcon icon="arrow-right" />
+              </div>
+              <div
+                className="hover:bg-orange-700"
+                style={{
+                  display: 'flex',
+                  padding: '16px 26px',
+                  justifyContent: 'center',
+                  alignItems: 'center',
+                  gap: '8px',
+                  borderRadius: '56px',
+                  border: '1px solid rgba(255, 255, 255, 0.15)',
+                  fontWeight: 700,
+                  cursor: 'pointer',
+                  background: 'rgba(0, 0, 0, 0.15)'
+                }}
+                onClick={handleLearnMore}
+              >
+                Learn more
+              </div>
             </div>
           </div>
           <div className="w-full lg:w-1/2 flex justify-center lg:justify-end items-center">

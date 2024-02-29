@@ -71,3 +71,30 @@ export async function getOgTitle(url: string): Promise<string> {
     return url;
   }
 }
+
+export type LeadDataType = {
+  document_id: string;
+  email: string;
+  person_full_name?: string;
+  person_linkedin_url?: string;
+  person_twitter_url?: string;
+  person_location?: string;
+  person_employment_title?: string;
+  person_estimated_salary?: string;
+  person_age?: string;
+  person_gender?: string;
+  person_bio?: string;
+  person_website?: string;
+  person_education_summary?: string;
+  company_name?: string;
+  company_website?: string;
+  company_industry?: string;
+  company_description?: string;
+  company_address?: string;
+  company_linkedin_url?: string;
+  company_twitter_url?: string;
+  company_num_employees?: number;
+  company_money_raised?: string;
+  company_metrics_annual_revenue?: string;
+  company_tech_stack?: string;
+};
