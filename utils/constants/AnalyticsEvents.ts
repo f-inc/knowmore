@@ -1,4 +1,9 @@
 export class AnalyticsEvents {
+  static readonly Landing = {
+    GetStartedClicked: 'getStarted/getStartedClicked',
+    LearnMoreClicked: 'getStarted/learnMoreClicked'
+  };
+
   static readonly Upload = {
     FileUploading: 'upload/fileUploading',
     FileUploaded: 'upload/fileUploaded',

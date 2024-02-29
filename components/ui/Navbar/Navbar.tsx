@@ -26,16 +26,16 @@ export default async function Navbar() {
             >
               <img className="w-[100px]" src="/logo.png"></img>
             </Link>
-            {/* <nav className="hidden ml-6 space-x-2 lg:block">
-              <Link href="/" className={s.link} >
+            <nav className="hidden ml-6 space-x-2 lg:block">
+              {/* <Link href="/" className={s.link} >
                 Pricing
-              </Link>
+              </Link> */}
               {user && (
-                <Link href="/account" className={s.link}>
-                  Account
+                <Link href="/dashboard" className={s.link}>
+                  Dashboard
                 </Link>
               )}
-            </nav> */}
+            </nav>
           </div>
           <div className="flex justify-end flex-1 space-x-8">
             {user ? <SignOutButton /> : <SignInButton />}

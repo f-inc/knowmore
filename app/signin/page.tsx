@@ -2,19 +2,12 @@ import AuthUI from './AuthUI';
 import RedirectUI from './RedirectUI';
 import { getSession } from '@/app/supabase-server';
 import Link from 'next/link';
-import posthog from 'posthog-js';
 
 export default async function SignIn() {
   const session = await getSession();
 
   if (session) {
-    console.log('session', session);
-
-    posthog.identify(session.user.id, {
-      email: session.user.email
-    });
-
-    return <RedirectUI></RedirectUI>;
+    return <RedirectUI user={session.user} />;
   }
 
   return (

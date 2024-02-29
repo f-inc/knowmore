@@ -13,19 +13,9 @@ export default function AuthUI() {
   const router = useRouter();
 
   useEffect(() => {
-    const { data } = supabase.auth.onAuthStateChange(async (event, session) => {
-      if (session?.user) {
-        if (typeof window !== 'undefined') {
-          const searchParams = new URLSearchParams(window.location.search);
-
-          return redirect(
-            (searchParams.has('redirectURL')
-              ? searchParams.get('redirectURL')
-              : '/') || ''
-          );
-        }
-      }
-    });
+    const { data } = supabase.auth.onAuthStateChange(
+      async (event, session) => {}
+    );
   }, []);
 
   return (
@@ -33,7 +23,7 @@ export default function AuthUI() {
       <Auth
         supabaseClient={supabase}
         providers={['google']}
-        redirectTo={getURL()}
+        redirectTo={`${getURL()}auth/callback`}
         magicLink={false}
         appearance={{
           theme: ThemeSupa,

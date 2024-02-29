@@ -2,7 +2,8 @@
 
 import CheckoutCard from './CheckoutCard';
 import { useSupabase } from '@/app/supabase-provider';
-import { postData } from '@/utils/helpers';
+import useLeadTable from '@/hooks/useLeadTable';
+import { LeadDataType, postData } from '@/utils/helpers';
 import { getStripe } from '@/utils/stripe-client';
 import { faLinkedin } from '@fortawesome/free-brands-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -13,19 +14,6 @@ import React, { useEffect, useState } from 'react';
 import { useMemo } from 'react';
 import { BarLoader } from 'react-spinners';
 import { useTable, useSortBy, useFilters, Column } from 'react-table';
-
-type LeadDataType = {
-  document_id: string;
-  email: string;
-  name?: string;
-  linkedin?: string;
-  company?: string;
-  role?: string;
-  location?: string;
-  salary?: string;
-  website?: string;
-  education?: string;
-};
 
 type LeadProps = {
   document_id?: string;
@@ -45,119 +33,29 @@ export default function Document({
 }) {
   const { supabase } = useSupabase();
   const [document, setDocument] = useState<any>();
-  const [leads, setLeads] = useState<LeadDataType[]>([]);
-  const [filteredLeads, setFilteredLeads] = useState<LeadDataType[]>([]);
-  const [isPaid, setIsPaid] = useState(false);
+
+  const [currentPage, setCurrentPage] = useState(1);
+  const [itemsPerPage, setItemsPerPage] = useState(20);
   const [isProcessed, setIsProcessed] = useState(false);
-  const data = useMemo(() => filteredLeads, [filteredLeads]);
 
-  const columns: Column<LeadDataType>[] = useMemo(
-    () => [
-      {
-        Header: 'Email',
-        accessor: 'email'
-      },
-      {
-        Header: 'Linkedin',
-        accessor: 'linkedin'
-      },
-      {
-        Header: 'Company Name',
-        accessor: 'company'
-      },
-      {
-        Header: 'Role',
-        accessor: 'role'
-      },
-      {
-        Header: 'Location',
-        accessor: 'location'
-      },
-      {
-        Header: 'Education',
-        accessor: 'education'
-      }
-    ],
-    []
-  );
+  const {
+    rows,
+    isPaid,
+    fetching,
+    numLeads,
+    prepareRow,
 
-  const { getTableProps, getTableBodyProps, headerGroups, rows, prepareRow } =
-    useTable({ columns, data }, useFilters, useSortBy);
-
-  const downloadCsv = () => {
-    const leadsWithoutDocumentId = leads.map((item) => ({
-      email: item.email,
-      company: item.company,
-      role: item.role,
-      location: item.location,
-      linkedin: item.linkedin,
-      website: item.website
-    }));
-    const csvData = Papa.unparse(leadsWithoutDocumentId, { header: true });
-
-    const blob = new Blob([csvData], { type: 'text/csv' });
-    const url = URL.createObjectURL(blob);
-
-    const a = window.document.createElement('a');
-    a.href = url;
-    a.download = 'leads.csv';
-    window.document.body.appendChild(a);
-    a.click();
-    window.document.body.removeChild(a);
-  };
-
-  const fetchRecord = async (id: string) => {
-    const { data: recordData, error } = await supabase
-      .from('documents')
-      .select('*')
-      .eq('id', id)
-      .single();
-
-    const { data: leadData, error: leadError } = await supabase
-      .from('leads')
-      .select('*')
-      .eq('document_id', id);
-
-    if (leadData) {
-      const filteredLeadData = leadData
-        .filter((lead) => lead.processed)
-        .sort((a, b) =>
-          a.linkedin && !b.linkedin ? -1 : !a.linkedin && b.linkedin ? 1 : 0
-        );
-
-      setFilteredLeads(filteredLeadData as LeadDataType[]);
-      setLeads(leadData as LeadDataType[]);
-    }
-
-    if (error) {
-      console.log(error);
-      return;
-    }
-
-    if (recordData) {
-      setDocument(recordData);
-      setIsPaid(recordData.paid);
-      setIsProcessed(
-        filteredLeads?.length == leadData?.length || recordData.processed
-      );
-    }
-  };
-
-  const fetchData = async (id: string) => {
-    if (id && !isProcessed) {
-      fetchRecord(id as string);
-    }
-  };
+    downloadCsv,
+    headerGroups,
+    getTableProps,
+    getTableBodyProps,
+    numProcessedLeads
+  } = useLeadTable(id, currentPage, itemsPerPage);
 
   useEffect(() => {
-    fetchData(id as string);
-    const interval = setInterval(() => {
-      if (!isProcessed) {
-        fetchData(id as string);
-      }
-    }, 10000);
-    return () => clearInterval(interval);
-  }, [id, isProcessed]);
+    console.log(numProcessedLeads, numLeads);
+    setIsProcessed(numProcessedLeads == numLeads);
+  }, [numProcessedLeads, numLeads]);
 
   return (
     <div className="text-white py-20 px-5 bg-opacity-10">
@@ -176,7 +74,7 @@ export default function Document({
               WebkitTextFillColor: 'transparent'
             }}
           >
-            We detected {leads.length} {leads.length > 1 ? 'emails' : 'email'}
+            We detected {numLeads} {numLeads > 1 ? 'emails' : 'email'}
           </h1>
           <p className="max-w-md text-center m-auto text-gray-300 text-sm">
             Unlock key AI-powered insights based on emails you’ve collected from
@@ -186,11 +84,11 @@ export default function Document({
         <div className="mt-10">
           {isPaid ? (
             <div className="text-right text-xs px-5">
-              {(isProcessed || filteredLeads?.length == leads?.length) && (
+              {isProcessed && (
                 <>
                   <p className="mt-3">
-                    Processed all {leads.length} results, please download the
-                    CSV file.
+                    Processed all {numLeads} results, please download the CSV
+                    file.
                   </p>
                   <button
                     onClick={downloadCsv}
@@ -201,14 +99,37 @@ export default function Document({
                 </>
               )}
 
-              {!(isProcessed || filteredLeads?.length == leads?.length) && (
+              {!isProcessed && (
                 <div className="loading-spinner py-10">
                   <BarLoader className="m-auto" color="white" />
                   <p className="text-xs text-center mt-5">
-                    {filteredLeads.length} / {leads.length} leads processed
+                    {numProcessedLeads} / {numLeads} leads processed
                   </p>
                 </div>
               )}
+
+              <div className="flex justify-center items-center gap-4 mt-5">
+                <button
+                  className="px-4 py-2 bg-[#E85533] text-white rounded-full text-sm hover:bg-orange-700 focus:outline-none"
+                  onClick={() => setCurrentPage(currentPage - 1)}
+                  disabled={currentPage === 1}
+                >
+                  Previous
+                </button>
+                <p className="text-white text-sm">
+                  {currentPage} of {Math.ceil(numProcessedLeads / itemsPerPage)}
+                </p>
+                <button
+                  className="px-4 py-2 bg-[#E85533] text-white rounded-full text-sm hover:bg-orange-700 focus:outline-none"
+                  onClick={() => {
+                    setCurrentPage(currentPage + 1);
+                  }}
+                  disabled={currentPage * itemsPerPage >= numProcessedLeads}
+                >
+                  Next
+                </button>
+              </div>
+
               <div className="overflow-x-auto max-w-[90vw] text-left">
                 <table
                   {...getTableProps()}
@@ -241,65 +162,67 @@ export default function Document({
                       </tr>
                     ))}
                   </thead>
-                  <tbody {...getTableBodyProps()}>
-                    {rows.map((row) => {
-                      prepareRow(row);
-                      return (
-                        <tr {...row.getRowProps()}>
-                          {row.cells.map((cell) => {
-                            const isLinkedInUrl =
-                              cell.column.id === 'linkedin' && cell.value;
-                            return (
-                              <td
-                                {...cell.getCellProps()}
-                                className="py-2 px-4 border-b border-gray-300"
-                                style={{
-                                  borderColor: 'rgba(255, 255, 255, 0.2)'
-                                }}
-                              >
-                                {isLinkedInUrl ? (
-                                  <a
-                                    href={cell.value}
-                                    target="_blank"
-                                    rel="noopener noreferrer"
-                                  >
-                                    <FontAwesomeIcon icon={faLinkedin} />
-                                  </a>
-                                ) : (
-                                  cell.render('Cell')
-                                )}
-                              </td>
-                            );
-                          })}
-                        </tr>
-                      );
-                    })}
-                  </tbody>
+                  {fetching ? (
+                    <BarLoader className="m-auto" color="white" />
+                  ) : (
+                    <tbody {...getTableBodyProps()}>
+                      {rows.map((row) => {
+                        prepareRow(row);
+                        return (
+                          <tr {...row.getRowProps()}>
+                            {row.cells.map((cell) => {
+                              const isLinkedInUrl =
+                                [
+                                  'person_linkedin_url',
+                                  'company_linkedin_url'
+                                ].includes(cell.column.id) && cell.value;
+                              return (
+                                <td
+                                  {...cell.getCellProps()}
+                                  className="py-2 px-4 border-b border-gray-300"
+                                  style={{
+                                    maxWidth: '300px',
+                                    whiteSpace: 'nowrap',
+                                    overflow: 'hidden',
+                                    textOverflow: 'ellipsis',
+                                    borderColor: 'rgba(255, 255, 255, 0.2)'
+                                  }}
+                                >
+                                  {isLinkedInUrl ? (
+                                    <a
+                                      href={cell.value}
+                                      target="_blank"
+                                      rel="noopener noreferrer"
+                                    >
+                                      <FontAwesomeIcon icon={faLinkedin} />
+                                    </a>
+                                  ) : cell.value ? (
+                                    cell.render('Cell')
+                                  ) : (
+                                    <span
+                                      style={{
+                                        color: 'rgba(255, 255, 255, 0.7)'
+                                      }}
+                                    >
+                                      (empty)
+                                    </span>
+                                  )}
+                                </td>
+                              );
+                            })}
+                          </tr>
+                        );
+                      })}
+                    </tbody>
+                  )}
                 </table>
-
-                {isProcessed && filteredLeads.length > 20 && (
-                  <p className="mt-3 text-center">
-                    To view all of your results please{' '}
-                    <a
-                      className="underline cursor-pointer"
-                      onClick={downloadCsv}
-                    >
-                      download the CSV file
-                    </a>
-                    .
-                  </p>
-                )}
               </div>
             </div>
           ) : (
             <>
-              {user && leads.length >= lead_limit ? (
+              {user && numLeads >= lead_limit ? (
                 <div className="text-center text-sm bg-gray-100/20 p-5 rounded-xl max-w-[600px]">
-                  <p>
-                    The number of emails that you're trying to process exceeds
-                    our current limit. Our team has been notified with your
-                    email — we'll be in touch!
-                  </p>
+                  <p></p>
                 </div>
               ) : (
                 <>
