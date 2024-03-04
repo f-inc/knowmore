@@ -93,6 +93,7 @@ const Dashboard: React.FC<DashboardProps> = ({ user }) => {
                 fontWeight: 700,
                 cursor: 'pointer'
               }}
+              onClick={openModal}
             >
               New Batch
             </button>

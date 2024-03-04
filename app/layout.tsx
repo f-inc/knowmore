@@ -75,8 +75,8 @@ export default function RootLayout({
           >
             <g opacity="0.3" filter="url(#filter0_f_0_70)">
               <path
-                fill-rule="evenodd"
-                clip-rule="evenodd"
+                fillRule="evenodd"
+                clipRule="evenodd"
                 d="M188 -112C286.902 25.8278 444.489 115 622 115C799.511 115 957.098 25.8278 1056 -112H188Z"
                 fill="#E85533"
               />
@@ -92,9 +92,9 @@ export default function RootLayout({
                 y="-300"
                 height="603"
                 filterUnits="userSpaceOnUse"
-                color-interpolation-filters="sRGB"
+                colorInterpolationFilters="sRGB"
               >
-                <feFlood flood-opacity="0" result="BackgroundImageFix" />
+                <feFlood floodOpacity="0" result="BackgroundImageFix" />
                 <feBlend
                   mode="normal"
                   in="SourceGraphic"
