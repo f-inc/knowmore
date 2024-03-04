@@ -1,4 +1,4 @@
-import { getOgTitle, toDateTime } from './helpers';
+import { getOgTitle, getURL, postData, toDateTime } from './helpers';
 import { stripe } from './stripe';
 import logger from '@/logger';
 import { Leap } from '@leap-ai/workflows';
@@ -279,13 +279,7 @@ const onUpload = async (document_id: string, user_email: string) => {
  */
 const onPaid = async (document_id: string, customer_email: string) => {
   try {
-    const workflow_id = process.env.LEAP_WORKFLOW_ID || 'wkf_Z2NKhgEKaL1UIL';
-
-    logger.info(
-      `Starting leap workflows for document: ${document_id} with workflow: ${workflow_id}`
-    );
-
-    logger.info(`Updating document: ${document_id} to be paid`);
+    logger.info(`Updating document ${document_id} to be paid`);
     const { data: documentData, error: documentError } = await supabaseAdmin
       .from('documents')
       .update({
@@ -295,7 +289,7 @@ const onPaid = async (document_id: string, customer_email: string) => {
       })
       .eq('id', document_id);
 
-    logger.info(`Updated document: ${document_id}, to be paid`);
+    logger.info(`Updated document ${document_id} to be paid`);
 
     const { data: leadData, error: leadError } = await supabaseAdmin
       .from('leads')
@@ -327,84 +321,110 @@ const onPaid = async (document_id: string, customer_email: string) => {
       )
       .catch((err: any) => logger.error(err.statusCode, err.message));
 
-    for (const lead in leadData) {
-      const { email } = leadData[lead];
-
-      logger.info(`Starting leap workflows for lead: ${email}`);
-
-      // first check if email already exists in profiles
-      const { data: profileData, error: profileError } = await supabaseAdmin
-        .from('profiles')
-        .select('*')
-        .eq('email', email);
-
-      if (profileError) {
-        throw profileError;
-      }
-
-      if (!profileData || profileData.length == 0) {
-        const website = `https://${email.split('@')[1]}`;
-
-        const title = await getOgTitle(website);
-        const name = email.split('@')[0].replace(/[^a-zA-Z]/g, ' ');
-
-        logger.info(
-          `Starting leap workflows for lead: ${lead}, with query:, ${
-            name + ' ' + title
-          } `
-        );
-
-        const run = leap.workflowRuns.workflow({
-          workflow_id,
-          webhook_url: process.env.LEAP_WEBHOOK_URL,
-          input: {
-            email_of_lead: email,
-            search_input: name,
-            user_website: title,
-            document_id: document_id
-          }
-        });
-
-        logger.info(`Started leap workflows for lead: ${lead}`);
-
-        logger.info(`Updating lead to be unprocessed`);
-
-        const { data: leadUpdateData, error: leadUpdateError } =
-          await supabaseAdmin
-            .from('leads')
-            .update({
-              processed: false
-            })
-            .eq('email', email);
-
-        if (leadUpdateError) {
-          throw leadUpdateError;
-        }
-
-        logger.info('lead updated successfully:', leadUpdateData);
-
-        await new Promise((resolve) => setTimeout(resolve, 100));
-      } else {
-        logger.info(`Lead already exists in profiles: ${email}`);
-
-        const { data: leadUpdateData, error: leadUpdateError } =
-          await supabaseAdmin
-            .from('leads')
-            .update({
-              processed: true
-            })
-            .eq('email', email)
-            .eq('document_id', document_id);
-
-        if (leadUpdateError) throw leadUpdateError;
-      }
-    }
-
     if (documentError) {
       throw documentError;
     }
+
+    // process in batches of 200 emails at a time from leadData
+    // call api for this tho
+
+    // batch code
+    for (let i = 0; i < leadData.length; i += 200) {
+      const leads = leadData.slice(i, i + 200);
+      postData({
+        url: `${getURL()}/api/leap/process-emails`,
+        data: {
+          document_id,
+          leads
+        }
+      });
+    }
   } catch (error) {
     console.error('Error updating document:', error);
+  }
+};
+// add type bellow
+const processEmails = async (document_id: string, leadData: any) => {
+  const workflow_id = process.env.LEAP_WORKFLOW_ID || 'wkf_Z2NKhgEKaL1UIL';
+  logger.info(
+    `Starting leap workflows for document: ${document_id} with workflow: ${workflow_id}`
+  );
+
+  for (const lead in leadData) {
+    const { email } = leadData[lead];
+
+    logger.info(`Starting leap workflows for lead number ${lead}: ${email}`);
+
+    // first check if email already exists in profiles
+    const { data: profileData, error: profileError } = await supabaseAdmin
+      .from('profiles')
+      .select('*')
+      .eq('email', email);
+
+    if (profileError) {
+      throw profileError;
+    }
+
+    if (!profileData || profileData.length == 0) {
+      const website = `https://${email.split('@')[1]}`;
+
+      const title = await getOgTitle(website);
+      const name = email.split('@')[0].replace(/[^a-zA-Z]/g, ' ');
+
+      logger.info(
+        `Starting leap workflows for lead: ${lead}, with query:, ${
+          name + ' ' + title
+        } `
+      );
+
+      const leap_webhook_url = process.env.LEAP_WEBHOOK_URL;
+
+      if (leap_webhook_url) console.log('leap_webhook_url:', leap_webhook_url);
+
+      const run = leap.workflowRuns.workflow({
+        workflow_id,
+        webhook_url: leap_webhook_url ?? `${getURL()}/api/leap/webhook`,
+        input: {
+          email_of_lead: email,
+          search_input: name,
+          user_website: title,
+          document_id: document_id
+        }
+      });
+
+      logger.info(`Started leap workflows for lead: ${lead}`);
+
+      logger.info(`Updating lead to be unprocessed`);
+
+      const { data: leadUpdateData, error: leadUpdateError } =
+        await supabaseAdmin
+          .from('leads')
+          .update({
+            processed: false
+          })
+          .eq('email', email);
+
+      if (leadUpdateError) {
+        throw leadUpdateError;
+      }
+
+      logger.info('lead updated successfully:', leadUpdateData);
+
+      await new Promise((resolve) => setTimeout(resolve, 100));
+    } else {
+      logger.info(`Lead already exists in profiles: ${email}`);
+
+      const { data: leadUpdateData, error: leadUpdateError } =
+        await supabaseAdmin
+          .from('leads')
+          .update({
+            processed: true
+          })
+          .eq('email', email)
+          .eq('document_id', document_id);
+
+      if (leadUpdateError) throw leadUpdateError;
+    }
   }
 };
 
@@ -531,7 +551,8 @@ const onProcessed = async (workflowResult: any) => {
         company_num_employees,
         company_money_raised,
         company_metrics_annual_revenue,
-        company_tech_stack
+        company_tech_stack,
+        relevant_info
       } = parsedData;
 
       const company_tech_stack_string =
@@ -560,6 +581,7 @@ const onProcessed = async (workflowResult: any) => {
         company_money_raised,
         company_metrics_annual_revenue,
         company_tech_stack: company_tech_stack_string,
+        relevant_info,
         processed: true
       };
 
@@ -601,5 +623,6 @@ export {
   onUpload,
   onPaid,
   onProcessed,
+  processEmails,
   checkProcessed
 };

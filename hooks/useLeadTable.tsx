@@ -41,24 +41,8 @@ const useLeadTable = (
         accessor: 'person_employment_title'
       },
       {
-        Header: 'Estimated Salary',
-        accessor: 'person_estimated_salary'
-      },
-      {
-        Header: 'Age',
-        accessor: 'person_age'
-      },
-      {
-        Header: 'Gender',
-        accessor: 'person_gender'
-      },
-      {
         Header: 'Website',
         accessor: 'person_website'
-      },
-      {
-        Header: 'Twitter',
-        accessor: 'person_twitter_url'
       },
       {
         Header: 'Education',
@@ -88,21 +72,10 @@ const useLeadTable = (
         Header: 'Company LinkedIn',
         accessor: 'company_linkedin_url'
       },
-      {
-        Header: 'Company Twitter',
-        accessor: 'company_twitter_url'
-      },
+
       {
         Header: 'Number of Employees',
         accessor: 'company_num_employees'
-      },
-      {
-        Header: 'Money Raised',
-        accessor: 'company_money_raised'
-      },
-      {
-        Header: 'Annual Revenue',
-        accessor: 'company_metrics_annual_revenue'
       }
     ],
     []
