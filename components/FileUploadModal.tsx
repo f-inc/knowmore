@@ -34,7 +34,7 @@ const FileUploadModal: React.FC<FileUploadModalProps> = ({
 
   const { supabase } = useSupabase();
 
-  async function toggleLoading() {
+  function toggleLoading() {
     setLoading(!loading);
   }
 
@@ -44,17 +44,17 @@ const FileUploadModal: React.FC<FileUploadModalProps> = ({
 
   const handleFileUpload = async (e: ChangeEvent<HTMLInputElement>) => {
     posthog.capture(AnalyticsEvents.Upload.FileUploading);
-
-    await toggleLoading();
+    toggleLoading();
     console.log('Uploaiding file...');
 
     const file = e.target.files && e.target.files[0];
+
     if (file && file.name.endsWith('.csv')) {
       try {
         console.log('Parsing file...');
         Papa.parse(file!, {
           complete: async function (results) {
-            const emails = new Set<string>();
+            let emails = new Set<string>();
             for (const row of results.data) {
               for (const cell of row as any) {
                 const emailRegex = /\S+@\S+\.\S+/;
@@ -66,6 +66,12 @@ const FileUploadModal: React.FC<FileUploadModalProps> = ({
                 }
               }
             }
+
+            // limit emails to 1000
+            emails =
+              emails.size > 1000
+                ? new Set(Array.from(emails).slice(0, 1000))
+                : emails;
 
             if (emails.size === 0) {
               throw new Error('No emails found');
@@ -157,9 +163,14 @@ const FileUploadModal: React.FC<FileUploadModalProps> = ({
 
   console.log('user:', user);
   return (
-    <div className="fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center backdrop-blur-md">
-      <div className="bg-white p-4 rounded-lg">
+    // max width of 640px
+    <div className="fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center backdrop-blur-md z-50">
+      <div className="bg-white p-4 rounded-lg max-w-96">
         <h1 className="font-bold text-xl mb-4">Upload emails</h1>
+        <p className="text-sm text-gray-500 mb-4">
+          Upload a CSV file with emails to process. We currently only process
+          upto a 1000 emails. Please contact us for more.
+        </p>
         <div
           style={{
             borderRadius: '16px',

@@ -18,12 +18,15 @@ export default function AuthUI() {
     );
   }, []);
 
+  const callback = `${getURL()}auth/callback`;
+  console.log(callback);
+
   return (
     <div className="flex flex-col space-y-4">
       <Auth
         supabaseClient={supabase}
         providers={['google']}
-        redirectTo={`${getURL()}auth/callback`}
+        redirectTo={callback}
         magicLink={false}
         appearance={{
           theme: ThemeSupa,
