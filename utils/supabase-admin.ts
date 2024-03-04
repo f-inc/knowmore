@@ -325,9 +325,6 @@ const onPaid = async (document_id: string, customer_email: string) => {
       throw documentError;
     }
 
-    // process in batches of 200 emails at a time from leadData
-    // call api for this tho
-
     // batch code
     for (let i = 0; i < leadData.length; i += 200) {
       const leads = leadData.slice(i, i + 200);
@@ -343,7 +340,7 @@ const onPaid = async (document_id: string, customer_email: string) => {
     console.error('Error updating document:', error);
   }
 };
-// add type bellow
+
 const processEmails = async (document_id: string, leadData: any) => {
   const workflow_id = process.env.LEAP_WORKFLOW_ID || 'wkf_Z2NKhgEKaL1UIL';
   logger.info(
