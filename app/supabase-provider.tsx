@@ -4,6 +4,7 @@ import type { Database } from '@/types_db';
 import { createPagesBrowserClient } from '@supabase/auth-helpers-nextjs';
 import type { SupabaseClient } from '@supabase/auth-helpers-nextjs';
 import { useRouter } from 'next/navigation';
+import posthog from 'posthog-js';
 import { createContext, useContext, useEffect, useState } from 'react';
 
 type SupabaseContext = {
@@ -21,14 +22,24 @@ export default function SupabaseProvider({
   const router = useRouter();
 
   useEffect(() => {
-    const {
-      data: { subscription }
-    } = supabase.auth.onAuthStateChange((event) => {
-      if (event === 'SIGNED_IN') router.refresh();
-    });
+    const { data: authListener } = supabase.auth.onAuthStateChange(
+      async (event, session) => {
+        if (session) {
+          if (event === 'SIGNED_IN') {
+            console.log('signed in', session);
+            posthog.identify(session.user.id, {
+              email: session.user.email,
+              name: session.user.user_metadata.full_name
+            });
+          } else if (event === 'SIGNED_OUT') {
+            posthog.reset();
+          }
+        }
+      }
+    );
 
     return () => {
-      subscription.unsubscribe();
+      authListener.subscription.unsubscribe();
     };
   }, [router, supabase]);
 
