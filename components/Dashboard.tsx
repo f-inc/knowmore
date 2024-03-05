@@ -100,11 +100,12 @@ const Dashboard: React.FC<DashboardProps> = ({ user }) => {
           </div>
         </div>
         <p className="m-auto text-white text-sm mt-4 mb-4">
-          Upload a CSV of emails or company domains and we'll enrich your list
-          with 100+ person and company data points, from job title to company
-          size that you can purchase and download, and generate a profile of the
-          companies and people in your list. For more information, see our Batch
-          FAQ, or view the sample report below.
+          Upload a CSV containing emails or company domains, and we will enhance
+          your list with over 100 data points about individuals and companies,
+          including job titles and company sizes. These enriched details are
+          available for purchase and download, allowing you to create detailed
+          profiles for the entities in your list. For additional details, check
+          out the sample report provided below.
         </p>
 
         <div className="flex flex-wrap -mx-2">

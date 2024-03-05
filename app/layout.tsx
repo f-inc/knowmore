@@ -7,6 +7,7 @@ import { PropsWithChildren, useEffect } from 'react';
 import 'styles/main.css';
 import { PHProvider } from './providers';
 import Analytics from '@/components/Analytics';
+import { Metadata } from 'next';
 import dynamic from 'next/dynamic';
 import { Plus_Jakarta_Sans } from 'next/font/google';
 import Head from 'next/head';
@@ -42,7 +43,8 @@ export const metadata = {
     description: meta.description,
     cardImage: meta.cardImage,
     type: meta.type,
-    site_name: meta.title
+    site_name: meta.title,
+    images: meta.cardImage
   },
   twitter: {
     card: 'summary_large_image',
