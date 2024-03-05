@@ -14,9 +14,9 @@ import Head from 'next/head';
 import Script from 'next/script';
 
 const meta = {
-  title: 'Know More Bot',
+  title: 'Knowmore | Turn website leads into paid customers fast.',
   description:
-    'Unlock key AI-powered insights based on emails you’ve collected from leads and customers. Stop leaving money on the table.',
+    'Our AI bot scrapes every B2B lead you pull from your website so that you know exactly who your potential customers are. Stop leaving money on the table.',
   cardImage: '/og.png',
   robots: 'follow, index',
   favicon: '/favicon.ico',
