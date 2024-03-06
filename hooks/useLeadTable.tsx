@@ -59,23 +59,6 @@ const useLeadTable = (
       {
         Header: 'Industry',
         accessor: 'company_industry'
-      },
-      {
-        Header: 'Company Description',
-        accessor: 'company_description'
-      },
-      {
-        Header: 'Company Address',
-        accessor: 'company_address'
-      },
-      {
-        Header: 'Company LinkedIn',
-        accessor: 'company_linkedin_url'
-      },
-
-      {
-        Header: 'Number of Employees',
-        accessor: 'company_num_employees'
       }
     ],
     []
