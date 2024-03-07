@@ -16,6 +16,7 @@ const useLeadTable = (
   const [isPaid, setIsPaid] = useState(false);
   const [numLeads, setNumLeads] = useState(0);
   const [fetching, setFetching] = useState(false);
+  const [document, setDocument] = useState<any>();
 
   const columns: Column<LeadDataType>[] = useMemo(
     () => [
@@ -59,23 +60,6 @@ const useLeadTable = (
       {
         Header: 'Industry',
         accessor: 'company_industry'
-      },
-      {
-        Header: 'Company Description',
-        accessor: 'company_description'
-      },
-      {
-        Header: 'Company Address',
-        accessor: 'company_address'
-      },
-      {
-        Header: 'Company LinkedIn',
-        accessor: 'company_linkedin_url'
-      },
-
-      {
-        Header: 'Number of Employees',
-        accessor: 'company_num_employees'
       }
     ],
     []
@@ -97,6 +81,8 @@ const useLeadTable = (
       .select('*')
       .eq('id', id)
       .single();
+
+    setDocument(documentData);
 
     if (documentError) {
       console.error('Error fetching document:', documentError);
@@ -220,7 +206,8 @@ const useLeadTable = (
     setLeads,
     downloadCsv,
     isPaid,
-    fetching
+    fetching,
+    document
   };
 };
 
