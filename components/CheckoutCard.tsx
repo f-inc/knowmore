@@ -33,7 +33,7 @@ const CheckoutCard: React.FC<LeadCardProps> = ({ document, lead, user }) => {
     if (!document || document?.paid || !document?.total_leads) return;
 
     setNumLeads(document?.total_leads);
-    setPrice(Math.floor(numLeads * 0.1 * 100) / 100);
+    setPrice(Math.floor(numLeads * 0.5 * 100) / 100);
   }, [document]);
 
   const handleCheckout = async () => {
@@ -56,7 +56,8 @@ const CheckoutCard: React.FC<LeadCardProps> = ({ document, lead, user }) => {
       const { sessionId } = await createOneTimeCheckoutSession({
         priceId: priceID,
         document_id,
-        product_id: productID
+        product_id: productID,
+        quantity: numLeads
       });
 
       posthog.capture(AnalyticsEvents.Checkout.CheckoutCreated, {
@@ -147,7 +148,9 @@ const CheckoutCard: React.FC<LeadCardProps> = ({ document, lead, user }) => {
             await handleCheckout();
           }}
         >
-          {user ? `Process emails ($47)` : 'Login to view'}
+          {user
+            ? `Process ${numLeads} emails ($${price.toFixed(2)})`
+            : 'Login to view'}
         </button>
       </div>
     </div>

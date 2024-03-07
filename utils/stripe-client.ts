@@ -17,11 +17,13 @@ export const getStripe = () => {
 
 export const createOneTimeCheckoutSession = async ({
   priceId,
-  document_id
+  document_id,
+  quantity
 }: {
   priceId: string;
   document_id: string;
   product_id: string;
+  quantity: number;
 }): Promise<{ sessionId: string }> => {
   try {
     const { sessionId } = await postData({
@@ -35,7 +37,7 @@ export const createOneTimeCheckoutSession = async ({
           document_id
         },
         redirectURL: `/success?document_id=${document_id}`,
-        quantity: 1
+        quantity: quantity
       }
     });
     return { sessionId };
