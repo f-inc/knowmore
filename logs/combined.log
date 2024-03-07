@@ -27932,3 +27932,1098 @@
 {"level":"info","message":"Leap returned linkedin jnoel@gci.net for document debc37c7-310c-4507-bfca-7ae6a8c0544e","timestamp":"2024-03-06 15:27:33"}
 {"level":"info","message":"Leap returned linkedin team@abruptive.com for document debc37c7-310c-4507-bfca-7ae6a8c0544e","timestamp":"2024-03-06 15:27:58"}
 {"level":"info","message":"Leap returned linkedin justin.gunther@nascentvisions.com for document debc37c7-310c-4507-bfca-7ae6a8c0544e","timestamp":"2024-03-06 15:28:35"}
+{"level":"info","message":"Updating document cdd88b26-da40-487d-afa8-ee1bebd9d460 to be paid","timestamp":"2024-03-06 19:23:25"}
+{"level":"info","message":"Updated document cdd88b26-da40-487d-afa8-ee1bebd9d460 to be paid","timestamp":"2024-03-06 19:23:25"}
+{"level":"info","message":"Sending (processing leads) email to ahmadhuzaifa012+48239895289@gmail.com","timestamp":"2024-03-06 19:23:25"}
+{"level":"error","message":401,"timestamp":"2024-03-06 19:23:25"}
+{"level":"info","message":"Starting leap workflows for document: cdd88b26-da40-487d-afa8-ee1bebd9d460 with workflow: wkf_H5yOYc7A6CHr73","timestamp":"2024-03-06 19:23:27"}
+{"level":"info","message":"Starting leap workflows for lead number 0: bill.gates@gatesfoundation.org","timestamp":"2024-03-06 19:23:27"}
+{"level":"info","message":"Lead already exists in profiles: bill.gates@gatesfoundation.org","timestamp":"2024-03-06 19:23:27"}
+{"level":"info","message":"Starting leap workflows for lead number 1: depue@openai.com","timestamp":"2024-03-06 19:23:27"}
+{"level":"info","message":"Lead already exists in profiles: depue@openai.com","timestamp":"2024-03-06 19:23:27"}
+{"level":"info","message":"Starting leap workflows for lead number 2: dylan@figma.com","timestamp":"2024-03-06 19:23:27"}
+{"level":"info","message":"Lead already exists in profiles: dylan@figma.com","timestamp":"2024-03-06 19:23:27"}
+{"level":"info","message":"Starting leap workflows for lead number 3: farza@buildspace.so","timestamp":"2024-03-06 19:23:27"}
+{"level":"info","message":"Lead already exists in profiles: farza@buildspace.so","timestamp":"2024-03-06 19:23:27"}
+{"level":"info","message":"Starting leap workflows for lead number 4: furqan@f.inc","timestamp":"2024-03-06 19:23:27"}
+{"level":"info","message":"Lead already exists in profiles: furqan@f.inc","timestamp":"2024-03-06 19:23:28"}
+{"level":"info","message":"Starting leap workflows for lead number 5: hubert@f.inc","timestamp":"2024-03-06 19:23:28"}
+{"level":"info","message":"Lead already exists in profiles: hubert@f.inc","timestamp":"2024-03-06 19:23:28"}
+{"level":"info","message":"Starting leap workflows for lead number 6: huzaifa@f.inc","timestamp":"2024-03-06 19:23:28"}
+{"level":"info","message":"Lead already exists in profiles: huzaifa@f.inc","timestamp":"2024-03-06 19:23:28"}
+{"level":"info","message":"Starting leap workflows for lead number 7: omar@f.inc","timestamp":"2024-03-06 19:23:28"}
+{"level":"info","message":"Lead already exists in profiles: omar@f.inc","timestamp":"2024-03-06 19:23:28"}
+{"level":"info","message":"Starting leap workflows for lead number 8: stey@vercel.com","timestamp":"2024-03-06 19:23:28"}
+{"level":"info","message":"Lead already exists in profiles: stey@vercel.com","timestamp":"2024-03-06 19:23:28"}
+{"level":"info","message":"Updating document 1291c9f1-a706-4b7c-abbb-530b11455448 to be paid","timestamp":"2024-03-06 19:24:31"}
+{"level":"info","message":"Updated document 1291c9f1-a706-4b7c-abbb-530b11455448 to be paid","timestamp":"2024-03-06 19:24:31"}
+{"level":"info","message":"Sending (processing leads) email to ahmadhuzaifa012+48239895289@gmail.com","timestamp":"2024-03-06 19:24:31"}
+{"level":"error","message":401,"timestamp":"2024-03-06 19:24:32"}
+{"level":"info","message":"Starting leap workflows for document: 1291c9f1-a706-4b7c-abbb-530b11455448 with workflow: wkf_H5yOYc7A6CHr73","timestamp":"2024-03-06 19:24:32"}
+{"level":"info","message":"Starting leap workflows for lead number 0: fergus.e.kidd@avanade.com","timestamp":"2024-03-06 19:24:32"}
+{"level":"info","message":"Starting leap workflows for document: 1291c9f1-a706-4b7c-abbb-530b11455448 with workflow: wkf_H5yOYc7A6CHr73","timestamp":"2024-03-06 19:24:32"}
+{"level":"info","message":"Starting leap workflows for lead number 0: APPROVISIONNEMENT@CEGEPJONQUIERE.CA","timestamp":"2024-03-06 19:24:32"}
+{"level":"info","message":"Starting leap workflows for document: 1291c9f1-a706-4b7c-abbb-530b11455448 with workflow: wkf_H5yOYc7A6CHr73","timestamp":"2024-03-06 19:24:32"}
+{"level":"info","message":"Starting leap workflows for lead number 0: yan@bmu.co","timestamp":"2024-03-06 19:24:32"}
+{"level":"info","message":"Lead already exists in profiles: fergus.e.kidd@avanade.com","timestamp":"2024-03-06 19:24:32"}
+{"level":"info","message":"Lead already exists in profiles: APPROVISIONNEMENT@CEGEPJONQUIERE.CA","timestamp":"2024-03-06 19:24:32"}
+{"level":"info","message":"Lead already exists in profiles: yan@bmu.co","timestamp":"2024-03-06 19:24:32"}
+{"level":"info","message":"Starting leap workflows for lead number 1: fhict-inkoop@fontys.nl","timestamp":"2024-03-06 19:24:32"}
+{"level":"info","message":"Starting leap workflows for lead number 1: Adrian@townsend.mobi","timestamp":"2024-03-06 19:24:32"}
+{"level":"info","message":"Starting leap workflows for lead number 1: ysuku@yahoo.co.uk","timestamp":"2024-03-06 19:24:32"}
+{"level":"info","message":"Starting leap workflows for document: 1291c9f1-a706-4b7c-abbb-530b11455448 with workflow: wkf_H5yOYc7A6CHr73","timestamp":"2024-03-06 19:24:32"}
+{"level":"info","message":"Starting leap workflows for lead number 0: matt@skywardfederal.com","timestamp":"2024-03-06 19:24:32"}
+{"level":"info","message":"Lead already exists in profiles: Adrian@townsend.mobi","timestamp":"2024-03-06 19:24:32"}
+{"level":"info","message":"Lead already exists in profiles: ysuku@yahoo.co.uk","timestamp":"2024-03-06 19:24:32"}
+{"level":"info","message":"Lead already exists in profiles: matt@skywardfederal.com","timestamp":"2024-03-06 19:24:32"}
+{"level":"info","message":"Lead already exists in profiles: fhict-inkoop@fontys.nl","timestamp":"2024-03-06 19:24:32"}
+{"level":"info","message":"Starting leap workflows for lead number 2: Arthur.revellese@point72.com","timestamp":"2024-03-06 19:24:32"}
+{"level":"info","message":"Starting leap workflows for lead number 2: zhangyu1@naolubrain.com","timestamp":"2024-03-06 19:24:32"}
+{"level":"info","message":"Starting leap workflows for lead number 1: mattia.lucchini@datwyler.com","timestamp":"2024-03-06 19:24:33"}
+{"level":"info","message":"Starting leap workflows for lead number 2: finance@turinglabs.org","timestamp":"2024-03-06 19:24:33"}
+{"level":"info","message":"Lead already exists in profiles: zhangyu1@naolubrain.com","timestamp":"2024-03-06 19:24:33"}
+{"level":"info","message":"Lead already exists in profiles: finance@turinglabs.org","timestamp":"2024-03-06 19:24:33"}
+{"level":"info","message":"Lead already exists in profiles: Arthur.revellese@point72.com","timestamp":"2024-03-06 19:24:33"}
+{"level":"info","message":"Lead already exists in profiles: mattia.lucchini@datwyler.com","timestamp":"2024-03-06 19:24:33"}
+{"level":"info","message":"Starting leap workflows for lead number 3: floris@florisdewolf.com","timestamp":"2024-03-06 19:24:33"}
+{"level":"info","message":"Starting leap workflows for lead number 3: C.Helmer@gmx.de","timestamp":"2024-03-06 19:24:33"}
+{"level":"info","message":"Starting leap workflows for lead number 2: mattshaffer@berkeley.edu","timestamp":"2024-03-06 19:24:33"}
+{"level":"info","message":"Lead already exists in profiles: floris@florisdewolf.com","timestamp":"2024-03-06 19:24:33"}
+{"level":"info","message":"Lead already exists in profiles: C.Helmer@gmx.de","timestamp":"2024-03-06 19:24:33"}
+{"level":"info","message":"Lead already exists in profiles: mattshaffer@berkeley.edu","timestamp":"2024-03-06 19:24:33"}
+{"level":"info","message":"Starting leap workflows for lead number 4: fnaveed@asu.edu","timestamp":"2024-03-06 19:24:33"}
+{"level":"info","message":"Starting leap workflows for lead number 3: max.wilson@nottingham.ac.uk","timestamp":"2024-03-06 19:24:33"}
+{"level":"info","message":"Lead already exists in profiles: fnaveed@asu.edu","timestamp":"2024-03-06 19:24:33"}
+{"level":"info","message":"Starting leap workflows for lead number 4: Empurion@empernet.com","timestamp":"2024-03-06 19:24:33"}
+{"level":"info","message":"Starting leap workflows for lead number 5: forest@plutovr.com","timestamp":"2024-03-06 19:24:33"}
+{"level":"info","message":"Lead already exists in profiles: max.wilson@nottingham.ac.uk","timestamp":"2024-03-06 19:24:33"}
+{"level":"info","message":"Lead already exists in profiles: Empurion@empernet.com","timestamp":"2024-03-06 19:24:33"}
+{"level":"info","message":"Starting leap workflows for lead number 5: Forest@Plutovr.com","timestamp":"2024-03-06 19:24:33"}
+{"level":"info","message":"Starting leap workflows for lead number 4: max@maxkovalov.com","timestamp":"2024-03-06 19:24:33"}
+{"level":"info","message":"Lead already exists in profiles: forest@plutovr.com","timestamp":"2024-03-06 19:24:33"}
+{"level":"info","message":"Lead already exists in profiles: Forest@Plutovr.com","timestamp":"2024-03-06 19:24:33"}
+{"level":"info","message":"Lead already exists in profiles: max@maxkovalov.com","timestamp":"2024-03-06 19:24:33"}
+{"level":"info","message":"Starting leap workflows for lead number 5: maxim@alaghbar.ca","timestamp":"2024-03-06 19:24:33"}
+{"level":"info","message":"Starting leap workflows for lead number 6: francois@neurofeedback-luxembourg.com","timestamp":"2024-03-06 19:24:33"}
+{"level":"info","message":"Starting leap workflows for lead number 6: GFTIberia.Purchasing@gft.com","timestamp":"2024-03-06 19:24:33"}
+{"level":"info","message":"Lead already exists in profiles: maxim@alaghbar.ca","timestamp":"2024-03-06 19:24:33"}
+{"level":"info","message":"Lead already exists in profiles: francois@neurofeedback-luxembourg.com","timestamp":"2024-03-06 19:24:33"}
+{"level":"info","message":"Lead already exists in profiles: GFTIberia.Purchasing@gft.com","timestamp":"2024-03-06 19:24:33"}
+{"level":"info","message":"Starting leap workflows for lead number 7: Gerald@rgbschemes.com","timestamp":"2024-03-06 19:24:33"}
+{"level":"info","message":"Starting leap workflows for lead number 6: mayb@MAYBSTUDIO.COM","timestamp":"2024-03-06 19:24:33"}
+{"level":"info","message":"Starting leap workflows for lead number 7: frankernesto@castillo.io","timestamp":"2024-03-06 19:24:33"}
+{"level":"info","message":"Lead already exists in profiles: mayb@MAYBSTUDIO.COM","timestamp":"2024-03-06 19:24:33"}
+{"level":"info","message":"Lead already exists in profiles: frankernesto@castillo.io","timestamp":"2024-03-06 19:24:33"}
+{"level":"info","message":"Lead already exists in profiles: Gerald@rgbschemes.com","timestamp":"2024-03-06 19:24:33"}
+{"level":"info","message":"Starting leap workflows for lead number 7: mchicoin@pratt.edu","timestamp":"2024-03-06 19:24:33"}
+{"level":"info","message":"Starting leap workflows for lead number 8: Gflynn@usc.edu","timestamp":"2024-03-06 19:24:33"}
+{"level":"info","message":"Starting leap workflows for lead number 8: gabrielle.dussault@uqat.ca","timestamp":"2024-03-06 19:24:33"}
+{"level":"info","message":"Lead already exists in profiles: mchicoin@pratt.edu","timestamp":"2024-03-06 19:24:33"}
+{"level":"info","message":"Lead already exists in profiles: Gflynn@usc.edu","timestamp":"2024-03-06 19:24:33"}
+{"level":"info","message":"Lead already exists in profiles: gabrielle.dussault@uqat.ca","timestamp":"2024-03-06 19:24:33"}
+{"level":"info","message":"Starting leap workflows for lead number 9: Husain@Luminouslogisticsllc.com","timestamp":"2024-03-06 19:24:33"}
+{"level":"info","message":"Starting leap workflows for lead number 8: mcox@vessellongevity.com","timestamp":"2024-03-06 19:24:33"}
+{"level":"info","message":"Starting leap workflows for lead number 9: garrett@pipedreamlabs.co","timestamp":"2024-03-06 19:24:33"}
+{"level":"info","message":"Lead already exists in profiles: garrett@pipedreamlabs.co","timestamp":"2024-03-06 19:24:34"}
+{"level":"info","message":"Lead already exists in profiles: Husain@Luminouslogisticsllc.com","timestamp":"2024-03-06 19:24:34"}
+{"level":"info","message":"Lead already exists in profiles: mcox@vessellongevity.com","timestamp":"2024-03-06 19:24:34"}
+{"level":"info","message":"Starting leap workflows for lead number 10: geckse@gmx.de","timestamp":"2024-03-06 19:24:34"}
+{"level":"info","message":"Starting leap workflows for lead number 9: mdelatorre@ia.com.mx","timestamp":"2024-03-06 19:24:34"}
+{"level":"info","message":"Starting leap workflows for lead number 10: James@getpinglend.com","timestamp":"2024-03-06 19:24:34"}
+{"level":"info","message":"Lead already exists in profiles: geckse@gmx.de","timestamp":"2024-03-06 19:24:34"}
+{"level":"info","message":"Lead already exists in profiles: James@getpinglend.com","timestamp":"2024-03-06 19:24:34"}
+{"level":"info","message":"Lead already exists in profiles: mdelatorre@ia.com.mx","timestamp":"2024-03-06 19:24:34"}
+{"level":"info","message":"Starting leap workflows for lead number 10: me@f3d0r.com","timestamp":"2024-03-06 19:24:34"}
+{"level":"info","message":"Starting leap workflows for lead number 11: John.douglas@mycostech.com","timestamp":"2024-03-06 19:24:34"}
+{"level":"info","message":"Starting leap workflows for lead number 11: gerald@verslu.is","timestamp":"2024-03-06 19:24:34"}
+{"level":"info","message":"Lead already exists in profiles: me@f3d0r.com","timestamp":"2024-03-06 19:24:34"}
+{"level":"info","message":"Lead already exists in profiles: gerald@verslu.is","timestamp":"2024-03-06 19:24:34"}
+{"level":"info","message":"Lead already exists in profiles: John.douglas@mycostech.com","timestamp":"2024-03-06 19:24:34"}
+{"level":"info","message":"Starting leap workflows for lead number 11: me@keeganmccallum.com","timestamp":"2024-03-06 19:24:34"}
+{"level":"info","message":"Starting leap workflows for lead number 12: gftiberia.purchasing@gft.com","timestamp":"2024-03-06 19:24:34"}
+{"level":"info","message":"Starting leap workflows for lead number 12: Matt@mattrippon.com","timestamp":"2024-03-06 19:24:34"}
+{"level":"info","message":"Lead already exists in profiles: gftiberia.purchasing@gft.com","timestamp":"2024-03-06 19:24:34"}
+{"level":"info","message":"Lead already exists in profiles: me@keeganmccallum.com","timestamp":"2024-03-06 19:24:34"}
+{"level":"info","message":"Starting leap workflows for lead number 12: me@pablasso.com","timestamp":"2024-03-06 19:24:34"}
+{"level":"info","message":"Starting leap workflows for lead number 13: gi@impulse-neiry.com","timestamp":"2024-03-06 19:24:34"}
+{"level":"info","message":"Lead already exists in profiles: Matt@mattrippon.com","timestamp":"2024-03-06 19:24:34"}
+{"level":"info","message":"Lead already exists in profiles: gi@impulse-neiry.com","timestamp":"2024-03-06 19:24:34"}
+{"level":"info","message":"Lead already exists in profiles: me@pablasso.com","timestamp":"2024-03-06 19:24:34"}
+{"level":"info","message":"Starting leap workflows for lead number 13: NeuroProLabs@BrainWaveTheory.com","timestamp":"2024-03-06 19:24:34"}
+{"level":"info","message":"Starting leap workflows for lead number 14: gina_do@apple.com","timestamp":"2024-03-06 19:24:34"}
+{"level":"info","message":"Starting leap workflows for lead number 13: me@vorticist.net","timestamp":"2024-03-06 19:24:34"}
+{"level":"info","message":"Lead already exists in profiles: NeuroProLabs@BrainWaveTheory.com","timestamp":"2024-03-06 19:24:34"}
+{"level":"info","message":"Lead already exists in profiles: gina_do@apple.com","timestamp":"2024-03-06 19:24:34"}
+{"level":"info","message":"Starting leap workflows for lead number 14: Nidhin@ymail.com","timestamp":"2024-03-06 19:24:34"}
+{"level":"info","message":"Starting leap workflows for lead number 15: glen@deltajanitorial.com","timestamp":"2024-03-06 19:24:34"}
+{"level":"info","message":"Lead already exists in profiles: Nidhin@ymail.com","timestamp":"2024-03-06 19:24:34"}
+{"level":"info","message":"Lead already exists in profiles: glen@deltajanitorial.com","timestamp":"2024-03-06 19:24:35"}
+{"level":"info","message":"Starting leap workflows for lead number 16: gmyhren@gestalths.com","timestamp":"2024-03-06 19:24:35"}
+{"level":"info","message":"Starting leap workflows for lead number 15: Peter_Flinder@gmx.de","timestamp":"2024-03-06 19:24:35"}
+{"level":"info","message":"Lead already exists in profiles: gmyhren@gestalths.com","timestamp":"2024-03-06 19:24:35"}
+{"level":"info","message":"Lead already exists in profiles: Peter_Flinder@gmx.de","timestamp":"2024-03-06 19:24:35"}
+{"level":"info","message":"Starting leap workflows for lead number 17: gonzalesmer@uhd.edu","timestamp":"2024-03-06 19:24:35"}
+{"level":"info","message":"Starting leap workflows for lead number 16: Robert_Holzer@bcbsil.com","timestamp":"2024-03-06 19:24:35"}
+{"level":"info","message":"Lead already exists in profiles: Robert_Holzer@bcbsil.com","timestamp":"2024-03-06 19:24:35"}
+{"level":"info","message":"Lead already exists in profiles: gonzalesmer@uhd.edu","timestamp":"2024-03-06 19:24:35"}
+{"level":"info","message":"Starting leap workflows for lead number 17: SAM@MANIFOLDFINANCE.COM","timestamp":"2024-03-06 19:24:35"}
+{"level":"info","message":"Starting leap workflows for lead number 18: grace@neurosity.co","timestamp":"2024-03-06 19:24:35"}
+{"level":"info","message":"Lead already exists in profiles: SAM@MANIFOLDFINANCE.COM","timestamp":"2024-03-06 19:24:35"}
+{"level":"info","message":"Lead already exists in profiles: grace@neurosity.co","timestamp":"2024-03-06 19:24:35"}
+{"level":"info","message":"Starting leap workflows for lead number 18: Shannon.putman@louisville.edu","timestamp":"2024-03-06 19:24:35"}
+{"level":"info","message":"Starting leap workflows for lead number 19: grant@flightstory.com","timestamp":"2024-03-06 19:24:35"}
+{"level":"info","message":"Lead already exists in profiles: Shannon.putman@louisville.edu","timestamp":"2024-03-06 19:24:35"}
+{"level":"info","message":"Lead already exists in profiles: grant@flightstory.com","timestamp":"2024-03-06 19:24:35"}
+{"level":"info","message":"Starting leap workflows for lead number 19: Simon@simonkittle.com","timestamp":"2024-03-06 19:24:35"}
+{"level":"info","message":"Starting leap workflows for lead number 20: grants@psy.fsu.edu","timestamp":"2024-03-06 19:24:35"}
+{"level":"info","message":"Lead already exists in profiles: Simon@simonkittle.com","timestamp":"2024-03-06 19:24:35"}
+{"level":"info","message":"Lead already exists in profiles: grants@psy.fsu.edu","timestamp":"2024-03-06 19:24:35"}
+{"level":"info","message":"Starting leap workflows for lead number 20: TeddyLampert@orangeprotech.net","timestamp":"2024-03-06 19:24:35"}
+{"level":"info","message":"Starting leap workflows for lead number 21: greglan@blarg.net","timestamp":"2024-03-06 19:24:35"}
+{"level":"info","message":"Lead already exists in profiles: TeddyLampert@orangeprotech.net","timestamp":"2024-03-06 19:24:35"}
+{"level":"info","message":"Lead already exists in profiles: greglan@blarg.net","timestamp":"2024-03-06 19:24:35"}
+{"level":"info","message":"Starting leap workflows for lead number 21: a.a7@vorwaerts.com","timestamp":"2024-03-06 19:24:35"}
+{"level":"info","message":"Starting leap workflows for lead number 22: guus@frijns.eu","timestamp":"2024-03-06 19:24:35"}
+{"level":"info","message":"Lead already exists in profiles: a.a7@vorwaerts.com","timestamp":"2024-03-06 19:24:35"}
+{"level":"info","message":"Lead already exists in profiles: guus@frijns.eu","timestamp":"2024-03-06 19:24:35"}
+{"level":"info","message":"Starting leap workflows for lead number 22: a@aubreyfalconer.com","timestamp":"2024-03-06 19:24:35"}
+{"level":"info","message":"Starting leap workflows for lead number 23: h@hutech.ventures","timestamp":"2024-03-06 19:24:35"}
+{"level":"info","message":"Lead already exists in profiles: a@aubreyfalconer.com","timestamp":"2024-03-06 19:24:35"}
+{"level":"info","message":"Lead already exists in profiles: h@hutech.ventures","timestamp":"2024-03-06 19:24:35"}
+{"level":"info","message":"Starting leap workflows for lead number 23: a@betaev.pub","timestamp":"2024-03-06 19:24:35"}
+{"level":"info","message":"Starting leap workflows for lead number 24: hakon@drowzee.com","timestamp":"2024-03-06 19:24:36"}
+{"level":"info","message":"Lead already exists in profiles: a@betaev.pub","timestamp":"2024-03-06 19:24:36"}
+{"level":"info","message":"Lead already exists in profiles: hakon@drowzee.com","timestamp":"2024-03-06 19:24:36"}
+{"level":"info","message":"Starting leap workflows for lead number 24: aaron@kerben.net","timestamp":"2024-03-06 19:24:36"}
+{"level":"info","message":"Starting leap workflows for lead number 25: han@listenalphabeats.com","timestamp":"2024-03-06 19:24:36"}
+{"level":"info","message":"Lead already exists in profiles: aaron@kerben.net","timestamp":"2024-03-06 19:24:36"}
+{"level":"info","message":"Lead already exists in profiles: han@listenalphabeats.com","timestamp":"2024-03-06 19:24:36"}
+{"level":"info","message":"Starting leap workflows for lead number 25: ab@haridy.com","timestamp":"2024-03-06 19:24:36"}
+{"level":"info","message":"Starting leap workflows for lead number 26: hans-christoph.six@datwyler.com","timestamp":"2024-03-06 19:24:36"}
+{"level":"info","message":"Lead already exists in profiles: ab@haridy.com","timestamp":"2024-03-06 19:24:36"}
+{"level":"info","message":"Lead already exists in profiles: hans-christoph.six@datwyler.com","timestamp":"2024-03-06 19:24:36"}
+{"level":"info","message":"Starting leap workflows for lead number 27: harshag@berkeley.edu","timestamp":"2024-03-06 19:24:36"}
+{"level":"info","message":"Starting leap workflows for lead number 26: abikos@inbox.ru","timestamp":"2024-03-06 19:24:36"}
+{"level":"info","message":"Lead already exists in profiles: harshag@berkeley.edu","timestamp":"2024-03-06 19:24:36"}
+{"level":"info","message":"Lead already exists in profiles: abikos@inbox.ru","timestamp":"2024-03-06 19:24:36"}
+{"level":"info","message":"Starting leap workflows for lead number 28: headshotpro@joerndyherrn.de","timestamp":"2024-03-06 19:24:36"}
+{"level":"info","message":"Starting leap workflows for lead number 27: abrahamabel@odysseytherapeia.com","timestamp":"2024-03-06 19:24:36"}
+{"level":"info","message":"Lead already exists in profiles: headshotpro@joerndyherrn.de","timestamp":"2024-03-06 19:24:36"}
+{"level":"info","message":"Lead already exists in profiles: abrahamabel@odysseytherapeia.com","timestamp":"2024-03-06 19:24:36"}
+{"level":"info","message":"Starting leap workflows for lead number 29: heather@connexmatch.ca","timestamp":"2024-03-06 19:24:36"}
+{"level":"info","message":"Starting leap workflows for lead number 28: accounting@cortex-design.com","timestamp":"2024-03-06 19:24:36"}
+{"level":"info","message":"Lead already exists in profiles: heather@connexmatch.ca","timestamp":"2024-03-06 19:24:36"}
+{"level":"info","message":"Lead already exists in profiles: accounting@cortex-design.com","timestamp":"2024-03-06 19:24:36"}
+{"level":"info","message":"Starting leap workflows for lead number 30: heather@divergenceneuro.com","timestamp":"2024-03-06 19:24:36"}
+{"level":"info","message":"Starting leap workflows for lead number 29: accounts@henryault.com","timestamp":"2024-03-06 19:24:36"}
+{"level":"info","message":"Lead already exists in profiles: heather@divergenceneuro.com","timestamp":"2024-03-06 19:24:36"}
+{"level":"info","message":"Lead already exists in profiles: accounts@henryault.com","timestamp":"2024-03-06 19:24:36"}
+{"level":"info","message":"Starting leap workflows for lead number 31: hello@altalogy.com","timestamp":"2024-03-06 19:24:36"}
+{"level":"info","message":"Starting leap workflows for lead number 30: achat-uqac@uqac.ca","timestamp":"2024-03-06 19:24:36"}
+{"level":"info","message":"Lead already exists in profiles: hello@altalogy.com","timestamp":"2024-03-06 19:24:36"}
+{"level":"info","message":"Lead already exists in profiles: achat-uqac@uqac.ca","timestamp":"2024-03-06 19:24:36"}
+{"level":"info","message":"Starting leap workflows for lead number 32: hello@ctrlalt.cc","timestamp":"2024-03-06 19:24:37"}
+{"level":"info","message":"Starting leap workflows for lead number 31: adam@adamschwartz.com","timestamp":"2024-03-06 19:24:37"}
+{"level":"info","message":"Lead already exists in profiles: hello@ctrlalt.cc","timestamp":"2024-03-06 19:24:37"}
+{"level":"info","message":"Lead already exists in profiles: adam@adamschwartz.com","timestamp":"2024-03-06 19:24:37"}
+{"level":"info","message":"Starting leap workflows for lead number 33: hello@fireship.io","timestamp":"2024-03-06 19:24:37"}
+{"level":"info","message":"Starting leap workflows for lead number 32: adam@boost.vc","timestamp":"2024-03-06 19:24:37"}
+{"level":"info","message":"Lead already exists in profiles: hello@fireship.io","timestamp":"2024-03-06 19:24:37"}
+{"level":"info","message":"Lead already exists in profiles: adam@boost.vc","timestamp":"2024-03-06 19:24:37"}
+{"level":"info","message":"Starting leap workflows for lead number 34: hello@kwedo.com","timestamp":"2024-03-06 19:24:37"}
+{"level":"info","message":"Starting leap workflows for lead number 33: adam@evokedresponse.com","timestamp":"2024-03-06 19:24:37"}
+{"level":"info","message":"Lead already exists in profiles: hello@kwedo.com","timestamp":"2024-03-06 19:24:37"}
+{"level":"info","message":"Lead already exists in profiles: adam@evokedresponse.com","timestamp":"2024-03-06 19:24:37"}
+{"level":"info","message":"Starting leap workflows for lead number 35: hello@neurosity.co","timestamp":"2024-03-06 19:24:37"}
+{"level":"info","message":"Starting leap workflows for lead number 34: addyo@google.com","timestamp":"2024-03-06 19:24:37"}
+{"level":"info","message":"Lead already exists in profiles: hello@neurosity.co","timestamp":"2024-03-06 19:24:37"}
+{"level":"info","message":"Lead already exists in profiles: addyo@google.com","timestamp":"2024-03-06 19:24:37"}
+{"level":"info","message":"Starting leap workflows for lead number 36: hello@vrhuman.com","timestamp":"2024-03-06 19:24:37"}
+{"level":"info","message":"Starting leap workflows for lead number 35: aditya@whisper.ai","timestamp":"2024-03-06 19:24:37"}
+{"level":"info","message":"Lead already exists in profiles: hello@vrhuman.com","timestamp":"2024-03-06 19:24:37"}
+{"level":"info","message":"Lead already exists in profiles: aditya@whisper.ai","timestamp":"2024-03-06 19:24:37"}
+{"level":"info","message":"Starting leap workflows for lead number 37: henning.wiechers@th-wildau.de","timestamp":"2024-03-06 19:24:37"}
+{"level":"info","message":"Starting leap workflows for lead number 36: admin@ananditinfotech.in","timestamp":"2024-03-06 19:24:37"}
+{"level":"info","message":"Lead already exists in profiles: henning.wiechers@th-wildau.de","timestamp":"2024-03-06 19:24:37"}
+{"level":"info","message":"Lead already exists in profiles: admin@ananditinfotech.in","timestamp":"2024-03-06 19:24:37"}
+{"level":"info","message":"Starting leap workflows for lead number 38: hermannuli@gmx.net","timestamp":"2024-03-06 19:24:37"}
+{"level":"info","message":"Starting leap workflows for lead number 37: admin@clarity-technologies.com","timestamp":"2024-03-06 19:24:37"}
+{"level":"info","message":"Lead already exists in profiles: hermannuli@gmx.net","timestamp":"2024-03-06 19:24:37"}
+{"level":"info","message":"Lead already exists in profiles: admin@clarity-technologies.com","timestamp":"2024-03-06 19:24:37"}
+{"level":"info","message":"Starting leap workflows for lead number 39: hexorx@pm.me","timestamp":"2024-03-06 19:24:37"}
+{"level":"info","message":"Starting leap workflows for lead number 38: admin@mind-interfaces.com","timestamp":"2024-03-06 19:24:37"}
+{"level":"info","message":"Lead already exists in profiles: hexorx@pm.me","timestamp":"2024-03-06 19:24:37"}
+{"level":"info","message":"Lead already exists in profiles: admin@mind-interfaces.com","timestamp":"2024-03-06 19:24:37"}
+{"level":"info","message":"Starting leap workflows for lead number 40: hi@davidkatz.me","timestamp":"2024-03-06 19:24:37"}
+{"level":"info","message":"Starting leap workflows for lead number 39: admin@valdev.com","timestamp":"2024-03-06 19:24:37"}
+{"level":"info","message":"Lead already exists in profiles: hi@davidkatz.me","timestamp":"2024-03-06 19:24:37"}
+{"level":"info","message":"Lead already exists in profiles: admin@valdev.com","timestamp":"2024-03-06 19:24:37"}
+{"level":"info","message":"Starting leap workflows for lead number 41: hi@entreprenik.com","timestamp":"2024-03-06 19:24:38"}
+{"level":"info","message":"Starting leap workflows for lead number 40: adminblr@chimeratechnologies.com","timestamp":"2024-03-06 19:24:38"}
+{"level":"info","message":"Lead already exists in profiles: hi@entreprenik.com","timestamp":"2024-03-06 19:24:38"}
+{"level":"info","message":"Lead already exists in profiles: adminblr@chimeratechnologies.com","timestamp":"2024-03-06 19:24:38"}
+{"level":"info","message":"Starting leap workflows for lead number 42: hi@kellykim.co","timestamp":"2024-03-06 19:24:38"}
+{"level":"info","message":"Starting leap workflows for lead number 41: adrianlai@lululemon.com","timestamp":"2024-03-06 19:24:38"}
+{"level":"info","message":"Lead already exists in profiles: hi@kellykim.co","timestamp":"2024-03-06 19:24:38"}
+{"level":"info","message":"Lead already exists in profiles: adrianlai@lululemon.com","timestamp":"2024-03-06 19:24:38"}
+{"level":"info","message":"Starting leap workflows for lead number 43: hildebrandll@arizona.edu","timestamp":"2024-03-06 19:24:38"}
+{"level":"info","message":"Starting leap workflows for lead number 42: aj+rental_test@neurosity.co","timestamp":"2024-03-06 19:24:38"}
+{"level":"info","message":"Lead already exists in profiles: hildebrandll@arizona.edu","timestamp":"2024-03-06 19:24:38"}
+{"level":"info","message":"Lead already exists in profiles: aj+rental_test@neurosity.co","timestamp":"2024-03-06 19:24:38"}
+{"level":"info","message":"Starting leap workflows for lead number 44: hinze@infoboard.biz","timestamp":"2024-03-06 19:24:38"}
+{"level":"info","message":"Starting leap workflows for lead number 43: aj+test@neurosity.co","timestamp":"2024-03-06 19:24:38"}
+{"level":"info","message":"Lead already exists in profiles: hinze@infoboard.biz","timestamp":"2024-03-06 19:24:38"}
+{"level":"info","message":"Lead already exists in profiles: aj+test@neurosity.co","timestamp":"2024-03-06 19:24:38"}
+{"level":"info","message":"Starting leap workflows for lead number 45: holly.boorman@drake.edu","timestamp":"2024-03-06 19:24:38"}
+{"level":"info","message":"Starting leap workflows for lead number 44: aj@neurosity.co","timestamp":"2024-03-06 19:24:38"}
+{"level":"info","message":"Lead already exists in profiles: holly.boorman@drake.edu","timestamp":"2024-03-06 19:24:38"}
+{"level":"info","message":"Starting leap workflows for lead number 46: holly@heartmindalchemy.com","timestamp":"2024-03-06 19:24:38"}
+{"level":"info","message":"Lead already exists in profiles: aj@neurosity.co","timestamp":"2024-03-06 19:24:38"}
+{"level":"info","message":"Starting leap workflows for lead number 45: albertobevilacqua@cssudine.it","timestamp":"2024-03-06 19:24:38"}
+{"level":"info","message":"Lead already exists in profiles: albertobevilacqua@cssudine.it","timestamp":"2024-03-06 19:24:38"}
+{"level":"info","message":"Starting leap workflows for lead number 46: albertocapone@outlook.it","timestamp":"2024-03-06 19:24:38"}
+{"level":"info","message":"Lead already exists in profiles: albertocapone@outlook.it","timestamp":"2024-03-06 19:24:39"}
+{"level":"info","message":"Starting leap workflows for lead number 47: alen@kelsohealth.com","timestamp":"2024-03-06 19:24:39"}
+{"level":"info","message":"Lead already exists in profiles: alen@kelsohealth.com","timestamp":"2024-03-06 19:24:39"}
+{"level":"info","message":"Starting leap workflows for lead number 48: alex.streza@snowfox.art","timestamp":"2024-03-06 19:24:39"}
+{"level":"info","message":"Lead already exists in profiles: alex.streza@snowfox.art","timestamp":"2024-03-06 19:24:39"}
+{"level":"info","message":"Starting leap workflows for lead: 46, with query:, holly HeartMind Alchemy ","timestamp":"2024-03-06 19:24:39"}
+{"level":"info","message":"Started leap workflows for lead: 46","timestamp":"2024-03-06 19:24:39"}
+{"level":"info","message":"Updating lead to be unprocessed","timestamp":"2024-03-06 19:24:39"}
+{"level":"info","message":"Starting leap workflows for lead number 49: alex@castillo.io","timestamp":"2024-03-06 19:24:39"}
+{"level":"info","message":"lead updated successfully:","timestamp":"2024-03-06 19:24:39"}
+{"level":"info","message":"Lead already exists in profiles: alex@castillo.io","timestamp":"2024-03-06 19:24:39"}
+{"level":"info","message":"Starting leap workflows for lead number 50: alex@curia.in","timestamp":"2024-03-06 19:24:39"}
+{"level":"info","message":"Starting leap workflows for lead number 47: hong-da.zhuo@capgemini.com","timestamp":"2024-03-06 19:24:39"}
+{"level":"info","message":"Lead already exists in profiles: alex@curia.in","timestamp":"2024-03-06 19:24:39"}
+{"level":"info","message":"Lead already exists in profiles: hong-da.zhuo@capgemini.com","timestamp":"2024-03-06 19:24:39"}
+{"level":"info","message":"Starting leap workflows for lead number 51: alex@divergenceneuro.com","timestamp":"2024-03-06 19:24:39"}
+{"level":"info","message":"Starting leap workflows for lead number 48: hyw2@cornell.edu","timestamp":"2024-03-06 19:24:39"}
+{"level":"info","message":"Lead already exists in profiles: alex@divergenceneuro.com","timestamp":"2024-03-06 19:24:39"}
+{"level":"info","message":"Starting leap workflows for lead number 52: alex@neurosity.co","timestamp":"2024-03-06 19:24:40"}
+{"level":"info","message":"Lead already exists in profiles: hyw2@cornell.edu","timestamp":"2024-03-06 19:24:40"}
+{"level":"info","message":"Starting leap workflows for lead number 49: i.fitzpatrick@ljmu.ac.uk","timestamp":"2024-03-06 19:24:40"}
+{"level":"info","message":"Lead already exists in profiles: alex@neurosity.co","timestamp":"2024-03-06 19:24:40"}
+{"level":"info","message":"Starting leap workflows for lead number 53: alex@thequickbrownfox.ai","timestamp":"2024-03-06 19:24:40"}
+{"level":"info","message":"Lead already exists in profiles: i.fitzpatrick@ljmu.ac.uk","timestamp":"2024-03-06 19:24:40"}
+{"level":"info","message":"Starting leap workflows for lead number 50: i@maveric.to","timestamp":"2024-03-06 19:24:40"}
+{"level":"info","message":"Lead already exists in profiles: alex@thequickbrownfox.ai","timestamp":"2024-03-06 19:24:40"}
+{"level":"info","message":"Lead already exists in profiles: i@maveric.to","timestamp":"2024-03-06 19:24:40"}
+{"level":"info","message":"Starting leap workflows for lead number 54: alexander@holman.org.uk","timestamp":"2024-03-06 19:24:40"}
+{"level":"info","message":"Starting leap workflows for lead number 51: iain@humm.tech","timestamp":"2024-03-06 19:24:40"}
+{"level":"info","message":"Lead already exists in profiles: alexander@holman.org.uk","timestamp":"2024-03-06 19:24:40"}
+{"level":"info","message":"Lead already exists in profiles: iain@humm.tech","timestamp":"2024-03-06 19:24:40"}
+{"level":"info","message":"Starting leap workflows for lead number 55: allan@cogitat.io","timestamp":"2024-03-06 19:24:40"}
+{"level":"info","message":"Starting leap workflows for lead number 52: ianlim@stanford.edu","timestamp":"2024-03-06 19:24:40"}
+{"level":"info","message":"Lead already exists in profiles: allan@cogitat.io","timestamp":"2024-03-06 19:24:40"}
+{"level":"info","message":"Lead already exists in profiles: ianlim@stanford.edu","timestamp":"2024-03-06 19:24:40"}
+{"level":"info","message":"Starting leap workflows for lead number 56: alvaz@inbox.lv","timestamp":"2024-03-06 19:24:40"}
+{"level":"info","message":"Starting leap workflows for lead number 53: iaroslav.ternovyi@neurosity.co","timestamp":"2024-03-06 19:24:40"}
+{"level":"info","message":"Lead already exists in profiles: alvaz@inbox.lv","timestamp":"2024-03-06 19:24:40"}
+{"level":"info","message":"Lead already exists in profiles: iaroslav.ternovyi@neurosity.co","timestamp":"2024-03-06 19:24:40"}
+{"level":"info","message":"Starting leap workflows for lead number 57: am@compliq.se","timestamp":"2024-03-06 19:24:40"}
+{"level":"info","message":"Starting leap workflows for lead number 54: idachi.seiji.f1@s.mail.nagoya-u.ac.jp","timestamp":"2024-03-06 19:24:40"}
+{"level":"info","message":"Lead already exists in profiles: am@compliq.se","timestamp":"2024-03-06 19:24:40"}
+{"level":"info","message":"Lead already exists in profiles: idachi.seiji.f1@s.mail.nagoya-u.ac.jp","timestamp":"2024-03-06 19:24:40"}
+{"level":"info","message":"Starting leap workflows for lead number 58: aman@explainpaper.com","timestamp":"2024-03-06 19:24:40"}
+{"level":"info","message":"Starting leap workflows for lead number 55: idk@sdu.dk","timestamp":"2024-03-06 19:24:40"}
+{"level":"info","message":"Lead already exists in profiles: aman@explainpaper.com","timestamp":"2024-03-06 19:24:40"}
+{"level":"info","message":"Lead already exists in profiles: idk@sdu.dk","timestamp":"2024-03-06 19:24:40"}
+{"level":"info","message":"Starting leap workflows for lead number 59: amit.barde@auckland.ac.nz","timestamp":"2024-03-06 19:24:40"}
+{"level":"info","message":"Starting leap workflows for lead number 56: ilya@baklanov.org","timestamp":"2024-03-06 19:24:40"}
+{"level":"info","message":"Lead already exists in profiles: amit.barde@auckland.ac.nz","timestamp":"2024-03-06 19:24:40"}
+{"level":"info","message":"Lead already exists in profiles: ilya@baklanov.org","timestamp":"2024-03-06 19:24:41"}
+{"level":"info","message":"Starting leap workflows for lead number 60: andie@neurosity.co","timestamp":"2024-03-06 19:24:41"}
+{"level":"info","message":"Starting leap workflows for lead number 57: inbox@saberistic.com","timestamp":"2024-03-06 19:24:41"}
+{"level":"info","message":"Lead already exists in profiles: andie@neurosity.co","timestamp":"2024-03-06 19:24:41"}
+{"level":"info","message":"Lead already exists in profiles: inbox@saberistic.com","timestamp":"2024-03-06 19:24:41"}
+{"level":"info","message":"Starting leap workflows for lead number 61: andrea@agenziasmartup.it","timestamp":"2024-03-06 19:24:41"}
+{"level":"info","message":"Starting leap workflows for lead number 58: info@ALGrimeArt.com","timestamp":"2024-03-06 19:24:41"}
+{"level":"info","message":"Lead already exists in profiles: andrea@agenziasmartup.it","timestamp":"2024-03-06 19:24:41"}
+{"level":"info","message":"Lead already exists in profiles: info@ALGrimeArt.com","timestamp":"2024-03-06 19:24:41"}
+{"level":"info","message":"Starting leap workflows for lead number 62: andres@bohorquez.org","timestamp":"2024-03-06 19:24:41"}
+{"level":"info","message":"Starting leap workflows for lead number 59: info@cydelic.tech","timestamp":"2024-03-06 19:24:41"}
+{"level":"info","message":"Lead already exists in profiles: andres@bohorquez.org","timestamp":"2024-03-06 19:24:41"}
+{"level":"info","message":"Lead already exists in profiles: info@cydelic.tech","timestamp":"2024-03-06 19:24:41"}
+{"level":"info","message":"Starting leap workflows for lead number 63: andrew.jackson@newcastle.ac.uk","timestamp":"2024-03-06 19:24:41"}
+{"level":"info","message":"Starting leap workflows for lead number 60: info@diemas.dev","timestamp":"2024-03-06 19:24:41"}
+{"level":"info","message":"Lead already exists in profiles: andrew.jackson@newcastle.ac.uk","timestamp":"2024-03-06 19:24:41"}
+{"level":"info","message":"Lead already exists in profiles: info@diemas.dev","timestamp":"2024-03-06 19:24:41"}
+{"level":"info","message":"Starting leap workflows for lead number 64: andrew@sauerapple.com","timestamp":"2024-03-06 19:24:41"}
+{"level":"info","message":"Starting leap workflows for lead number 61: info@eegtraining.dk","timestamp":"2024-03-06 19:24:41"}
+{"level":"info","message":"Lead already exists in profiles: andrew@sauerapple.com","timestamp":"2024-03-06 19:24:41"}
+{"level":"info","message":"Starting leap workflows for lead number 65: andy@iduntechnologies.ch","timestamp":"2024-03-06 19:24:41"}
+{"level":"info","message":"Lead already exists in profiles: info@eegtraining.dk","timestamp":"2024-03-06 19:24:41"}
+{"level":"info","message":"Starting leap workflows for lead number 62: info@gslabs.nl","timestamp":"2024-03-06 19:24:41"}
+{"level":"info","message":"Lead already exists in profiles: andy@iduntechnologies.ch","timestamp":"2024-03-06 19:24:41"}
+{"level":"info","message":"Starting leap workflows for lead number 66: angel1rayusa@netscape.net","timestamp":"2024-03-06 19:24:41"}
+{"level":"info","message":"Lead already exists in profiles: info@gslabs.nl","timestamp":"2024-03-06 19:24:41"}
+{"level":"info","message":"Lead already exists in profiles: angel1rayusa@netscape.net","timestamp":"2024-03-06 19:24:41"}
+{"level":"info","message":"Starting leap workflows for lead number 63: info@heese5.de","timestamp":"2024-03-06 19:24:41"}
+{"level":"info","message":"Starting leap workflows for lead number 67: anja.baum@zhaw.ch","timestamp":"2024-03-06 19:24:41"}
+{"level":"info","message":"Lead already exists in profiles: anja.baum@zhaw.ch","timestamp":"2024-03-06 19:24:42"}
+{"level":"info","message":"Starting leap workflows for lead number 68: anja@iroiro.de","timestamp":"2024-03-06 19:24:42"}
+{"level":"info","message":"Lead already exists in profiles: anja@iroiro.de","timestamp":"2024-03-06 19:24:42"}
+{"level":"info","message":"Starting leap workflows for lead number 69: annette@annettebradshaw.com","timestamp":"2024-03-06 19:24:42"}
+{"level":"info","message":"Lead already exists in profiles: annette@annettebradshaw.com","timestamp":"2024-03-06 19:24:42"}
+{"level":"info","message":"Starting leap workflows for lead number 70: anthony@piedpipertechnologies.com","timestamp":"2024-03-06 19:24:42"}
+{"level":"info","message":"Lead already exists in profiles: anthony@piedpipertechnologies.com","timestamp":"2024-03-06 19:24:42"}
+{"level":"info","message":"Starting leap workflows for lead number 71: antonis@seo.uk.net","timestamp":"2024-03-06 19:24:42"}
+{"level":"info","message":"Lead already exists in profiles: antonis@seo.uk.net","timestamp":"2024-03-06 19:24:42"}
+{"level":"info","message":"Starting leap workflows for lead number 72: aomar@odiggo.com","timestamp":"2024-03-06 19:24:42"}
+{"level":"info","message":"Lead already exists in profiles: aomar@odiggo.com","timestamp":"2024-03-06 19:24:42"}
+{"level":"info","message":"Starting leap workflows for lead number 73: apoorva@neurosity.co","timestamp":"2024-03-06 19:24:42"}
+{"level":"info","message":"Lead already exists in profiles: apoorva@neurosity.co","timestamp":"2024-03-06 19:24:42"}
+{"level":"info","message":"Starting leap workflows for lead number 74: applepay@taheris.net","timestamp":"2024-03-06 19:24:42"}
+{"level":"info","message":"Lead already exists in profiles: applepay@taheris.net","timestamp":"2024-03-06 19:24:42"}
+{"level":"info","message":"Starting leap workflows for lead number 75: ardent.lee@msa.hinet.net","timestamp":"2024-03-06 19:24:43"}
+{"level":"info","message":"Lead already exists in profiles: ardent.lee@msa.hinet.net","timestamp":"2024-03-06 19:24:43"}
+{"level":"info","message":"Starting leap workflows for lead number 76: arefik@optusnet.com.au","timestamp":"2024-03-06 19:24:43"}
+{"level":"info","message":"Lead already exists in profiles: arefik@optusnet.com.au","timestamp":"2024-03-06 19:24:43"}
+{"level":"info","message":"Starting leap workflows for lead: 63, with query:, info Heese 5 ","timestamp":"2024-03-06 19:24:43"}
+{"level":"info","message":"Started leap workflows for lead: 63","timestamp":"2024-03-06 19:24:43"}
+{"level":"info","message":"Updating lead to be unprocessed","timestamp":"2024-03-06 19:24:43"}
+{"level":"info","message":"Starting leap workflows for lead number 77: aron@eideldev.com","timestamp":"2024-03-06 19:24:43"}
+{"level":"info","message":"lead updated successfully:","timestamp":"2024-03-06 19:24:43"}
+{"level":"info","message":"Lead already exists in profiles: aron@eideldev.com","timestamp":"2024-03-06 19:24:43"}
+{"level":"info","message":"Starting leap workflows for lead number 64: info@mybubbleapp.co.uk","timestamp":"2024-03-06 19:24:43"}
+{"level":"info","message":"Starting leap workflows for lead number 78: aroosa@neurosity.co","timestamp":"2024-03-06 19:24:43"}
+{"level":"info","message":"Lead already exists in profiles: aroosa@neurosity.co","timestamp":"2024-03-06 19:24:43"}
+{"level":"info","message":"Starting leap workflows for lead number 79: aroytman@profoundlogic.com","timestamp":"2024-03-06 19:24:43"}
+{"level":"info","message":"Lead already exists in profiles: aroytman@profoundlogic.com","timestamp":"2024-03-06 19:24:43"}
+{"level":"info","message":"Starting leap workflows for lead number 80: arps@hey.com","timestamp":"2024-03-06 19:24:43"}
+{"level":"info","message":"Lead already exists in profiles: arps@hey.com","timestamp":"2024-03-06 19:24:43"}
+{"level":"info","message":"Starting leap workflows for lead number 81: arturo@pixelspace.com","timestamp":"2024-03-06 19:24:43"}
+{"level":"info","message":"Lead already exists in profiles: arturo@pixelspace.com","timestamp":"2024-03-06 19:24:43"}
+{"level":"info","message":"Starting leap workflows for lead: 64, with query:, info MyBubble - Home | Free mental health support and… ","timestamp":"2024-03-06 19:24:43"}
+{"level":"info","message":"Started leap workflows for lead: 64","timestamp":"2024-03-06 19:24:43"}
+{"level":"info","message":"Updating lead to be unprocessed","timestamp":"2024-03-06 19:24:43"}
+{"level":"info","message":"Starting leap workflows for lead number 82: arun@wakemate.com","timestamp":"2024-03-06 19:24:43"}
+{"level":"info","message":"lead updated successfully:","timestamp":"2024-03-06 19:24:43"}
+{"level":"info","message":"Lead already exists in profiles: arun@wakemate.com","timestamp":"2024-03-06 19:24:43"}
+{"level":"info","message":"Starting leap workflows for lead number 65: info@neuroflex.ch","timestamp":"2024-03-06 19:24:43"}
+{"level":"info","message":"Starting leap workflows for lead number 83: ashley.capoot@nbcuni.com","timestamp":"2024-03-06 19:24:43"}
+{"level":"info","message":"Lead already exists in profiles: info@neuroflex.ch","timestamp":"2024-03-06 19:24:43"}
+{"level":"info","message":"Lead already exists in profiles: ashley.capoot@nbcuni.com","timestamp":"2024-03-06 19:24:44"}
+{"level":"info","message":"Starting leap workflows for lead number 66: info@shifft.academy","timestamp":"2024-03-06 19:24:44"}
+{"level":"info","message":"Starting leap workflows for lead number 84: austin@shoecraft.xyz","timestamp":"2024-03-06 19:24:44"}
+{"level":"info","message":"Lead already exists in profiles: info@shifft.academy","timestamp":"2024-03-06 19:24:44"}
+{"level":"info","message":"Lead already exists in profiles: austin@shoecraft.xyz","timestamp":"2024-03-06 19:24:44"}
+{"level":"info","message":"Starting leap workflows for lead number 67: info@smartprimefx.com","timestamp":"2024-03-06 19:24:44"}
+{"level":"info","message":"Starting leap workflows for lead number 85: avi@realityprime.com","timestamp":"2024-03-06 19:24:44"}
+{"level":"info","message":"Lead already exists in profiles: info@smartprimefx.com","timestamp":"2024-03-06 19:24:44"}
+{"level":"info","message":"Starting leap workflows for lead number 68: info@thebrainroom.com.au","timestamp":"2024-03-06 19:24:44"}
+{"level":"info","message":"Lead already exists in profiles: avi@realityprime.com","timestamp":"2024-03-06 19:24:44"}
+{"level":"info","message":"Starting leap workflows for lead number 86: aviad_almagor@trimble.com","timestamp":"2024-03-06 19:24:44"}
+{"level":"info","message":"Lead already exists in profiles: aviad_almagor@trimble.com","timestamp":"2024-03-06 19:24:44"}
+{"level":"info","message":"Starting leap workflows for lead number 87: ayman@cloudsecuritylabs.io","timestamp":"2024-03-06 19:24:44"}
+{"level":"info","message":"Lead already exists in profiles: ayman@cloudsecuritylabs.io","timestamp":"2024-03-06 19:24:44"}
+{"level":"info","message":"Starting leap workflows for lead number 88: ayme@enterthethreshold.com","timestamp":"2024-03-06 19:24:44"}
+{"level":"info","message":"Lead already exists in profiles: ayme@enterthethreshold.com","timestamp":"2024-03-06 19:24:44"}
+{"level":"info","message":"Starting leap workflows for lead number 89: aziz@myndlift.com","timestamp":"2024-03-06 19:24:44"}
+{"level":"info","message":"Lead already exists in profiles: aziz@myndlift.com","timestamp":"2024-03-06 19:24:44"}
+{"level":"info","message":"Starting leap workflows for lead number 90: barbara@barbaracaraballo.com","timestamp":"2024-03-06 19:24:44"}
+{"level":"info","message":"Lead already exists in profiles: barbara@barbaracaraballo.com","timestamp":"2024-03-06 19:24:44"}
+{"level":"info","message":"Starting leap workflows for lead number 91: bartlomiej.fryz@swmansion.com","timestamp":"2024-03-06 19:24:45"}
+{"level":"info","message":"Lead already exists in profiles: bartlomiej.fryz@swmansion.com","timestamp":"2024-03-06 19:24:45"}
+{"level":"info","message":"Starting leap workflows for lead number 92: bbayga@pm.me","timestamp":"2024-03-06 19:24:45"}
+{"level":"info","message":"Lead already exists in profiles: bbayga@pm.me","timestamp":"2024-03-06 19:24:45"}
+{"level":"info","message":"Starting leap workflows for lead number 93: ben@apexai.info","timestamp":"2024-03-06 19:24:45"}
+{"level":"info","message":"Lead already exists in profiles: ben@apexai.info","timestamp":"2024-03-06 19:24:45"}
+{"level":"info","message":"Starting leap workflows for lead number 94: benta_iulian@yahoo.it","timestamp":"2024-03-06 19:24:45"}
+{"level":"info","message":"Lead already exists in profiles: benta_iulian@yahoo.it","timestamp":"2024-03-06 19:24:45"}
+{"level":"info","message":"Starting leap workflows for lead number 95: bill.oconnor@autodesk.com","timestamp":"2024-03-06 19:24:45"}
+{"level":"info","message":"Lead already exists in profiles: bill.oconnor@autodesk.com","timestamp":"2024-03-06 19:24:45"}
+{"level":"info","message":"Starting leap workflows for lead number 96: billing@interhost.net","timestamp":"2024-03-06 19:24:45"}
+{"level":"info","message":"Lead already exists in profiles: billing@interhost.net","timestamp":"2024-03-06 19:24:45"}
+{"level":"info","message":"Starting leap workflows for lead number 97: blackap@verizon.net","timestamp":"2024-03-06 19:24:45"}
+{"level":"info","message":"Lead already exists in profiles: blackap@verizon.net","timestamp":"2024-03-06 19:24:45"}
+{"level":"info","message":"Starting leap workflows for lead number 98: bliss@beatalewismd.com","timestamp":"2024-03-06 19:24:45"}
+{"level":"info","message":"Lead already exists in profiles: bliss@beatalewismd.com","timestamp":"2024-03-06 19:24:46"}
+{"level":"info","message":"Starting leap workflows for lead number 99: bohyun.kim@looxidlabs.com","timestamp":"2024-03-06 19:24:46"}
+{"level":"info","message":"Lead already exists in profiles: bohyun.kim@looxidlabs.com","timestamp":"2024-03-06 19:24:46"}
+{"level":"info","message":"Starting leap workflows for lead number 100: boris.goncharov@amatas.com","timestamp":"2024-03-06 19:24:46"}
+{"level":"info","message":"Lead already exists in profiles: boris.goncharov@amatas.com","timestamp":"2024-03-06 19:24:46"}
+{"level":"info","message":"Starting leap workflows for lead number 101: boris@gernega.com","timestamp":"2024-03-06 19:24:46"}
+{"level":"info","message":"Lead already exists in profiles: boris@gernega.com","timestamp":"2024-03-06 19:24:46"}
+{"level":"info","message":"Starting leap workflows for lead number 102: brandonearlywine@aim.com","timestamp":"2024-03-06 19:24:46"}
+{"level":"info","message":"Lead already exists in profiles: brandonearlywine@aim.com","timestamp":"2024-03-06 19:24:46"}
+{"level":"info","message":"Starting leap workflows for lead number 103: brett@omnism.church","timestamp":"2024-03-06 19:24:46"}
+{"level":"info","message":"Lead already exists in profiles: brett@omnism.church","timestamp":"2024-03-06 19:24:46"}
+{"level":"info","message":"Starting leap workflows for lead number 104: brian@brianjharris.com","timestamp":"2024-03-06 19:24:46"}
+{"level":"info","message":"Lead already exists in profiles: brian@brianjharris.com","timestamp":"2024-03-06 19:24:46"}
+{"level":"info","message":"Starting leap workflows for lead number 105: brihu@shuttlelabs.xyz","timestamp":"2024-03-06 19:24:46"}
+{"level":"info","message":"Lead already exists in profiles: brihu@shuttlelabs.xyz","timestamp":"2024-03-06 19:24:46"}
+{"level":"info","message":"Starting leap workflows for lead number 106: bruno.ribeiro@um.es","timestamp":"2024-03-06 19:24:46"}
+{"level":"info","message":"Lead already exists in profiles: bruno.ribeiro@um.es","timestamp":"2024-03-06 19:24:47"}
+{"level":"info","message":"Starting leap workflows for lead number 107: bruno@biasedbit.com","timestamp":"2024-03-06 19:24:47"}
+{"level":"info","message":"Lead already exists in profiles: bruno@biasedbit.com","timestamp":"2024-03-06 19:24:47"}
+{"level":"info","message":"Starting leap workflows for lead number 108: bryan@neurotechx.com","timestamp":"2024-03-06 19:24:47"}
+{"level":"info","message":"Lead already exists in profiles: bryan@neurotechx.com","timestamp":"2024-03-06 19:24:47"}
+{"level":"info","message":"Starting leap workflows for lead number 109: bryanlee@fumbo.com","timestamp":"2024-03-06 19:24:47"}
+{"level":"info","message":"Lead already exists in profiles: bryanlee@fumbo.com","timestamp":"2024-03-06 19:24:47"}
+{"level":"info","message":"Starting leap workflows for lead number 110: bwilson@mos.org","timestamp":"2024-03-06 19:24:47"}
+{"level":"info","message":"Lead already exists in profiles: bwilson@mos.org","timestamp":"2024-03-06 19:24:47"}
+{"level":"info","message":"Starting leap workflows for lead number 111: byeongjun@bjmoon.io","timestamp":"2024-03-06 19:24:47"}
+{"level":"info","message":"Lead already exists in profiles: byeongjun@bjmoon.io","timestamp":"2024-03-06 19:24:47"}
+{"level":"info","message":"Starting leap workflows for lead number 112: byhand@peak.org","timestamp":"2024-03-06 19:24:47"}
+{"level":"info","message":"Lead already exists in profiles: byhand@peak.org","timestamp":"2024-03-06 19:24:47"}
+{"level":"info","message":"Starting leap workflows for lead number 113: c.yildirim@northeastern.edu","timestamp":"2024-03-06 19:24:47"}
+{"level":"info","message":"Lead already exists in profiles: c.yildirim@northeastern.edu","timestamp":"2024-03-06 19:24:47"}
+{"level":"info","message":"Starting leap workflows for lead number 114: c@cristianomaynez.com","timestamp":"2024-03-06 19:24:47"}
+{"level":"info","message":"Lead already exists in profiles: c@cristianomaynez.com","timestamp":"2024-03-06 19:24:47"}
+{"level":"info","message":"Starting leap workflows for lead number 115: cadeacon@ualberta.ca","timestamp":"2024-03-06 19:24:47"}
+{"level":"info","message":"Lead already exists in profiles: cadeacon@ualberta.ca","timestamp":"2024-03-06 19:24:48"}
+{"level":"info","message":"Starting leap workflows for lead number 116: carlos.gonzalez.visiedo@student.samk.fi","timestamp":"2024-03-06 19:24:48"}
+{"level":"info","message":"Lead already exists in profiles: carlos.gonzalez.visiedo@student.samk.fi","timestamp":"2024-03-06 19:24:48"}
+{"level":"info","message":"Starting leap workflows for lead number 117: carlos@calvaig.com","timestamp":"2024-03-06 19:24:48"}
+{"level":"info","message":"Lead already exists in profiles: carlos@calvaig.com","timestamp":"2024-03-06 19:24:48"}
+{"level":"info","message":"Starting leap workflows for lead number 118: cathy@cathyhackl.com","timestamp":"2024-03-06 19:24:48"}
+{"level":"info","message":"Lead already exists in profiles: cathy@cathyhackl.com","timestamp":"2024-03-06 19:24:48"}
+{"level":"info","message":"Starting leap workflows for lead number 119: ceo@estick.com","timestamp":"2024-03-06 19:24:48"}
+{"level":"info","message":"Lead already exists in profiles: ceo@estick.com","timestamp":"2024-03-06 19:24:48"}
+{"level":"info","message":"Starting leap workflows for lead number 120: chanapal@scg.com","timestamp":"2024-03-06 19:24:48"}
+{"level":"info","message":"Lead already exists in profiles: chanapal@scg.com","timestamp":"2024-03-06 19:24:48"}
+{"level":"info","message":"Starting leap workflows for lead number 121: chris@evokedresponse.com","timestamp":"2024-03-06 19:24:48"}
+{"level":"info","message":"Lead already exists in profiles: chris@evokedresponse.com","timestamp":"2024-03-06 19:24:48"}
+{"level":"info","message":"Starting leap workflows for lead number 122: christian.robert@gmx.net","timestamp":"2024-03-06 19:24:48"}
+{"level":"info","message":"Lead already exists in profiles: christian.robert@gmx.net","timestamp":"2024-03-06 19:24:48"}
+{"level":"info","message":"Starting leap workflows for lead number 123: christopherkaufman@ymail.com","timestamp":"2024-03-06 19:24:49"}
+{"level":"info","message":"Lead already exists in profiles: christopherkaufman@ymail.com","timestamp":"2024-03-06 19:24:49"}
+{"level":"info","message":"Starting leap workflows for lead number 124: chrisz@berkeley.edu","timestamp":"2024-03-06 19:24:49"}
+{"level":"info","message":"Lead already exists in profiles: chrisz@berkeley.edu","timestamp":"2024-03-06 19:24:49"}
+{"level":"info","message":"Starting leap workflows for lead number 125: clint@thedynamiclint.com","timestamp":"2024-03-06 19:24:49"}
+{"level":"info","message":"Starting leap workflows for lead: 68, with query:, info The Brain Room | Better brains through brain games ","timestamp":"2024-03-06 19:24:49"}
+{"level":"info","message":"Started leap workflows for lead: 68","timestamp":"2024-03-06 19:24:49"}
+{"level":"info","message":"Updating lead to be unprocessed","timestamp":"2024-03-06 19:24:49"}
+{"level":"info","message":"Lead already exists in profiles: clint@thedynamiclint.com","timestamp":"2024-03-06 19:24:49"}
+{"level":"info","message":"lead updated successfully:","timestamp":"2024-03-06 19:24:49"}
+{"level":"info","message":"Starting leap workflows for lead number 126: clyde.karanxha@techinnov.ca","timestamp":"2024-03-06 19:24:49"}
+{"level":"info","message":"Lead already exists in profiles: clyde.karanxha@techinnov.ca","timestamp":"2024-03-06 19:24:49"}
+{"level":"info","message":"Starting leap workflows for lead number 69: info@ukustik.com","timestamp":"2024-03-06 19:24:49"}
+{"level":"info","message":"Starting leap workflows for lead number 127: cnovak@larkgroup.com","timestamp":"2024-03-06 19:24:49"}
+{"level":"info","message":"Lead already exists in profiles: cnovak@larkgroup.com","timestamp":"2024-03-06 19:24:49"}
+{"level":"info","message":"Starting leap workflows for lead number 128: coderaven@duck.com","timestamp":"2024-03-06 19:24:49"}
+{"level":"info","message":"Lead already exists in profiles: coderaven@duck.com","timestamp":"2024-03-06 19:24:49"}
+{"level":"info","message":"Starting leap workflows for lead number 129: compras@inesctec.pt","timestamp":"2024-03-06 19:24:49"}
+{"level":"info","message":"Lead already exists in profiles: compras@inesctec.pt","timestamp":"2024-03-06 19:24:50"}
+{"level":"info","message":"Starting leap workflows for lead number 130: contact@azeria-labs.com","timestamp":"2024-03-06 19:24:50"}
+{"level":"info","message":"Lead already exists in profiles: contact@azeria-labs.com","timestamp":"2024-03-06 19:24:50"}
+{"level":"info","message":"Starting leap workflows for lead number 131: contact@lucasrizzotto.com","timestamp":"2024-03-06 19:24:50"}
+{"level":"info","message":"Starting leap workflows for lead: 69, with query:, info U.KUSTIK ","timestamp":"2024-03-06 19:24:50"}
+{"level":"info","message":"Started leap workflows for lead: 69","timestamp":"2024-03-06 19:24:50"}
+{"level":"info","message":"Updating lead to be unprocessed","timestamp":"2024-03-06 19:24:50"}
+{"level":"info","message":"Lead already exists in profiles: contact@lucasrizzotto.com","timestamp":"2024-03-06 19:24:50"}
+{"level":"info","message":"lead updated successfully:","timestamp":"2024-03-06 19:24:50"}
+{"level":"info","message":"Starting leap workflows for lead number 132: contact@neurolight.co.uk","timestamp":"2024-03-06 19:24:50"}
+{"level":"info","message":"Lead already exists in profiles: contact@neurolight.co.uk","timestamp":"2024-03-06 19:24:50"}
+{"level":"info","message":"Starting leap workflows for lead number 133: contact@nonfigurativ.com","timestamp":"2024-03-06 19:24:50"}
+{"level":"info","message":"Starting leap workflows for lead number 70: info@vincentmarksohn.com","timestamp":"2024-03-06 19:24:50"}
+{"level":"info","message":"Lead already exists in profiles: contact@nonfigurativ.com","timestamp":"2024-03-06 19:24:50"}
+{"level":"info","message":"Starting leap workflows for lead number 134: contact@phenotype.shop","timestamp":"2024-03-06 19:24:50"}
+{"level":"info","message":"Lead already exists in profiles: info@vincentmarksohn.com","timestamp":"2024-03-06 19:24:50"}
+{"level":"info","message":"Lead already exists in profiles: contact@phenotype.shop","timestamp":"2024-03-06 19:24:50"}
+{"level":"info","message":"Starting leap workflows for lead number 71: info@ws-it-systeme.de","timestamp":"2024-03-06 19:24:50"}
+{"level":"info","message":"Starting leap workflows for lead number 135: contact@william-le.com","timestamp":"2024-03-06 19:24:50"}
+{"level":"info","message":"Lead already exists in profiles: info@ws-it-systeme.de","timestamp":"2024-03-06 19:24:50"}
+{"level":"info","message":"Lead already exists in profiles: contact@william-le.com","timestamp":"2024-03-06 19:24:50"}
+{"level":"info","message":"Starting leap workflows for lead number 72: ishan@alphaciso.com","timestamp":"2024-03-06 19:24:50"}
+{"level":"info","message":"Starting leap workflows for lead number 136: contas@x-apps.com.br","timestamp":"2024-03-06 19:24:50"}
+{"level":"info","message":"Lead already exists in profiles: ishan@alphaciso.com","timestamp":"2024-03-06 19:24:50"}
+{"level":"info","message":"Lead already exists in profiles: contas@x-apps.com.br","timestamp":"2024-03-06 19:24:50"}
+{"level":"info","message":"Starting leap workflows for lead number 137: copa2894@uw.edu","timestamp":"2024-03-06 19:24:50"}
+{"level":"info","message":"Starting leap workflows for lead number 73: ishikawa-s@inf.shizuoka.ac.jp","timestamp":"2024-03-06 19:24:51"}
+{"level":"info","message":"Lead already exists in profiles: copa2894@uw.edu","timestamp":"2024-03-06 19:24:51"}
+{"level":"info","message":"Lead already exists in profiles: ishikawa-s@inf.shizuoka.ac.jp","timestamp":"2024-03-06 19:24:51"}
+{"level":"info","message":"Starting leap workflows for lead number 138: csteinmeier@fh-bielefeld.de","timestamp":"2024-03-06 19:24:51"}
+{"level":"info","message":"Starting leap workflows for lead number 74: ivan@ecomdev.org","timestamp":"2024-03-06 19:24:51"}
+{"level":"info","message":"Lead already exists in profiles: csteinmeier@fh-bielefeld.de","timestamp":"2024-03-06 19:24:51"}
+{"level":"info","message":"Lead already exists in profiles: ivan@ecomdev.org","timestamp":"2024-03-06 19:24:51"}
+{"level":"info","message":"Starting leap workflows for lead number 139: culann@segotia.xyz","timestamp":"2024-03-06 19:24:51"}
+{"level":"info","message":"Starting leap workflows for lead number 75: james@jamesfgibbons.com","timestamp":"2024-03-06 19:24:51"}
+{"level":"info","message":"Lead already exists in profiles: culann@segotia.xyz","timestamp":"2024-03-06 19:24:51"}
+{"level":"info","message":"Starting leap workflows for lead number 140: d.skogstad@yahoo.no","timestamp":"2024-03-06 19:24:51"}
+{"level":"info","message":"Lead already exists in profiles: james@jamesfgibbons.com","timestamp":"2024-03-06 19:24:51"}
+{"level":"info","message":"Lead already exists in profiles: d.skogstad@yahoo.no","timestamp":"2024-03-06 19:24:51"}
+{"level":"info","message":"Starting leap workflows for lead number 76: james_delaney@emerson.edu","timestamp":"2024-03-06 19:24:51"}
+{"level":"info","message":"Starting leap workflows for lead number 141: d@shapiro.ai","timestamp":"2024-03-06 19:24:51"}
+{"level":"info","message":"Lead already exists in profiles: james_delaney@emerson.edu","timestamp":"2024-03-06 19:24:51"}
+{"level":"info","message":"Lead already exists in profiles: d@shapiro.ai","timestamp":"2024-03-06 19:24:51"}
+{"level":"info","message":"Starting leap workflows for lead number 77: jas.scott@verizon.net","timestamp":"2024-03-06 19:24:51"}
+{"level":"info","message":"Starting leap workflows for lead number 142: d@wolf.gdn","timestamp":"2024-03-06 19:24:51"}
+{"level":"info","message":"Lead already exists in profiles: jas.scott@verizon.net","timestamp":"2024-03-06 19:24:51"}
+{"level":"info","message":"Lead already exists in profiles: d@wolf.gdn","timestamp":"2024-03-06 19:24:51"}
+{"level":"info","message":"Starting leap workflows for lead number 78: jason@inwebsys.net","timestamp":"2024-03-06 19:24:51"}
+{"level":"info","message":"Starting leap workflows for lead number 143: daliso@africantechno.com","timestamp":"2024-03-06 19:24:51"}
+{"level":"info","message":"Lead already exists in profiles: jason@inwebsys.net","timestamp":"2024-03-06 19:24:51"}
+{"level":"info","message":"Lead already exists in profiles: daliso@africantechno.com","timestamp":"2024-03-06 19:24:51"}
+{"level":"info","message":"Starting leap workflows for lead number 79: jason@primary-assembly.com","timestamp":"2024-03-06 19:24:51"}
+{"level":"info","message":"Starting leap workflows for lead number 144: dan@bullok.com","timestamp":"2024-03-06 19:24:51"}
+{"level":"info","message":"Lead already exists in profiles: jason@primary-assembly.com","timestamp":"2024-03-06 19:24:51"}
+{"level":"info","message":"Lead already exists in profiles: dan@bullok.com","timestamp":"2024-03-06 19:24:51"}
+{"level":"info","message":"Starting leap workflows for lead number 145: dan@sleepspace.com","timestamp":"2024-03-06 19:24:51"}
+{"level":"info","message":"Starting leap workflows for lead number 80: jcharles@jlcservicesinc.com","timestamp":"2024-03-06 19:24:51"}
+{"level":"info","message":"Lead already exists in profiles: dan@sleepspace.com","timestamp":"2024-03-06 19:24:52"}
+{"level":"info","message":"Lead already exists in profiles: jcharles@jlcservicesinc.com","timestamp":"2024-03-06 19:24:52"}
+{"level":"info","message":"Starting leap workflows for lead number 146: daniel@propvine.com","timestamp":"2024-03-06 19:24:52"}
+{"level":"info","message":"Starting leap workflows for lead number 81: jcunning@live.ca","timestamp":"2024-03-06 19:24:52"}
+{"level":"info","message":"Lead already exists in profiles: daniel@propvine.com","timestamp":"2024-03-06 19:24:52"}
+{"level":"info","message":"Lead already exists in profiles: jcunning@live.ca","timestamp":"2024-03-06 19:24:52"}
+{"level":"info","message":"Starting leap workflows for lead number 147: danielle.levac@umontreal.ca","timestamp":"2024-03-06 19:24:52"}
+{"level":"info","message":"Starting leap workflows for lead number 82: jdobrei@mtu.edu","timestamp":"2024-03-06 19:24:52"}
+{"level":"info","message":"Lead already exists in profiles: jdobrei@mtu.edu","timestamp":"2024-03-06 19:24:52"}
+{"level":"info","message":"Lead already exists in profiles: danielle.levac@umontreal.ca","timestamp":"2024-03-06 19:24:52"}
+{"level":"info","message":"Starting leap workflows for lead number 83: jeff@divergenceneuro.com","timestamp":"2024-03-06 19:24:52"}
+{"level":"info","message":"Starting leap workflows for lead number 148: danielsaadia@dyod.io","timestamp":"2024-03-06 19:24:52"}
+{"level":"info","message":"Lead already exists in profiles: jeff@divergenceneuro.com","timestamp":"2024-03-06 19:24:52"}
+{"level":"info","message":"Lead already exists in profiles: danielsaadia@dyod.io","timestamp":"2024-03-06 19:24:52"}
+{"level":"info","message":"Starting leap workflows for lead number 84: jeff@myneurva.com","timestamp":"2024-03-06 19:24:52"}
+{"level":"info","message":"Starting leap workflows for lead number 149: daria.kalinina@w2w.group","timestamp":"2024-03-06 19:24:52"}
+{"level":"info","message":"Lead already exists in profiles: daria.kalinina@w2w.group","timestamp":"2024-03-06 19:24:52"}
+{"level":"info","message":"Starting leap workflows for lead number 150: dave@dave-burns.com","timestamp":"2024-03-06 19:24:52"}
+{"level":"info","message":"Starting leap workflows for lead: 84, with query:, jeff Neurofeedback Therapy ","timestamp":"2024-03-06 19:24:52"}
+{"level":"info","message":"Started leap workflows for lead: 84","timestamp":"2024-03-06 19:24:52"}
+{"level":"info","message":"Updating lead to be unprocessed","timestamp":"2024-03-06 19:24:52"}
+{"level":"info","message":"lead updated successfully:","timestamp":"2024-03-06 19:24:52"}
+{"level":"info","message":"Starting leap workflows for lead number 85: jeffrey.siler@iohk.io","timestamp":"2024-03-06 19:24:53"}
+{"level":"info","message":"Lead already exists in profiles: jeffrey.siler@iohk.io","timestamp":"2024-03-06 19:24:53"}
+{"level":"info","message":"Starting leap workflows for lead number 86: jeremy@jeremy.com","timestamp":"2024-03-06 19:24:53"}
+{"level":"info","message":"Lead already exists in profiles: jeremy@jeremy.com","timestamp":"2024-03-06 19:24:53"}
+{"level":"info","message":"Starting leap workflows for lead number 87: jeremy_mendoza@dell.com","timestamp":"2024-03-06 19:24:53"}
+{"level":"info","message":"Lead already exists in profiles: jeremy_mendoza@dell.com","timestamp":"2024-03-06 19:24:53"}
+{"level":"info","message":"Starting leap workflows for lead number 88: jessica.mathews@fortune.com","timestamp":"2024-03-06 19:24:53"}
+{"level":"info","message":"Starting leap workflows for lead: 150, with query:, dave Home ","timestamp":"2024-03-06 19:24:53"}
+{"level":"info","message":"Started leap workflows for lead: 150","timestamp":"2024-03-06 19:24:53"}
+{"level":"info","message":"Updating lead to be unprocessed","timestamp":"2024-03-06 19:24:53"}
+{"level":"info","message":"Lead already exists in profiles: jessica.mathews@fortune.com","timestamp":"2024-03-06 19:24:53"}
+{"level":"info","message":"lead updated successfully:","timestamp":"2024-03-06 19:24:53"}
+{"level":"info","message":"Starting leap workflows for lead number 89: jfcumsille@uc.cl","timestamp":"2024-03-06 19:24:53"}
+{"level":"info","message":"Lead already exists in profiles: jfcumsille@uc.cl","timestamp":"2024-03-06 19:24:53"}
+{"level":"info","message":"Starting leap workflows for lead number 151: david@honeycoin.app","timestamp":"2024-03-06 19:24:53"}
+{"level":"info","message":"Starting leap workflows for lead number 90: jguttman@biomotivate.com","timestamp":"2024-03-06 19:24:53"}
+{"level":"info","message":"Lead already exists in profiles: david@honeycoin.app","timestamp":"2024-03-06 19:24:53"}
+{"level":"info","message":"Lead already exists in profiles: jguttman@biomotivate.com","timestamp":"2024-03-06 19:24:53"}
+{"level":"info","message":"Starting leap workflows for lead number 152: david@joffemail.com","timestamp":"2024-03-06 19:24:53"}
+{"level":"info","message":"Starting leap workflows for lead number 91: jhass@herzogsurgical.com","timestamp":"2024-03-06 19:24:53"}
+{"level":"info","message":"Lead already exists in profiles: david@joffemail.com","timestamp":"2024-03-06 19:24:53"}
+{"level":"info","message":"Starting leap workflows for lead number 153: david@redkey.io","timestamp":"2024-03-06 19:24:53"}
+{"level":"info","message":"Lead already exists in profiles: jhass@herzogsurgical.com","timestamp":"2024-03-06 19:24:53"}
+{"level":"info","message":"Starting leap workflows for lead number 92: jlmiles@resilientvillage.net","timestamp":"2024-03-06 19:24:53"}
+{"level":"info","message":"Lead already exists in profiles: david@redkey.io","timestamp":"2024-03-06 19:24:53"}
+{"level":"info","message":"Starting leap workflows for lead number 154: davide.fucci@bth.se","timestamp":"2024-03-06 19:24:54"}
+{"level":"info","message":"Lead already exists in profiles: jlmiles@resilientvillage.net","timestamp":"2024-03-06 19:24:54"}
+{"level":"info","message":"Lead already exists in profiles: davide.fucci@bth.se","timestamp":"2024-03-06 19:24:54"}
+{"level":"info","message":"Starting leap workflows for lead number 93: jnoel@gci.net","timestamp":"2024-03-06 19:24:54"}
+{"level":"info","message":"Starting leap workflows for lead number 155: dbonanza@htes.org","timestamp":"2024-03-06 19:24:54"}
+{"level":"info","message":"Lead already exists in profiles: jnoel@gci.net","timestamp":"2024-03-06 19:24:54"}
+{"level":"info","message":"Lead already exists in profiles: dbonanza@htes.org","timestamp":"2024-03-06 19:24:54"}
+{"level":"info","message":"Starting leap workflows for lead number 94: jo@neurofusion.ai","timestamp":"2024-03-06 19:24:54"}
+{"level":"info","message":"Lead already exists in profiles: jo@neurofusion.ai","timestamp":"2024-03-06 19:24:54"}
+{"level":"info","message":"Starting leap workflows for lead number 156: derek.veren@perkinswill.com","timestamp":"2024-03-06 19:24:54"}
+{"level":"info","message":"Starting leap workflows for lead number 95: joe@epicmindsetconsulting.com","timestamp":"2024-03-06 19:24:54"}
+{"level":"info","message":"Lead already exists in profiles: derek.veren@perkinswill.com","timestamp":"2024-03-06 19:24:54"}
+{"level":"info","message":"Lead already exists in profiles: joe@epicmindsetconsulting.com","timestamp":"2024-03-06 19:24:54"}
+{"level":"info","message":"Starting leap workflows for lead number 157: derek@derekhenkle.com","timestamp":"2024-03-06 19:24:54"}
+{"level":"info","message":"Starting leap workflows for lead number 96: joe@gamginc.com","timestamp":"2024-03-06 19:24:54"}
+{"level":"info","message":"Lead already exists in profiles: derek@derekhenkle.com","timestamp":"2024-03-06 19:24:54"}
+{"level":"info","message":"Lead already exists in profiles: joe@gamginc.com","timestamp":"2024-03-06 19:24:54"}
+{"level":"info","message":"Starting leap workflows for lead number 97: joe@gtoe.info","timestamp":"2024-03-06 19:24:54"}
+{"level":"info","message":"Starting leap workflows for lead number 158: design@standardabweichung.de","timestamp":"2024-03-06 19:24:54"}
+{"level":"info","message":"Lead already exists in profiles: joe@gtoe.info","timestamp":"2024-03-06 19:24:54"}
+{"level":"info","message":"Lead already exists in profiles: design@standardabweichung.de","timestamp":"2024-03-06 19:24:54"}
+{"level":"info","message":"Starting leap workflows for lead number 98: joe@theconcreteprotector.com","timestamp":"2024-03-06 19:24:54"}
+{"level":"info","message":"Starting leap workflows for lead number 159: dessa.montilla.mulholland@utahtech.edu","timestamp":"2024-03-06 19:24:54"}
+{"level":"info","message":"Lead already exists in profiles: joe@theconcreteprotector.com","timestamp":"2024-03-06 19:24:54"}
+{"level":"info","message":"Lead already exists in profiles: dessa.montilla.mulholland@utahtech.edu","timestamp":"2024-03-06 19:24:54"}
+{"level":"info","message":"Starting leap workflows for lead number 99: joel.zamboni@webera.com","timestamp":"2024-03-06 19:24:54"}
+{"level":"info","message":"Starting leap workflows for lead number 160: dev@app-logik.de","timestamp":"2024-03-06 19:24:54"}
+{"level":"info","message":"Lead already exists in profiles: dev@app-logik.de","timestamp":"2024-03-06 19:24:54"}
+{"level":"info","message":"Lead already exists in profiles: joel.zamboni@webera.com","timestamp":"2024-03-06 19:24:54"}
+{"level":"info","message":"Starting leap workflows for lead number 161: dev@jakeleboeuf.com","timestamp":"2024-03-06 19:24:54"}
+{"level":"info","message":"Starting leap workflows for lead number 100: joel@kaivalyakollectiv.com","timestamp":"2024-03-06 19:24:55"}
+{"level":"info","message":"Lead already exists in profiles: dev@jakeleboeuf.com","timestamp":"2024-03-06 19:24:55"}
+{"level":"info","message":"Lead already exists in profiles: joel@kaivalyakollectiv.com","timestamp":"2024-03-06 19:24:55"}
+{"level":"info","message":"Starting leap workflows for lead number 162: dhgire@uw.edu","timestamp":"2024-03-06 19:24:55"}
+{"level":"info","message":"Starting leap workflows for lead number 101: joepark@berkeley.edu","timestamp":"2024-03-06 19:24:55"}
+{"level":"info","message":"Lead already exists in profiles: dhgire@uw.edu","timestamp":"2024-03-06 19:24:55"}
+{"level":"info","message":"Lead already exists in profiles: joepark@berkeley.edu","timestamp":"2024-03-06 19:24:55"}
+{"level":"info","message":"Starting leap workflows for lead number 163: diana.delgrosso@ericsson.com","timestamp":"2024-03-06 19:24:55"}
+{"level":"info","message":"Starting leap workflows for lead number 102: johann@pilotinstitute.com","timestamp":"2024-03-06 19:24:55"}
+{"level":"info","message":"Lead already exists in profiles: diana.delgrosso@ericsson.com","timestamp":"2024-03-06 19:24:55"}
+{"level":"info","message":"Lead already exists in profiles: johann@pilotinstitute.com","timestamp":"2024-03-06 19:24:55"}
+{"level":"info","message":"Starting leap workflows for lead number 103: johannes@spacebrowser.io","timestamp":"2024-03-06 19:24:55"}
+{"level":"info","message":"Starting leap workflows for lead number 164: diana@codeon.rocks","timestamp":"2024-03-06 19:24:55"}
+{"level":"info","message":"Lead already exists in profiles: johannes@spacebrowser.io","timestamp":"2024-03-06 19:24:55"}
+{"level":"info","message":"Starting leap workflows for lead number 104: john.smallridge.13@ucl.ac.uk","timestamp":"2024-03-06 19:24:55"}
+{"level":"info","message":"Starting leap workflows for lead: 164, with query:, diana https://codeon.rocks ","timestamp":"2024-03-06 19:24:55"}
+{"level":"info","message":"Started leap workflows for lead: 164","timestamp":"2024-03-06 19:24:55"}
+{"level":"info","message":"Updating lead to be unprocessed","timestamp":"2024-03-06 19:24:55"}
+{"level":"info","message":"lead updated successfully:","timestamp":"2024-03-06 19:24:55"}
+{"level":"info","message":"Starting leap workflows for lead number 165: dianac@jhmi.edu","timestamp":"2024-03-06 19:24:55"}
+{"level":"info","message":"Lead already exists in profiles: dianac@jhmi.edu","timestamp":"2024-03-06 19:24:55"}
+{"level":"info","message":"Starting leap workflows for lead number 166: diegotf@google.com","timestamp":"2024-03-06 19:24:55"}
+{"level":"info","message":"Lead already exists in profiles: diegotf@google.com","timestamp":"2024-03-06 19:24:55"}
+{"level":"info","message":"Starting leap workflows for lead number 167: dimitri.schnider@definition.li","timestamp":"2024-03-06 19:24:55"}
+{"level":"info","message":"Lead already exists in profiles: dimitri.schnider@definition.li","timestamp":"2024-03-06 19:24:56"}
+{"level":"info","message":"Starting leap workflows for lead number 168: domenico@advaita.capital","timestamp":"2024-03-06 19:24:56"}
+{"level":"info","message":"Starting leap workflows for lead: 104, with query:, john smallridge    UCL ","timestamp":"2024-03-06 19:24:57"}
+{"level":"info","message":"Started leap workflows for lead: 104","timestamp":"2024-03-06 19:24:57"}
+{"level":"info","message":"Updating lead to be unprocessed","timestamp":"2024-03-06 19:24:57"}
+{"level":"info","message":"lead updated successfully:","timestamp":"2024-03-06 19:24:57"}
+{"level":"info","message":"Starting leap workflows for lead number 105: johndoh@umich.edu","timestamp":"2024-03-06 19:24:57"}
+{"level":"info","message":"Starting leap workflows for lead: 105, with query:, johndoh University of Michigan ","timestamp":"2024-03-06 19:24:58"}
+{"level":"info","message":"Started leap workflows for lead: 105","timestamp":"2024-03-06 19:24:58"}
+{"level":"info","message":"Updating lead to be unprocessed","timestamp":"2024-03-06 19:24:58"}
+{"level":"info","message":"Starting leap workflows for lead: 168, with query:, domenico Advaita ","timestamp":"2024-03-06 19:24:58"}
+{"level":"info","message":"Started leap workflows for lead: 168","timestamp":"2024-03-06 19:24:58"}
+{"level":"info","message":"Updating lead to be unprocessed","timestamp":"2024-03-06 19:24:58"}
+{"level":"info","message":"lead updated successfully:","timestamp":"2024-03-06 19:24:58"}
+{"level":"info","message":"lead updated successfully:","timestamp":"2024-03-06 19:24:58"}
+{"level":"info","message":"Starting leap workflows for lead number 106: jon@datagarden.org","timestamp":"2024-03-06 19:24:58"}
+{"level":"info","message":"Starting leap workflows for lead number 169: dot@incsn.com","timestamp":"2024-03-06 19:24:58"}
+{"level":"info","message":"Lead already exists in profiles: jon@datagarden.org","timestamp":"2024-03-06 19:24:58"}
+{"level":"info","message":"Lead already exists in profiles: dot@incsn.com","timestamp":"2024-03-06 19:24:58"}
+{"level":"info","message":"Starting leap workflows for lead number 107: jonah@jonahandersson.tech","timestamp":"2024-03-06 19:24:58"}
+{"level":"info","message":"Starting leap workflows for lead number 170: dr.isa.mohamed@smartlifebh.com","timestamp":"2024-03-06 19:24:58"}
+{"level":"info","message":"Lead already exists in profiles: dr.isa.mohamed@smartlifebh.com","timestamp":"2024-03-06 19:24:58"}
+{"level":"info","message":"Lead already exists in profiles: jonah@jonahandersson.tech","timestamp":"2024-03-06 19:24:58"}
+{"level":"info","message":"Starting leap workflows for lead number 171: dr.starr@myneurva.com","timestamp":"2024-03-06 19:24:58"}
+{"level":"info","message":"Starting leap workflows for lead number 108: jonathan@quantum.yoga","timestamp":"2024-03-06 19:24:58"}
+{"level":"info","message":"Lead already exists in profiles: dr.starr@myneurva.com","timestamp":"2024-03-06 19:24:58"}
+{"level":"info","message":"Lead already exists in profiles: jonathan@quantum.yoga","timestamp":"2024-03-06 19:24:58"}
+{"level":"info","message":"Starting leap workflows for lead number 172: drantonio@londonscientificneurotherapy.com","timestamp":"2024-03-06 19:24:58"}
+{"level":"info","message":"Starting leap workflows for lead number 109: jonathan@unikowski.net","timestamp":"2024-03-06 19:24:58"}
+{"level":"info","message":"Lead already exists in profiles: drantonio@londonscientificneurotherapy.com","timestamp":"2024-03-06 19:24:58"}
+{"level":"info","message":"Lead already exists in profiles: jonathan@unikowski.net","timestamp":"2024-03-06 19:24:58"}
+{"level":"info","message":"Starting leap workflows for lead number 173: drdave@mosaiclifecare.com","timestamp":"2024-03-06 19:24:58"}
+{"level":"info","message":"Starting leap workflows for lead number 110: jonny@processyourpotential.com","timestamp":"2024-03-06 19:24:58"}
+{"level":"info","message":"Lead already exists in profiles: jonny@processyourpotential.com","timestamp":"2024-03-06 19:24:58"}
+{"level":"info","message":"Starting leap workflows for lead number 111: jordan@jpdesigning.com","timestamp":"2024-03-06 19:24:59"}
+{"level":"info","message":"Lead already exists in profiles: jordan@jpdesigning.com","timestamp":"2024-03-06 19:24:59"}
+{"level":"info","message":"Starting leap workflows for lead number 112: jordan@lts.sh","timestamp":"2024-03-06 19:24:59"}
+{"level":"info","message":"Lead already exists in profiles: jordan@lts.sh","timestamp":"2024-03-06 19:24:59"}
+{"level":"info","message":"Starting leap workflows for lead number 113: jose@unitevoip.net","timestamp":"2024-03-06 19:24:59"}
+{"level":"info","message":"Lead already exists in profiles: jose@unitevoip.net","timestamp":"2024-03-06 19:24:59"}
+{"level":"info","message":"Starting leap workflows for lead number 114: joshuatan@google.com","timestamp":"2024-03-06 19:24:59"}
+{"level":"info","message":"Lead already exists in profiles: joshuatan@google.com","timestamp":"2024-03-06 19:24:59"}
+{"level":"info","message":"Starting leap workflows for lead number 115: jp42@uw.edu","timestamp":"2024-03-06 19:24:59"}
+{"level":"info","message":"Starting leap workflows for lead: 115, with query:, jp   UW Homepage ","timestamp":"2024-03-06 19:25:00"}
+{"level":"info","message":"Started leap workflows for lead: 115","timestamp":"2024-03-06 19:25:00"}
+{"level":"info","message":"Updating lead to be unprocessed","timestamp":"2024-03-06 19:25:00"}
+{"level":"info","message":"lead updated successfully:","timestamp":"2024-03-06 19:25:00"}
+{"level":"info","message":"Starting leap workflows for lead number 116: jsholmes@alum.mit.edu","timestamp":"2024-03-06 19:25:00"}
+{"level":"info","message":"Lead already exists in profiles: jsholmes@alum.mit.edu","timestamp":"2024-03-06 19:25:00"}
+{"level":"info","message":"Starting leap workflows for lead number 117: jshull@odu.edu","timestamp":"2024-03-06 19:25:00"}
+{"level":"info","message":"Starting leap workflows for lead: 117, with query:, jshull Old Dominion University ","timestamp":"2024-03-06 19:25:01"}
+{"level":"info","message":"Started leap workflows for lead: 117","timestamp":"2024-03-06 19:25:01"}
+{"level":"info","message":"Updating lead to be unprocessed","timestamp":"2024-03-06 19:25:01"}
+{"level":"info","message":"lead updated successfully:","timestamp":"2024-03-06 19:25:01"}
+{"level":"info","message":"Starting leap workflows for lead number 118: julian@codeero.com","timestamp":"2024-03-06 19:25:01"}
+{"level":"info","message":"Starting leap workflows for lead: 173, with query:, drdave - ","timestamp":"2024-03-06 19:25:01"}
+{"level":"info","message":"Started leap workflows for lead: 173","timestamp":"2024-03-06 19:25:01"}
+{"level":"info","message":"Updating lead to be unprocessed","timestamp":"2024-03-06 19:25:01"}
+{"level":"info","message":"Lead already exists in profiles: julian@codeero.com","timestamp":"2024-03-06 19:25:01"}
+{"level":"info","message":"lead updated successfully:","timestamp":"2024-03-06 19:25:01"}
+{"level":"info","message":"Starting leap workflows for lead number 119: julie.abernathy@ua.edu","timestamp":"2024-03-06 19:25:01"}
+{"level":"info","message":"Starting leap workflows for lead number 174: drgoel@peakhuman.ca","timestamp":"2024-03-06 19:25:01"}
+{"level":"info","message":"Lead already exists in profiles: drgoel@peakhuman.ca","timestamp":"2024-03-06 19:25:02"}
+{"level":"info","message":"Starting leap workflows for lead number 175: drwatson@mindsetsoultion.net","timestamp":"2024-03-06 19:25:02"}
+{"level":"info","message":"Lead already exists in profiles: drwatson@mindsetsoultion.net","timestamp":"2024-03-06 19:25:02"}
+{"level":"info","message":"Starting leap workflows for lead number 176: dsf308@nyu.edu","timestamp":"2024-03-06 19:25:02"}
+{"level":"info","message":"Lead already exists in profiles: dsf308@nyu.edu","timestamp":"2024-03-06 19:25:02"}
+{"level":"info","message":"Starting leap workflows for lead number 177: dshah@hubspot.com","timestamp":"2024-03-06 19:25:02"}
+{"level":"info","message":"Lead already exists in profiles: dshah@hubspot.com","timestamp":"2024-03-06 19:25:02"}
+{"level":"info","message":"Starting leap workflows for lead number 178: dulce.alanis@grupo-ortiz.com","timestamp":"2024-03-06 19:25:02"}
+{"level":"info","message":"Lead already exists in profiles: dulce.alanis@grupo-ortiz.com","timestamp":"2024-03-06 19:25:02"}
+{"level":"info","message":"Starting leap workflows for lead number 179: dunbar@ptah.ai","timestamp":"2024-03-06 19:25:02"}
+{"level":"info","message":"Lead already exists in profiles: dunbar@ptah.ai","timestamp":"2024-03-06 19:25:02"}
+{"level":"info","message":"Starting leap workflows for lead number 180: dustin@setbasedmanagement.net","timestamp":"2024-03-06 19:25:02"}
+{"level":"info","message":"Starting leap workflows for lead: 180, with query:, dustin https://setbasedmanagement.net ","timestamp":"2024-03-06 19:25:02"}
+{"level":"info","message":"Started leap workflows for lead: 180","timestamp":"2024-03-06 19:25:02"}
+{"level":"info","message":"Updating lead to be unprocessed","timestamp":"2024-03-06 19:25:02"}
+{"level":"info","message":"lead updated successfully:","timestamp":"2024-03-06 19:25:02"}
+{"level":"info","message":"Starting leap workflows for lead number 181: dvalecillos@stampinup.com","timestamp":"2024-03-06 19:25:03"}
+{"level":"info","message":"Lead already exists in profiles: dvalecillos@stampinup.com","timestamp":"2024-03-06 19:25:03"}
+{"level":"info","message":"Starting leap workflows for lead number 182: dylan@profilebehavior.com","timestamp":"2024-03-06 19:25:03"}
+{"level":"info","message":"Lead already exists in profiles: dylan@profilebehavior.com","timestamp":"2024-03-06 19:25:03"}
+{"level":"info","message":"Starting leap workflows for lead number 183: ec@tjs.sh","timestamp":"2024-03-06 19:25:03"}
+{"level":"info","message":"Lead already exists in profiles: ec@tjs.sh","timestamp":"2024-03-06 19:25:03"}
+{"level":"info","message":"Starting leap workflows for lead number 184: edflorea@ucalgary.ca","timestamp":"2024-03-06 19:25:03"}
+{"level":"info","message":"Lead already exists in profiles: edflorea@ucalgary.ca","timestamp":"2024-03-06 19:25:03"}
+{"level":"info","message":"Starting leap workflows for lead number 185: eduard@rocketgrowth.ai","timestamp":"2024-03-06 19:25:03"}
+{"level":"info","message":"Lead already exists in profiles: eduard@rocketgrowth.ai","timestamp":"2024-03-06 19:25:03"}
+{"level":"info","message":"Starting leap workflows for lead number 186: eduardo@symbios.com.br","timestamp":"2024-03-06 19:25:03"}
+{"level":"info","message":"Lead already exists in profiles: eduardo@symbios.com.br","timestamp":"2024-03-06 19:25:03"}
+{"level":"info","message":"Starting leap workflows for lead number 187: eleanor.taylor@bristol.ac.uk","timestamp":"2024-03-06 19:25:03"}
+{"level":"info","message":"Lead already exists in profiles: eleanor.taylor@bristol.ac.uk","timestamp":"2024-03-06 19:25:03"}
+{"level":"info","message":"Starting leap workflows for lead number 188: eparga@lasallehs.org","timestamp":"2024-03-06 19:25:04"}
+{"level":"info","message":"Lead already exists in profiles: eparga@lasallehs.org","timestamp":"2024-03-06 19:25:04"}
+{"level":"info","message":"Starting leap workflows for lead number 189: eray.fedai@mailbox.org","timestamp":"2024-03-06 19:25:04"}
+{"level":"info","message":"Lead already exists in profiles: eray.fedai@mailbox.org","timestamp":"2024-03-06 19:25:04"}
+{"level":"info","message":"Starting leap workflows for lead number 190: eric@imaginex.co","timestamp":"2024-03-06 19:25:04"}
+{"level":"info","message":"Lead already exists in profiles: eric@imaginex.co","timestamp":"2024-03-06 19:25:04"}
+{"level":"info","message":"Starting leap workflows for lead number 191: eric@nailservers.com","timestamp":"2024-03-06 19:25:04"}
+{"level":"info","message":"Lead already exists in profiles: eric@nailservers.com","timestamp":"2024-03-06 19:25:04"}
+{"level":"info","message":"Starting leap workflows for lead: 119, with query:, julie abernathy The University of Alabama ","timestamp":"2024-03-06 19:25:04"}
+{"level":"info","message":"Started leap workflows for lead: 119","timestamp":"2024-03-06 19:25:04"}
+{"level":"info","message":"Updating lead to be unprocessed","timestamp":"2024-03-06 19:25:04"}
+{"level":"info","message":"Starting leap workflows for lead number 192: erik@circlesx.com","timestamp":"2024-03-06 19:25:04"}
+{"level":"info","message":"lead updated successfully:","timestamp":"2024-03-06 19:25:04"}
+{"level":"info","message":"Lead already exists in profiles: erik@circlesx.com","timestamp":"2024-03-06 19:25:04"}
+{"level":"info","message":"Starting leap workflows for lead number 193: eros@blackdream.ai","timestamp":"2024-03-06 19:25:04"}
+{"level":"info","message":"Starting leap workflows for lead number 120: justin.gunther@nascentvisions.com","timestamp":"2024-03-06 19:25:04"}
+{"level":"info","message":"Lead already exists in profiles: eros@blackdream.ai","timestamp":"2024-03-06 19:25:04"}
+{"level":"info","message":"Lead already exists in profiles: justin.gunther@nascentvisions.com","timestamp":"2024-03-06 19:25:04"}
+{"level":"info","message":"Starting leap workflows for lead number 194: etienne@atmos.llc","timestamp":"2024-03-06 19:25:04"}
+{"level":"info","message":"Starting leap workflows for lead number 121: justin@hipcreativeinc.com","timestamp":"2024-03-06 19:25:04"}
+{"level":"info","message":"Lead already exists in profiles: etienne@atmos.llc","timestamp":"2024-03-06 19:25:04"}
+{"level":"info","message":"Lead already exists in profiles: justin@hipcreativeinc.com","timestamp":"2024-03-06 19:25:04"}
+{"level":"info","message":"Starting leap workflows for lead number 195: eugene@neurosity.co","timestamp":"2024-03-06 19:25:04"}
+{"level":"info","message":"Starting leap workflows for lead number 122: justindfoster@ymail.com","timestamp":"2024-03-06 19:25:04"}
+{"level":"info","message":"Lead already exists in profiles: eugene@neurosity.co","timestamp":"2024-03-06 19:25:04"}
+{"level":"info","message":"Lead already exists in profiles: justindfoster@ymail.com","timestamp":"2024-03-06 19:25:04"}
+{"level":"info","message":"Starting leap workflows for lead number 196: eyal@shahar.co.il","timestamp":"2024-03-06 19:25:04"}
+{"level":"info","message":"Starting leap workflows for lead number 123: jzingh@ucdavis.edu","timestamp":"2024-03-06 19:25:05"}
+{"level":"info","message":"Lead already exists in profiles: eyal@shahar.co.il","timestamp":"2024-03-06 19:25:05"}
+{"level":"info","message":"Lead already exists in profiles: jzingh@ucdavis.edu","timestamp":"2024-03-06 19:25:05"}
+{"level":"info","message":"Starting leap workflows for lead number 197: fabio.tassoni@otconsulting.com","timestamp":"2024-03-06 19:25:05"}
+{"level":"info","message":"Starting leap workflows for lead number 124: k.gandhi@psimonix.com","timestamp":"2024-03-06 19:25:05"}
+{"level":"info","message":"Lead already exists in profiles: fabio.tassoni@otconsulting.com","timestamp":"2024-03-06 19:25:05"}
+{"level":"info","message":"Lead already exists in profiles: k.gandhi@psimonix.com","timestamp":"2024-03-06 19:25:05"}
+{"level":"info","message":"Starting leap workflows for lead number 198: family@kwilliams.ca","timestamp":"2024-03-06 19:25:05"}
+{"level":"info","message":"Starting leap workflows for lead number 125: k@asgardstud.io","timestamp":"2024-03-06 19:25:05"}
+{"level":"info","message":"Lead already exists in profiles: family@kwilliams.ca","timestamp":"2024-03-06 19:25:05"}
+{"level":"info","message":"Lead already exists in profiles: k@asgardstud.io","timestamp":"2024-03-06 19:25:05"}
+{"level":"info","message":"Starting leap workflows for lead number 199: ferdous@hey.com","timestamp":"2024-03-06 19:25:05"}
+{"level":"info","message":"Starting leap workflows for lead number 126: k@perpixel.io","timestamp":"2024-03-06 19:25:05"}
+{"level":"info","message":"Lead already exists in profiles: ferdous@hey.com","timestamp":"2024-03-06 19:25:05"}
+{"level":"info","message":"Lead already exists in profiles: k@perpixel.io","timestamp":"2024-03-06 19:25:05"}
+{"level":"info","message":"Starting leap workflows for lead number 127: kai.jonas@hotmail.co.uk","timestamp":"2024-03-06 19:25:05"}
+{"level":"info","message":"Lead already exists in profiles: kai.jonas@hotmail.co.uk","timestamp":"2024-03-06 19:25:05"}
+{"level":"info","message":"Starting leap workflows for lead number 128: kaito@darksnow.studio","timestamp":"2024-03-06 19:25:05"}
+{"level":"info","message":"Lead already exists in profiles: kaito@darksnow.studio","timestamp":"2024-03-06 19:25:05"}
+{"level":"info","message":"Starting leap workflows for lead number 129: kalin@funktroniclabs.com","timestamp":"2024-03-06 19:25:05"}
+{"level":"info","message":"Lead already exists in profiles: kalin@funktroniclabs.com","timestamp":"2024-03-06 19:25:05"}
+{"level":"info","message":"Starting leap workflows for lead number 130: kanwalj@georgetown.edu","timestamp":"2024-03-06 19:25:06"}
+{"level":"info","message":"Leap returned linkedin info@heese5.de for document 1291c9f1-a706-4b7c-abbb-530b11455448","timestamp":"2024-03-06 19:25:06"}
+{"level":"info","message":"Lead already exists in profiles: kanwalj@georgetown.edu","timestamp":"2024-03-06 19:25:06"}
+{"level":"info","message":"Starting leap workflows for lead number 131: karen@resonatingsolutions.com","timestamp":"2024-03-06 19:25:06"}
+{"level":"info","message":"Lead already exists in profiles: karen@resonatingsolutions.com","timestamp":"2024-03-06 19:25:06"}
+{"level":"info","message":"Starting leap workflows for lead number 132: kassandra.bryan.ctr@us.af.mil","timestamp":"2024-03-06 19:25:06"}
+{"level":"info","message":"Lead already exists in profiles: kassandra.bryan.ctr@us.af.mil","timestamp":"2024-03-06 19:25:06"}
+{"level":"info","message":"Starting leap workflows for lead number 133: katherineseavey@brandeis.edu","timestamp":"2024-03-06 19:25:06"}
+{"level":"info","message":"Lead already exists in profiles: katherineseavey@brandeis.edu","timestamp":"2024-03-06 19:25:06"}
+{"level":"info","message":"Starting leap workflows for lead number 134: kathy@functionalpatterns.com","timestamp":"2024-03-06 19:25:06"}
+{"level":"info","message":"Lead already exists in profiles: kathy@functionalpatterns.com","timestamp":"2024-03-06 19:25:06"}
+{"level":"info","message":"Starting leap workflows for lead number 135: katie@ae.studio","timestamp":"2024-03-06 19:25:06"}
+{"level":"info","message":"Lead already exists in profiles: katie@ae.studio","timestamp":"2024-03-06 19:25:06"}
+{"level":"info","message":"Starting leap workflows for lead number 136: katiuska.jukich@email.com","timestamp":"2024-03-06 19:25:06"}
+{"level":"info","message":"Lead already exists in profiles: katiuska.jukich@email.com","timestamp":"2024-03-06 19:25:06"}
+{"level":"info","message":"Starting leap workflows for lead number 137: katja.jankens@centria.fi","timestamp":"2024-03-06 19:25:06"}
+{"level":"info","message":"Lead already exists in profiles: katja.jankens@centria.fi","timestamp":"2024-03-06 19:25:06"}
+{"level":"info","message":"Starting leap workflows for lead number 138: kemplk@amazon.com","timestamp":"2024-03-06 19:25:06"}
+{"level":"info","message":"Lead already exists in profiles: kemplk@amazon.com","timestamp":"2024-03-06 19:25:07"}
+{"level":"info","message":"Starting leap workflows for lead number 139: kevin.maes@giantmachines.com","timestamp":"2024-03-06 19:25:07"}
+{"level":"info","message":"Lead already exists in profiles: kevin.maes@giantmachines.com","timestamp":"2024-03-06 19:25:07"}
+{"level":"info","message":"Starting leap workflows for lead number 140: kevin@kevinmayse.com","timestamp":"2024-03-06 19:25:07"}
+{"level":"info","message":"Lead already exists in profiles: kevin@kevinmayse.com","timestamp":"2024-03-06 19:25:07"}
+{"level":"info","message":"Starting leap workflows for lead number 141: kevin@webservus.com","timestamp":"2024-03-06 19:25:07"}
+{"level":"info","message":"Lead already exists in profiles: kevin@webservus.com","timestamp":"2024-03-06 19:25:07"}
+{"level":"info","message":"Starting leap workflows for lead number 142: khali@khaliyoung.net","timestamp":"2024-03-06 19:25:07"}
+{"level":"info","message":"Leap returned linkedin info@mybubbleapp.co.uk for document 1291c9f1-a706-4b7c-abbb-530b11455448","timestamp":"2024-03-06 19:25:07"}
+{"level":"info","message":"Lead already exists in profiles: khali@khaliyoung.net","timestamp":"2024-03-06 19:25:07"}
+{"level":"info","message":"Starting leap workflows for lead number 143: koichi.asanuma@samadhi-group.com","timestamp":"2024-03-06 19:25:07"}
+{"level":"info","message":"Lead already exists in profiles: koichi.asanuma@samadhi-group.com","timestamp":"2024-03-06 19:25:07"}
+{"level":"info","message":"Starting leap workflows for lead number 144: kojima@physio-tech.co.jp","timestamp":"2024-03-06 19:25:07"}
+{"level":"info","message":"Lead already exists in profiles: kojima@physio-tech.co.jp","timestamp":"2024-03-06 19:25:07"}
+{"level":"info","message":"Starting leap workflows for lead number 145: komazaki@dacore.co.jp","timestamp":"2024-03-06 19:25:07"}
+{"level":"info","message":"Lead already exists in profiles: komazaki@dacore.co.jp","timestamp":"2024-03-06 19:25:07"}
+{"level":"info","message":"Starting leap workflows for lead number 146: kramshawos@olatheschools.org","timestamp":"2024-03-06 19:25:07"}
+{"level":"info","message":"Lead already exists in profiles: kramshawos@olatheschools.org","timestamp":"2024-03-06 19:25:08"}
+{"level":"info","message":"Starting leap workflows for lead number 147: krigolson@uvic.ca","timestamp":"2024-03-06 19:25:08"}
+{"level":"info","message":"Lead already exists in profiles: krigolson@uvic.ca","timestamp":"2024-03-06 19:25:08"}
+{"level":"info","message":"Leap returned linkedin holly@heartmindalchemy.com for document 1291c9f1-a706-4b7c-abbb-530b11455448","timestamp":"2024-03-06 19:25:08"}
+{"level":"info","message":"Starting leap workflows for lead number 148: krishang@thirdweb.com","timestamp":"2024-03-06 19:25:08"}
+{"level":"info","message":"Lead already exists in profiles: krishang@thirdweb.com","timestamp":"2024-03-06 19:25:08"}
+{"level":"info","message":"Starting leap workflows for lead number 149: kristina@multicore.lv","timestamp":"2024-03-06 19:25:08"}
+{"level":"info","message":"Lead already exists in profiles: kristina@multicore.lv","timestamp":"2024-03-06 19:25:08"}
+{"level":"info","message":"Starting leap workflows for lead number 150: kvelichkov@vmware.com","timestamp":"2024-03-06 19:25:08"}
+{"level":"info","message":"Starting leap workflows for lead: 150, with query:, kvelichkov https://vmware.com ","timestamp":"2024-03-06 19:25:08"}
+{"level":"info","message":"Started leap workflows for lead: 150","timestamp":"2024-03-06 19:25:08"}
+{"level":"info","message":"Updating lead to be unprocessed","timestamp":"2024-03-06 19:25:08"}
+{"level":"info","message":"lead updated successfully:","timestamp":"2024-03-06 19:25:08"}
+{"level":"info","message":"Starting leap workflows for lead number 151: kw@atlanticsir.com","timestamp":"2024-03-06 19:25:08"}
+{"level":"info","message":"Lead already exists in profiles: kw@atlanticsir.com","timestamp":"2024-03-06 19:25:08"}
+{"level":"info","message":"Starting leap workflows for lead number 152: kyle.mathewson@neurosity.co","timestamp":"2024-03-06 19:25:09"}
+{"level":"info","message":"Lead already exists in profiles: kyle.mathewson@neurosity.co","timestamp":"2024-03-06 19:25:09"}
+{"level":"info","message":"Starting leap workflows for lead number 153: kyle@diygenius.com","timestamp":"2024-03-06 19:25:09"}
+{"level":"info","message":"Lead already exists in profiles: kyle@diygenius.com","timestamp":"2024-03-06 19:25:09"}
+{"level":"info","message":"Starting leap workflows for lead number 154: kyle@monteiro.id.au","timestamp":"2024-03-06 19:25:09"}
+{"level":"info","message":"Lead already exists in profiles: kyle@monteiro.id.au","timestamp":"2024-03-06 19:25:09"}
+{"level":"info","message":"Starting leap workflows for lead number 155: latat@duck.com","timestamp":"2024-03-06 19:25:09"}
+{"level":"info","message":"Lead already exists in profiles: latat@duck.com","timestamp":"2024-03-06 19:25:09"}
+{"level":"info","message":"Starting leap workflows for lead number 156: lauren@thehi5.com","timestamp":"2024-03-06 19:25:09"}
+{"level":"info","message":"Lead already exists in profiles: lauren@thehi5.com","timestamp":"2024-03-06 19:25:09"}
+{"level":"info","message":"Starting leap workflows for lead number 157: laurie@divergenceneuro.com","timestamp":"2024-03-06 19:25:09"}
+{"level":"info","message":"Lead already exists in profiles: laurie@divergenceneuro.com","timestamp":"2024-03-06 19:25:09"}
+{"level":"info","message":"Starting leap workflows for lead number 158: lawyers@yucca.net","timestamp":"2024-03-06 19:25:09"}
+{"level":"info","message":"Starting leap workflows for lead: 158, with query:, lawyers https://yucca.net ","timestamp":"2024-03-06 19:25:10"}
+{"level":"info","message":"Started leap workflows for lead: 158","timestamp":"2024-03-06 19:25:10"}
+{"level":"info","message":"Updating lead to be unprocessed","timestamp":"2024-03-06 19:25:10"}
+{"level":"info","message":"lead updated successfully:","timestamp":"2024-03-06 19:25:10"}
+{"level":"info","message":"Starting leap workflows for lead number 159: lea@fractal.ae","timestamp":"2024-03-06 19:25:10"}
+{"level":"info","message":"Lead already exists in profiles: lea@fractal.ae","timestamp":"2024-03-06 19:25:10"}
+{"level":"info","message":"Starting leap workflows for lead number 160: lee@scrivenerhq.com","timestamp":"2024-03-06 19:25:10"}
+{"level":"info","message":"Lead already exists in profiles: lee@scrivenerhq.com","timestamp":"2024-03-06 19:25:10"}
+{"level":"info","message":"Starting leap workflows for lead number 161: leejr@xmission.com","timestamp":"2024-03-06 19:25:11"}
+{"level":"info","message":"Lead already exists in profiles: leejr@xmission.com","timestamp":"2024-03-06 19:25:11"}
+{"level":"info","message":"Starting leap workflows for lead number 162: lena.kaese@hpi.de","timestamp":"2024-03-06 19:25:11"}
+{"level":"info","message":"Lead already exists in profiles: lena.kaese@hpi.de","timestamp":"2024-03-06 19:25:11"}
+{"level":"info","message":"Starting leap workflows for lead number 163: lene.rosell@liu.se","timestamp":"2024-03-06 19:25:11"}
+{"level":"info","message":"Lead already exists in profiles: lene.rosell@liu.se","timestamp":"2024-03-06 19:25:11"}
+{"level":"info","message":"Starting leap workflows for lead number 164: leo.resig@atmosphere.tv","timestamp":"2024-03-06 19:25:11"}
+{"level":"info","message":"Lead already exists in profiles: leo.resig@atmosphere.tv","timestamp":"2024-03-06 19:25:11"}
+{"level":"info","message":"Starting leap workflows for lead number 165: leonardo.david@murena.io","timestamp":"2024-03-06 19:25:11"}
+{"level":"info","message":"Lead already exists in profiles: leonardo.david@murena.io","timestamp":"2024-03-06 19:25:11"}
+{"level":"info","message":"Starting leap workflows for lead number 166: leopold.jedina@ovid-health.eu","timestamp":"2024-03-06 19:25:11"}
+{"level":"info","message":"Lead already exists in profiles: leopold.jedina@ovid-health.eu","timestamp":"2024-03-06 19:25:11"}
+{"level":"info","message":"Starting leap workflows for lead number 167: levan@ilashvili.me","timestamp":"2024-03-06 19:25:11"}
+{"level":"info","message":"Lead already exists in profiles: levan@ilashvili.me","timestamp":"2024-03-06 19:25:12"}
+{"level":"info","message":"Starting leap workflows for lead number 168: lihang@nimbus.green","timestamp":"2024-03-06 19:25:12"}
+{"level":"info","message":"Starting leap workflows for lead: 168, with query:, lihang Nimbus EV ","timestamp":"2024-03-06 19:25:13"}
+{"level":"info","message":"Started leap workflows for lead: 168","timestamp":"2024-03-06 19:25:13"}
+{"level":"info","message":"Updating lead to be unprocessed","timestamp":"2024-03-06 19:25:13"}
+{"level":"info","message":"lead updated successfully:","timestamp":"2024-03-06 19:25:13"}
+{"level":"info","message":"Starting leap workflows for lead number 169: lisa.fell@rhul.ac.uk","timestamp":"2024-03-06 19:25:13"}
+{"level":"info","message":"Lead already exists in profiles: lisa.fell@rhul.ac.uk","timestamp":"2024-03-06 19:25:13"}
+{"level":"info","message":"Starting leap workflows for lead number 170: ljxia@google.com","timestamp":"2024-03-06 19:25:14"}
+{"level":"info","message":"Lead already exists in profiles: ljxia@google.com","timestamp":"2024-03-06 19:25:14"}
+{"level":"info","message":"Starting leap workflows for lead number 171: lmolenje@mastermindmedia.com","timestamp":"2024-03-06 19:25:14"}
+{"level":"info","message":"Lead already exists in profiles: lmolenje@mastermindmedia.com","timestamp":"2024-03-06 19:25:14"}
+{"level":"info","message":"Starting leap workflows for lead number 172: london@circletriangle.earth","timestamp":"2024-03-06 19:25:14"}
+{"level":"info","message":"Starting leap workflows for lead: 172, with query:, london Circle Triangle Site 0 ","timestamp":"2024-03-06 19:25:14"}
+{"level":"info","message":"Started leap workflows for lead: 172","timestamp":"2024-03-06 19:25:14"}
+{"level":"info","message":"Updating lead to be unprocessed","timestamp":"2024-03-06 19:25:14"}
+{"level":"info","message":"lead updated successfully:","timestamp":"2024-03-06 19:25:15"}
+{"level":"info","message":"Starting leap workflows for lead number 173: louis@ltdln.com","timestamp":"2024-03-06 19:25:15"}
+{"level":"info","message":"Lead already exists in profiles: louis@ltdln.com","timestamp":"2024-03-06 19:25:15"}
+{"level":"info","message":"Starting leap workflows for lead number 174: loyd@l-vc.com","timestamp":"2024-03-06 19:25:15"}
+{"level":"info","message":"Starting leap workflows for lead: 174, with query:, loyd On Golden Streets ","timestamp":"2024-03-06 19:25:15"}
+{"level":"info","message":"Started leap workflows for lead: 174","timestamp":"2024-03-06 19:25:15"}
+{"level":"info","message":"Updating lead to be unprocessed","timestamp":"2024-03-06 19:25:15"}
+{"level":"info","message":"lead updated successfully:","timestamp":"2024-03-06 19:25:15"}
+{"level":"info","message":"Leap returned linkedin domenico@advaita.capital for document 1291c9f1-a706-4b7c-abbb-530b11455448","timestamp":"2024-03-06 19:25:15"}
+{"level":"info","message":"Starting leap workflows for lead number 175: luay13@rocketmail.com","timestamp":"2024-03-06 19:25:15"}
+{"level":"info","message":"Lead already exists in profiles: luay13@rocketmail.com","timestamp":"2024-03-06 19:25:15"}
+{"level":"info","message":"Starting leap workflows for lead number 176: lucas@nuclearbalm.com","timestamp":"2024-03-06 19:25:15"}
+{"level":"info","message":"Lead already exists in profiles: lucas@nuclearbalm.com","timestamp":"2024-03-06 19:25:15"}
+{"level":"info","message":"Starting leap workflows for lead number 177: m.abdoli@ryerson.ca","timestamp":"2024-03-06 19:25:15"}
+{"level":"info","message":"Lead already exists in profiles: m.abdoli@ryerson.ca","timestamp":"2024-03-06 19:25:16"}
+{"level":"info","message":"Starting leap workflows for lead number 178: m.uchida@waseda.jp","timestamp":"2024-03-06 19:25:16"}
+{"level":"info","message":"Lead already exists in profiles: m.uchida@waseda.jp","timestamp":"2024-03-06 19:25:16"}
+{"level":"info","message":"Starting leap workflows for lead number 179: m_grill@gmx.net","timestamp":"2024-03-06 19:25:16"}
+{"level":"info","message":"Lead already exists in profiles: m_grill@gmx.net","timestamp":"2024-03-06 19:25:16"}
+{"level":"info","message":"Starting leap workflows for lead number 180: machizawa@hiroshima-u.ac.jp","timestamp":"2024-03-06 19:25:16"}
+{"level":"info","message":"Starting leap workflows for lead: 180, with query:, machizawa https://hiroshima-u.ac.jp ","timestamp":"2024-03-06 19:25:16"}
+{"level":"info","message":"Started leap workflows for lead: 180","timestamp":"2024-03-06 19:25:16"}
+{"level":"info","message":"Updating lead to be unprocessed","timestamp":"2024-03-06 19:25:16"}
+{"level":"info","message":"lead updated successfully:","timestamp":"2024-03-06 19:25:16"}
+{"level":"info","message":"Starting leap workflows for lead number 181: mahesh@ualberta.ca","timestamp":"2024-03-06 19:25:16"}
+{"level":"info","message":"Lead already exists in profiles: mahesh@ualberta.ca","timestamp":"2024-03-06 19:25:16"}
+{"level":"info","message":"Starting leap workflows for lead number 182: mail@clemensgruber.at","timestamp":"2024-03-06 19:25:16"}
+{"level":"info","message":"Leap returned linkedin jp42@uw.edu for document 1291c9f1-a706-4b7c-abbb-530b11455448","timestamp":"2024-03-06 19:25:17"}
+{"level":"info","message":"Starting leap workflows for lead: 182, with query:, mail Gruber Software ","timestamp":"2024-03-06 19:25:17"}
+{"level":"info","message":"Started leap workflows for lead: 182","timestamp":"2024-03-06 19:25:17"}
+{"level":"info","message":"Updating lead to be unprocessed","timestamp":"2024-03-06 19:25:17"}
+{"level":"info","message":"lead updated successfully:","timestamp":"2024-03-06 19:25:17"}
+{"level":"info","message":"Starting leap workflows for lead number 183: mail@fumaz.dev","timestamp":"2024-03-06 19:25:17"}
+{"level":"info","message":"Lead already exists in profiles: mail@fumaz.dev","timestamp":"2024-03-06 19:25:18"}
+{"level":"info","message":"Starting leap workflows for lead number 184: mail@jamiewilliams.co.uk","timestamp":"2024-03-06 19:25:18"}
+{"level":"info","message":"Lead already exists in profiles: mail@jamiewilliams.co.uk","timestamp":"2024-03-06 19:25:18"}
+{"level":"info","message":"Starting leap workflows for lead number 185: mail@utzwilke.de","timestamp":"2024-03-06 19:25:18"}
+{"level":"info","message":"Lead already exists in profiles: mail@utzwilke.de","timestamp":"2024-03-06 19:25:18"}
+{"level":"info","message":"Starting leap workflows for lead number 186: malwina@recallhypnosis.com","timestamp":"2024-03-06 19:25:18"}
+{"level":"info","message":"Lead already exists in profiles: malwina@recallhypnosis.com","timestamp":"2024-03-06 19:25:18"}
+{"level":"info","message":"Starting leap workflows for lead number 187: malzuad@umich.edu","timestamp":"2024-03-06 19:25:18"}
+{"level":"info","message":"Lead already exists in profiles: malzuad@umich.edu","timestamp":"2024-03-06 19:25:18"}
+{"level":"info","message":"Starting leap workflows for lead number 188: management@empowerhealth.ca","timestamp":"2024-03-06 19:25:18"}
+{"level":"info","message":"Lead already exists in profiles: management@empowerhealth.ca","timestamp":"2024-03-06 19:25:18"}
+{"level":"info","message":"Starting leap workflows for lead number 189: manuel.merino@accenture.com","timestamp":"2024-03-06 19:25:18"}
+{"level":"info","message":"Lead already exists in profiles: manuel.merino@accenture.com","timestamp":"2024-03-06 19:25:19"}
+{"level":"info","message":"Starting leap workflows for lead number 190: mark@insai.tech","timestamp":"2024-03-06 19:25:19"}
+{"level":"info","message":"Lead already exists in profiles: mark@insai.tech","timestamp":"2024-03-06 19:25:19"}
+{"level":"info","message":"Starting leap workflows for lead number 191: mark@trilon.io","timestamp":"2024-03-06 19:25:19"}
+{"level":"info","message":"Lead already exists in profiles: mark@trilon.io","timestamp":"2024-03-06 19:25:19"}
+{"level":"info","message":"Starting leap workflows for lead number 192: markmetzger@utexas.edu","timestamp":"2024-03-06 19:25:19"}
+{"level":"info","message":"Lead already exists in profiles: markmetzger@utexas.edu","timestamp":"2024-03-06 19:25:19"}
+{"level":"info","message":"Starting leap workflows for lead number 193: marko@digitalworlds.ufl.edu","timestamp":"2024-03-06 19:25:19"}
+{"level":"info","message":"Lead already exists in profiles: marko@digitalworlds.ufl.edu","timestamp":"2024-03-06 19:25:19"}
+{"level":"info","message":"Starting leap workflows for lead number 194: martin@veratherapy.com","timestamp":"2024-03-06 19:25:19"}
+{"level":"info","message":"Lead already exists in profiles: martin@veratherapy.com","timestamp":"2024-03-06 19:25:19"}
+{"level":"info","message":"Starting leap workflows for lead number 195: marvin@neuro-tech.com","timestamp":"2024-03-06 19:25:19"}
+{"level":"info","message":"Lead already exists in profiles: marvin@neuro-tech.com","timestamp":"2024-03-06 19:25:19"}
+{"level":"info","message":"Starting leap workflows for lead number 196: mary@optimalkidsaz.com","timestamp":"2024-03-06 19:25:19"}
+{"level":"info","message":"Lead already exists in profiles: mary@optimalkidsaz.com","timestamp":"2024-03-06 19:25:19"}
+{"level":"info","message":"Starting leap workflows for lead number 197: marycourtney@berkeley.edu","timestamp":"2024-03-06 19:25:19"}
+{"level":"info","message":"Lead already exists in profiles: marycourtney@berkeley.edu","timestamp":"2024-03-06 19:25:20"}
+{"level":"info","message":"Starting leap workflows for lead number 198: matias.fuster@solcre.com","timestamp":"2024-03-06 19:25:20"}
+{"level":"info","message":"Leap returned linkedin info@thebrainroom.com.au for document 1291c9f1-a706-4b7c-abbb-530b11455448","timestamp":"2024-03-06 19:25:20"}
+{"level":"info","message":"Lead already exists in profiles: matias.fuster@solcre.com","timestamp":"2024-03-06 19:25:20"}
+{"level":"info","message":"Starting leap workflows for lead number 199: matias@auth0.com","timestamp":"2024-03-06 19:25:20"}
+{"level":"info","message":"Lead already exists in profiles: matias@auth0.com","timestamp":"2024-03-06 19:25:20"}
+{"level":"info","message":"Leap returned linkedin diana@codeon.rocks for document 1291c9f1-a706-4b7c-abbb-530b11455448","timestamp":"2024-03-06 19:25:21"}
+{"level":"info","message":"Leap returned linkedin john.smallridge.13@ucl.ac.uk for document 1291c9f1-a706-4b7c-abbb-530b11455448","timestamp":"2024-03-06 19:25:23"}
+{"level":"info","message":"Leap returned linkedin dave@dave-burns.com for document 1291c9f1-a706-4b7c-abbb-530b11455448","timestamp":"2024-03-06 19:25:23"}
+{"level":"info","message":"Leap returned linkedin jshull@odu.edu for document 1291c9f1-a706-4b7c-abbb-530b11455448","timestamp":"2024-03-06 19:25:28"}
+{"level":"info","message":"Leap returned linkedin info@ukustik.com for document 1291c9f1-a706-4b7c-abbb-530b11455448","timestamp":"2024-03-06 19:25:30"}
+{"level":"info","message":"Leap returned linkedin jeff@myneurva.com for document 1291c9f1-a706-4b7c-abbb-530b11455448","timestamp":"2024-03-06 19:25:31"}
+{"level":"info","message":"Leap returned linkedin johndoh@umich.edu for document 1291c9f1-a706-4b7c-abbb-530b11455448","timestamp":"2024-03-06 19:25:35"}
+{"level":"info","message":"Leap returned linkedin kvelichkov@vmware.com for document 1291c9f1-a706-4b7c-abbb-530b11455448","timestamp":"2024-03-06 19:25:37"}
+{"level":"info","message":"Leap returned linkedin julie.abernathy@ua.edu for document 1291c9f1-a706-4b7c-abbb-530b11455448","timestamp":"2024-03-06 19:25:41"}
+{"level":"info","message":"Leap returned linkedin lihang@nimbus.green for document 1291c9f1-a706-4b7c-abbb-530b11455448","timestamp":"2024-03-06 19:25:44"}
+{"level":"info","message":"Leap returned linkedin drdave@mosaiclifecare.com for document 1291c9f1-a706-4b7c-abbb-530b11455448","timestamp":"2024-03-06 19:25:44"}
+{"level":"info","message":"Leap returned linkedin machizawa@hiroshima-u.ac.jp for document 1291c9f1-a706-4b7c-abbb-530b11455448","timestamp":"2024-03-06 19:25:46"}
+{"level":"info","message":"Leap returned linkedin loyd@l-vc.com for document 1291c9f1-a706-4b7c-abbb-530b11455448","timestamp":"2024-03-06 19:25:48"}
+{"level":"info","message":"Starting leap workflows for lead: 13, with query:, me https://vorticist.net ","timestamp":"2024-03-06 19:25:49"}
+{"level":"info","message":"Started leap workflows for lead: 13","timestamp":"2024-03-06 19:25:49"}
+{"level":"info","message":"Updating lead to be unprocessed","timestamp":"2024-03-06 19:25:49"}
+{"level":"info","message":"lead updated successfully:","timestamp":"2024-03-06 19:25:50"}
+{"level":"info","message":"Starting leap workflows for lead number 14: micah@amazingbrains.com","timestamp":"2024-03-06 19:25:50"}
+{"level":"info","message":"Lead already exists in profiles: micah@amazingbrains.com","timestamp":"2024-03-06 19:25:50"}
+{"level":"info","message":"Starting leap workflows for lead number 15: mich_nixq8@pm.me","timestamp":"2024-03-06 19:25:50"}
+{"level":"info","message":"Lead already exists in profiles: mich_nixq8@pm.me","timestamp":"2024-03-06 19:25:50"}
+{"level":"info","message":"Starting leap workflows for lead number 16: michael@exprns.com","timestamp":"2024-03-06 19:25:50"}
+{"level":"info","message":"Lead already exists in profiles: michael@exprns.com","timestamp":"2024-03-06 19:25:50"}
+{"level":"info","message":"Starting leap workflows for lead number 17: michael@fecher.it","timestamp":"2024-03-06 19:25:50"}
+{"level":"info","message":"Lead already exists in profiles: michael@fecher.it","timestamp":"2024-03-06 19:25:50"}
+{"level":"info","message":"Starting leap workflows for lead number 18: michael@msolomon.net","timestamp":"2024-03-06 19:25:50"}
+{"level":"info","message":"Lead already exists in profiles: michael@msolomon.net","timestamp":"2024-03-06 19:25:50"}
+{"level":"info","message":"Starting leap workflows for lead number 19: michaela@stateofwellness.org","timestamp":"2024-03-06 19:25:51"}
+{"level":"info","message":"Lead already exists in profiles: michaela@stateofwellness.org","timestamp":"2024-03-06 19:25:51"}
+{"level":"info","message":"Starting leap workflows for lead number 20: mike.oostdyk@sttark.com","timestamp":"2024-03-06 19:25:51"}
+{"level":"info","message":"Lead already exists in profiles: mike.oostdyk@sttark.com","timestamp":"2024-03-06 19:25:51"}
+{"level":"info","message":"Starting leap workflows for lead number 21: mike@hunterrowe.com","timestamp":"2024-03-06 19:25:51"}
+{"level":"info","message":"Lead already exists in profiles: mike@hunterrowe.com","timestamp":"2024-03-06 19:25:51"}
+{"level":"info","message":"Starting leap workflows for lead number 22: mikea@valvesoftware.com","timestamp":"2024-03-06 19:25:51"}
+{"level":"info","message":"Lead already exists in profiles: mikea@valvesoftware.com","timestamp":"2024-03-06 19:25:51"}
+{"level":"info","message":"Starting leap workflows for lead number 23: minjee@neurosity.co","timestamp":"2024-03-06 19:25:51"}
+{"level":"info","message":"Lead already exists in profiles: minjee@neurosity.co","timestamp":"2024-03-06 19:25:51"}
+{"level":"info","message":"Starting leap workflows for lead number 24: mirco.richter@mailbox.org","timestamp":"2024-03-06 19:25:51"}
+{"level":"info","message":"Lead already exists in profiles: mirco.richter@mailbox.org","timestamp":"2024-03-06 19:25:51"}
+{"level":"info","message":"Starting leap workflows for lead number 25: miro@lps.ruhr-uni-bochum.de","timestamp":"2024-03-06 19:25:51"}
+{"level":"info","message":"Lead already exists in profiles: miro@lps.ruhr-uni-bochum.de","timestamp":"2024-03-06 19:25:51"}
+{"level":"info","message":"Starting leap workflows for lead number 26: mob@mindspring.com","timestamp":"2024-03-06 19:25:51"}
+{"level":"info","message":"Lead already exists in profiles: mob@mindspring.com","timestamp":"2024-03-06 19:25:52"}
+{"level":"info","message":"Starting leap workflows for lead number 27: mond@thermond.lu","timestamp":"2024-03-06 19:25:52"}
+{"level":"info","message":"Lead already exists in profiles: mond@thermond.lu","timestamp":"2024-03-06 19:25:52"}
+{"level":"info","message":"Starting leap workflows for lead number 28: monica@openmeditation.tech","timestamp":"2024-03-06 19:25:52"}
+{"level":"info","message":"Lead already exists in profiles: monica@openmeditation.tech","timestamp":"2024-03-06 19:25:52"}
+{"level":"info","message":"Starting leap workflows for lead number 29: moon@justmoon.de","timestamp":"2024-03-06 19:25:52"}
+{"level":"info","message":"Lead already exists in profiles: moon@justmoon.de","timestamp":"2024-03-06 19:25:52"}
+{"level":"info","message":"Starting leap workflows for lead number 30: mrevilla@seas.ucla.edu","timestamp":"2024-03-06 19:25:52"}
+{"level":"info","message":"Leap returned linkedin mail@clemensgruber.at for document 1291c9f1-a706-4b7c-abbb-530b11455448","timestamp":"2024-03-06 19:25:52"}
+{"level":"info","message":"Starting leap workflows for lead: 30, with query:, mrevilla https://seas.ucla.edu ","timestamp":"2024-03-06 19:25:52"}
+{"level":"info","message":"Started leap workflows for lead: 30","timestamp":"2024-03-06 19:25:52"}
+{"level":"info","message":"Updating lead to be unprocessed","timestamp":"2024-03-06 19:25:52"}
+{"level":"info","message":"lead updated successfully:","timestamp":"2024-03-06 19:25:52"}
+{"level":"info","message":"Starting leap workflows for lead number 31: mrjohn@atlaschildcounseling.com","timestamp":"2024-03-06 19:25:52"}
+{"level":"info","message":"Lead already exists in profiles: mrjohn@atlaschildcounseling.com","timestamp":"2024-03-06 19:25:52"}
+{"level":"info","message":"Starting leap workflows for lead number 32: muka@hotmail.co.uk","timestamp":"2024-03-06 19:25:52"}
+{"level":"info","message":"Lead already exists in profiles: muka@hotmail.co.uk","timestamp":"2024-03-06 19:25:53"}
+{"level":"info","message":"Starting leap workflows for lead number 33: murata-k@macnica.co.jp","timestamp":"2024-03-06 19:25:53"}
+{"level":"info","message":"Lead already exists in profiles: murata-k@macnica.co.jp","timestamp":"2024-03-06 19:25:53"}
+{"level":"info","message":"Leap returned linkedin dustin@setbasedmanagement.net for document 1291c9f1-a706-4b7c-abbb-530b11455448","timestamp":"2024-03-06 19:25:53"}
+{"level":"info","message":"Starting leap workflows for lead number 34: my96@live.nl","timestamp":"2024-03-06 19:25:53"}
+{"level":"info","message":"Lead already exists in profiles: my96@live.nl","timestamp":"2024-03-06 19:25:53"}
+{"level":"info","message":"Starting leap workflows for lead number 35: naoise@presteign.group","timestamp":"2024-03-06 19:25:53"}
+{"level":"info","message":"Lead already exists in profiles: naoise@presteign.group","timestamp":"2024-03-06 19:25:53"}
+{"level":"info","message":"Starting leap workflows for lead number 36: natalia@nataliarojas.com","timestamp":"2024-03-06 19:25:53"}
+{"level":"info","message":"Lead already exists in profiles: natalia@nataliarojas.com","timestamp":"2024-03-06 19:25:53"}
+{"level":"info","message":"Starting leap workflows for lead number 37: nate@natedesmond.com","timestamp":"2024-03-06 19:25:53"}
+{"level":"info","message":"Starting leap workflows for lead: 37, with query:, nate Nate Desmond ","timestamp":"2024-03-06 19:25:54"}
+{"level":"info","message":"Started leap workflows for lead: 37","timestamp":"2024-03-06 19:25:54"}
+{"level":"info","message":"Updating lead to be unprocessed","timestamp":"2024-03-06 19:25:54"}
+{"level":"info","message":"lead updated successfully:","timestamp":"2024-03-06 19:25:54"}
+{"level":"info","message":"Starting leap workflows for lead number 38: nathan.verrill@saic.com","timestamp":"2024-03-06 19:25:54"}
+{"level":"info","message":"Lead already exists in profiles: nathan.verrill@saic.com","timestamp":"2024-03-06 19:25:54"}
+{"level":"info","message":"Starting leap workflows for lead number 39: navan@uhd.edu","timestamp":"2024-03-06 19:25:54"}
+{"level":"info","message":"Lead already exists in profiles: navan@uhd.edu","timestamp":"2024-03-06 19:25:54"}
+{"level":"info","message":"Starting leap workflows for lead number 40: navzer@microtransponder.com","timestamp":"2024-03-06 19:25:55"}
+{"level":"info","message":"Lead already exists in profiles: navzer@microtransponder.com","timestamp":"2024-03-06 19:25:55"}
+{"level":"info","message":"Starting leap workflows for lead number 41: nbarascud@snapchat.com","timestamp":"2024-03-06 19:25:55"}
+{"level":"info","message":"Lead already exists in profiles: nbarascud@snapchat.com","timestamp":"2024-03-06 19:25:55"}
+{"level":"info","message":"Starting leap workflows for lead number 42: nbowyer@seredan.com","timestamp":"2024-03-06 19:25:55"}
+{"level":"info","message":"Lead already exists in profiles: nbowyer@seredan.com","timestamp":"2024-03-06 19:25:55"}
+{"level":"info","message":"Starting leap workflows for lead number 43: ndr@glv.email","timestamp":"2024-03-06 19:25:55"}
+{"level":"info","message":"Lead already exists in profiles: ndr@glv.email","timestamp":"2024-03-06 19:25:55"}
+{"level":"info","message":"Starting leap workflows for lead number 44: neighbors@visqet.com","timestamp":"2024-03-06 19:25:55"}
+{"level":"info","message":"Lead already exists in profiles: neighbors@visqet.com","timestamp":"2024-03-06 19:25:55"}
+{"level":"info","message":"Starting leap workflows for lead number 45: neurosity@aselmeier.art","timestamp":"2024-03-06 19:25:55"}
+{"level":"info","message":"Lead already exists in profiles: neurosity@aselmeier.art","timestamp":"2024-03-06 19:25:55"}
+{"level":"info","message":"Starting leap workflows for lead number 46: neurosity@dancox.com","timestamp":"2024-03-06 19:25:55"}
+{"level":"info","message":"Lead already exists in profiles: neurosity@dancox.com","timestamp":"2024-03-06 19:25:55"}
+{"level":"info","message":"Starting leap workflows for lead number 47: neurosity@molmar.hu","timestamp":"2024-03-06 19:25:55"}
+{"level":"info","message":"Lead already exists in profiles: neurosity@molmar.hu","timestamp":"2024-03-06 19:25:55"}
+{"level":"info","message":"Starting leap workflows for lead number 48: neurosity@mylogins.me","timestamp":"2024-03-06 19:25:55"}
+{"level":"info","message":"Lead already exists in profiles: neurosity@mylogins.me","timestamp":"2024-03-06 19:25:55"}
+{"level":"info","message":"Starting leap workflows for lead number 49: neurosity@roncya.com","timestamp":"2024-03-06 19:25:55"}
+{"level":"info","message":"Lead already exists in profiles: neurosity@roncya.com","timestamp":"2024-03-06 19:25:56"}
+{"level":"info","message":"Starting leap workflows for lead number 50: nharris2@saybrook.edu","timestamp":"2024-03-06 19:25:56"}
+{"level":"info","message":"Lead already exists in profiles: nharris2@saybrook.edu","timestamp":"2024-03-06 19:25:56"}
+{"level":"info","message":"Starting leap workflows for lead number 51: nick.castellano@refersion.com","timestamp":"2024-03-06 19:25:56"}
+{"level":"info","message":"Lead already exists in profiles: nick.castellano@refersion.com","timestamp":"2024-03-06 19:25:56"}
+{"level":"info","message":"Starting leap workflows for lead number 52: nick.fall@outlook.jp","timestamp":"2024-03-06 19:25:56"}
+{"level":"info","message":"Lead already exists in profiles: nick.fall@outlook.jp","timestamp":"2024-03-06 19:25:56"}
+{"level":"info","message":"Starting leap workflows for lead number 53: nick@selfheal.org","timestamp":"2024-03-06 19:25:56"}
+{"level":"info","message":"Lead already exists in profiles: nick@selfheal.org","timestamp":"2024-03-06 19:25:56"}
+{"level":"info","message":"Starting leap workflows for lead number 54: nicktowery@pm.me","timestamp":"2024-03-06 19:25:56"}
+{"level":"info","message":"Lead already exists in profiles: nicktowery@pm.me","timestamp":"2024-03-06 19:25:56"}
+{"level":"info","message":"Starting leap workflows for lead number 55: nishida-y@macnica.co.jp","timestamp":"2024-03-06 19:25:56"}
+{"level":"info","message":"Lead already exists in profiles: nishida-y@macnica.co.jp","timestamp":"2024-03-06 19:25:56"}
+{"level":"info","message":"Starting leap workflows for lead number 56: noah@intelligent-learning.tech","timestamp":"2024-03-06 19:25:56"}
+{"level":"info","message":"Lead already exists in profiles: noah@intelligent-learning.tech","timestamp":"2024-03-06 19:25:56"}
+{"level":"info","message":"Starting leap workflows for lead number 57: nobuo.kinoshita@uoc.world","timestamp":"2024-03-06 19:25:56"}
+{"level":"info","message":"Lead already exists in profiles: nobuo.kinoshita@uoc.world","timestamp":"2024-03-06 19:25:56"}
+{"level":"info","message":"Starting leap workflows for lead number 58: nomura_o@hirosaki-u.ac.jp","timestamp":"2024-03-06 19:25:56"}
+{"level":"info","message":"Lead already exists in profiles: nomura_o@hirosaki-u.ac.jp","timestamp":"2024-03-06 19:25:57"}
+{"level":"info","message":"Starting leap workflows for lead number 59: office@fez-tech.com","timestamp":"2024-03-06 19:25:57"}
+{"level":"info","message":"Lead already exists in profiles: office@fez-tech.com","timestamp":"2024-03-06 19:25:57"}
+{"level":"info","message":"Starting leap workflows for lead number 60: oliver@oliverrees.co.uk","timestamp":"2024-03-06 19:25:57"}
+{"level":"info","message":"Lead already exists in profiles: oliver@oliverrees.co.uk","timestamp":"2024-03-06 19:25:57"}
+{"level":"info","message":"Starting leap workflows for lead number 61: olivier.rosanne@inrs.ca","timestamp":"2024-03-06 19:25:57"}
+{"level":"info","message":"Lead already exists in profiles: olivier.rosanne@inrs.ca","timestamp":"2024-03-06 19:25:57"}
+{"level":"info","message":"Starting leap workflows for lead number 62: operations@acaisoft.com","timestamp":"2024-03-06 19:25:57"}
+{"level":"info","message":"Lead already exists in profiles: operations@acaisoft.com","timestamp":"2024-03-06 19:25:57"}
+{"level":"info","message":"Starting leap workflows for lead number 63: ore@usefusion.app","timestamp":"2024-03-06 19:25:57"}
+{"level":"info","message":"Lead already exists in profiles: ore@usefusion.app","timestamp":"2024-03-06 19:25:57"}
+{"level":"info","message":"Starting leap workflows for lead number 64: oscar@lootie.com","timestamp":"2024-03-06 19:25:57"}
+{"level":"info","message":"Lead already exists in profiles: oscar@lootie.com","timestamp":"2024-03-06 19:25:57"}
+{"level":"info","message":"Starting leap workflows for lead number 65: otto.bommer@ob-eng.com","timestamp":"2024-03-06 19:25:57"}
+{"level":"info","message":"Lead already exists in profiles: otto.bommer@ob-eng.com","timestamp":"2024-03-06 19:25:57"}
+{"level":"info","message":"Starting leap workflows for lead number 66: pal.hamel@vslrbl.se","timestamp":"2024-03-06 19:25:57"}
+{"level":"info","message":"Lead already exists in profiles: pal.hamel@vslrbl.se","timestamp":"2024-03-06 19:25:57"}
+{"level":"info","message":"Starting leap workflows for lead number 67: partial.ly@gdi2290.com","timestamp":"2024-03-06 19:25:57"}
+{"level":"info","message":"Leap returned linkedin london@circletriangle.earth for document 1291c9f1-a706-4b7c-abbb-530b11455448","timestamp":"2024-03-06 19:25:58"}
+{"level":"info","message":"Starting leap workflows for lead: 67, with query:, partial ly https://gdi2290.com ","timestamp":"2024-03-06 19:25:58"}
+{"level":"info","message":"Started leap workflows for lead: 67","timestamp":"2024-03-06 19:25:58"}
+{"level":"info","message":"Updating lead to be unprocessed","timestamp":"2024-03-06 19:25:58"}
+{"level":"info","message":"lead updated successfully:","timestamp":"2024-03-06 19:25:58"}
+{"level":"info","message":"Starting leap workflows for lead number 68: partridge_suffix184@simplelogin.com","timestamp":"2024-03-06 19:25:58"}
+{"level":"info","message":"Lead already exists in profiles: partridge_suffix184@simplelogin.com","timestamp":"2024-03-06 19:25:58"}
+{"level":"info","message":"Starting leap workflows for lead number 69: patrick@neuromore.com","timestamp":"2024-03-06 19:25:58"}
+{"level":"info","message":"Lead already exists in profiles: patrick@neuromore.com","timestamp":"2024-03-06 19:25:58"}
+{"level":"info","message":"Starting leap workflows for lead number 70: paul@bigart.ca","timestamp":"2024-03-06 19:25:58"}
+{"level":"info","message":"Lead already exists in profiles: paul@bigart.ca","timestamp":"2024-03-06 19:25:58"}
+{"level":"info","message":"Starting leap workflows for lead number 71: paul@inclusive-brains.com","timestamp":"2024-03-06 19:25:58"}
+{"level":"info","message":"Lead already exists in profiles: paul@inclusive-brains.com","timestamp":"2024-03-06 19:25:58"}
+{"level":"info","message":"Starting leap workflows for lead number 72: paul@liquidbinary.co.uk","timestamp":"2024-03-06 19:25:58"}
+{"level":"info","message":"Lead already exists in profiles: paul@liquidbinary.co.uk","timestamp":"2024-03-06 19:25:58"}
+{"level":"info","message":"Starting leap workflows for lead number 73: paul@lynq.ai","timestamp":"2024-03-06 19:25:58"}
+{"level":"info","message":"Lead already exists in profiles: paul@lynq.ai","timestamp":"2024-03-06 19:25:58"}
+{"level":"info","message":"Starting leap workflows for lead number 74: paul@optios.com","timestamp":"2024-03-06 19:25:58"}
+{"level":"info","message":"Starting leap workflows for lead: 74, with query:, paul Optios ","timestamp":"2024-03-06 19:25:59"}
+{"level":"info","message":"Started leap workflows for lead: 74","timestamp":"2024-03-06 19:25:59"}
+{"level":"info","message":"Updating lead to be unprocessed","timestamp":"2024-03-06 19:25:59"}
+{"level":"info","message":"lead updated successfully:","timestamp":"2024-03-06 19:26:00"}
+{"level":"info","message":"Starting leap workflows for lead number 75: paul@thetbd.group","timestamp":"2024-03-06 19:26:00"}
+{"level":"info","message":"Leap returned linkedin lawyers@yucca.net for document 1291c9f1-a706-4b7c-abbb-530b11455448","timestamp":"2024-03-06 19:26:03"}

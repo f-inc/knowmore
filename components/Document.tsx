@@ -73,11 +73,12 @@ export default function Document({
               WebkitTextFillColor: 'transparent'
             }}
           >
-            We detected {numLeads} {numLeads > 1 ? 'emails' : 'email'}
+            We detected {numLeads} {numLeads > 1 ? 'emails' : 'email'} to
+            process
           </h1>
           <p className="max-w-md text-center m-auto text-gray-300 text-sm">
-            Unlock key AI-powered insights based on emails you’ve collected from
-            leads and customers. Stop leaving money on the table.
+            Unlock key AI-powered insights from the emails you've already
+            collected. Stop leaving money on the table.
           </p>
         </div>
         <div className="mt-10">
@@ -224,16 +225,7 @@ export default function Document({
                   <p></p>
                 </div>
               ) : (
-                <>
-                  <CheckoutCard user={user} document={document} />
-                  <p
-                    className="max-w-md text-gray-300 text-sm"
-                    style={{ fontStyle: 'italic' }}
-                  >
-                    We charge a small fee because processing emails with AI is
-                    expensive for us.
-                  </p>
-                </>
+                <CheckoutCard user={user} document={document} />
               )}
             </>
           )}

@@ -162,10 +162,10 @@ const FileUploadModal: React.FC<FileUploadModalProps> = ({
     // max width of 640px
     <div className="fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center backdrop-blur-md z-50">
       <div className="bg-white p-4 rounded-lg max-w-96">
-        <h1 className="font-bold text-xl mb-4">Upload emails</h1>
+        <h1 className="font-bold text-xl mb-4">Upload emails (50¢ per lead)</h1>
         <p className="text-sm text-gray-500 mb-4">
-          Upload a CSV file with emails to process. We currently only process
-          upto a 1000 emails. Please contact us for more.
+          Know More enriches each email to give you a detailed understanding of
+          your highest potential customers.
         </p>
         <div
           style={{
