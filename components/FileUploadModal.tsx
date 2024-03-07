@@ -68,12 +68,6 @@ const FileUploadModal: React.FC<FileUploadModalProps> = ({
               }
             }
 
-            // limit emails to 1000
-            emails =
-              emails.size > 1000
-                ? new Set(Array.from(emails).slice(0, 1000))
-                : emails;
-
             if (emails.size === 0) {
               throw new Error('No emails found');
             }

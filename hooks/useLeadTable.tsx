@@ -200,9 +200,7 @@ const useLeadTable = (
     setFilter,
     leads,
     numLeads,
-
     numProcessedLeads,
-
     setLeads,
     downloadCsv,
     isPaid,
