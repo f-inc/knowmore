@@ -26,6 +26,9 @@ export const CommonEmailProviders = [
   'privaterelay.appleid.com',
   'microsoft.com',
   'googlemail.com',
+  'protonmail.ch',
+  'live.co.uk',
+  'yahoo.co.nz',
 
   'sbcglobal.net',
   'msn.com',

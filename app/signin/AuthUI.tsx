@@ -4,7 +4,7 @@ import { useSupabase } from '@/app/supabase-provider';
 import { getURL } from '@/utils/helpers';
 import { Auth } from '@supabase/auth-ui-react';
 import { ThemeSupa } from '@supabase/auth-ui-shared';
-import { redirect, useRouter } from 'next/navigation';
+import { useRouter } from 'next/navigation';
 import { useEffect } from 'react';
 
 export default function AuthUI() {
@@ -13,9 +13,11 @@ export default function AuthUI() {
   const router = useRouter();
 
   useEffect(() => {
-    const { data } = supabase.auth.onAuthStateChange(
-      async (event, session) => {}
-    );
+    const { data } = supabase.auth.onAuthStateChange(async (event, session) => {
+      if (event === 'SIGNED_IN') {
+        router.push('/');
+      }
+    });
   }, []);
 
   const callback = `${getURL()}auth/callback`;
@@ -40,6 +42,7 @@ export default function AuthUI() {
           }
         }}
         theme="dark"
+        view="sign_up"
       />
     </div>
   );

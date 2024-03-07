@@ -433,7 +433,6 @@ const processEmails = async (document_id: string, leadData: any) => {
 const checkProcessed = async (): Promise<any[]> => {
   logger.info('checking if unprocessed documents have finished processing');
 
-  // gets all unprocessed docs
   const { data: unprocessedDocuments, error: unprocessedDocumentsError } =
     await supabaseAdmin.from('documents').select('*').eq('processed', false);
 
@@ -446,7 +445,6 @@ const checkProcessed = async (): Promise<any[]> => {
   const updatedDocs: any[] = [];
 
   for (const doc of unprocessedDocuments) {
-    // gets all unprocessedLeads docs
     const { data: unprocessedLeads, error: unprocessedLeadsError } =
       await supabaseAdmin
         .from('leads')
@@ -456,7 +454,6 @@ const checkProcessed = async (): Promise<any[]> => {
 
     console.log('unprocessed leads found', unprocessedLeads?.length);
 
-    // all leads have been processed
     if (unprocessedLeads?.length == 0) {
       updatedDocs.push(doc);
 
@@ -610,6 +607,17 @@ const onProcessed = async (workflowResult: any) => {
   }
 };
 
+// get document by id
+const getDocument = async (id: string) => {
+  const { data, error } = await supabaseAdmin
+    .from('documents')
+    .select('*')
+    .eq('id', id)
+    .single();
+  if (error) throw error;
+  return data;
+};
+
 export {
   createOrRetrieveCustomer,
   manageSubscriptionStatusChange,
@@ -621,5 +629,6 @@ export {
   onPaid,
   onProcessed,
   processEmails,
-  checkProcessed
+  checkProcessed,
+  getDocument
 };

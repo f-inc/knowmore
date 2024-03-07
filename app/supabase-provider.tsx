@@ -31,6 +31,7 @@ export default function SupabaseProvider({
               email: session.user.email,
               name: session.user.user_metadata.full_name
             });
+            router.push('/');
           } else if (event === 'SIGNED_OUT') {
             posthog.reset();
           }

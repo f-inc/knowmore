@@ -16,6 +16,7 @@ const useLeadTable = (
   const [isPaid, setIsPaid] = useState(false);
   const [numLeads, setNumLeads] = useState(0);
   const [fetching, setFetching] = useState(false);
+  const [document, setDocument] = useState<any>();
 
   const columns: Column<LeadDataType>[] = useMemo(
     () => [
@@ -80,6 +81,8 @@ const useLeadTable = (
       .select('*')
       .eq('id', id)
       .single();
+
+    setDocument(documentData);
 
     if (documentError) {
       console.error('Error fetching document:', documentError);
@@ -203,7 +206,8 @@ const useLeadTable = (
     setLeads,
     downloadCsv,
     isPaid,
-    fetching
+    fetching,
+    document
   };
 };
 

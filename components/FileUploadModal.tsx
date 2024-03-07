@@ -60,7 +60,8 @@ const FileUploadModal: React.FC<FileUploadModalProps> = ({
                 const emailRegex = /\S+@\S+\.\S+/;
 
                 if (emailRegex.test(cell)) {
-                  if (!(cell in CommonEmailProviders)) {
+                  const emailDomain = cell.split('@')[1].toLowerCase();
+                  if (!CommonEmailProviders.includes(emailDomain)) {
                     emails.add(cell);
                   }
                 }
@@ -101,7 +102,8 @@ const FileUploadModal: React.FC<FileUploadModalProps> = ({
                   storage_path: filePath,
                   owner: user?.id,
                   customer_to_email: user?.email,
-                  total_leads: emails.size
+                  total_leads: emails.size,
+                  processed: true
                 }
               ]);
 

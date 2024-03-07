@@ -3,7 +3,7 @@ import { createOneTimeCheckoutSession, getStripe } from '@/utils/stripe-client';
 import { User } from '@supabase/supabase-js';
 import { useRouter } from 'next/navigation';
 import posthog from 'posthog-js';
-import React from 'react';
+import React, { use, useEffect, useState } from 'react';
 
 type LeadDataType = {
   document_id: string;
@@ -18,14 +18,23 @@ type LeadDataType = {
 };
 
 type LeadCardProps = {
-  document_id?: string;
+  document: any;
   lead?: LeadDataType;
-  isSample?: boolean;
   user: User | undefined;
 };
 
-const CheckoutCard: React.FC<LeadCardProps> = ({ document_id, lead, user }) => {
+const CheckoutCard: React.FC<LeadCardProps> = ({ document, lead, user }) => {
   const router = useRouter();
+
+  const [numLeads, setNumLeads] = useState(0);
+  const [price, setPrice] = useState(0);
+
+  useEffect(() => {
+    if (!document || document?.paid || !document?.total_leads) return;
+
+    setNumLeads(document?.total_leads);
+    setPrice(Math.floor(numLeads * 0.1 * 100) / 100);
+  }, [document]);
 
   const handleCheckout = async () => {
     if (!user) {
@@ -37,6 +46,7 @@ const CheckoutCard: React.FC<LeadCardProps> = ({ document_id, lead, user }) => {
 
     const priceID = process.env.NEXT_PUBLIC_STRIPE_PRICE_ID;
     const productID = process.env.NEXT_PUBLIC_STRIPE_PRODUCT_ID;
+    const document_id = document?.id;
 
     if (!priceID) throw new Error('Stripe price ID is not defined');
     if (!productID) throw new Error('Stripe product ID is not defined');
@@ -137,7 +147,7 @@ const CheckoutCard: React.FC<LeadCardProps> = ({ document_id, lead, user }) => {
             await handleCheckout();
           }}
         >
-          {user ? 'Process emails ($47)' : 'Login to view'}
+          {user ? `Process emails ($47)` : 'Login to view'}
         </button>
       </div>
     </div>

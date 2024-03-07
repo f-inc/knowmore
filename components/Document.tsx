@@ -32,7 +32,6 @@ export default function Document({
   lead_limit: number;
 }) {
   const { supabase } = useSupabase();
-  const [document, setDocument] = useState<any>();
 
   const [currentPage, setCurrentPage] = useState(1);
   const [itemsPerPage, setItemsPerPage] = useState(20);
@@ -43,8 +42,8 @@ export default function Document({
     isPaid,
     fetching,
     numLeads,
+    document,
     prepareRow,
-
     downloadCsv,
     headerGroups,
     getTableProps,
@@ -226,7 +225,7 @@ export default function Document({
                 </div>
               ) : (
                 <>
-                  <CheckoutCard document_id={id} user={user} />
+                  <CheckoutCard user={user} document={document} />
                   <p
                     className="max-w-md text-gray-300 text-sm"
                     style={{ fontStyle: 'italic' }}
