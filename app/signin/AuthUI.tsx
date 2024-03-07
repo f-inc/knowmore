@@ -14,8 +14,9 @@ export default function AuthUI() {
 
   useEffect(() => {
     const { data } = supabase.auth.onAuthStateChange(async (event, session) => {
+      console.log('event:', event);
       if (event === 'SIGNED_IN') {
-        router.push('/');
+        router.push('/dashboard');
       }
     });
   }, []);
