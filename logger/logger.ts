@@ -1,57 +1,171 @@
-import fs from 'fs';
-import path from 'path';
-import winston from 'winston';
+/* eslint-disable @typescript-eslint/no-explicit-any */
 
-const LOG_DIR = 'logs';
-
-// Ensure log directory exists
-const logDirPath = path.resolve(LOG_DIR);
-if (!fs.existsSync(logDirPath)) {
-  fs.mkdirSync(logDirPath, { recursive: true });
-}
+import { Logger } from 'tslog';
 
 const LOG_LEVEL = process.env.LOG_LEVEL;
 const LOG_FORMAT = process.env.LOG_FORMAT;
 
-// Define your custom levels of logging
-const logLevels = {
-  error: 0,
-  warn: 1,
-  info: 2,
-  http: 3,
-  debug: 4
-};
-
-const logger = winston.createLogger({
-  levels: logLevels,
-  format: winston.format.combine(
-    winston.format.timestamp({
-      format: 'YYYY-MM-DD HH:mm:ss'
-    }),
-    winston.format.errors({ stack: true }),
-    winston.format.json()
-  ),
-  transports: [
-    new winston.transports.Console({
-      level: process.env.NODE_ENV === 'development' ? 'debug' : 'info',
-      format: winston.format.combine(
-        winston.format.colorize(),
-        winston.format.simple()
-      )
-    }),
-    new winston.transports.File({ filename: 'logs/error.log', level: 'error' }),
-    new winston.transports.File({ filename: 'logs/combined.log' })
-  ]
-});
-
-// If we're not in production then log to the `console` with the format:
-// `${info.level}: ${info.message} JSON.stringify({ ...rest }) `
-if (process.env.NODE_ENV !== 'production') {
-  logger.add(
-    new winston.transports.Console({
-      format: winston.format.simple()
-    })
-  );
+enum LogLevel {
+  Debug = 0,
+  Info = 1,
+  Warn = 2,
+  Error = 3
 }
 
-export default logger;
+export default class logger {
+  private readonly logger: Logger<any>;
+
+  private lastTimestamp: number | null = null;
+
+  private name: string;
+
+  private readonly format: 'pretty' | 'json';
+
+  private readonly level: LogLevel;
+
+  constructor({
+    name,
+    format,
+    level
+  }: {
+    name: string;
+    format?: 'pretty' | 'json';
+    level?: 'debug' | 'info' | 'warn' | 'error';
+  }) {
+    this.name = name;
+    this.format = format
+      ? format
+      : LOG_FORMAT
+      ? (LOG_FORMAT as 'pretty' | 'json')
+      : 'json';
+
+    this.level = this.getLogLevel(LOG_LEVEL ? LOG_LEVEL : level || 'info');
+
+    this.logger = new Logger({
+      name: this.name,
+      type: this.format,
+      overwrite: {
+        transportJSON: (obj) => logger.transportJSON(obj, this.format)
+      },
+      argumentsArrayName: 'args'
+    });
+  }
+
+  public setName(name: string): void {
+    this.name = name;
+    this.logger.settings.name = name;
+  }
+
+  public getSubLogger({ name }: { name: string }): logger {
+    return new logger({
+      name: `${this.name}_${name}`
+    });
+  }
+
+  private shouldLog(selectedLevel: LogLevel, messageLevel: LogLevel): boolean {
+    return messageLevel >= selectedLevel;
+  }
+
+  private getLogLevel(level: string): LogLevel {
+    switch (level.toLowerCase()) {
+      case 'debug':
+        return LogLevel.Debug;
+      case 'info':
+        return LogLevel.Info;
+      case 'warn':
+        return LogLevel.Warn;
+      case 'error':
+        return LogLevel.Error;
+      default:
+        throw new Error(`Unknown log level: ${level}`);
+    }
+  }
+
+  static transportJSON(logObj: any, type: 'pretty' | 'json') {
+    const args: any[] = logObj.args;
+    const metadata =
+      typeof args[args.length - 1] === 'object' &&
+      !Array.isArray(args[args.length - 1])
+        ? args.pop()
+        : {};
+    const newLogObj = {
+      message: args.join(' '),
+      hostname: logObj._meta.hostname,
+      name: logObj._meta.name,
+      timestamp: logObj._meta.date,
+      level: logObj._meta.logLevelName,
+      pid: process.pid,
+      metadata,
+      environment: process.env.ENV_IDENTIFIER || 'unset'
+    };
+
+    if (type === 'json') {
+      console.log(JSON.stringify(newLogObj));
+    } else {
+      console.log(newLogObj);
+    }
+  }
+
+  /**
+   * Write a 'log' level log.
+   */
+  info(message: any, ...optionalParams: any[]) {
+    if (!this.shouldLog(this.level, LogLevel.Info)) {
+      return;
+    }
+    this.logger.info(message, ...optionalParams);
+  }
+
+  /**
+   * Write an 'error' level log.
+   */
+  error(message: any, ...optionalParams: any[]) {
+    if (!this.shouldLog(this.level, LogLevel.Error)) {
+      return;
+    }
+
+    this.logger.error(message, ...optionalParams);
+  }
+
+  /**
+   * Write a 'warn' level log.
+   */
+  warn(message: any, ...optionalParams: any[]) {
+    if (!this.shouldLog(this.level, LogLevel.Warn)) {
+      return;
+    }
+
+    this.logger.warn(message, ...optionalParams);
+  }
+
+  /**
+   * Write a 'debug' level log.
+   */
+  debug(message: any, ...optionalParams: any[]) {
+    if (!this.shouldLog(this.level, LogLevel.Debug)) {
+      return;
+    }
+
+    this.logger.debug(message, ...optionalParams);
+  }
+
+  /**
+   * Logs the time elapsed since the last call to this method.
+   */
+  profile(message: string) {
+    if (!this.shouldLog(this.level, LogLevel.Debug)) {
+      return;
+    }
+
+    const currentTimestamp = Date.now();
+    if (this.lastTimestamp !== null) {
+      const timeSinceLastCall = currentTimestamp - this.lastTimestamp;
+      this.debug(
+        `${message} - Time since last profile call: ${timeSinceLastCall} ms`
+      );
+    } else {
+      this.debug(`${message} - Profile started`);
+    }
+    this.lastTimestamp = currentTimestamp;
+  }
+}

@@ -1,7 +1,7 @@
 import { DocumentType } from './constants/types';
 import { getOgTitle, getURL, postData, toDateTime } from './helpers';
 import { stripe } from './stripe';
-import logger from '@/logger';
+import Logger from '@/logger';
 import { Leap } from '@leap-ai/workflows';
 import { createClient } from '@supabase/supabase-js';
 import { APIClient, SendEmailRequest } from 'customerio-node';
@@ -9,6 +9,8 @@ import { jsonrepair } from 'jsonrepair';
 import Stripe from 'stripe';
 import type { Database } from 'types_db';
 import { v4 as uuid } from 'uuid';
+
+const logger = new Logger({ name: 'supabase-admin' });
 
 const customerio_client = new APIClient(
   process.env.CUSTOMERIO_API_KEY as string
