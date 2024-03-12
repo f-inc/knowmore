@@ -47,6 +47,7 @@ export default function Document({
     downloadCsv,
     headerGroups,
     getTableProps,
+    documentType,
     getTableBodyProps,
     numProcessedLeads
   } = useLeadTable(id, currentPage, itemsPerPage);
@@ -73,8 +74,8 @@ export default function Document({
               WebkitTextFillColor: 'transparent'
             }}
           >
-            We detected {numLeads} {numLeads > 1 ? 'emails' : 'email'} to
-            process
+            We detected {numLeads} {documentType}
+            {numLeads > 1 ? 's' : ''} to process
           </h1>
           <p className="max-w-md text-center m-auto text-gray-300 text-sm">
             Unlock key AI-powered insights from the emails you've already

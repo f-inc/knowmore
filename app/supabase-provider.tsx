@@ -31,7 +31,6 @@ export default function SupabaseProvider({
               email: session.user.email,
               name: session.user.user_metadata.full_name
             });
-            router.push('/');
           } else if (event === 'SIGNED_OUT') {
             posthog.reset();
           }
@@ -42,7 +41,7 @@ export default function SupabaseProvider({
     return () => {
       authListener.subscription.unsubscribe();
     };
-  }, [router, supabase]);
+  }, [supabase]);
 
   return (
     <Context.Provider value={{ supabase }}>

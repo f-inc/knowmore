@@ -29027,3 +29027,764 @@
 {"level":"info","message":"lead updated successfully:","timestamp":"2024-03-06 19:26:00"}
 {"level":"info","message":"Starting leap workflows for lead number 75: paul@thetbd.group","timestamp":"2024-03-06 19:26:00"}
 {"level":"info","message":"Leap returned linkedin lawyers@yucca.net for document 1291c9f1-a706-4b7c-abbb-530b11455448","timestamp":"2024-03-06 19:26:03"}
+{"level":"info","message":"Leap returned linkedin mrevilla@seas.ucla.edu for document 1291c9f1-a706-4b7c-abbb-530b11455448","timestamp":"2024-03-06 19:26:17"}
+{"level":"info","message":"Leap returned linkedin nate@natedesmond.com for document 1291c9f1-a706-4b7c-abbb-530b11455448","timestamp":"2024-03-06 19:26:17"}
+{"level":"info","message":"Leap returned linkedin paul@optios.com for document 1291c9f1-a706-4b7c-abbb-530b11455448","timestamp":"2024-03-06 19:26:23"}
+{"level":"info","message":"Leap returned linkedin partial.ly@gdi2290.com for document 1291c9f1-a706-4b7c-abbb-530b11455448","timestamp":"2024-03-06 19:26:23"}
+{"level":"info","message":"Leap returned linkedin me@vorticist.net for document 1291c9f1-a706-4b7c-abbb-530b11455448","timestamp":"2024-03-06 19:26:25"}
+{"level":"info","message":"Starting leap workflows for lead: 75, with query:, paul https://thetbd.group ","timestamp":"2024-03-06 19:28:35"}
+{"level":"info","message":"Started leap workflows for lead: 75","timestamp":"2024-03-06 19:28:35"}
+{"level":"info","message":"Updating lead to be unprocessed","timestamp":"2024-03-06 19:28:35"}
+{"level":"info","message":"lead updated successfully:","timestamp":"2024-03-06 19:28:36"}
+{"level":"info","message":"Starting leap workflows for lead number 76: pauwels_ivan@live.be","timestamp":"2024-03-06 19:28:36"}
+{"level":"info","message":"Lead already exists in profiles: pauwels_ivan@live.be","timestamp":"2024-03-06 19:28:36"}
+{"level":"info","message":"Starting leap workflows for lead number 77: pburke1716@yahoo.ca","timestamp":"2024-03-06 19:28:36"}
+{"level":"info","message":"Lead already exists in profiles: pburke1716@yahoo.ca","timestamp":"2024-03-06 19:28:36"}
+{"level":"info","message":"Starting leap workflows for lead number 78: peter.molfese@nih.gov","timestamp":"2024-03-06 19:28:36"}
+{"level":"info","message":"Lead already exists in profiles: peter.molfese@nih.gov","timestamp":"2024-03-06 19:28:36"}
+{"level":"info","message":"Starting leap workflows for lead number 79: peter.torlind@ltu.se","timestamp":"2024-03-06 19:28:36"}
+{"level":"info","message":"Lead already exists in profiles: peter.torlind@ltu.se","timestamp":"2024-03-06 19:28:36"}
+{"level":"info","message":"Starting leap workflows for lead number 80: petter@growbotics.se","timestamp":"2024-03-06 19:28:36"}
+{"level":"info","message":"Lead already exists in profiles: petter@growbotics.se","timestamp":"2024-03-06 19:28:36"}
+{"level":"info","message":"Starting leap workflows for lead number 81: pflynn@flynnconstruction.com","timestamp":"2024-03-06 19:28:36"}
+{"level":"info","message":"Lead already exists in profiles: pflynn@flynnconstruction.com","timestamp":"2024-03-06 19:28:36"}
+{"level":"info","message":"Starting leap workflows for lead number 82: phil@philarpin.com","timestamp":"2024-03-06 19:28:36"}
+{"level":"info","message":"Lead already exists in profiles: phil@philarpin.com","timestamp":"2024-03-06 19:28:36"}
+{"level":"info","message":"Starting leap workflows for lead number 83: philipp.zent@brainamics.de","timestamp":"2024-03-06 19:28:37"}
+{"level":"info","message":"Lead already exists in profiles: philipp.zent@brainamics.de","timestamp":"2024-03-06 19:28:37"}
+{"level":"info","message":"Starting leap workflows for lead number 84: phoenix@purebytes.de","timestamp":"2024-03-06 19:28:37"}
+{"level":"info","message":"Lead already exists in profiles: phoenix@purebytes.de","timestamp":"2024-03-06 19:28:37"}
+{"level":"info","message":"Starting leap workflows for lead number 85: pietrzakba18@uww.edu","timestamp":"2024-03-06 19:28:37"}
+{"level":"info","message":"Lead already exists in profiles: pietrzakba18@uww.edu","timestamp":"2024-03-06 19:28:37"}
+{"level":"info","message":"Starting leap workflows for lead number 86: piotr_skrzypiec@o2.pl","timestamp":"2024-03-06 19:28:37"}
+{"level":"info","message":"Lead already exists in profiles: piotr_skrzypiec@o2.pl","timestamp":"2024-03-06 19:28:37"}
+{"level":"info","message":"Starting leap workflows for lead number 87: post@niklas-may.de","timestamp":"2024-03-06 19:28:37"}
+{"level":"info","message":"Lead already exists in profiles: post@niklas-may.de","timestamp":"2024-03-06 19:28:37"}
+{"level":"info","message":"Starting leap workflows for lead number 88: pp@solida.pl","timestamp":"2024-03-06 19:28:37"}
+{"level":"info","message":"Lead already exists in profiles: pp@solida.pl","timestamp":"2024-03-06 19:28:37"}
+{"level":"info","message":"Starting leap workflows for lead number 89: prema@jade.dti.ne.jp","timestamp":"2024-03-06 19:28:37"}
+{"level":"info","message":"Lead already exists in profiles: prema@jade.dti.ne.jp","timestamp":"2024-03-06 19:28:37"}
+{"level":"info","message":"Starting leap workflows for lead number 90: psahota@mail.bradley.edu","timestamp":"2024-03-06 19:28:37"}
+{"level":"info","message":"Lead already exists in profiles: psahota@mail.bradley.edu","timestamp":"2024-03-06 19:28:37"}
+{"level":"info","message":"Starting leap workflows for lead number 91: radu.c.mihailescu@mau.se","timestamp":"2024-03-06 19:28:37"}
+{"level":"info","message":"Lead already exists in profiles: radu.c.mihailescu@mau.se","timestamp":"2024-03-06 19:28:38"}
+{"level":"info","message":"Starting leap workflows for lead number 92: rafael.luque@osoco.es","timestamp":"2024-03-06 19:28:38"}
+{"level":"info","message":"Lead already exists in profiles: rafael.luque@osoco.es","timestamp":"2024-03-06 19:28:38"}
+{"level":"info","message":"Starting leap workflows for lead number 93: rajkumarj@dropbox.com","timestamp":"2024-03-06 19:28:38"}
+{"level":"info","message":"Lead already exists in profiles: rajkumarj@dropbox.com","timestamp":"2024-03-06 19:28:38"}
+{"level":"info","message":"Starting leap workflows for lead number 94: rami@varsmith.com","timestamp":"2024-03-06 19:28:38"}
+{"level":"info","message":"Lead already exists in profiles: rami@varsmith.com","timestamp":"2024-03-06 19:28:38"}
+{"level":"info","message":"Starting leap workflows for lead number 95: raymond.huber@datwyler.com","timestamp":"2024-03-06 19:28:38"}
+{"level":"info","message":"Lead already exists in profiles: raymond.huber@datwyler.com","timestamp":"2024-03-06 19:28:38"}
+{"level":"info","message":"Starting leap workflows for lead number 96: rays@netriacorp.com","timestamp":"2024-03-06 19:28:38"}
+{"level":"info","message":"Lead already exists in profiles: rays@netriacorp.com","timestamp":"2024-03-06 19:28:38"}
+{"level":"info","message":"Starting leap workflows for lead number 97: raz@razsimone.com","timestamp":"2024-03-06 19:28:38"}
+{"level":"info","message":"Lead already exists in profiles: raz@razsimone.com","timestamp":"2024-03-06 19:28:38"}
+{"level":"info","message":"Starting leap workflows for lead number 98: rebecca@learncapital.com","timestamp":"2024-03-06 19:28:38"}
+{"level":"info","message":"Lead already exists in profiles: rebecca@learncapital.com","timestamp":"2024-03-06 19:28:38"}
+{"level":"info","message":"Starting leap workflows for lead number 99: rene@studiokrijst.com","timestamp":"2024-03-06 19:28:38"}
+{"level":"info","message":"Lead already exists in profiles: rene@studiokrijst.com","timestamp":"2024-03-06 19:28:38"}
+{"level":"info","message":"Starting leap workflows for lead number 100: reto@trinkler.com","timestamp":"2024-03-06 19:28:38"}
+{"level":"info","message":"Lead already exists in profiles: reto@trinkler.com","timestamp":"2024-03-06 19:28:38"}
+{"level":"info","message":"Starting leap workflows for lead number 101: rich@wiredatx.com","timestamp":"2024-03-06 19:28:39"}
+{"level":"info","message":"Lead already exists in profiles: rich@wiredatx.com","timestamp":"2024-03-06 19:28:39"}
+{"level":"info","message":"Starting leap workflows for lead number 102: richard@april19.ai","timestamp":"2024-03-06 19:28:39"}
+{"level":"info","message":"Starting leap workflows for lead: 102, with query:, richard April19 Discovery Inc ","timestamp":"2024-03-06 19:28:39"}
+{"level":"info","message":"Started leap workflows for lead: 102","timestamp":"2024-03-06 19:28:39"}
+{"level":"info","message":"Updating lead to be unprocessed","timestamp":"2024-03-06 19:28:39"}
+{"level":"info","message":"lead updated successfully:","timestamp":"2024-03-06 19:28:39"}
+{"level":"info","message":"Starting leap workflows for lead number 103: richardd@digiform.com.au","timestamp":"2024-03-06 19:28:40"}
+{"level":"info","message":"Lead already exists in profiles: richardd@digiform.com.au","timestamp":"2024-03-06 19:28:40"}
+{"level":"info","message":"Starting leap workflows for lead number 104: richmartin@hey.com","timestamp":"2024-03-06 19:28:40"}
+{"level":"info","message":"Lead already exists in profiles: richmartin@hey.com","timestamp":"2024-03-06 19:28:40"}
+{"level":"info","message":"Starting leap workflows for lead number 105: rick@texasdetour.com","timestamp":"2024-03-06 19:28:40"}
+{"level":"info","message":"Lead already exists in profiles: rick@texasdetour.com","timestamp":"2024-03-06 19:28:40"}
+{"level":"info","message":"Starting leap workflows for lead number 106: rikard.strid@clayster.com","timestamp":"2024-03-06 19:28:40"}
+{"level":"info","message":"Lead already exists in profiles: rikard.strid@clayster.com","timestamp":"2024-03-06 19:28:40"}
+{"level":"info","message":"Starting leap workflows for lead number 107: rk@knightg.com","timestamp":"2024-03-06 19:28:40"}
+{"level":"info","message":"Starting leap workflows for lead: 107, with query:, rk https://knightg.com ","timestamp":"2024-03-06 19:28:40"}
+{"level":"info","message":"Started leap workflows for lead: 107","timestamp":"2024-03-06 19:28:40"}
+{"level":"info","message":"Updating lead to be unprocessed","timestamp":"2024-03-06 19:28:40"}
+{"level":"info","message":"lead updated successfully:","timestamp":"2024-03-06 19:28:40"}
+{"level":"info","message":"Starting leap workflows for lead number 108: rkrieg@pbcfs.net","timestamp":"2024-03-06 19:28:40"}
+{"level":"info","message":"Lead already exists in profiles: rkrieg@pbcfs.net","timestamp":"2024-03-06 19:28:40"}
+{"level":"info","message":"Starting leap workflows for lead number 109: robert@aztek.io","timestamp":"2024-03-06 19:28:40"}
+{"level":"info","message":"Lead already exists in profiles: robert@aztek.io","timestamp":"2024-03-06 19:28:41"}
+{"level":"info","message":"Starting leap workflows for lead number 110: robert@logicsavvy.com","timestamp":"2024-03-06 19:28:41"}
+{"level":"info","message":"Lead already exists in profiles: robert@logicsavvy.com","timestamp":"2024-03-06 19:28:41"}
+{"level":"info","message":"Starting leap workflows for lead number 111: robert@varipapa.com","timestamp":"2024-03-06 19:28:41"}
+{"level":"info","message":"Lead already exists in profiles: robert@varipapa.com","timestamp":"2024-03-06 19:28:41"}
+{"level":"info","message":"Starting leap workflows for lead number 112: rocio@sdu.dk","timestamp":"2024-03-06 19:28:41"}
+{"level":"info","message":"Lead already exists in profiles: rocio@sdu.dk","timestamp":"2024-03-06 19:28:41"}
+{"level":"info","message":"Starting leap workflows for lead number 113: rolf@biernathconsulting.com","timestamp":"2024-03-06 19:28:41"}
+{"level":"info","message":"Lead already exists in profiles: rolf@biernathconsulting.com","timestamp":"2024-03-06 19:28:41"}
+{"level":"info","message":"Starting leap workflows for lead number 114: roman@truepictures.com","timestamp":"2024-03-06 19:28:41"}
+{"level":"info","message":"Lead already exists in profiles: roman@truepictures.com","timestamp":"2024-03-06 19:28:41"}
+{"level":"info","message":"Starting leap workflows for lead number 115: rstibravy@berkeley.edu","timestamp":"2024-03-06 19:28:41"}
+{"level":"info","message":"Lead already exists in profiles: rstibravy@berkeley.edu","timestamp":"2024-03-06 19:28:41"}
+{"level":"info","message":"Starting leap workflows for lead number 116: ruben@carbonyl.org","timestamp":"2024-03-06 19:28:41"}
+{"level":"info","message":"Lead already exists in profiles: ruben@carbonyl.org","timestamp":"2024-03-06 19:28:41"}
+{"level":"info","message":"Starting leap workflows for lead number 117: ruben@rubenz.net","timestamp":"2024-03-06 19:28:41"}
+{"level":"info","message":"Lead already exists in profiles: ruben@rubenz.net","timestamp":"2024-03-06 19:28:41"}
+{"level":"info","message":"Starting leap workflows for lead number 118: ryan@addedlayer.com","timestamp":"2024-03-06 19:28:41"}
+{"level":"info","message":"Lead already exists in profiles: ryan@addedlayer.com","timestamp":"2024-03-06 19:28:41"}
+{"level":"info","message":"Starting leap workflows for lead number 119: ryan@numinousgames.com","timestamp":"2024-03-06 19:28:42"}
+{"level":"info","message":"Starting leap workflows for lead: 119, with query:, ryan Numinous Games ","timestamp":"2024-03-06 19:28:42"}
+{"level":"info","message":"Started leap workflows for lead: 119","timestamp":"2024-03-06 19:28:42"}
+{"level":"info","message":"Updating lead to be unprocessed","timestamp":"2024-03-06 19:28:42"}
+{"level":"info","message":"lead updated successfully:","timestamp":"2024-03-06 19:28:42"}
+{"level":"info","message":"Starting leap workflows for lead number 120: ryan@robcob.com","timestamp":"2024-03-06 19:28:42"}
+{"level":"info","message":"Lead already exists in profiles: ryan@robcob.com","timestamp":"2024-03-06 19:28:43"}
+{"level":"info","message":"Starting leap workflows for lead number 121: ryo67@smis.ac.jp","timestamp":"2024-03-06 19:28:43"}
+{"level":"info","message":"Lead already exists in profiles: ryo67@smis.ac.jp","timestamp":"2024-03-06 19:28:43"}
+{"level":"info","message":"Starting leap workflows for lead number 122: s.douki@pixelstrade.com","timestamp":"2024-03-06 19:28:43"}
+{"level":"info","message":"Lead already exists in profiles: s.douki@pixelstrade.com","timestamp":"2024-03-06 19:28:43"}
+{"level":"info","message":"Starting leap workflows for lead number 123: sales@cue-support.nl","timestamp":"2024-03-06 19:28:43"}
+{"level":"info","message":"Lead already exists in profiles: sales@cue-support.nl","timestamp":"2024-03-06 19:28:43"}
+{"level":"info","message":"Starting leap workflows for lead number 124: sam@informal.cc","timestamp":"2024-03-06 19:28:43"}
+{"level":"info","message":"Lead already exists in profiles: sam@informal.cc","timestamp":"2024-03-06 19:28:43"}
+{"level":"info","message":"Starting leap workflows for lead number 125: sam@jajoo.fun","timestamp":"2024-03-06 19:28:43"}
+{"level":"info","message":"Lead already exists in profiles: sam@jajoo.fun","timestamp":"2024-03-06 19:28:43"}
+{"level":"info","message":"Starting leap workflows for lead number 126: sam@rehabswift.com","timestamp":"2024-03-06 19:28:43"}
+{"level":"info","message":"Lead already exists in profiles: sam@rehabswift.com","timestamp":"2024-03-06 19:28:43"}
+{"level":"info","message":"Starting leap workflows for lead number 127: sam@ucm.dev","timestamp":"2024-03-06 19:28:43"}
+{"level":"info","message":"Lead already exists in profiles: sam@ucm.dev","timestamp":"2024-03-06 19:28:43"}
+{"level":"info","message":"Starting leap workflows for lead number 128: sameer@spawned.io","timestamp":"2024-03-06 19:28:43"}
+{"level":"info","message":"Lead already exists in profiles: sameer@spawned.io","timestamp":"2024-03-06 19:28:43"}
+{"level":"info","message":"Starting leap workflows for lead number 129: samross@csu.edu.au","timestamp":"2024-03-06 19:28:43"}
+{"level":"info","message":"Lead already exists in profiles: samross@csu.edu.au","timestamp":"2024-03-06 19:28:44"}
+{"level":"info","message":"Starting leap workflows for lead number 130: sanat.kumara@ymail.com","timestamp":"2024-03-06 19:28:44"}
+{"level":"info","message":"Lead already exists in profiles: sanat.kumara@ymail.com","timestamp":"2024-03-06 19:28:44"}
+{"level":"info","message":"Starting leap workflows for lead number 131: sarah@cattledogdigital.com","timestamp":"2024-03-06 19:28:44"}
+{"level":"info","message":"Lead already exists in profiles: sarah@cattledogdigital.com","timestamp":"2024-03-06 19:28:44"}
+{"level":"info","message":"Starting leap workflows for lead number 132: sarah@story-up.com","timestamp":"2024-03-06 19:28:44"}
+{"level":"info","message":"Lead already exists in profiles: sarah@story-up.com","timestamp":"2024-03-06 19:28:44"}
+{"level":"info","message":"Starting leap workflows for lead number 133: sascha@corti.com","timestamp":"2024-03-06 19:28:44"}
+{"level":"info","message":"Lead already exists in profiles: sascha@corti.com","timestamp":"2024-03-06 19:28:44"}
+{"level":"info","message":"Starting leap workflows for lead number 134: sathorpe@mtu.edu","timestamp":"2024-03-06 19:28:44"}
+{"level":"info","message":"Lead already exists in profiles: sathorpe@mtu.edu","timestamp":"2024-03-06 19:28:44"}
+{"level":"info","message":"Starting leap workflows for lead number 135: sby_nao_0919@hotmail.co.jp","timestamp":"2024-03-06 19:28:44"}
+{"level":"info","message":"Starting leap workflows for lead: 135, with query:, sby nao      https://hotmail.co.jp ","timestamp":"2024-03-06 22:59:53"}
+{"level":"info","message":"Started leap workflows for lead: 135","timestamp":"2024-03-06 22:59:53"}
+{"level":"info","message":"Updating lead to be unprocessed","timestamp":"2024-03-06 22:59:53"}
+{"level":"info","message":"Updating document c08ca9b5-376e-4613-8757-3aaec21d4e6e to be paid","timestamp":"2024-03-11 12:53:10"}
+{"level":"info","message":"Updated document c08ca9b5-376e-4613-8757-3aaec21d4e6e to be paid","timestamp":"2024-03-11 12:53:10"}
+{"level":"info","message":"Sending (processing leads) email to huzaifaahmed746@gmail.com","timestamp":"2024-03-11 12:53:10"}
+{"level":"error","message":401,"timestamp":"2024-03-11 12:53:11"}
+{"level":"info","message":"Updating document 33b3f497-bbd6-4404-83b7-b1e7e4cd6f65 to be paid","timestamp":"2024-03-11 12:56:22"}
+{"level":"info","message":"Updated document 33b3f497-bbd6-4404-83b7-b1e7e4cd6f65 to be paid","timestamp":"2024-03-11 12:56:22"}
+{"level":"info","message":"Sending (processing leads) email to huzaifaahmed746@gmail.com","timestamp":"2024-03-11 12:56:22"}
+{"level":"error","message":401,"timestamp":"2024-03-11 12:56:23"}
+{"level":"info","message":"Updating document 766a2c22-d40e-4b3f-9f4c-4d230537ba4a to be paid","timestamp":"2024-03-11 13:02:42"}
+{"level":"info","message":"Updated document 766a2c22-d40e-4b3f-9f4c-4d230537ba4a to be paid","timestamp":"2024-03-11 13:02:42"}
+{"level":"info","message":"Sending (processing leads) email to huzaifaahmed746@gmail.com","timestamp":"2024-03-11 13:02:42"}
+{"level":"error","message":401,"timestamp":"2024-03-11 13:02:42"}
+{"level":"info","message":"Updating document 4b2fdcc3-5bd8-4b48-a68b-97083c516081 to be paid","timestamp":"2024-03-11 13:04:11"}
+{"level":"info","message":"Updated document 4b2fdcc3-5bd8-4b48-a68b-97083c516081 to be paid","timestamp":"2024-03-11 13:04:11"}
+{"level":"info","message":"Sending (processing leads) email to huzaifaahmed746@gmail.com","timestamp":"2024-03-11 13:04:11"}
+{"level":"error","message":401,"timestamp":"2024-03-11 13:04:12"}
+{"level":"info","message":"Updating document 7a8b6b7d-04f9-4acf-97c0-24f76a4e337d to be paid","timestamp":"2024-03-11 13:44:20"}
+{"level":"info","message":"Updated document 7a8b6b7d-04f9-4acf-97c0-24f76a4e337d to be paid","timestamp":"2024-03-11 13:44:21"}
+{"level":"info","message":"Sending (processing leads) email to huzaifaahmed746@gmail.com","timestamp":"2024-03-11 13:44:21"}
+{"level":"error","message":401,"timestamp":"2024-03-11 13:44:21"}
+{"level":"info","message":"Updating document 30d55d31-f253-4431-84b1-f55d7438d445 to be paid","timestamp":"2024-03-11 13:45:46"}
+{"level":"info","message":"Updated document 30d55d31-f253-4431-84b1-f55d7438d445 to be paid","timestamp":"2024-03-11 13:45:46"}
+{"level":"info","message":"Sending (processing leads) email to huzaifaahmed746@gmail.com","timestamp":"2024-03-11 13:45:46"}
+{"level":"error","message":401,"timestamp":"2024-03-11 13:45:46"}
+{"level":"info","message":"Starting leap workflows for document: 30d55d31-f253-4431-84b1-f55d7438d445 with workflow: wkf_HtEOPPkrYBKIjl","timestamp":"2024-03-11 13:45:47"}
+{"level":"info","message":"Starting leap workflows for lead number 0: demand.io","timestamp":"2024-03-11 13:45:47"}
+{"level":"info","message":"Starting leap workflows for lead: 0, with query:, demand.io","timestamp":"2024-03-11 13:45:47"}
+{"level":"info","message":"Started leap workflows for lead: 0","timestamp":"2024-03-11 13:45:47"}
+{"level":"info","message":"Starting leap workflows for lead number 1: coinbase.com","timestamp":"2024-03-11 13:45:47"}
+{"level":"info","message":"Starting leap workflows for lead: 1, with query:, coinbase.com","timestamp":"2024-03-11 13:45:47"}
+{"level":"info","message":"Started leap workflows for lead: 1","timestamp":"2024-03-11 13:45:47"}
+{"level":"info","message":"Starting leap workflows for lead number 2: newton.co","timestamp":"2024-03-11 13:45:47"}
+{"level":"info","message":"Starting leap workflows for lead: 2, with query:, newton.co","timestamp":"2024-03-11 13:45:47"}
+{"level":"info","message":"Started leap workflows for lead: 2","timestamp":"2024-03-11 13:45:47"}
+{"level":"info","message":"Starting leap workflows for lead number 3: freeup.net","timestamp":"2024-03-11 13:45:47"}
+{"level":"info","message":"Starting leap workflows for lead: 3, with query:, freeup.net","timestamp":"2024-03-11 13:45:47"}
+{"level":"info","message":"Started leap workflows for lead: 3","timestamp":"2024-03-11 13:45:47"}
+{"level":"info","message":"Starting leap workflows for lead number 4: polygon.technology","timestamp":"2024-03-11 13:45:47"}
+{"level":"info","message":"Starting leap workflows for lead: 4, with query:, polygon.technology","timestamp":"2024-03-11 13:45:47"}
+{"level":"info","message":"Started leap workflows for lead: 4","timestamp":"2024-03-11 13:45:47"}
+{"level":"info","message":"Starting leap workflows for lead number 5: opensea.io","timestamp":"2024-03-11 13:45:47"}
+{"level":"info","message":"Starting leap workflows for lead: 5, with query:, opensea.io","timestamp":"2024-03-11 13:45:47"}
+{"level":"info","message":"Started leap workflows for lead: 5","timestamp":"2024-03-11 13:45:47"}
+{"level":"info","message":"Starting leap workflows for lead number 6: immutable.com","timestamp":"2024-03-11 13:45:47"}
+{"level":"info","message":"Starting leap workflows for lead: 6, with query:, immutable.com","timestamp":"2024-03-11 13:45:47"}
+{"level":"info","message":"Started leap workflows for lead: 6","timestamp":"2024-03-11 13:45:47"}
+{"level":"info","message":"Starting leap workflows for lead number 7: tron.network","timestamp":"2024-03-11 13:45:47"}
+{"level":"info","message":"Starting leap workflows for lead: 7, with query:, tron.network","timestamp":"2024-03-11 13:45:47"}
+{"level":"info","message":"Started leap workflows for lead: 7","timestamp":"2024-03-11 13:45:47"}
+{"level":"info","message":"Starting leap workflows for lead number 8: bitgo.com","timestamp":"2024-03-11 13:45:47"}
+{"level":"info","message":"Starting leap workflows for lead: 8, with query:, bitgo.com","timestamp":"2024-03-11 13:45:47"}
+{"level":"info","message":"Started leap workflows for lead: 8","timestamp":"2024-03-11 13:45:47"}
+{"level":"info","message":"Starting leap workflows for lead number 9: consensys.net","timestamp":"2024-03-11 13:45:47"}
+{"level":"info","message":"Starting leap workflows for lead: 9, with query:, consensys.net","timestamp":"2024-03-11 13:45:47"}
+{"level":"info","message":"Started leap workflows for lead: 9","timestamp":"2024-03-11 13:45:47"}
+{"level":"info","message":"Starting leap workflows for lead number 10: terra.money","timestamp":"2024-03-11 13:45:47"}
+{"level":"info","message":"Starting leap workflows for lead: 10, with query:, terra.money","timestamp":"2024-03-11 13:45:47"}
+{"level":"info","message":"Started leap workflows for lead: 10","timestamp":"2024-03-11 13:45:47"}
+{"level":"info","message":"Starting leap workflows for lead number 11: luno.com","timestamp":"2024-03-11 13:45:47"}
+{"level":"info","message":"Starting leap workflows for lead: 11, with query:, luno.com","timestamp":"2024-03-11 13:45:47"}
+{"level":"info","message":"Started leap workflows for lead: 11","timestamp":"2024-03-11 13:45:47"}
+{"level":"info","message":"Starting leap workflows for lead number 12: decenternet.com","timestamp":"2024-03-11 13:45:47"}
+{"level":"info","message":"Starting leap workflows for lead: 12, with query:, decenternet.com","timestamp":"2024-03-11 13:45:47"}
+{"level":"info","message":"Started leap workflows for lead: 12","timestamp":"2024-03-11 13:45:47"}
+{"level":"info","message":"Starting leap workflows for lead number 13: chaingrep.com","timestamp":"2024-03-11 13:45:47"}
+{"level":"info","message":"Starting leap workflows for lead: 13, with query:, chaingrep.com","timestamp":"2024-03-11 13:45:47"}
+{"level":"info","message":"Started leap workflows for lead: 13","timestamp":"2024-03-11 13:45:47"}
+{"level":"info","message":"Starting leap workflows for lead number 14: covalenthq.com","timestamp":"2024-03-11 13:45:47"}
+{"level":"info","message":"Starting leap workflows for lead: 14, with query:, covalenthq.com","timestamp":"2024-03-11 13:45:47"}
+{"level":"info","message":"Started leap workflows for lead: 14","timestamp":"2024-03-11 13:45:47"}
+{"level":"info","message":"Starting leap workflows for lead number 15: ufostart.com","timestamp":"2024-03-11 13:45:47"}
+{"level":"info","message":"Starting leap workflows for lead: 15, with query:, ufostart.com","timestamp":"2024-03-11 13:45:47"}
+{"level":"info","message":"Started leap workflows for lead: 15","timestamp":"2024-03-11 13:45:47"}
+{"level":"info","message":"Starting leap workflows for lead number 16: pillow.fund","timestamp":"2024-03-11 13:45:47"}
+{"level":"info","message":"Starting leap workflows for lead: 16, with query:, pillow.fund","timestamp":"2024-03-11 13:45:47"}
+{"level":"info","message":"Started leap workflows for lead: 16","timestamp":"2024-03-11 13:45:47"}
+{"level":"info","message":"Starting leap workflows for lead number 17: blockchains.com","timestamp":"2024-03-11 13:45:47"}
+{"level":"info","message":"Starting leap workflows for lead: 17, with query:, blockchains.com","timestamp":"2024-03-11 13:45:47"}
+{"level":"info","message":"Started leap workflows for lead: 17","timestamp":"2024-03-11 13:45:47"}
+{"level":"info","message":"Starting leap workflows for lead number 18: stormx.io","timestamp":"2024-03-11 13:45:47"}
+{"level":"info","message":"Starting leap workflows for lead: 18, with query:, stormx.io","timestamp":"2024-03-11 13:45:47"}
+{"level":"info","message":"Started leap workflows for lead: 18","timestamp":"2024-03-11 13:45:47"}
+{"level":"info","message":"Starting leap workflows for lead number 19: crucible.network","timestamp":"2024-03-11 13:45:47"}
+{"level":"info","message":"Starting leap workflows for lead: 19, with query:, crucible.network","timestamp":"2024-03-11 13:45:47"}
+{"level":"info","message":"Started leap workflows for lead: 19","timestamp":"2024-03-11 13:45:47"}
+{"level":"info","message":"Starting leap workflows for lead number 20: omegafi.com","timestamp":"2024-03-11 13:45:47"}
+{"level":"info","message":"Starting leap workflows for lead: 20, with query:, omegafi.com","timestamp":"2024-03-11 13:45:47"}
+{"level":"info","message":"Started leap workflows for lead: 20","timestamp":"2024-03-11 13:45:47"}
+{"level":"info","message":"Starting leap workflows for lead number 21: everyrealm.com","timestamp":"2024-03-11 13:45:47"}
+{"level":"info","message":"Starting leap workflows for lead: 21, with query:, everyrealm.com","timestamp":"2024-03-11 13:45:47"}
+{"level":"info","message":"Started leap workflows for lead: 21","timestamp":"2024-03-11 13:45:47"}
+{"level":"info","message":"Starting leap workflows for lead number 22: blockfi.com","timestamp":"2024-03-11 13:45:47"}
+{"level":"info","message":"Starting leap workflows for lead: 22, with query:, blockfi.com","timestamp":"2024-03-11 13:45:47"}
+{"level":"info","message":"Started leap workflows for lead: 22","timestamp":"2024-03-11 13:45:47"}
+{"level":"info","message":"Starting leap workflows for lead number 23: celsius.network","timestamp":"2024-03-11 13:45:47"}
+{"level":"info","message":"Starting leap workflows for lead: 23, with query:, celsius.network","timestamp":"2024-03-11 13:45:47"}
+{"level":"info","message":"Started leap workflows for lead: 23","timestamp":"2024-03-11 13:45:47"}
+{"level":"info","message":"Starting leap workflows for lead number 24: coinbooks.xyz","timestamp":"2024-03-11 13:45:47"}
+{"level":"info","message":"Starting leap workflows for lead: 24, with query:, coinbooks.xyz","timestamp":"2024-03-11 13:45:47"}
+{"level":"info","message":"Started leap workflows for lead: 24","timestamp":"2024-03-11 13:45:47"}
+{"level":"info","message":"Updating document 8fe52e91-6e99-4df2-a86d-5523a11cb9e9 to be paid","timestamp":"2024-03-11 13:49:28"}
+{"level":"info","message":"Updated document 8fe52e91-6e99-4df2-a86d-5523a11cb9e9 to be paid","timestamp":"2024-03-11 13:49:28"}
+{"level":"info","message":"Sending (processing leads) email to huzaifaahmed746@gmail.com","timestamp":"2024-03-11 13:49:28"}
+{"level":"error","message":401,"timestamp":"2024-03-11 13:49:28"}
+{"level":"info","message":"Starting leap workflows for document: 8fe52e91-6e99-4df2-a86d-5523a11cb9e9 with workflow: wkf_HtEOPPkrYBKIjl","timestamp":"2024-03-11 13:49:29"}
+{"level":"info","message":"Starting leap workflows for lead number 0: demand.io","timestamp":"2024-03-11 13:49:29"}
+{"level":"info","message":"Starting leap workflows for lead: 0, with query:, demand.io","timestamp":"2024-03-11 13:49:29"}
+{"level":"info","message":"Started leap workflows for lead: 0","timestamp":"2024-03-11 13:49:29"}
+{"level":"info","message":"Starting leap workflows for lead number 1: coinbase.com","timestamp":"2024-03-11 13:49:29"}
+{"level":"info","message":"Starting leap workflows for lead: 1, with query:, coinbase.com","timestamp":"2024-03-11 13:49:29"}
+{"level":"info","message":"Started leap workflows for lead: 1","timestamp":"2024-03-11 13:49:29"}
+{"level":"info","message":"Starting leap workflows for lead number 2: newton.co","timestamp":"2024-03-11 13:49:29"}
+{"level":"info","message":"Starting leap workflows for lead: 2, with query:, newton.co","timestamp":"2024-03-11 13:49:29"}
+{"level":"info","message":"Started leap workflows for lead: 2","timestamp":"2024-03-11 13:49:29"}
+{"level":"info","message":"Starting leap workflows for lead number 3: freeup.net","timestamp":"2024-03-11 13:49:29"}
+{"level":"info","message":"Starting leap workflows for lead: 3, with query:, freeup.net","timestamp":"2024-03-11 13:49:29"}
+{"level":"info","message":"Started leap workflows for lead: 3","timestamp":"2024-03-11 13:49:29"}
+{"level":"info","message":"Starting leap workflows for lead number 4: polygon.technology","timestamp":"2024-03-11 13:49:29"}
+{"level":"info","message":"Starting leap workflows for lead: 4, with query:, polygon.technology","timestamp":"2024-03-11 13:49:29"}
+{"level":"info","message":"Started leap workflows for lead: 4","timestamp":"2024-03-11 13:49:29"}
+{"level":"info","message":"Starting leap workflows for lead number 5: opensea.io","timestamp":"2024-03-11 13:49:29"}
+{"level":"info","message":"Starting leap workflows for lead: 5, with query:, opensea.io","timestamp":"2024-03-11 13:49:29"}
+{"level":"info","message":"Started leap workflows for lead: 5","timestamp":"2024-03-11 13:49:29"}
+{"level":"info","message":"Starting leap workflows for lead number 6: immutable.com","timestamp":"2024-03-11 13:49:29"}
+{"level":"info","message":"Starting leap workflows for lead: 6, with query:, immutable.com","timestamp":"2024-03-11 13:49:29"}
+{"level":"info","message":"Started leap workflows for lead: 6","timestamp":"2024-03-11 13:49:29"}
+{"level":"info","message":"Starting leap workflows for lead number 7: tron.network","timestamp":"2024-03-11 13:49:29"}
+{"level":"info","message":"Starting leap workflows for lead: 7, with query:, tron.network","timestamp":"2024-03-11 13:49:29"}
+{"level":"info","message":"Started leap workflows for lead: 7","timestamp":"2024-03-11 13:49:29"}
+{"level":"info","message":"Starting leap workflows for lead number 8: bitgo.com","timestamp":"2024-03-11 13:49:29"}
+{"level":"info","message":"Starting leap workflows for lead: 8, with query:, bitgo.com","timestamp":"2024-03-11 13:49:29"}
+{"level":"info","message":"Started leap workflows for lead: 8","timestamp":"2024-03-11 13:49:29"}
+{"level":"info","message":"Starting leap workflows for lead number 9: consensys.net","timestamp":"2024-03-11 13:49:29"}
+{"level":"info","message":"Starting leap workflows for lead: 9, with query:, consensys.net","timestamp":"2024-03-11 13:49:29"}
+{"level":"info","message":"Started leap workflows for lead: 9","timestamp":"2024-03-11 13:49:29"}
+{"level":"info","message":"Starting leap workflows for lead number 10: terra.money","timestamp":"2024-03-11 13:49:29"}
+{"level":"info","message":"Starting leap workflows for lead: 10, with query:, terra.money","timestamp":"2024-03-11 13:49:29"}
+{"level":"info","message":"Started leap workflows for lead: 10","timestamp":"2024-03-11 13:49:29"}
+{"level":"info","message":"Starting leap workflows for lead number 11: luno.com","timestamp":"2024-03-11 13:49:29"}
+{"level":"info","message":"Starting leap workflows for lead: 11, with query:, luno.com","timestamp":"2024-03-11 13:49:29"}
+{"level":"info","message":"Started leap workflows for lead: 11","timestamp":"2024-03-11 13:49:29"}
+{"level":"info","message":"Starting leap workflows for lead number 12: decenternet.com","timestamp":"2024-03-11 13:49:29"}
+{"level":"info","message":"Starting leap workflows for lead: 12, with query:, decenternet.com","timestamp":"2024-03-11 13:49:29"}
+{"level":"info","message":"Started leap workflows for lead: 12","timestamp":"2024-03-11 13:49:29"}
+{"level":"info","message":"Starting leap workflows for lead number 13: chaingrep.com","timestamp":"2024-03-11 13:49:29"}
+{"level":"info","message":"Starting leap workflows for lead: 13, with query:, chaingrep.com","timestamp":"2024-03-11 13:49:29"}
+{"level":"info","message":"Started leap workflows for lead: 13","timestamp":"2024-03-11 13:49:29"}
+{"level":"info","message":"Starting leap workflows for lead number 14: covalenthq.com","timestamp":"2024-03-11 13:49:29"}
+{"level":"info","message":"Starting leap workflows for lead: 14, with query:, covalenthq.com","timestamp":"2024-03-11 13:49:29"}
+{"level":"info","message":"Started leap workflows for lead: 14","timestamp":"2024-03-11 13:49:29"}
+{"level":"info","message":"Starting leap workflows for lead number 15: ufostart.com","timestamp":"2024-03-11 13:49:29"}
+{"level":"info","message":"Starting leap workflows for lead: 15, with query:, ufostart.com","timestamp":"2024-03-11 13:49:29"}
+{"level":"info","message":"Started leap workflows for lead: 15","timestamp":"2024-03-11 13:49:29"}
+{"level":"info","message":"Starting leap workflows for lead number 16: pillow.fund","timestamp":"2024-03-11 13:49:29"}
+{"level":"info","message":"Starting leap workflows for lead: 16, with query:, pillow.fund","timestamp":"2024-03-11 13:49:29"}
+{"level":"info","message":"Started leap workflows for lead: 16","timestamp":"2024-03-11 13:49:29"}
+{"level":"info","message":"Starting leap workflows for lead number 17: blockchains.com","timestamp":"2024-03-11 13:49:29"}
+{"level":"info","message":"Starting leap workflows for lead: 17, with query:, blockchains.com","timestamp":"2024-03-11 13:49:29"}
+{"level":"info","message":"Started leap workflows for lead: 17","timestamp":"2024-03-11 13:49:29"}
+{"level":"info","message":"Starting leap workflows for lead number 18: stormx.io","timestamp":"2024-03-11 13:49:29"}
+{"level":"info","message":"Starting leap workflows for lead: 18, with query:, stormx.io","timestamp":"2024-03-11 13:49:29"}
+{"level":"info","message":"Started leap workflows for lead: 18","timestamp":"2024-03-11 13:49:29"}
+{"level":"info","message":"Starting leap workflows for lead number 19: crucible.network","timestamp":"2024-03-11 13:49:29"}
+{"level":"info","message":"Starting leap workflows for lead: 19, with query:, crucible.network","timestamp":"2024-03-11 13:49:29"}
+{"level":"info","message":"Started leap workflows for lead: 19","timestamp":"2024-03-11 13:49:29"}
+{"level":"info","message":"Starting leap workflows for lead number 20: omegafi.com","timestamp":"2024-03-11 13:49:29"}
+{"level":"info","message":"Starting leap workflows for lead: 20, with query:, omegafi.com","timestamp":"2024-03-11 13:49:29"}
+{"level":"info","message":"Started leap workflows for lead: 20","timestamp":"2024-03-11 13:49:29"}
+{"level":"info","message":"Starting leap workflows for lead number 21: everyrealm.com","timestamp":"2024-03-11 13:49:29"}
+{"level":"info","message":"Starting leap workflows for lead: 21, with query:, everyrealm.com","timestamp":"2024-03-11 13:49:29"}
+{"level":"info","message":"Started leap workflows for lead: 21","timestamp":"2024-03-11 13:49:29"}
+{"level":"info","message":"Starting leap workflows for lead number 22: blockfi.com","timestamp":"2024-03-11 13:49:29"}
+{"level":"info","message":"Starting leap workflows for lead: 22, with query:, blockfi.com","timestamp":"2024-03-11 13:49:29"}
+{"level":"info","message":"Started leap workflows for lead: 22","timestamp":"2024-03-11 13:49:29"}
+{"level":"info","message":"Starting leap workflows for lead number 23: celsius.network","timestamp":"2024-03-11 13:49:29"}
+{"level":"info","message":"Starting leap workflows for lead: 23, with query:, celsius.network","timestamp":"2024-03-11 13:49:29"}
+{"level":"info","message":"Started leap workflows for lead: 23","timestamp":"2024-03-11 13:49:29"}
+{"level":"info","message":"Starting leap workflows for lead number 24: coinbooks.xyz","timestamp":"2024-03-11 13:49:29"}
+{"level":"info","message":"Starting leap workflows for lead: 24, with query:, coinbooks.xyz","timestamp":"2024-03-11 13:49:29"}
+{"level":"info","message":"Started leap workflows for lead: 24","timestamp":"2024-03-11 13:49:29"}
+{"level":"info","message":"Updating document f5b733ea-cd22-4935-b9dd-921fbe9cea89 to be paid","timestamp":"2024-03-11 13:52:13"}
+{"level":"info","message":"Updated document f5b733ea-cd22-4935-b9dd-921fbe9cea89 to be paid","timestamp":"2024-03-11 13:52:13"}
+{"level":"info","message":"Sending (processing leads) email to huzaifaahmed746@gmail.com","timestamp":"2024-03-11 13:52:13"}
+{"level":"error","message":401,"timestamp":"2024-03-11 13:52:13"}
+{"level":"info","message":"Starting leap workflows for document: f5b733ea-cd22-4935-b9dd-921fbe9cea89 with workflow: wkf_HtEOPPkrYBKIjl","timestamp":"2024-03-11 13:52:14"}
+{"level":"info","message":"Starting leap workflows for lead number 0: demand.io","timestamp":"2024-03-11 13:52:14"}
+{"level":"info","message":"Starting leap workflows for lead: 0, with query:, demand.io","timestamp":"2024-03-11 13:52:14"}
+{"level":"info","message":"Started leap workflows for lead: 0","timestamp":"2024-03-11 13:52:14"}
+{"level":"info","message":"Starting leap workflows for lead number 1: coinbase.com","timestamp":"2024-03-11 13:52:14"}
+{"level":"info","message":"Starting leap workflows for lead: 1, with query:, coinbase.com","timestamp":"2024-03-11 13:52:14"}
+{"level":"info","message":"Started leap workflows for lead: 1","timestamp":"2024-03-11 13:52:14"}
+{"level":"info","message":"Starting leap workflows for lead number 2: newton.co","timestamp":"2024-03-11 13:52:14"}
+{"level":"info","message":"Starting leap workflows for lead: 2, with query:, newton.co","timestamp":"2024-03-11 13:52:14"}
+{"level":"info","message":"Started leap workflows for lead: 2","timestamp":"2024-03-11 13:52:14"}
+{"level":"info","message":"Starting leap workflows for lead number 3: freeup.net","timestamp":"2024-03-11 13:52:14"}
+{"level":"info","message":"Starting leap workflows for lead: 3, with query:, freeup.net","timestamp":"2024-03-11 13:52:14"}
+{"level":"info","message":"Started leap workflows for lead: 3","timestamp":"2024-03-11 13:52:14"}
+{"level":"info","message":"Starting leap workflows for lead number 4: polygon.technology","timestamp":"2024-03-11 13:52:14"}
+{"level":"info","message":"Starting leap workflows for lead: 4, with query:, polygon.technology","timestamp":"2024-03-11 13:52:14"}
+{"level":"info","message":"Started leap workflows for lead: 4","timestamp":"2024-03-11 13:52:14"}
+{"level":"info","message":"Starting leap workflows for lead number 5: opensea.io","timestamp":"2024-03-11 13:52:14"}
+{"level":"info","message":"Starting leap workflows for lead: 5, with query:, opensea.io","timestamp":"2024-03-11 13:52:14"}
+{"level":"info","message":"Started leap workflows for lead: 5","timestamp":"2024-03-11 13:52:14"}
+{"level":"info","message":"Starting leap workflows for lead number 6: immutable.com","timestamp":"2024-03-11 13:52:14"}
+{"level":"info","message":"Starting leap workflows for lead: 6, with query:, immutable.com","timestamp":"2024-03-11 13:52:14"}
+{"level":"info","message":"Started leap workflows for lead: 6","timestamp":"2024-03-11 13:52:14"}
+{"level":"info","message":"Starting leap workflows for lead number 7: tron.network","timestamp":"2024-03-11 13:52:14"}
+{"level":"info","message":"Starting leap workflows for lead: 7, with query:, tron.network","timestamp":"2024-03-11 13:52:14"}
+{"level":"info","message":"Started leap workflows for lead: 7","timestamp":"2024-03-11 13:52:14"}
+{"level":"info","message":"Starting leap workflows for lead number 8: bitgo.com","timestamp":"2024-03-11 13:52:14"}
+{"level":"info","message":"Starting leap workflows for lead: 8, with query:, bitgo.com","timestamp":"2024-03-11 13:52:14"}
+{"level":"info","message":"Started leap workflows for lead: 8","timestamp":"2024-03-11 13:52:14"}
+{"level":"info","message":"Starting leap workflows for lead number 9: consensys.net","timestamp":"2024-03-11 13:52:14"}
+{"level":"info","message":"Starting leap workflows for lead: 9, with query:, consensys.net","timestamp":"2024-03-11 13:52:14"}
+{"level":"info","message":"Started leap workflows for lead: 9","timestamp":"2024-03-11 13:52:14"}
+{"level":"info","message":"Starting leap workflows for lead number 10: terra.money","timestamp":"2024-03-11 13:52:14"}
+{"level":"info","message":"Starting leap workflows for lead: 10, with query:, terra.money","timestamp":"2024-03-11 13:52:14"}
+{"level":"info","message":"Started leap workflows for lead: 10","timestamp":"2024-03-11 13:52:14"}
+{"level":"info","message":"Starting leap workflows for lead number 11: luno.com","timestamp":"2024-03-11 13:52:14"}
+{"level":"info","message":"Starting leap workflows for lead: 11, with query:, luno.com","timestamp":"2024-03-11 13:52:14"}
+{"level":"info","message":"Started leap workflows for lead: 11","timestamp":"2024-03-11 13:52:14"}
+{"level":"info","message":"Starting leap workflows for lead number 12: decenternet.com","timestamp":"2024-03-11 13:52:14"}
+{"level":"info","message":"Starting leap workflows for lead: 12, with query:, decenternet.com","timestamp":"2024-03-11 13:52:14"}
+{"level":"info","message":"Started leap workflows for lead: 12","timestamp":"2024-03-11 13:52:14"}
+{"level":"info","message":"Starting leap workflows for lead number 13: chaingrep.com","timestamp":"2024-03-11 13:52:14"}
+{"level":"info","message":"Starting leap workflows for lead: 13, with query:, chaingrep.com","timestamp":"2024-03-11 13:52:14"}
+{"level":"info","message":"Started leap workflows for lead: 13","timestamp":"2024-03-11 13:52:14"}
+{"level":"info","message":"Starting leap workflows for lead number 14: covalenthq.com","timestamp":"2024-03-11 13:52:14"}
+{"level":"info","message":"Starting leap workflows for lead: 14, with query:, covalenthq.com","timestamp":"2024-03-11 13:52:14"}
+{"level":"info","message":"Started leap workflows for lead: 14","timestamp":"2024-03-11 13:52:14"}
+{"level":"info","message":"Starting leap workflows for lead number 15: ufostart.com","timestamp":"2024-03-11 13:52:14"}
+{"level":"info","message":"Starting leap workflows for lead: 15, with query:, ufostart.com","timestamp":"2024-03-11 13:52:14"}
+{"level":"info","message":"Started leap workflows for lead: 15","timestamp":"2024-03-11 13:52:14"}
+{"level":"info","message":"Starting leap workflows for lead number 16: pillow.fund","timestamp":"2024-03-11 13:52:14"}
+{"level":"info","message":"Starting leap workflows for lead: 16, with query:, pillow.fund","timestamp":"2024-03-11 13:52:14"}
+{"level":"info","message":"Started leap workflows for lead: 16","timestamp":"2024-03-11 13:52:14"}
+{"level":"info","message":"Starting leap workflows for lead number 17: blockchains.com","timestamp":"2024-03-11 13:52:14"}
+{"level":"info","message":"Starting leap workflows for lead: 17, with query:, blockchains.com","timestamp":"2024-03-11 13:52:14"}
+{"level":"info","message":"Started leap workflows for lead: 17","timestamp":"2024-03-11 13:52:14"}
+{"level":"info","message":"Starting leap workflows for lead number 18: stormx.io","timestamp":"2024-03-11 13:52:14"}
+{"level":"info","message":"Starting leap workflows for lead: 18, with query:, stormx.io","timestamp":"2024-03-11 13:52:14"}
+{"level":"info","message":"Started leap workflows for lead: 18","timestamp":"2024-03-11 13:52:14"}
+{"level":"info","message":"Starting leap workflows for lead number 19: crucible.network","timestamp":"2024-03-11 13:52:14"}
+{"level":"info","message":"Starting leap workflows for lead: 19, with query:, crucible.network","timestamp":"2024-03-11 13:52:14"}
+{"level":"info","message":"Started leap workflows for lead: 19","timestamp":"2024-03-11 13:52:14"}
+{"level":"info","message":"Starting leap workflows for lead number 20: omegafi.com","timestamp":"2024-03-11 13:52:14"}
+{"level":"info","message":"Starting leap workflows for lead: 20, with query:, omegafi.com","timestamp":"2024-03-11 13:52:14"}
+{"level":"info","message":"Started leap workflows for lead: 20","timestamp":"2024-03-11 13:52:14"}
+{"level":"info","message":"Starting leap workflows for lead number 21: everyrealm.com","timestamp":"2024-03-11 13:52:14"}
+{"level":"info","message":"Starting leap workflows for lead: 21, with query:, everyrealm.com","timestamp":"2024-03-11 13:52:14"}
+{"level":"info","message":"Started leap workflows for lead: 21","timestamp":"2024-03-11 13:52:14"}
+{"level":"info","message":"Starting leap workflows for lead number 22: blockfi.com","timestamp":"2024-03-11 13:52:14"}
+{"level":"info","message":"Starting leap workflows for lead: 22, with query:, blockfi.com","timestamp":"2024-03-11 13:52:14"}
+{"level":"info","message":"Started leap workflows for lead: 22","timestamp":"2024-03-11 13:52:14"}
+{"level":"info","message":"Starting leap workflows for lead number 23: celsius.network","timestamp":"2024-03-11 13:52:14"}
+{"level":"info","message":"Starting leap workflows for lead: 23, with query:, celsius.network","timestamp":"2024-03-11 13:52:14"}
+{"level":"info","message":"Started leap workflows for lead: 23","timestamp":"2024-03-11 13:52:14"}
+{"level":"info","message":"Starting leap workflows for lead number 24: coinbooks.xyz","timestamp":"2024-03-11 13:52:14"}
+{"level":"info","message":"Starting leap workflows for lead: 24, with query:, coinbooks.xyz","timestamp":"2024-03-11 13:52:14"}
+{"level":"info","message":"Started leap workflows for lead: 24","timestamp":"2024-03-11 13:52:14"}
+{"level":"info","message":"Leap returned linkedin opensea.io for document undefined","timestamp":"2024-03-11 13:52:50"}
+{"level":"info","message":"Leap returned linkedin bitgo.com for document undefined","timestamp":"2024-03-11 13:52:50"}
+{"level":"info","message":"Leap returned linkedin consensys.net for document undefined","timestamp":"2024-03-11 13:52:50"}
+{"level":"info","message":"Leap returned linkedin celsius.network for document undefined","timestamp":"2024-03-11 13:52:57"}
+{"level":"info","message":"Leap returned linkedin ufostart.com for document undefined","timestamp":"2024-03-11 13:52:59"}
+{"level":"info","message":"Leap returned linkedin freeup.net for document undefined","timestamp":"2024-03-11 13:53:09"}
+{"level":"info","message":"Leap returned linkedin terra.money for document undefined","timestamp":"2024-03-11 13:53:12"}
+{"level":"info","message":"Leap returned linkedin blockchains.com for document undefined","timestamp":"2024-03-11 13:53:13"}
+{"level":"info","message":"Leap returned linkedin omegafi.com for document undefined","timestamp":"2024-03-11 13:53:14"}
+{"level":"info","message":"Leap returned linkedin immutable.com for document undefined","timestamp":"2024-03-11 13:53:18"}
+{"level":"info","message":"Leap returned linkedin pillow.fund for document undefined","timestamp":"2024-03-11 13:53:22"}
+{"level":"info","message":"Leap returned linkedin blockfi.com for document undefined","timestamp":"2024-03-11 13:53:22"}
+{"level":"info","message":"Leap returned linkedin luno.com for document undefined","timestamp":"2024-03-11 13:53:33"}
+{"level":"info","message":"Leap returned linkedin coinbase.com for document undefined","timestamp":"2024-03-11 13:53:33"}
+{"level":"info","message":"Leap returned linkedin crucible.network for document undefined","timestamp":"2024-03-11 13:53:35"}
+{"level":"info","message":"Leap returned linkedin covalenthq.com for document undefined","timestamp":"2024-03-11 13:53:42"}
+{"level":"info","message":"Leap returned linkedin coinbooks.xyz for document undefined","timestamp":"2024-03-11 13:53:48"}
+{"level":"info","message":"Leap returned linkedin demand.io for document undefined","timestamp":"2024-03-11 13:53:50"}
+{"level":"info","message":"Leap returned linkedin polygon.technology for document undefined","timestamp":"2024-03-11 13:53:51"}
+{"level":"info","message":"Leap returned linkedin tron.network for document undefined","timestamp":"2024-03-11 13:53:51"}
+{"level":"info","message":"Leap returned linkedin newton.co for document undefined","timestamp":"2024-03-11 13:53:52"}
+{"level":"info","message":"Leap returned linkedin decenternet.com for document undefined","timestamp":"2024-03-11 13:53:53"}
+{"level":"info","message":"Leap returned linkedin everyrealm.com for document undefined","timestamp":"2024-03-11 13:53:55"}
+{"level":"info","message":"Updating document 9b6541e9-5d20-44b3-a188-41ae435aeb69 to be paid","timestamp":"2024-03-11 13:56:02"}
+{"level":"info","message":"Updated document 9b6541e9-5d20-44b3-a188-41ae435aeb69 to be paid","timestamp":"2024-03-11 13:56:02"}
+{"level":"info","message":"Sending (processing leads) email to huzaifaahmed746@gmail.com","timestamp":"2024-03-11 13:56:02"}
+{"level":"error","message":401,"timestamp":"2024-03-11 13:56:02"}
+{"level":"info","message":"Starting leap workflows for document: 9b6541e9-5d20-44b3-a188-41ae435aeb69 with workflow: wkf_HtEOPPkrYBKIjl","timestamp":"2024-03-11 13:56:03"}
+{"level":"info","message":"Starting leap workflows for lead number 0: demand.io","timestamp":"2024-03-11 13:56:03"}
+{"level":"info","message":"Starting leap workflows for lead: 0, with query:, demand.io","timestamp":"2024-03-11 13:56:03"}
+{"level":"info","message":"Started leap workflows for lead: 0","timestamp":"2024-03-11 13:56:03"}
+{"level":"info","message":"Starting leap workflows for lead number 1: coinbase.com","timestamp":"2024-03-11 13:56:03"}
+{"level":"info","message":"Starting leap workflows for lead: 1, with query:, coinbase.com","timestamp":"2024-03-11 13:56:03"}
+{"level":"info","message":"Started leap workflows for lead: 1","timestamp":"2024-03-11 13:56:03"}
+{"level":"info","message":"Starting leap workflows for lead number 2: newton.co","timestamp":"2024-03-11 13:56:03"}
+{"level":"info","message":"Starting leap workflows for lead: 2, with query:, newton.co","timestamp":"2024-03-11 13:56:03"}
+{"level":"info","message":"Started leap workflows for lead: 2","timestamp":"2024-03-11 13:56:03"}
+{"level":"info","message":"Starting leap workflows for lead number 3: freeup.net","timestamp":"2024-03-11 13:56:03"}
+{"level":"info","message":"Starting leap workflows for lead: 3, with query:, freeup.net","timestamp":"2024-03-11 13:56:03"}
+{"level":"info","message":"Started leap workflows for lead: 3","timestamp":"2024-03-11 13:56:03"}
+{"level":"info","message":"Starting leap workflows for lead number 4: polygon.technology","timestamp":"2024-03-11 13:56:03"}
+{"level":"info","message":"Starting leap workflows for lead: 4, with query:, polygon.technology","timestamp":"2024-03-11 13:56:03"}
+{"level":"info","message":"Started leap workflows for lead: 4","timestamp":"2024-03-11 13:56:03"}
+{"level":"info","message":"Starting leap workflows for lead number 5: opensea.io","timestamp":"2024-03-11 13:56:03"}
+{"level":"info","message":"Starting leap workflows for lead: 5, with query:, opensea.io","timestamp":"2024-03-11 13:56:03"}
+{"level":"info","message":"Started leap workflows for lead: 5","timestamp":"2024-03-11 13:56:03"}
+{"level":"info","message":"Starting leap workflows for lead number 6: immutable.com","timestamp":"2024-03-11 13:56:03"}
+{"level":"info","message":"Starting leap workflows for lead: 6, with query:, immutable.com","timestamp":"2024-03-11 13:56:03"}
+{"level":"info","message":"Started leap workflows for lead: 6","timestamp":"2024-03-11 13:56:03"}
+{"level":"info","message":"Starting leap workflows for lead number 7: tron.network","timestamp":"2024-03-11 13:56:03"}
+{"level":"info","message":"Starting leap workflows for lead: 7, with query:, tron.network","timestamp":"2024-03-11 13:56:03"}
+{"level":"info","message":"Started leap workflows for lead: 7","timestamp":"2024-03-11 13:56:03"}
+{"level":"info","message":"Starting leap workflows for lead number 8: bitgo.com","timestamp":"2024-03-11 13:56:03"}
+{"level":"info","message":"Starting leap workflows for lead: 8, with query:, bitgo.com","timestamp":"2024-03-11 13:56:03"}
+{"level":"info","message":"Started leap workflows for lead: 8","timestamp":"2024-03-11 13:56:03"}
+{"level":"info","message":"Starting leap workflows for lead number 9: consensys.net","timestamp":"2024-03-11 13:56:03"}
+{"level":"info","message":"Starting leap workflows for lead: 9, with query:, consensys.net","timestamp":"2024-03-11 13:56:03"}
+{"level":"info","message":"Started leap workflows for lead: 9","timestamp":"2024-03-11 13:56:03"}
+{"level":"info","message":"Starting leap workflows for lead number 10: terra.money","timestamp":"2024-03-11 13:56:03"}
+{"level":"info","message":"Starting leap workflows for lead: 10, with query:, terra.money","timestamp":"2024-03-11 13:56:03"}
+{"level":"info","message":"Started leap workflows for lead: 10","timestamp":"2024-03-11 13:56:03"}
+{"level":"info","message":"Starting leap workflows for lead number 11: luno.com","timestamp":"2024-03-11 13:56:03"}
+{"level":"info","message":"Starting leap workflows for lead: 11, with query:, luno.com","timestamp":"2024-03-11 13:56:03"}
+{"level":"info","message":"Started leap workflows for lead: 11","timestamp":"2024-03-11 13:56:03"}
+{"level":"info","message":"Starting leap workflows for lead number 12: decenternet.com","timestamp":"2024-03-11 13:56:03"}
+{"level":"info","message":"Starting leap workflows for lead: 12, with query:, decenternet.com","timestamp":"2024-03-11 13:56:03"}
+{"level":"info","message":"Started leap workflows for lead: 12","timestamp":"2024-03-11 13:56:03"}
+{"level":"info","message":"Starting leap workflows for lead number 13: chaingrep.com","timestamp":"2024-03-11 13:56:03"}
+{"level":"info","message":"Starting leap workflows for lead: 13, with query:, chaingrep.com","timestamp":"2024-03-11 13:56:03"}
+{"level":"info","message":"Started leap workflows for lead: 13","timestamp":"2024-03-11 13:56:03"}
+{"level":"info","message":"Starting leap workflows for lead number 14: covalenthq.com","timestamp":"2024-03-11 13:56:03"}
+{"level":"info","message":"Starting leap workflows for lead: 14, with query:, covalenthq.com","timestamp":"2024-03-11 13:56:03"}
+{"level":"info","message":"Started leap workflows for lead: 14","timestamp":"2024-03-11 13:56:03"}
+{"level":"info","message":"Starting leap workflows for lead number 15: ufostart.com","timestamp":"2024-03-11 13:56:03"}
+{"level":"info","message":"Starting leap workflows for lead: 15, with query:, ufostart.com","timestamp":"2024-03-11 13:56:03"}
+{"level":"info","message":"Started leap workflows for lead: 15","timestamp":"2024-03-11 13:56:03"}
+{"level":"info","message":"Starting leap workflows for lead number 16: pillow.fund","timestamp":"2024-03-11 13:56:03"}
+{"level":"info","message":"Starting leap workflows for lead: 16, with query:, pillow.fund","timestamp":"2024-03-11 13:56:03"}
+{"level":"info","message":"Started leap workflows for lead: 16","timestamp":"2024-03-11 13:56:03"}
+{"level":"info","message":"Starting leap workflows for lead number 17: blockchains.com","timestamp":"2024-03-11 13:56:03"}
+{"level":"info","message":"Starting leap workflows for lead: 17, with query:, blockchains.com","timestamp":"2024-03-11 13:56:03"}
+{"level":"info","message":"Started leap workflows for lead: 17","timestamp":"2024-03-11 13:56:03"}
+{"level":"info","message":"Starting leap workflows for lead number 18: stormx.io","timestamp":"2024-03-11 13:56:03"}
+{"level":"info","message":"Starting leap workflows for lead: 18, with query:, stormx.io","timestamp":"2024-03-11 13:56:03"}
+{"level":"info","message":"Started leap workflows for lead: 18","timestamp":"2024-03-11 13:56:03"}
+{"level":"info","message":"Starting leap workflows for lead number 19: crucible.network","timestamp":"2024-03-11 13:56:03"}
+{"level":"info","message":"Starting leap workflows for lead: 19, with query:, crucible.network","timestamp":"2024-03-11 13:56:03"}
+{"level":"info","message":"Started leap workflows for lead: 19","timestamp":"2024-03-11 13:56:03"}
+{"level":"info","message":"Starting leap workflows for lead number 20: omegafi.com","timestamp":"2024-03-11 13:56:03"}
+{"level":"info","message":"Starting leap workflows for lead: 20, with query:, omegafi.com","timestamp":"2024-03-11 13:56:03"}
+{"level":"info","message":"Started leap workflows for lead: 20","timestamp":"2024-03-11 13:56:03"}
+{"level":"info","message":"Starting leap workflows for lead number 21: everyrealm.com","timestamp":"2024-03-11 13:56:03"}
+{"level":"info","message":"Starting leap workflows for lead: 21, with query:, everyrealm.com","timestamp":"2024-03-11 13:56:03"}
+{"level":"info","message":"Started leap workflows for lead: 21","timestamp":"2024-03-11 13:56:03"}
+{"level":"info","message":"Starting leap workflows for lead number 22: blockfi.com","timestamp":"2024-03-11 13:56:03"}
+{"level":"info","message":"Starting leap workflows for lead: 22, with query:, blockfi.com","timestamp":"2024-03-11 13:56:03"}
+{"level":"info","message":"Started leap workflows for lead: 22","timestamp":"2024-03-11 13:56:03"}
+{"level":"info","message":"Starting leap workflows for lead number 23: celsius.network","timestamp":"2024-03-11 13:56:03"}
+{"level":"info","message":"Starting leap workflows for lead: 23, with query:, celsius.network","timestamp":"2024-03-11 13:56:03"}
+{"level":"info","message":"Started leap workflows for lead: 23","timestamp":"2024-03-11 13:56:03"}
+{"level":"info","message":"Starting leap workflows for lead number 24: coinbooks.xyz","timestamp":"2024-03-11 13:56:03"}
+{"level":"info","message":"Starting leap workflows for lead: 24, with query:, coinbooks.xyz","timestamp":"2024-03-11 13:56:03"}
+{"level":"info","message":"Started leap workflows for lead: 24","timestamp":"2024-03-11 13:56:03"}
+{"level":"info","message":"Leap returned results for luno.com for document undefined","timestamp":"2024-03-11 13:56:36"}
+{"level":"info","message":"No linkedin data found for: luno.com","timestamp":"2024-03-11 13:56:37"}
+{"level":"info","message":"Leap returned results for tron.network for document undefined","timestamp":"2024-03-11 13:56:38"}
+{"level":"info","message":"No linkedin data found for: tron.network","timestamp":"2024-03-11 13:56:38"}
+{"level":"info","message":"Leap returned results for everyrealm.com for document undefined","timestamp":"2024-03-11 13:56:48"}
+{"level":"info","message":"No linkedin data found for: everyrealm.com","timestamp":"2024-03-11 13:56:49"}
+{"level":"info","message":"Leap returned results for omegafi.com for document undefined","timestamp":"2024-03-11 13:56:50"}
+{"level":"info","message":"No linkedin data found for: omegafi.com","timestamp":"2024-03-11 13:56:50"}
+{"level":"info","message":"Leap returned results for demand.io for document undefined","timestamp":"2024-03-11 13:56:51"}
+{"level":"info","message":"No linkedin data found for: demand.io","timestamp":"2024-03-11 13:56:51"}
+{"level":"info","message":"Leap returned results for covalenthq.com for document undefined","timestamp":"2024-03-11 13:56:52"}
+{"level":"info","message":"No linkedin data found for: covalenthq.com","timestamp":"2024-03-11 13:56:52"}
+{"level":"info","message":"Leap returned results for coinbooks.xyz for document undefined","timestamp":"2024-03-11 13:56:52"}
+{"level":"info","message":"No linkedin data found for: coinbooks.xyz","timestamp":"2024-03-11 13:56:53"}
+{"level":"info","message":"Leap returned results for newton.co for document undefined","timestamp":"2024-03-11 13:56:53"}
+{"level":"info","message":"Leap returned results for terra.money for document undefined","timestamp":"2024-03-11 13:56:53"}
+{"level":"info","message":"No linkedin data found for: newton.co","timestamp":"2024-03-11 13:56:54"}
+{"level":"info","message":"No linkedin data found for: terra.money","timestamp":"2024-03-11 13:56:54"}
+{"level":"info","message":"Leap returned results for opensea.io for document undefined","timestamp":"2024-03-11 13:56:56"}
+{"level":"info","message":"No linkedin data found for: opensea.io","timestamp":"2024-03-11 13:56:57"}
+{"level":"info","message":"Leap returned results for chaingrep.com for document undefined","timestamp":"2024-03-11 13:56:58"}
+{"level":"info","message":"No linkedin data found for: chaingrep.com","timestamp":"2024-03-11 13:56:58"}
+{"level":"info","message":"Leap returned results for immutable.com for document undefined","timestamp":"2024-03-11 13:57:00"}
+{"level":"info","message":"No linkedin data found for: immutable.com","timestamp":"2024-03-11 13:57:00"}
+{"level":"info","message":"Leap returned results for ufostart.com for document undefined","timestamp":"2024-03-11 13:57:04"}
+{"level":"info","message":"Leap returned results for bitgo.com for document undefined","timestamp":"2024-03-11 13:57:04"}
+{"level":"info","message":"No linkedin data found for: ufostart.com","timestamp":"2024-03-11 13:57:04"}
+{"level":"info","message":"No linkedin data found for: bitgo.com","timestamp":"2024-03-11 13:57:04"}
+{"level":"info","message":"Leap returned results for celsius.network for document undefined","timestamp":"2024-03-11 13:57:14"}
+{"level":"info","message":"No linkedin data found for: celsius.network","timestamp":"2024-03-11 13:57:14"}
+{"level":"info","message":"Leap returned results for consensys.net for document undefined","timestamp":"2024-03-11 13:57:21"}
+{"level":"info","message":"No linkedin data found for: consensys.net","timestamp":"2024-03-11 13:57:21"}
+{"level":"info","message":"Leap returned results for crucible.network for document undefined","timestamp":"2024-03-11 13:57:21"}
+{"level":"info","message":"No linkedin data found for: crucible.network","timestamp":"2024-03-11 13:57:22"}
+{"level":"info","message":"Leap returned results for coinbase.com for document undefined","timestamp":"2024-03-11 13:57:31"}
+{"level":"info","message":"No linkedin data found for: coinbase.com","timestamp":"2024-03-11 13:57:31"}
+{"level":"info","message":"Leap returned results for freeup.net for document undefined","timestamp":"2024-03-11 13:57:32"}
+{"level":"info","message":"No linkedin data found for: freeup.net","timestamp":"2024-03-11 13:57:32"}
+{"level":"info","message":"Leap returned results for polygon.technology for document undefined","timestamp":"2024-03-11 13:57:32"}
+{"level":"info","message":"No linkedin data found for: polygon.technology","timestamp":"2024-03-11 13:57:32"}
+{"level":"info","message":"Leap returned results for pillow.fund for document undefined","timestamp":"2024-03-11 13:57:33"}
+{"level":"info","message":"No linkedin data found for: pillow.fund","timestamp":"2024-03-11 13:57:34"}
+{"level":"info","message":"Leap returned results for decenternet.com for document undefined","timestamp":"2024-03-11 13:57:36"}
+{"level":"info","message":"No linkedin data found for: decenternet.com","timestamp":"2024-03-11 13:57:36"}
+{"level":"info","message":"Leap returned results for blockfi.com for document undefined","timestamp":"2024-03-11 13:57:41"}
+{"level":"info","message":"No linkedin data found for: blockfi.com","timestamp":"2024-03-11 13:57:41"}
+{"level":"info","message":"Leap returned results for blockchains.com for document undefined","timestamp":"2024-03-11 13:57:45"}
+{"level":"info","message":"No linkedin data found for: blockchains.com","timestamp":"2024-03-11 13:57:45"}
+{"level":"info","message":"Leap returned results for stormx.io for document undefined","timestamp":"2024-03-11 13:59:03"}
+{"level":"info","message":"Updating document 2482e54b-326f-46e9-b850-8cb0be19c85f to be paid","timestamp":"2024-03-11 14:00:40"}
+{"level":"info","message":"Updated document 2482e54b-326f-46e9-b850-8cb0be19c85f to be paid","timestamp":"2024-03-11 14:00:40"}
+{"level":"info","message":"Sending (processing leads) email to huzaifaahmed746@gmail.com","timestamp":"2024-03-11 14:00:40"}
+{"level":"error","message":401,"timestamp":"2024-03-11 14:00:40"}
+{"level":"info","message":"Starting leap workflows for document: 2482e54b-326f-46e9-b850-8cb0be19c85f with workflow: wkf_HtEOPPkrYBKIjl","timestamp":"2024-03-11 14:00:41"}
+{"level":"info","message":"Starting leap workflows for lead number 0: demand.io","timestamp":"2024-03-11 14:00:41"}
+{"level":"info","message":"Starting leap workflows for lead: 0, with query:, Demand.io — Network of AI-driven, community-centric e-commerce apps","timestamp":"2024-03-11 14:00:41"}
+{"level":"info","message":"Started leap workflows for lead: 0","timestamp":"2024-03-11 14:00:41"}
+{"level":"info","message":"Starting leap workflows for lead number 1: coinbase.com","timestamp":"2024-03-11 14:00:41"}
+{"level":"info","message":"Starting leap workflows for lead: 1, with query:, http://coinbase.com","timestamp":"2024-03-11 14:00:42"}
+{"level":"info","message":"Started leap workflows for lead: 1","timestamp":"2024-03-11 14:00:42"}
+{"level":"info","message":"Starting leap workflows for lead number 2: newton.co","timestamp":"2024-03-11 14:00:42"}
+{"level":"info","message":"Starting leap workflows for lead: 2, with query:, Easy crypto trading for Canadians | Newton","timestamp":"2024-03-11 14:00:43"}
+{"level":"info","message":"Started leap workflows for lead: 2","timestamp":"2024-03-11 14:00:43"}
+{"level":"info","message":"Starting leap workflows for lead number 3: freeup.net","timestamp":"2024-03-11 14:00:43"}
+{"level":"info","message":"Starting leap workflows for lead: 3, with query:, FreeUp","timestamp":"2024-03-11 14:00:44"}
+{"level":"info","message":"Started leap workflows for lead: 3","timestamp":"2024-03-11 14:00:44"}
+{"level":"info","message":"Starting leap workflows for lead number 4: polygon.technology","timestamp":"2024-03-11 14:00:44"}
+{"level":"info","message":"Starting leap workflows for lead: 4, with query:, Web3, Aggregated.","timestamp":"2024-03-11 14:00:45"}
+{"level":"info","message":"Started leap workflows for lead: 4","timestamp":"2024-03-11 14:00:45"}
+{"level":"info","message":"Starting leap workflows for lead number 5: opensea.io","timestamp":"2024-03-11 14:00:45"}
+{"level":"info","message":"Starting leap workflows for lead: 5, with query:, http://opensea.io","timestamp":"2024-03-11 14:00:45"}
+{"level":"info","message":"Started leap workflows for lead: 5","timestamp":"2024-03-11 14:00:45"}
+{"level":"info","message":"Starting leap workflows for lead number 6: immutable.com","timestamp":"2024-03-11 14:00:45"}
+{"level":"info","message":"Starting leap workflows for lead: 6, with query:, Immutable | Powering The Next Generation Of Web3 Games","timestamp":"2024-03-11 14:00:46"}
+{"level":"info","message":"Started leap workflows for lead: 6","timestamp":"2024-03-11 14:00:46"}
+{"level":"info","message":"Starting leap workflows for lead number 7: tron.network","timestamp":"2024-03-11 14:00:46"}
+{"level":"info","message":"Starting leap workflows for lead: 7, with query:, TRON Network | Decentralize The Web","timestamp":"2024-03-11 14:00:46"}
+{"level":"info","message":"Started leap workflows for lead: 7","timestamp":"2024-03-11 14:00:46"}
+{"level":"info","message":"Starting leap workflows for lead number 8: bitgo.com","timestamp":"2024-03-11 14:00:46"}
+{"level":"info","message":"Starting leap workflows for lead: 8, with query:, BitGo – How institutions and platforms securely access crypto ","timestamp":"2024-03-11 14:00:47"}
+{"level":"info","message":"Started leap workflows for lead: 8","timestamp":"2024-03-11 14:00:47"}
+{"level":"info","message":"Starting leap workflows for lead number 9: consensys.net","timestamp":"2024-03-11 14:00:47"}
+{"level":"info","message":"Starting leap workflows for lead: 9, with query:, Consensys","timestamp":"2024-03-11 14:00:48"}
+{"level":"info","message":"Started leap workflows for lead: 9","timestamp":"2024-03-11 14:00:48"}
+{"level":"info","message":"Starting leap workflows for lead number 10: terra.money","timestamp":"2024-03-11 14:00:48"}
+{"level":"info","message":"Starting leap workflows for lead: 10, with query:, Terra","timestamp":"2024-03-11 14:00:49"}
+{"level":"info","message":"Started leap workflows for lead: 10","timestamp":"2024-03-11 14:00:49"}
+{"level":"info","message":"Starting leap workflows for lead number 11: luno.com","timestamp":"2024-03-11 14:00:49"}
+{"level":"info","message":"Starting leap workflows for lead: 11, with query:, Luno","timestamp":"2024-03-11 14:00:50"}
+{"level":"info","message":"Started leap workflows for lead: 11","timestamp":"2024-03-11 14:00:50"}
+{"level":"info","message":"Starting leap workflows for lead number 12: decenternet.com","timestamp":"2024-03-11 14:00:50"}
+{"level":"info","message":"Starting leap workflows for lead: 12, with query:, DECENTERNET","timestamp":"2024-03-11 14:00:50"}
+{"level":"info","message":"Started leap workflows for lead: 12","timestamp":"2024-03-11 14:00:50"}
+{"level":"info","message":"Starting leap workflows for lead number 13: chaingrep.com","timestamp":"2024-03-11 14:00:50"}
+{"level":"info","message":"Starting leap workflows for lead: 13, with query:, http://chaingrep.com","timestamp":"2024-03-11 14:00:51"}
+{"level":"info","message":"Started leap workflows for lead: 13","timestamp":"2024-03-11 14:00:51"}
+{"level":"info","message":"Starting leap workflows for lead number 14: covalenthq.com","timestamp":"2024-03-11 14:00:51"}
+{"level":"info","message":"Starting leap workflows for lead: 14, with query:, Blockchain Data for the New Economy | Covalent","timestamp":"2024-03-11 14:00:51"}
+{"level":"info","message":"Started leap workflows for lead: 14","timestamp":"2024-03-11 14:00:51"}
+{"level":"info","message":"Starting leap workflows for lead number 15: ufostart.com","timestamp":"2024-03-11 14:00:51"}
+{"level":"info","message":"Starting leap workflows for lead: 15, with query:, UFOstart","timestamp":"2024-03-11 14:00:52"}
+{"level":"info","message":"Started leap workflows for lead: 15","timestamp":"2024-03-11 14:00:52"}
+{"level":"info","message":"Starting leap workflows for lead number 16: pillow.fund","timestamp":"2024-03-11 14:00:52"}
+{"level":"info","message":"Starting leap workflows for lead: 16, with query:, http://pillow.fund","timestamp":"2024-03-11 14:00:52"}
+{"level":"info","message":"Started leap workflows for lead: 16","timestamp":"2024-03-11 14:00:52"}
+{"level":"info","message":"Starting leap workflows for lead number 17: blockchains.com","timestamp":"2024-03-11 14:00:52"}
+{"level":"info","message":"Starting leap workflows for lead: 17, with query:, Blockchains","timestamp":"2024-03-11 14:00:53"}
+{"level":"info","message":"Started leap workflows for lead: 17","timestamp":"2024-03-11 14:00:53"}
+{"level":"info","message":"Starting leap workflows for lead number 18: stormx.io","timestamp":"2024-03-11 14:00:53"}
+{"level":"info","message":"Starting leap workflows for lead: 18, with query:, Earn Crypto While Shopping Online | StormX","timestamp":"2024-03-11 14:00:54"}
+{"level":"info","message":"Started leap workflows for lead: 18","timestamp":"2024-03-11 14:00:54"}
+{"level":"info","message":"Starting leap workflows for lead number 19: crucible.network","timestamp":"2024-03-11 14:00:54"}
+{"level":"info","message":"Leap returned results for chaingrep.com for document undefined","timestamp":"2024-03-11 14:00:54"}
+{"level":"info","message":"Starting leap workflows for lead: 19, with query:, Crucible Networks","timestamp":"2024-03-11 14:00:54"}
+{"level":"info","message":"Started leap workflows for lead: 19","timestamp":"2024-03-11 14:00:54"}
+{"level":"info","message":"Starting leap workflows for lead number 20: omegafi.com","timestamp":"2024-03-11 14:00:54"}
+{"level":"info","message":"Starting leap workflows for lead: 20, with query:, OmegaFi: Purpose-Built Chapter Management Software Solutions","timestamp":"2024-03-11 14:00:57"}
+{"level":"info","message":"Started leap workflows for lead: 20","timestamp":"2024-03-11 14:00:57"}
+{"level":"info","message":"Starting leap workflows for lead number 21: everyrealm.com","timestamp":"2024-03-11 14:00:57"}
+{"level":"info","message":"Starting leap workflows for lead: 21, with query:, Everyrealm | A social gaming and technology company","timestamp":"2024-03-11 14:00:58"}
+{"level":"info","message":"Started leap workflows for lead: 21","timestamp":"2024-03-11 14:00:58"}
+{"level":"info","message":"Starting leap workflows for lead number 22: blockfi.com","timestamp":"2024-03-11 14:00:58"}
+{"level":"info","message":"Starting leap workflows for lead: 22, with query:, BlockFi","timestamp":"2024-03-11 14:00:58"}
+{"level":"info","message":"Started leap workflows for lead: 22","timestamp":"2024-03-11 14:00:58"}
+{"level":"info","message":"Starting leap workflows for lead number 23: celsius.network","timestamp":"2024-03-11 14:00:58"}
+{"level":"info","message":"Starting leap workflows for lead: 23, with query:, http://celsius.network","timestamp":"2024-03-11 14:00:58"}
+{"level":"info","message":"Started leap workflows for lead: 23","timestamp":"2024-03-11 14:00:58"}
+{"level":"info","message":"Starting leap workflows for lead number 24: coinbooks.xyz","timestamp":"2024-03-11 14:00:58"}
+{"level":"info","message":"Starting leap workflows for lead: 24, with query:, Parked Domain name on Hostinger DNS system","timestamp":"2024-03-11 14:00:59"}
+{"level":"info","message":"Started leap workflows for lead: 24","timestamp":"2024-03-11 14:00:59"}
+{"level":"info","message":"Leap returned results for decenternet.com for document undefined","timestamp":"2024-03-11 14:01:19"}
+{"level":"info","message":"Leap returned results for stormx.io for document undefined","timestamp":"2024-03-11 14:09:48"}
+{"level":"info","message":"Updating document fed79c7b-b06f-4bf1-871a-2d67168759db to be paid","timestamp":"2024-03-11 15:46:34"}
+{"level":"info","message":"Updated document fed79c7b-b06f-4bf1-871a-2d67168759db to be paid","timestamp":"2024-03-11 15:46:35"}
+{"level":"info","message":"Sending (processing leads) email to huzaifa.a@berkeley.edu","timestamp":"2024-03-11 15:46:35"}
+{"level":"error","message":401,"timestamp":"2024-03-11 15:46:35"}
+{"level":"info","message":"Starting leap workflows for document: fed79c7b-b06f-4bf1-871a-2d67168759db with workflow: wkf_HtEOPPkrYBKIjl","timestamp":"2024-03-11 15:46:36"}
+{"level":"info","message":"Starting leap workflows for lead number 0: coinbase.com","timestamp":"2024-03-11 15:46:36"}
+{"level":"info","message":"Starting leap workflows for lead: 0, with query:, http://coinbase.com","timestamp":"2024-03-11 15:46:37"}
+{"level":"info","message":"Started leap workflows for lead: 0","timestamp":"2024-03-11 15:46:37"}
+{"level":"info","message":"Starting leap workflows for lead number 1: binance.com","timestamp":"2024-03-11 15:46:37"}
+{"level":"info","message":"Starting leap workflows for lead: 1, with query:, Binance","timestamp":"2024-03-11 15:46:38"}
+{"level":"info","message":"Started leap workflows for lead: 1","timestamp":"2024-03-11 15:46:38"}
+{"level":"info","message":"Starting leap workflows for lead number 2: kraken.com","timestamp":"2024-03-11 15:46:38"}
+{"level":"info","message":"Starting leap workflows for lead: 2, with query:, http://kraken.com","timestamp":"2024-03-11 15:46:39"}
+{"level":"info","message":"Started leap workflows for lead: 2","timestamp":"2024-03-11 15:46:39"}
+{"level":"info","message":"Starting leap workflows for lead number 3: bitfinex.com","timestamp":"2024-03-11 15:46:39"}
+{"level":"info","message":"Starting leap workflows for lead: 3, with query:, Bitfinex | Cryptocurrency Exchange | Bitcoin Trading | Futures Trading | Margin Trading","timestamp":"2024-03-11 15:46:40"}
+{"level":"info","message":"Started leap workflows for lead: 3","timestamp":"2024-03-11 15:46:40"}
+{"level":"info","message":"Starting leap workflows for lead number 4: bittrex.com","timestamp":"2024-03-11 15:46:40"}
+{"level":"info","message":"Starting leap workflows for lead: 4, with query:, Thanks from Bittrex","timestamp":"2024-03-11 15:46:40"}
+{"level":"info","message":"Started leap workflows for lead: 4","timestamp":"2024-03-11 15:46:40"}
+{"level":"info","message":"Leap returned results for decenternet.com for document undefined","timestamp":"2024-03-11 15:47:46"}
+{"level":"info","message":"Updating document 1639861c-0ae2-4c86-b2e6-adf8c3127de2 to be paid","timestamp":"2024-03-12 09:36:20"}
+{"level":"info","message":"Updated document 1639861c-0ae2-4c86-b2e6-adf8c3127de2 to be paid","timestamp":"2024-03-12 09:36:20"}
+{"level":"info","message":"Sending (processing leads) email to huzaifaahmed746@gmail.com","timestamp":"2024-03-12 09:36:20"}
+{"level":"error","message":401,"timestamp":"2024-03-12 09:36:20"}
+{"level":"info","message":"Updating document 97da4cc0-4248-4e4f-b6a8-03ad352f6ca5 to be paid","timestamp":"2024-03-12 09:40:59"}
+{"level":"info","message":"Updated document 97da4cc0-4248-4e4f-b6a8-03ad352f6ca5 to be paid","timestamp":"2024-03-12 09:40:59"}
+{"level":"info","message":"Sending (processing leads) email to huzaifaahmed746@gmail.com","timestamp":"2024-03-12 09:40:59"}
+{"level":"error","message":401,"timestamp":"2024-03-12 09:40:59"}
+{"level":"info","message":"Starting leap workflows for document: 97da4cc0-4248-4e4f-b6a8-03ad352f6ca5 with workflow: wkf_HtEOPPkrYBKIjl","timestamp":"2024-03-12 09:41:00"}
+{"level":"info","message":"Starting leap workflows for lead number 0: coinbase.com","timestamp":"2024-03-12 09:41:00"}
+{"level":"info","message":"Starting leap workflows for lead: 0, with query:, http://coinbase.com","timestamp":"2024-03-12 09:41:00"}
+{"level":"info","message":"Started leap workflows for lead: 0","timestamp":"2024-03-12 09:41:00"}
+{"level":"info","message":"Starting leap workflows for lead number 1: binance.com","timestamp":"2024-03-12 09:41:00"}
+{"level":"info","message":"Starting leap workflows for lead: 1, with query:, Binance","timestamp":"2024-03-12 09:41:02"}
+{"level":"info","message":"Started leap workflows for lead: 1","timestamp":"2024-03-12 09:41:02"}
+{"level":"info","message":"Starting leap workflows for lead number 2: kraken.com","timestamp":"2024-03-12 09:41:02"}
+{"level":"info","message":"Starting leap workflows for lead: 2, with query:, http://kraken.com","timestamp":"2024-03-12 09:41:03"}
+{"level":"info","message":"Started leap workflows for lead: 2","timestamp":"2024-03-12 09:41:03"}
+{"level":"info","message":"Starting leap workflows for lead number 3: bitfinex.com","timestamp":"2024-03-12 09:41:03"}
+{"level":"info","message":"Starting leap workflows for lead: 3, with query:, Bitfinex | Cryptocurrency Exchange | Bitcoin Trading | Futures Trading | Margin Trading","timestamp":"2024-03-12 09:41:04"}
+{"level":"info","message":"Started leap workflows for lead: 3","timestamp":"2024-03-12 09:41:04"}
+{"level":"info","message":"Starting leap workflows for lead number 4: bittrex.com","timestamp":"2024-03-12 09:41:04"}
+{"level":"info","message":"Starting leap workflows for lead: 4, with query:, Thanks from Bittrex","timestamp":"2024-03-12 09:41:05"}
+{"level":"info","message":"Started leap workflows for lead: 4","timestamp":"2024-03-12 09:41:05"}
+{"level":"info","message":"Updating document d4098873-5604-4e0d-a5a0-49b3f3251f0e to be paid","timestamp":"2024-03-12 09:46:23"}
+{"level":"info","message":"Updated document d4098873-5604-4e0d-a5a0-49b3f3251f0e to be paid","timestamp":"2024-03-12 09:46:24"}
+{"level":"info","message":"Sending (processing leads) email to huzaifaahmed746@gmail.com","timestamp":"2024-03-12 09:46:24"}
+{"level":"error","message":401,"timestamp":"2024-03-12 09:46:24"}
+{"level":"info","message":"Starting leap workflows for document: d4098873-5604-4e0d-a5a0-49b3f3251f0e with workflow: wkf_HtEOPPkrYBKIjl","timestamp":"2024-03-12 09:46:25"}
+{"level":"info","message":"Starting leap workflows for lead number 0: coinbase.com","timestamp":"2024-03-12 09:46:25"}
+{"level":"info","message":"Starting leap workflows for lead: 0, with query:, http://coinbase.com","timestamp":"2024-03-12 09:46:25"}
+{"level":"info","message":"Started leap workflows for lead: 0","timestamp":"2024-03-12 09:46:25"}
+{"level":"info","message":"Starting leap workflows for lead number 1: binance.com","timestamp":"2024-03-12 09:46:25"}
+{"level":"info","message":"Starting leap workflows for lead: 1, with query:, Binance","timestamp":"2024-03-12 09:46:27"}
+{"level":"info","message":"Started leap workflows for lead: 1","timestamp":"2024-03-12 09:46:27"}
+{"level":"info","message":"Starting leap workflows for lead number 2: kraken.com","timestamp":"2024-03-12 09:46:27"}
+{"level":"info","message":"Starting leap workflows for lead: 2, with query:, http://kraken.com","timestamp":"2024-03-12 09:46:27"}
+{"level":"info","message":"Started leap workflows for lead: 2","timestamp":"2024-03-12 09:46:27"}
+{"level":"info","message":"Starting leap workflows for lead number 3: bitfinex.com","timestamp":"2024-03-12 09:46:27"}
+{"level":"info","message":"Starting leap workflows for lead: 3, with query:, Bitfinex | Cryptocurrency Exchange | Bitcoin Trading | Futures Trading | Margin Trading","timestamp":"2024-03-12 09:46:28"}
+{"level":"info","message":"Started leap workflows for lead: 3","timestamp":"2024-03-12 09:46:28"}
+{"level":"info","message":"Starting leap workflows for lead number 4: bittrex.com","timestamp":"2024-03-12 09:46:28"}
+{"level":"info","message":"Starting leap workflows for lead: 4, with query:, Thanks from Bittrex","timestamp":"2024-03-12 09:46:29"}
+{"level":"info","message":"Started leap workflows for lead: 4","timestamp":"2024-03-12 09:46:29"}
+{"level":"info","message":"Leap returned results for kraken.com for document d4098873-5604-4e0d-a5a0-49b3f3251f0e","timestamp":"2024-03-12 09:47:02"}
+{"level":"info","message":"Leap returned results for coinbase.com for document d4098873-5604-4e0d-a5a0-49b3f3251f0e","timestamp":"2024-03-12 09:47:02"}
+{"level":"info","message":"Leap returned results for binance.com for document d4098873-5604-4e0d-a5a0-49b3f3251f0e","timestamp":"2024-03-12 09:47:03"}
+{"level":"info","message":"Leap returned results for bitfinex.com for document d4098873-5604-4e0d-a5a0-49b3f3251f0e","timestamp":"2024-03-12 09:47:03"}
+{"level":"info","message":"Leap returned results for bittrex.com for document d4098873-5604-4e0d-a5a0-49b3f3251f0e","timestamp":"2024-03-12 09:47:34"}
+{"level":"info","message":"Updating document a6e187e1-1c12-47ed-a514-8a4a814618fd to be paid","timestamp":"2024-03-12 10:00:18"}
+{"level":"info","message":"Updated document a6e187e1-1c12-47ed-a514-8a4a814618fd to be paid","timestamp":"2024-03-12 10:00:18"}
+{"level":"info","message":"Sending (processing leads) email to huzaifaahmed746@gmail.com","timestamp":"2024-03-12 10:00:18"}
+{"level":"error","message":401,"timestamp":"2024-03-12 10:00:19"}
+{"level":"info","message":"Starting leap workflows for document: a6e187e1-1c12-47ed-a514-8a4a814618fd with workflow: wkf_HtEOPPkrYBKIjl","timestamp":"2024-03-12 10:00:21"}
+{"level":"info","message":"Starting leap workflows for lead number 0: coinbase.com","timestamp":"2024-03-12 10:00:21"}
+{"level":"info","message":"Starting leap workflows for lead: 0, with query:, http://coinbase.com","timestamp":"2024-03-12 10:00:22"}
+{"level":"info","message":"Started leap workflows for lead: 0","timestamp":"2024-03-12 10:00:22"}
+{"level":"info","message":"Starting leap workflows for lead number 1: binance.com","timestamp":"2024-03-12 10:00:22"}
+{"level":"info","message":"Starting leap workflows for lead: 1, with query:, Binance","timestamp":"2024-03-12 10:00:23"}
+{"level":"info","message":"Started leap workflows for lead: 1","timestamp":"2024-03-12 10:00:23"}
+{"level":"info","message":"Starting leap workflows for lead number 2: kraken.com","timestamp":"2024-03-12 10:00:23"}
+{"level":"info","message":"Starting leap workflows for lead: 2, with query:, http://kraken.com","timestamp":"2024-03-12 10:00:24"}
+{"level":"info","message":"Started leap workflows for lead: 2","timestamp":"2024-03-12 10:00:24"}
+{"level":"info","message":"Starting leap workflows for lead number 3: bitfinex.com","timestamp":"2024-03-12 10:00:24"}
+{"level":"info","message":"Starting leap workflows for lead: 3, with query:, Bitfinex | Cryptocurrency Exchange | Bitcoin Trading | Futures Trading | Margin Trading","timestamp":"2024-03-12 10:00:25"}
+{"level":"info","message":"Started leap workflows for lead: 3","timestamp":"2024-03-12 10:00:25"}
+{"level":"info","message":"Starting leap workflows for lead number 4: bittrex.com","timestamp":"2024-03-12 10:00:25"}
+{"level":"info","message":"Starting leap workflows for lead: 4, with query:, Thanks from Bittrex","timestamp":"2024-03-12 10:00:26"}
+{"level":"info","message":"Started leap workflows for lead: 4","timestamp":"2024-03-12 10:00:26"}
+{"level":"info","message":"Leap returned results for kraken.com for document a6e187e1-1c12-47ed-a514-8a4a814618fd","timestamp":"2024-03-12 10:01:06"}
+{"level":"info","message":"Leap returned results for bittrex.com for document a6e187e1-1c12-47ed-a514-8a4a814618fd","timestamp":"2024-03-12 10:01:09"}
+{"level":"info","message":"Leap returned results for bitfinex.com for document a6e187e1-1c12-47ed-a514-8a4a814618fd","timestamp":"2024-03-12 10:01:11"}
+{"level":"info","message":"Leap returned results for coinbase.com for document a6e187e1-1c12-47ed-a514-8a4a814618fd","timestamp":"2024-03-12 10:01:11"}
+{"level":"info","message":"Leap returned results for binance.com for document a6e187e1-1c12-47ed-a514-8a4a814618fd","timestamp":"2024-03-12 10:01:14"}
+{"level":"info","message":"Leap returned results for bittrex.com for document a6e187e1-1c12-47ed-a514-8a4a814618fd","timestamp":"2024-03-12 10:01:19"}
+{"level":"info","message":"Leap returned results for bittrex.com for document a6e187e1-1c12-47ed-a514-8a4a814618fd","timestamp":"2024-03-12 10:04:03"}
+{"level":"info","message":"Leap returned results for bittrex.com for document a6e187e1-1c12-47ed-a514-8a4a814618fd","timestamp":"2024-03-12 10:04:57"}
+{"level":"info","message":"Leap returned results for coinbase.com for document a6e187e1-1c12-47ed-a514-8a4a814618fd","timestamp":"2024-03-12 10:09:15"}
+{"level":"info","message":"Leap returned results for binance.com for document a6e187e1-1c12-47ed-a514-8a4a814618fd","timestamp":"2024-03-12 10:09:18"}
+{"level":"info","message":"Leap returned results for kraken.com for document a6e187e1-1c12-47ed-a514-8a4a814618fd","timestamp":"2024-03-12 10:09:22"}
+{"level":"info","message":"Leap returned results for bitfinex.com for document a6e187e1-1c12-47ed-a514-8a4a814618fd","timestamp":"2024-03-12 10:09:24"}
+{"level":"info","message":"Leap returned results for bittrex.com for document a6e187e1-1c12-47ed-a514-8a4a814618fd","timestamp":"2024-03-12 10:09:26"}
+{"level":"info","message":"Updating document b6a2eaab-5cea-41d7-a492-7cd24e8b151a to be paid","timestamp":"2024-03-12 11:07:42"}
+{"level":"info","message":"Updated document b6a2eaab-5cea-41d7-a492-7cd24e8b151a to be paid","timestamp":"2024-03-12 11:07:42"}
+{"level":"info","message":"Sending (processing leads) email to huzaifa.a@berkeley.edu","timestamp":"2024-03-12 11:07:42"}
+{"level":"error","message":401,"timestamp":"2024-03-12 11:07:42"}
+{"level":"info","message":"Starting leap workflows for document: b6a2eaab-5cea-41d7-a492-7cd24e8b151a with workflow: wkf_H5yOYc7A6CHr73","timestamp":"2024-03-12 11:07:43"}
+{"level":"info","message":"Starting leap workflows for lead number 0: bill.gates@gatesfoundation.org","timestamp":"2024-03-12 11:07:43"}
+{"level":"info","message":"Lead already exists in profiles: bill.gates@gatesfoundation.org","timestamp":"2024-03-12 11:07:43"}
+{"level":"info","message":"Starting leap workflows for lead number 1: depue@openai.com","timestamp":"2024-03-12 11:07:43"}
+{"level":"info","message":"Lead already exists in profiles: depue@openai.com","timestamp":"2024-03-12 11:07:44"}
+{"level":"info","message":"Starting leap workflows for lead number 2: dylan@figma.com","timestamp":"2024-03-12 11:07:44"}
+{"level":"info","message":"Lead already exists in profiles: dylan@figma.com","timestamp":"2024-03-12 11:07:44"}
+{"level":"info","message":"Starting leap workflows for lead number 3: farza@buildspace.so","timestamp":"2024-03-12 11:07:44"}
+{"level":"info","message":"Lead already exists in profiles: farza@buildspace.so","timestamp":"2024-03-12 11:07:44"}
+{"level":"info","message":"Starting leap workflows for lead number 4: furqan@f.inc","timestamp":"2024-03-12 11:07:44"}
+{"level":"info","message":"Lead already exists in profiles: furqan@f.inc","timestamp":"2024-03-12 11:07:44"}
+{"level":"info","message":"Starting leap workflows for lead number 5: hubert@f.inc","timestamp":"2024-03-12 11:07:44"}
+{"level":"info","message":"Lead already exists in profiles: hubert@f.inc","timestamp":"2024-03-12 11:07:44"}
+{"level":"info","message":"Starting leap workflows for lead number 6: huzaifa@f.inc","timestamp":"2024-03-12 11:07:44"}
+{"level":"info","message":"Lead already exists in profiles: huzaifa@f.inc","timestamp":"2024-03-12 11:07:45"}
+{"level":"info","message":"Starting leap workflows for lead number 7: omar@f.inc","timestamp":"2024-03-12 11:07:45"}
+{"level":"info","message":"Lead already exists in profiles: omar@f.inc","timestamp":"2024-03-12 11:07:45"}
+{"level":"info","message":"Starting leap workflows for lead number 8: stey@vercel.com","timestamp":"2024-03-12 11:07:45"}
+{"level":"info","message":"Lead already exists in profiles: stey@vercel.com","timestamp":"2024-03-12 11:07:45"}

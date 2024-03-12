@@ -4,15 +4,14 @@ import {
   getSubscription
 } from '@/app/supabase-server';
 import Dashboard from '@/components/Dashboard';
-import Home from '@/components/Home';
-import { useState } from 'react';
+import Web3Dashboard from '@/components/Web3Dashboard';
 
-export default async function PricingPage() {
+export default async function Web3Page() {
   const [session, products, subscription] = await Promise.all([
     getSession(),
     getActiveProductsWithPrices(),
     getSubscription()
   ]);
 
-  return <Home user={session?.user} />;
+  return <Dashboard user={session?.user} web3 />;
 }

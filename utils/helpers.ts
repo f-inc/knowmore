@@ -19,22 +19,27 @@ export const getURL = () => {
 };
 
 export const postData = async ({ url, data }: { url: string; data?: any }) => {
-  console.log('posting,', url, data);
+  console.log('posting,', url);
 
-  const res = await fetch(url, {
-    method: 'POST',
-    headers: new Headers({ 'Content-Type': 'application/json' }),
-    credentials: 'same-origin',
-    body: JSON.stringify(data)
-  });
+  try {
+    const res = await fetch(url, {
+      method: 'POST',
+      headers: new Headers({ 'Content-Type': 'application/json' }),
+      credentials: 'same-origin',
+      body: JSON.stringify(data)
+    });
 
-  if (!res.ok) {
-    console.log('Error in postData', { url, data, res });
+    if (!res.ok) {
+      console.log('Error in postData', { url, data, res });
 
-    throw Error(res.statusText);
+      throw Error(res.statusText);
+    }
+
+    return res.json();
+  } catch (error) {
+    console.error('Error in postData', { url, data, error });
+    throw error;
   }
-
-  return res.json();
 };
 
 export const toDateTime = (secs: number) => {
@@ -48,6 +53,10 @@ export async function getOgTitle(url: string): Promise<string> {
 
   if (url in CommonEmailProviders) {
     return url;
+  }
+
+  if (!url.includes('http')) {
+    url = `https://${url}`;
   }
 
   const httpsAgent = new https.Agent({ rejectUnauthorized: false });
@@ -67,8 +76,8 @@ export async function getOgTitle(url: string): Promise<string> {
 }
 
 export type LeadDataType = {
-  document_id: string;
-  email: string;
+  document_id?: string;
+  email?: string;
   person_full_name?: string;
   person_linkedin_url?: string;
   person_twitter_url?: string;
@@ -91,4 +100,6 @@ export type LeadDataType = {
   company_money_raised?: string;
   company_metrics_annual_revenue?: string;
   company_tech_stack?: string;
+
+  person_email: string;
 };
