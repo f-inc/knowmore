@@ -20,7 +20,7 @@ type DashboardProps = {
   web3?: boolean;
 };
 
-const Dashboard: React.FC<DashboardProps> = ({ user, web3 = false }) => {
+const Web3Dashboard: React.FC<DashboardProps> = ({ user }) => {
   const [documents, setDocuments] = useState<UserDocument[]>([]);
   const [isModalOpen, setIsModalOpen] = useState(false);
 
@@ -45,7 +45,7 @@ const Dashboard: React.FC<DashboardProps> = ({ user, web3 = false }) => {
         .from('documents')
         .select('*')
         .eq('owner', user.id)
-        .eq('type', web3 ? 'domain' : 'email');
+        .eq('web3', true);
 
       console.log('data:', data);
 
@@ -76,13 +76,10 @@ const Dashboard: React.FC<DashboardProps> = ({ user, web3 = false }) => {
         <div className="flex justify-between items-center mb-8">
           <div className="flex items-center gap-4 align-center">
             <h1 className="text-3xl font-bold text-white">Lead Enrichment</h1>
-            {web3 && (
-              <p className="bg-[#E85533] text-white rounded-full p-2 text-xs font-bold mt-2 w-max bg-opacity-40">
-                Web3
-              </p>
-            )}
+            <p className="bg-[#E85533] text-white rounded-full p-2 text-xs font-bold mt-2 w-max bg-opacity-40">
+              Web3
+            </p>
           </div>
-
           <div>
             <button
               className="bg-[#E85533] hover:bg-orange-700 text-white"
@@ -104,12 +101,11 @@ const Dashboard: React.FC<DashboardProps> = ({ user, web3 = false }) => {
           </div>
         </div>
         <p className="m-auto text-white text-sm mt-4 mb-4">
-          Upload a CSV containing emails or company domains, and we will enhance
-          your list with over 100 data points about individuals and companies,
-          including job titles and company sizes. These enriched details are
-          available for purchase and download, allowing you to create detailed
-          profiles for the entities in your list. For additional details, check
-          out the sample report provided below.
+          Upload a CSV containing company domains, and we will enhance your
+          list. These enriched details are available for purchase and download,
+          allowing you to create detailed profiles for the entities in your
+          list. For additional details, check out the sample report provided
+          below.
         </p>
 
         <div className="flex flex-wrap -mx-2">
@@ -151,10 +147,9 @@ const Dashboard: React.FC<DashboardProps> = ({ user, web3 = false }) => {
         user={user}
         isOpen={isModalOpen}
         onClose={() => setIsModalOpen(false)}
-        type={web3 ? 'domain' : 'email'}
       />
     </div>
   );
 };
 
-export default Dashboard;
+export default Web3Dashboard;

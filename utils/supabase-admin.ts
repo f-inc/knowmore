@@ -1,3 +1,4 @@
+import { DocumentType } from './constants/types';
 import { getOgTitle, getURL, postData, toDateTime } from './helpers';
 import { stripe } from './stripe';
 import logger from '@/logger';
@@ -277,10 +278,15 @@ const onUpload = async (document_id: string, user_email: string) => {
  * @param customer_email - the email of the customer who paid for the document
  * @returns - the updated document
  */
-const onPaid = async (document_id: string, customer_email: string) => {
+const onPaid = async (
+  document_id: string,
+  customer_email: string,
+  type?: DocumentType | undefined
+): Promise<void> => {
   try {
     logger.info(`Updating document ${document_id} to be paid`);
-    const { data: documentData, error: documentError } = await supabaseAdmin
+
+    const { data: updatedData, error: updatedError } = await supabaseAdmin
       .from('documents')
       .update({
         paid: true,
@@ -289,56 +295,109 @@ const onPaid = async (document_id: string, customer_email: string) => {
       })
       .eq('id', document_id);
 
-    logger.info(`Updated document ${document_id} to be paid`);
-
-    const { data: leadData, error: leadError } = await supabaseAdmin
-      .from('leads')
-      .select('email')
-      .eq('document_id', document_id);
-
-    if (!leadData) {
-      throw leadError;
+    if (updatedError) {
+      throw updatedError;
     }
+
+    logger.info(`Updated document ${document_id} to be paid`);
 
     logger.info(`Sending (processing leads) email to ${customer_email}`);
 
-    const request = new SendEmailRequest({
-      transactional_message_id: '3',
-      message_data: {
-        lead_count: leadData.length
-      },
-      identifiers: {
-        id: document_id
-      },
-      to: customer_email,
-      from: 'omar@knowmore.bot'
-    });
+    const { data: documentData, error: documentError } = await supabaseAdmin
+      .from('documents')
+      .select('*')
+      .eq('id', document_id)
+      .single();
 
-    await customerio_client
-      .sendEmail(request)
-      .then((res: any) =>
-        logger.info(`Sent processing leads to ${customer_email}, ${res}`)
-      )
-      .catch((err: any) => logger.error(err.statusCode, err.message));
+    if (!documentData) throw 'No document found with id: ' + document_id;
+    sendEmail(document_id, customer_email, documentData?.total_leads);
 
-    if (documentError) {
-      throw documentError;
-    }
-
-    // batch code
-    for (let i = 0; i < leadData.length; i += 200) {
-      const leads = leadData.slice(i, i + 200);
-      postData({
-        url: `${getURL()}/api/leap/process-emails`,
-        data: {
-          document_id,
-          leads
-        }
-      });
+    switch (type) {
+      case 'email':
+        await processEmailDocument(document_id);
+        break;
+      case 'domain':
+        await processDomainDocument(document_id);
+        break;
+      default:
+        throw new Error('Unsupported document type');
     }
   } catch (error) {
     console.error('Error updating document:', error);
   }
+};
+
+const processEmailDocument = async (document_id: string) => {
+  const { data: leadData, error: leadError } = await supabaseAdmin
+    .from('leads')
+    .select('email')
+    .eq('document_id', document_id);
+
+  if (!leadData) {
+    throw leadError;
+  }
+
+  for (let i = 0; i < leadData.length; i += 200) {
+    const leads = leadData.slice(i, i + 200);
+    postData({
+      url: `${getURL()}/api/leap/emails/process`,
+      data: {
+        document_id,
+        leads
+      }
+    });
+  }
+};
+
+const processDomainDocument = async (document_id: string) => {
+  const { data, error: leadError } = await supabaseAdmin
+    .from('domains')
+    .select('*')
+    .eq('document_id', document_id);
+
+  if (!data) {
+    throw 'No data found for document_id: ' + document_id;
+  }
+  if (leadError) {
+    throw leadError;
+  }
+
+  for (let i = 0; i < data.length; i += 200) {
+    const leads = data.slice(i, i + 200);
+
+    postData({
+      url: `${getURL()}/api/leap/domains/process`,
+      data: {
+        document_id,
+        leads
+      }
+    });
+  }
+};
+
+const sendEmail = async (
+  document_id: string,
+  customer_email: string,
+  total_leads: number
+) => {
+  const request = new SendEmailRequest({
+    transactional_message_id: '3',
+    message_data: {
+      lead_count: total_leads
+    },
+    identifiers: {
+      id: document_id
+    },
+    to: customer_email,
+    from: 'omar@knowmore.bot'
+  });
+
+  await customerio_client
+    .sendEmail(request)
+    .then((res: any) =>
+      logger.info(`Sent processing leads to ${customer_email}, ${res}`)
+    )
+    .catch((err: any) => logger.error(err.statusCode, err.message));
 };
 
 const processEmails = async (document_id: string, leadData: any) => {
@@ -352,7 +411,6 @@ const processEmails = async (document_id: string, leadData: any) => {
 
     logger.info(`Starting leap workflows for lead number ${lead}: ${email}`);
 
-    // first check if email already exists in profiles
     const { data: profileData, error: profileError } = await supabaseAdmin
       .from('profiles')
       .select('*')
@@ -374,13 +432,11 @@ const processEmails = async (document_id: string, leadData: any) => {
         } `
       );
 
-      const leap_webhook_url = process.env.LEAP_WEBHOOK_URL;
-
-      if (leap_webhook_url) console.log('leap_webhook_url:', leap_webhook_url);
+      const LEAP_WEBHOOK_URL = process.env.LEAP_WEBHOOK_URL;
 
       const run = leap.workflowRuns.workflow({
         workflow_id,
-        webhook_url: leap_webhook_url ?? `${getURL()}/api/leap/webhook`,
+        webhook_url: `${LEAP_WEBHOOK_URL ?? getURL()}/api/leap/emails/webhook`,
         input: {
           email_of_lead: email,
           search_input: name,
@@ -422,6 +478,46 @@ const processEmails = async (document_id: string, leadData: any) => {
 
       if (leadUpdateError) throw leadUpdateError;
     }
+  }
+};
+
+const processDomains = async (document_id: string, leadData: any) => {
+  const workflow_id = 'wkf_HtEOPPkrYBKIjl';
+
+  logger.info(
+    `Starting leap workflows for document: ${document_id} with workflow: ${workflow_id}`
+  );
+
+  for (const lead in leadData) {
+    const { domain } = leadData[lead];
+
+    logger.info(`Starting leap workflows for lead number ${lead}: ${domain}`);
+
+    const websiteTitle = await getOgTitle(domain);
+
+    logger.info(
+      `Starting leap workflows for lead: ${lead}, with query:, ${websiteTitle}`
+    );
+
+    const LEAP_WEBHOOK_URL = process.env.LEAP_WEBHOOK_URL;
+
+    const webhook_url = `${
+      LEAP_WEBHOOK_URL ?? getURL()
+    }api/leap/domains/webhook`;
+
+    console.log('webhook_url:', webhook_url);
+
+    leap.workflowRuns.workflow({
+      workflow_id,
+      webhook_url: webhook_url,
+      input: {
+        domain,
+        websitetitle: websiteTitle,
+        document_id
+      }
+    });
+
+    logger.info(`Started leap workflows for lead: ${lead}`);
   }
 };
 
@@ -607,6 +703,76 @@ const onProcessed = async (workflowResult: any) => {
   }
 };
 
+const onDomainsProcessed = async (workflowResult: any) => {
+  try {
+    const { document_id: documentId, domain } = workflowResult.input;
+    console.log(workflowResult.output);
+
+    logger.info(
+      `Leap returned results for ${domain} for document ${documentId}`
+    );
+
+    if (!documentId || !domain) {
+      throw new Error('Invalid input');
+    }
+
+    await supabaseAdmin
+      .from('domains')
+      .update({ processed: true })
+      .eq('document_id', documentId)
+      .eq('domain', domain);
+
+    if (!workflowResult.output.linkedin) {
+      logger.info(`No linkedin data found for: ${domain}`);
+      return;
+    }
+
+    const repairedJSON = jsonrepair(workflowResult.output.linkedin);
+
+    const parsedData = JSON.parse(repairedJSON);
+
+    const {
+      person_full_name,
+      relevant_info,
+      person_email,
+      person_linkedin_url,
+      person_twitter_url,
+      person_telegram_url,
+      company_name,
+      company_website,
+      company_description,
+      citations
+    } = parsedData;
+
+    const updateData = {
+      person_full_name,
+      relevant_info,
+      person_email,
+      person_linkedin_url,
+      person_twitter_url,
+      person_telegram_url,
+      company_name,
+      company_website,
+      company_description,
+      processed: true
+    };
+
+    const { data, error } = await supabaseAdmin.from('domains').upsert({
+      document_id: documentId,
+      domain,
+      ...updateData
+    });
+
+    console.log('updated domain data', data);
+
+    if (error) {
+      throw error;
+    }
+  } catch (error) {
+    console.error('Error updating document:', error);
+  }
+};
+
 // get document by id
 const getDocument = async (id: string) => {
   const { data, error } = await supabaseAdmin
@@ -630,5 +796,7 @@ export {
   onProcessed,
   processEmails,
   checkProcessed,
-  getDocument
+  getDocument,
+  processDomains,
+  onDomainsProcessed
 };

@@ -17,13 +17,12 @@ export const getStripe = () => {
 
 export const createOneTimeCheckoutSession = async ({
   priceId,
-  document_id,
-  quantity
+  quantity,
+  metadata
 }: {
   priceId: string;
-  document_id: string;
-  product_id: string;
   quantity: number;
+  metadata: { document_id: string; document_type: string };
 }): Promise<{ sessionId: string }> => {
   try {
     const { sessionId } = await postData({
@@ -33,10 +32,8 @@ export const createOneTimeCheckoutSession = async ({
           id: priceId,
           type: 'one_time'
         },
-        metadata: {
-          document_id
-        },
-        redirectURL: `/success?document_id=${document_id}`,
+        metadata,
+        redirectURL: `/success?document_id=${metadata.document_id}`,
         quantity: quantity
       }
     });

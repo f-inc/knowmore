@@ -1,4 +1,5 @@
 import { AnalyticsEvents } from '@/utils/constants/AnalyticsEvents';
+import { DocumentType } from '@/utils/constants/types';
 import { createOneTimeCheckoutSession, getStripe } from '@/utils/stripe-client';
 import { User } from '@supabase/supabase-js';
 import { useRouter } from 'next/navigation';
@@ -27,13 +28,13 @@ const CheckoutCard: React.FC<LeadCardProps> = ({ document, lead, user }) => {
   const router = useRouter();
 
   const [numLeads, setNumLeads] = useState(0);
-  const [price, setPrice] = useState(0);
+  const [documentType, setDocumentType] = useState<DocumentType>('email');
 
   useEffect(() => {
     if (!document || document?.paid || !document?.total_leads) return;
 
     setNumLeads(document?.total_leads);
-    setPrice(Math.floor(numLeads * 0.5 * 100) / 100);
+    setDocumentType(document?.type);
   }, [document]);
 
   const handleCheckout = async () => {
@@ -55,9 +56,8 @@ const CheckoutCard: React.FC<LeadCardProps> = ({ document, lead, user }) => {
     try {
       const { sessionId } = await createOneTimeCheckoutSession({
         priceId: priceID,
-        document_id,
-        product_id: productID,
-        quantity: numLeads
+        quantity: numLeads,
+        metadata: { document_id, document_type: documentType }
       });
 
       posthog.capture(AnalyticsEvents.Checkout.CheckoutCreated, {
@@ -149,7 +149,7 @@ const CheckoutCard: React.FC<LeadCardProps> = ({ document, lead, user }) => {
           }}
         >
           {user
-            ? `Process ${numLeads} emails (at 50¢ per lead)`
+            ? `Process ${numLeads} ${documentType}s (at 50¢ per lead)`
             : 'Login to view'}
         </button>
       </div>

@@ -1,4 +1,5 @@
 import { useSupabase } from '@/app/supabase-provider';
+import { DocumentType } from '@/utils/constants/types';
 import { LeadDataType } from '@/utils/helpers';
 import Papa from 'papaparse';
 import { useMemo, useState, useEffect } from 'react';
@@ -10,7 +11,7 @@ const useLeadTable = (
   itemsPerPage: number = 20
 ) => {
   const { supabase } = useSupabase();
-
+  const [documentType, setType] = useState('');
   const [leads, setLeads] = useState<LeadDataType[]>([]);
   const [numProcessedLeads, setNumProcessedLeads] = useState(0);
   const [isPaid, setIsPaid] = useState(false);
@@ -65,6 +66,43 @@ const useLeadTable = (
     []
   );
 
+  const domainColumns: Column<LeadDataType>[] = useMemo(
+    () => [
+      {
+        Header: 'Full Name',
+        accessor: 'person_full_name'
+      },
+      {
+        Header: 'Email',
+        accessor: 'person_email'
+      },
+      {
+        header: 'LinkedIn',
+        accessor: 'person_linkedin_url'
+      },
+      {
+        Header: 'Company Name',
+        accessor: 'company_name'
+      },
+      {
+        header: 'Person Twitter',
+        accessor: 'person_twitter_url'
+      },
+
+      {
+        Header: 'Company Website',
+        accessor: 'company_website'
+      },
+      {
+        Header: 'Company Description',
+        accessor: 'company_description'
+      }
+    ],
+    []
+  );
+
+  const columnsToUse = documentType === 'email' ? columns : domainColumns;
+
   const {
     getTableProps,
     getTableBodyProps,
@@ -72,26 +110,9 @@ const useLeadTable = (
     rows,
     prepareRow,
     setFilter
-  } = useTable({ columns, data: leads }, useFilters, useSortBy);
+  } = useTable({ columns: columnsToUse, data: leads }, useFilters, useSortBy);
 
-  const fetchLeads = async (id: string) => {
-    setFetching(true);
-    const { data: documentData, error: documentError } = await supabase
-      .from('documents')
-      .select('*')
-      .eq('id', id)
-      .single();
-
-    setDocument(documentData);
-
-    if (documentError) {
-      console.error('Error fetching document:', documentError);
-      return;
-    }
-
-    setIsPaid(documentData.paid);
-    setNumLeads(documentData.total_leads);
-
+  const getEmailData = async (id: string) => {
     const { data: leadData, error: leadError } = await supabase
       .from('leads')
       .select('*')
@@ -133,6 +154,70 @@ const useLeadTable = (
       setLeads(profileData as LeadDataType[]);
     } else {
       console.log('No processed leads found for pagination.');
+    }
+  };
+
+  const getDomainData = async (id: string) => {
+    const { data: leadData, error: leadError } = await supabase
+      .from('domains')
+      .select('*')
+      .eq('document_id', id);
+
+    if (leadError) {
+      console.error('Error fetching domains:', leadError);
+      return;
+    }
+
+    if (!leadData) {
+      console.log('No domains found for the document.');
+      return;
+    }
+
+    const startIndex = (currentPage - 1) * itemsPerPage;
+    const endIndex = startIndex + itemsPerPage;
+
+    const processedLeads = leadData.filter((lead) => lead.processed);
+    setNumProcessedLeads(processedLeads.length);
+
+    const paginatedLeads = processedLeads.slice(startIndex, endIndex);
+    console.log('paginatedLeads:', paginatedLeads);
+
+    if (paginatedLeads.length > 0) {
+      setLeads(paginatedLeads as LeadDataType[]);
+    } else {
+      console.log('No processed leads found for pagination.');
+    }
+  };
+
+  const fetchLeads = async (id: string) => {
+    setFetching(true);
+
+    const { data: documentData, error: documentError } = await supabase
+      .from('documents')
+      .select('*')
+      .eq('id', id)
+      .single();
+
+    setDocument(documentData);
+
+    if (documentError) {
+      console.error('Error fetching document:', documentError);
+      return;
+    }
+
+    setIsPaid(documentData.paid);
+    setNumLeads(documentData.total_leads);
+    setType(documentData.type);
+
+    switch (documentData.type) {
+      case 'email':
+        await getEmailData(id);
+        break;
+      case 'domain':
+        await getDomainData(id);
+        break;
+      default:
+        break;
     }
 
     setFetching(false);
@@ -187,8 +272,12 @@ const useLeadTable = (
   }
 
   useEffect(() => {
-    console.log('fetching leads for document:', currentPage);
-    fetchLeads(documentId);
+    const fetchData = async () => {
+      console.log('fetching leads for document:', currentPage);
+      await fetchLeads(documentId);
+    };
+
+    fetchData();
   }, [documentId, currentPage]);
 
   return {
@@ -205,7 +294,8 @@ const useLeadTable = (
     downloadCsv,
     isPaid,
     fetching,
-    document
+    document,
+    documentType
   };
 };
 
