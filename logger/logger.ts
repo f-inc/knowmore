@@ -1,5 +1,3 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
-
 import { Logger } from 'tslog';
 
 const LOG_LEVEL = process.env.LOG_LEVEL;
@@ -106,52 +104,30 @@ export default class logger {
     }
   }
 
-  /**
-   * Write a 'log' level log.
-   */
   info(message: any, ...optionalParams: any[]) {
-    if (!this.shouldLog(this.level, LogLevel.Info)) {
-      return;
-    }
+    if (!this.shouldLog(this.level, LogLevel.Info)) return;
+
     this.logger.info(message, ...optionalParams);
   }
 
-  /**
-   * Write an 'error' level log.
-   */
   error(message: any, ...optionalParams: any[]) {
-    if (!this.shouldLog(this.level, LogLevel.Error)) {
-      return;
-    }
+    if (!this.shouldLog(this.level, LogLevel.Error)) return;
 
     this.logger.error(message, ...optionalParams);
   }
 
-  /**
-   * Write a 'warn' level log.
-   */
   warn(message: any, ...optionalParams: any[]) {
-    if (!this.shouldLog(this.level, LogLevel.Warn)) {
-      return;
-    }
+    if (!this.shouldLog(this.level, LogLevel.Warn)) return;
 
     this.logger.warn(message, ...optionalParams);
   }
 
-  /**
-   * Write a 'debug' level log.
-   */
   debug(message: any, ...optionalParams: any[]) {
-    if (!this.shouldLog(this.level, LogLevel.Debug)) {
-      return;
-    }
+    if (!this.shouldLog(this.level, LogLevel.Debug)) return;
 
     this.logger.debug(message, ...optionalParams);
   }
 
-  /**
-   * Logs the time elapsed since the last call to this method.
-   */
   profile(message: string) {
     if (!this.shouldLog(this.level, LogLevel.Debug)) {
       return;

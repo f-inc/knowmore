@@ -342,7 +342,7 @@ const processEmailDocument = async (document_id: string) => {
   for (let i = 0; i < leadData.length; i += 200) {
     const leads = leadData.slice(i, i + 200);
     postData({
-      url: `${getURL()}/api/leap/emails/process`,
+      url: `${getURL()}api/leap/emails/process`,
       data: {
         document_id,
         leads
@@ -368,7 +368,7 @@ const processDomainDocument = async (document_id: string) => {
     const leads = data.slice(i, i + 200);
 
     postData({
-      url: `${getURL()}/api/leap/domains/process`,
+      url: `${getURL()}api/leap/domains/process`,
       data: {
         document_id,
         leads
