@@ -118,7 +118,12 @@ export const doesTelegramUsernameExist = async (username: string) => {
       return false
     }
   } catch (error) {
-    console.error('Error fetching the URL:', error.message)
+    if (error instanceof Error) {
+      console.error('Error fetching the URL:', error.message)
+    } else {
+      console.error('An unknown error occurred', error)
+    }
+
     return false
   }
 }
