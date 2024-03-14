@@ -6,9 +6,10 @@ import {
   manageSubscriptionStatusChange,
   onPaid
 } from '@/utils/supabase-admin'
+import * as Sentry from '@sentry/nextjs'
 import Stripe from 'stripe'
 
-import * as Sentry from '@sentry/nextjs'
+export const maxDuration = 300
 
 const relevantEvents = new Set([
   'product.created',
