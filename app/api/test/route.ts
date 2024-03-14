@@ -1,6 +1,7 @@
 import { onPaid, processDomainDocument } from '@/utils/supabase-admin'
 
 export const maxDuration = 300
+export const dynamic = 'force-dynamic'
 
 export async function GET (req: Request) {
   const { searchParams } = new URL(req.url)
