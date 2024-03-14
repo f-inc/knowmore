@@ -44,7 +44,8 @@ export default function Document({
     numLeads,
     document,
     prepareRow,
-    downloadCsv,
+    downloadCsvEmails,
+    downloadCsvDomains,
     headerGroups,
     getTableProps,
     documentType,
@@ -54,7 +55,7 @@ export default function Document({
 
   useEffect(() => {
     console.log(numProcessedLeads, numLeads);
-    setIsProcessed(numProcessedLeads == numLeads);
+    setIsProcessed(numProcessedLeads >= numLeads);
   }, [numProcessedLeads, numLeads]);
 
   return (
@@ -92,7 +93,11 @@ export default function Document({
                     file.
                   </p>
                   <button
-                    onClick={downloadCsv}
+                    onClick={
+                      documentType === 'email'
+                        ? downloadCsvEmails
+                        : downloadCsvDomains
+                    }
                     className="mt-3 px-4 py-2 bg-[#E85533] text-white rounded-full text-sm hover:bg-orange-700 focus:outline-none"
                   >
                     Download CSV
@@ -108,28 +113,30 @@ export default function Document({
                   </p>
                 </div>
               )}
-
-              <div className="flex justify-center items-center gap-4 mt-5">
-                <button
-                  className="px-4 py-2 bg-[#E85533] text-white rounded-full text-sm hover:bg-orange-700 focus:outline-none"
-                  onClick={() => setCurrentPage(currentPage - 1)}
-                  disabled={currentPage === 1}
-                >
-                  Previous
-                </button>
-                <p className="text-white text-sm">
-                  {currentPage} of {Math.ceil(numProcessedLeads / itemsPerPage)}
-                </p>
-                <button
-                  className="px-4 py-2 bg-[#E85533] text-white rounded-full text-sm hover:bg-orange-700 focus:outline-none"
-                  onClick={() => {
-                    setCurrentPage(currentPage + 1);
-                  }}
-                  disabled={currentPage * itemsPerPage >= numProcessedLeads}
-                >
-                  Next
-                </button>
-              </div>
+              {Math.ceil(numProcessedLeads / itemsPerPage) > 1 && (
+                <div className="flex justify-center items-center gap-4 mt-5">
+                  <button
+                    className="px-4 py-2 bg-[#E85533] text-white rounded-full text-sm hover:bg-orange-700 focus:outline-none"
+                    onClick={() => setCurrentPage(currentPage - 1)}
+                    disabled={currentPage === 1}
+                  >
+                    Previous
+                  </button>
+                  <p className="text-white text-sm">
+                    {currentPage} of{' '}
+                    {Math.ceil(numProcessedLeads / itemsPerPage)}
+                  </p>
+                  <button
+                    className="px-4 py-2 bg-[#E85533] text-white rounded-full text-sm hover:bg-orange-700 focus:outline-none"
+                    onClick={() => {
+                      setCurrentPage(currentPage + 1);
+                    }}
+                    disabled={currentPage * itemsPerPage >= numProcessedLeads}
+                  >
+                    Next
+                  </button>
+                </div>
+              )}
 
               <div className="overflow-x-auto max-w-[90vw] text-left">
                 <table
@@ -205,7 +212,7 @@ export default function Document({
                                         color: 'rgba(255, 255, 255, 0.7)'
                                       }}
                                     >
-                                      (empty)
+                                      (N/A)
                                     </span>
                                   )}
                                 </td>
