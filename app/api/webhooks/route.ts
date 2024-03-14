@@ -9,9 +9,6 @@ import {
 import * as Sentry from '@sentry/nextjs'
 import Stripe from 'stripe'
 
-export const maxDuration = 300
-export const dynamic = 'force-dynamic'
-
 const relevantEvents = new Set([
   'product.created',
   'product.updated',
