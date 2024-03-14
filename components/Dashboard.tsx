@@ -47,8 +47,6 @@ const Dashboard: React.FC<DashboardProps> = ({ user, web3 = false }) => {
         .eq('owner', user.id)
         .eq('type', web3 ? 'domain' : 'email');
 
-      console.log('data:', data);
-
       if (error) {
         throw error;
       }

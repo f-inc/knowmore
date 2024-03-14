@@ -14,6 +14,7 @@ const Success: React.FC<SuccessProps> = () => {
   useEffect(() => {
     const searchParams = new URLSearchParams(window.location.search);
     const document_id = searchParams.get('document_id');
+    console.log('document_id: ', document_id);
 
     if (document_id) {
       posthog.capture(AnalyticsEvents.Checkout.CheckoutSuccess, {

@@ -21,7 +21,7 @@ export default function AuthUI() {
     });
   }, []);
 
-  const callback = `${getURL()}auth/callback`;
+  const callback = `${getURL()}/auth/callback`;
   console.log(callback);
 
   return (

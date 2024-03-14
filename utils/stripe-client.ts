@@ -1,7 +1,7 @@
-import { postData } from './helpers';
-import { loadStripe, Stripe } from '@stripe/stripe-js';
+import { postData } from './helpers'
+import { loadStripe, Stripe } from '@stripe/stripe-js'
 
-let stripePromise: Promise<Stripe | null>;
+let stripePromise: Promise<Stripe | null>
 
 export const getStripe = () => {
   if (!stripePromise) {
@@ -9,20 +9,20 @@ export const getStripe = () => {
       process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY_LIVE ??
         process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY ??
         ''
-    );
+    )
   }
 
-  return stripePromise;
-};
+  return stripePromise
+}
 
 export const createOneTimeCheckoutSession = async ({
   priceId,
   quantity,
   metadata
 }: {
-  priceId: string;
-  quantity: number;
-  metadata: { document_id: string; document_type: string };
+  priceId: string
+  quantity: number
+  metadata: { document_id: string; document_type: string }
 }): Promise<{ sessionId: string }> => {
   try {
     const { sessionId } = await postData({
@@ -33,13 +33,13 @@ export const createOneTimeCheckoutSession = async ({
           type: 'one_time'
         },
         metadata,
-        redirectURL: `/success?document_id=${metadata.document_id}`,
+        redirectURL: `success?document_id=${metadata.document_id}`,
         quantity: quantity
       }
-    });
-    return { sessionId };
+    })
+    return { sessionId }
   } catch (error) {
-    console.error('Error creating checkout session', error);
-    throw error;
+    console.error('Error creating checkout session', error)
+    throw error
   }
-};
+}
