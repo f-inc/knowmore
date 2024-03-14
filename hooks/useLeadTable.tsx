@@ -1,6 +1,7 @@
 import { useSupabase } from '@/app/supabase-provider';
 import { DocumentType } from '@/utils/constants/types';
 import { LeadDataType } from '@/utils/helpers';
+import * as Sentry from '@sentry/nextjs';
 import Papa from 'papaparse';
 import { useMemo, useState, useEffect } from 'react';
 import { useTable, useSortBy, useFilters, Column } from 'react-table';
@@ -210,6 +211,7 @@ const useLeadTable = (
     setDocument(documentData);
 
     if (documentError) {
+      Sentry.captureException(documentError);
       console.error('Error fetching document:', documentError);
       return;
     }

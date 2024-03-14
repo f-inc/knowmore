@@ -11,5 +11,11 @@ export default async function DocumentPage({
   const { id } = params;
   const session = await getSession();
 
-  return <Document id={id} user={session?.user} lead_limit={Number(process.env.ZAPIER_SLACK_EMAIL_LIMIT || 5000)}/>;
+  return (
+    <Document
+      id={id}
+      user={session?.user}
+      lead_limit={Number(process.env.ZAPIER_SLACK_EMAIL_LIMIT || 5000)}
+    />
+  );
 }
