@@ -1,5 +1,11 @@
 import { DocumentType } from './constants/types'
-import { getOgTitle, getURL, postData, toDateTime } from './helpers'
+import {
+  doesTelegramUsernameExist,
+  getOgTitle,
+  getURL,
+  postData,
+  toDateTime
+} from './helpers'
 import { stripe } from './stripe'
 import Logger from '@/logger'
 import { Leap } from '@leap-ai/workflows'
@@ -71,12 +77,18 @@ const createOrRetrieveCustomer = async ({
   email: string
   uuid: string
 }) => {
+  const stripeSecretKey =
+    process.env.STRIPE_SECRET_KEY_LIVE || process.env.STRIPE_SECRET_KEY
+
+  const isTestMode = stripeSecretKey?.startsWith('sk_test_')
+
   const { data, error } = await supabaseAdmin
     .from('customers')
-    .select('stripe_customer_id')
+    .select('*')
     .eq('id', uuid)
     .single()
-  if (error || !data?.stripe_customer_id) {
+
+  if (error || !data?.stripe_customer_id || !data?.stripe_customer_id_test) {
     // No customer record found, let's create one.
     const customerData: { metadata: { supabaseUUID: string }; email?: string } =
       {
@@ -89,12 +101,16 @@ const createOrRetrieveCustomer = async ({
     // Now insert the customer ID into our Supabase mapping table.
     const { error: supabaseError } = await supabaseAdmin
       .from('customers')
-      .insert([{ id: uuid, stripe_customer_id: customer.id }])
+      .upsert({
+        id: uuid,
+        stripe_customer_id: isTestMode ? undefined : customer.id,
+        stripe_customer_id_test: isTestMode ? customer.id : undefined
+      })
     if (supabaseError) throw supabaseError
     console.log(`New customer created and inserted for ${uuid}.`)
     return customer.id
   }
-  return data.stripe_customer_id
+  return isTestMode ? data.stripe_customer_id_test : data.stripe_customer_id
 }
 
 /**
@@ -680,10 +696,13 @@ const onProcessed = async (workflowResult: any) => {
         processed: true
       }
 
-      const { data, error } = await supabaseAdmin.from('profiles').upsert({
-        email: leadEmail,
-        ...updateData
-      })
+      const { data, error } = await supabaseAdmin.from('profiles').upsert(
+        {
+          email: leadEmail,
+          ...updateData
+        },
+        { onConflict: 'email, document_id' }
+      )
 
       console.log('updated profile data', data)
 
@@ -722,11 +741,11 @@ const onDomainsProcessed = async (workflowResult: any) => {
       throw new Error('Invalid input')
     }
 
-    await supabaseAdmin
-      .from('domains')
-      .update({ processed: true })
-      .eq('document_id', documentId)
-      .eq('domain', domain)
+    // await supabaseAdmin
+    //   .from('domains')
+    //   .update({ processed: true })
+    //   .eq('document_id', documentId)
+    //   .eq('domain', domain)
 
     if (!workflowResult.output.linkedin) {
       logger.info(`No linkedin data found for: ${domain}`)
@@ -743,12 +762,24 @@ const onDomainsProcessed = async (workflowResult: any) => {
       person_email,
       person_linkedin_url,
       person_twitter_url,
-      person_telegram_url,
       company_name,
       company_website,
       company_description,
       citations
     } = parsedData
+
+    // check if telegram exists
+
+    let person_telegram_url
+    if (person_twitter_url) {
+      const url = new URL(person_twitter_url)
+      const username = url.pathname.substring(1)
+
+      const telegramExists = await doesTelegramUsernameExist(username)
+      console.log('telegramExists: ', telegramExists, username)
+
+      if (telegramExists) person_telegram_url = `https://t.me/${username}`
+    }
 
     const updateData = {
       person_full_name,
@@ -765,18 +796,21 @@ const onDomainsProcessed = async (workflowResult: any) => {
 
     const { data, error } = await supabaseAdmin
       .from('domains')
-      .upsert({
-        document_id: documentId,
-        domain,
-        ...updateData
-      })
+      .upsert(
+        {
+          document_id: documentId,
+          domain,
+          ...updateData
+        },
+        { onConflict: 'domain, document_id' }
+      )
       .select()
 
-    console.log('updated domain data', data)
-
     if (error) {
+      console.error('failed to upsert')
       throw error
     }
+    console.log('updated domain data', data)
   } catch (error) {
     console.error('Error updating document:', error)
   }

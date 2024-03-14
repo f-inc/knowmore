@@ -13,16 +13,15 @@ export default function AuthUI() {
   const router = useRouter();
 
   useEffect(() => {
-    const { data } = supabase.auth.onAuthStateChange(async (event, session) => {
+    supabase.auth.onAuthStateChange(async (event, session) => {
       console.log('event:', event);
       if (event === 'SIGNED_IN') {
         router.push('/dashboard');
       }
     });
-  }, []);
+  }, [supabase]);
 
   const callback = `${getURL()}/auth/callback`;
-  console.log(callback);
 
   return (
     <div className="flex flex-col space-y-4">

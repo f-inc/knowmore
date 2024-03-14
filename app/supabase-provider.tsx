@@ -24,16 +24,13 @@ export default function SupabaseProvider({
   useEffect(() => {
     const { data: authListener } = supabase.auth.onAuthStateChange(
       async (event, session) => {
-        if (session) {
-          if (event === 'SIGNED_IN') {
-            console.log('signed in', session);
-            posthog.identify(session.user.id, {
-              email: session.user.email,
-              name: session.user.user_metadata.full_name
-            });
-          } else if (event === 'SIGNED_OUT') {
-            posthog.reset();
-          }
+        if (event === 'SIGNED_IN' && session) {
+          posthog.identify(session.user.id, {
+            email: session.user.email,
+            name: session.user.user_metadata.full_name
+          });
+        } else if (event === 'SIGNED_OUT') {
+          posthog.reset();
         }
       }
     );

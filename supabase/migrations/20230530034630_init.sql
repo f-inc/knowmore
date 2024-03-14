@@ -40,6 +40,7 @@ create table customers (
   id uuid references auth.users not null primary key,
   -- The user's customer ID in Stripe. User must not be able to update this.
   stripe_customer_id text
+  stripe_customer_id_test text
 );
 alter table customers enable row level security;
 -- No policies as this is a private table that the user must not have access to.

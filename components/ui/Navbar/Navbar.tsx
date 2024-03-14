@@ -1,15 +1,30 @@
+'use client';
+
 import s from './Navbar.module.css';
 import SignInButton from './SignInButton';
 import SignOutButton from './SignOutButton';
-import { createServerSupabaseClient } from '@/app/supabase-server';
+import { useSupabase } from '@/app/supabase-provider';
 import Logo from '@/components/icons/Logo';
+import { Database } from '@/types_db';
+import {
+  User,
+  createClientComponentClient
+} from '@supabase/auth-helpers-nextjs';
 import Link from 'next/link';
+import { useEffect, useState } from 'react';
 
-export default async function Navbar() {
-  const supabase = createServerSupabaseClient();
-  const {
-    data: { user }
-  } = await supabase.auth.getUser();
+export default function Navbar() {
+  const { supabase } = useSupabase();
+
+  const [user, setUser] = useState<User | null>(null);
+
+  useEffect(() => {
+    supabase.auth.getUser().then((u) => setUser(u.data.user));
+
+    supabase.auth.onAuthStateChange((_event, session) => {
+      setUser(session?.user || null);
+    });
+  }, []);
 
   return (
     <div className={s.root}>
@@ -30,7 +45,7 @@ export default async function Navbar() {
               {/* <Link href="/" className={s.link} >
                 Pricing
               </Link> */}
-              {user && (
+              {user !== null && (
                 <Link href="/dashboard" className={s.link}>
                   Dashboard
                 </Link>
@@ -38,7 +53,7 @@ export default async function Navbar() {
             </nav>
           </div>
           <div className="flex justify-end flex-1 space-x-8">
-            {user ? <SignOutButton /> : <SignInButton />}
+            {user !== null ? <SignOutButton /> : <SignInButton />}
 
             {/* <button className='border border-[#E85533] px-4 py-2 text-[#E85533] font-bold rounded-full hidden md:block'>
                 Upload Emails (.csv)

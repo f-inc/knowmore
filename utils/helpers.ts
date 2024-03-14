@@ -105,3 +105,25 @@ export type LeadDataType = {
 
   person_email: string
 }
+
+export const doesTelegramUsernameExist = async (username: string) => {
+  const url = `https://t.me/${username}`
+  try {
+    const response = await axios.get(url)
+    if (response.status === 200) {
+      const $ = cheerio.load(response.data)
+      const exists = $('.tgme_page_additional').length > 0
+      return exists
+    } else {
+      return false
+    }
+  } catch (error) {
+    if (error instanceof Error) {
+      console.error('Error fetching the URL:', error.message)
+    } else {
+      console.error('An unknown error occurred', error)
+    }
+
+    return false
+  }
+}
