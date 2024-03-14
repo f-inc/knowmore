@@ -69,9 +69,14 @@ const useLeadTable = (
   const domainColumns: Column<LeadDataType>[] = useMemo(
     () => [
       {
+        Header: 'Domain Name',
+        accessor: 'domain'
+      },
+      {
         Header: 'Full Name',
         accessor: 'person_full_name'
       },
+
       {
         Header: 'Email',
         accessor: 'person_email'
@@ -132,6 +137,7 @@ const useLeadTable = (
     const endIndex = startIndex + itemsPerPage;
 
     const processedLeads = leadData.filter((lead) => lead.processed);
+
     setNumProcessedLeads(processedLeads.length);
 
     const paginatedLeads = processedLeads.slice(startIndex, endIndex);
@@ -149,7 +155,6 @@ const useLeadTable = (
         console.log(profileError);
         throw profileError;
       }
-      console.log('profileData:', profileData);
 
       setLeads(profileData as LeadDataType[]);
     } else {
@@ -159,6 +164,7 @@ const useLeadTable = (
 
   const getDomainData = async (id: string) => {
     const { data: leadData, error: leadError } = await supabase
+
       .from('domains')
       .select('*')
       .eq('document_id', id);
@@ -177,6 +183,7 @@ const useLeadTable = (
     const endIndex = startIndex + itemsPerPage;
 
     const processedLeads = leadData.filter((lead) => lead.processed);
+    console.log('processedLeads: ', processedLeads);
     setNumProcessedLeads(processedLeads.length);
 
     const paginatedLeads = processedLeads.slice(startIndex, endIndex);
@@ -223,7 +230,7 @@ const useLeadTable = (
     setFetching(false);
   };
 
-  async function downloadCsv() {
+  async function downloadCsvEmails() {
     let { data: leadsData, error: leadsError } = await supabase
       .from('leads')
       .select('*')
@@ -271,6 +278,56 @@ const useLeadTable = (
     window.document.body.removeChild(a);
   }
 
+  async function downloadCsvDomains() {
+    let { data: domainsData, error: domainsError } = await supabase
+      .from('domains')
+      .select('*')
+      .eq('document_id', documentId)
+      .eq('processed', true);
+
+    if (domainsError) {
+      console.error('Error fetching domains:', domainsError);
+      return;
+    }
+
+    if (!domainsData || domainsData.length === 0) {
+      console.log('No domains found for the document.');
+      return;
+    }
+
+    const batchSize = 300;
+    let result = [];
+    result.push(...(domainsData || []));
+
+    // for (let i = 0; i < domainsData.length; i += batchSize) {
+    //   let domains = domainsData.map((domain) => domain.domain);
+
+    //   let { data: profileData, error: profileError } = await supabase
+    //     .from('profiles')
+    //     .select('*')
+    //     .in('email', emails.slice(i, i + batchSize));
+
+    //   profiles.push(...(profileData || []));
+
+    //   if (profileError) {
+    //     console.error('Error fetching profiles:', profileError);
+    //     return;
+    //   }
+    // }
+
+    const csvData = Papa.unparse(result, { header: true });
+
+    const blob = new Blob([csvData], { type: 'text/csv' });
+    const url = URL.createObjectURL(blob);
+
+    const a = window.document.createElement('a');
+    a.href = url;
+    a.download = 'domains.csv';
+    window.document.body.appendChild(a);
+    a.click();
+    window.document.body.removeChild(a);
+  }
+
   useEffect(() => {
     const fetchData = async () => {
       console.log('fetching leads for document:', currentPage);
@@ -291,7 +348,8 @@ const useLeadTable = (
     numLeads,
     numProcessedLeads,
     setLeads,
-    downloadCsv,
+    downloadCsvEmails,
+    downloadCsvDomains,
     isPaid,
     fetching,
     document,
