@@ -16,7 +16,7 @@ export default function AuthUI() {
     const { data } = supabase.auth.onAuthStateChange(async (event, session) => {
       console.log('event:', event);
       if (event === 'SIGNED_IN') {
-        // router.push('/dashboard');
+        router.push('/dashboard');
       }
     });
   }, []);

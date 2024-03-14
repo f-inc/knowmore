@@ -69,14 +69,13 @@ const useLeadTable = (
   const domainColumns: Column<LeadDataType>[] = useMemo(
     () => [
       {
-        Header: 'Domain Name',
+        Header: 'Domain Names',
         accessor: 'domain'
       },
       {
         Header: 'Full Name',
         accessor: 'person_full_name'
       },
-
       {
         Header: 'Email',
         accessor: 'person_email'
@@ -85,15 +84,19 @@ const useLeadTable = (
         header: 'LinkedIn',
         accessor: 'person_linkedin_url'
       },
+
+      {
+        Header: 'Twitter',
+        accessor: 'person_twitter_url'
+      },
+      {
+        Header: 'Telegram',
+        accessor: 'person_telegram_url'
+      },
       {
         Header: 'Company Name',
         accessor: 'company_name'
       },
-      {
-        header: 'Person Twitter',
-        accessor: 'person_twitter_url'
-      },
-
       {
         Header: 'Company Website',
         accessor: 'company_website'
