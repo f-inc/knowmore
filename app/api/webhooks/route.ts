@@ -8,6 +8,8 @@ import {
 } from '@/utils/supabase-admin'
 import Stripe from 'stripe'
 
+import * as Sentry from '@sentry/nextjs'
+
 const relevantEvents = new Set([
   'product.created',
   'product.updated',
@@ -29,6 +31,7 @@ export async function POST (req: Request) {
     if (!sig || !webhookSecret) return
     event = stripe.webhooks.constructEvent(body, sig, webhookSecret)
   } catch (err: any) {
+    Sentry.captureException(err)
     console.log(`❌ Error message: ${err.message}`)
     return new Response(`Webhook Error: ${err.message}`, { status: 400 })
   }
@@ -78,6 +81,7 @@ export async function POST (req: Request) {
           throw new Error('Unhandled relevant event!')
       }
     } catch (error) {
+      Sentry.captureException(error)
       console.log(error)
       return new Response(
         'Webhook handler failed. View your nextjs function logs.',

@@ -1,5 +1,6 @@
 import { postData } from './helpers'
 import { loadStripe, Stripe } from '@stripe/stripe-js'
+import * as Sentry from '@sentry/nextjs'
 
 let stripePromise: Promise<Stripe | null>
 
@@ -39,6 +40,7 @@ export const createOneTimeCheckoutSession = async ({
     })
     return { sessionId }
   } catch (error) {
+    Sentry.captureException(error)
     console.error('Error creating checkout session', error)
     throw error
   }
