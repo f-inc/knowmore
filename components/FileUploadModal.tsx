@@ -12,6 +12,7 @@ import {
   extractValidData,
   uploadFile
 } from '@/utils/file-upload';
+import * as Sentry from '@sentry/nextjs';
 import { User } from '@supabase/supabase-js';
 import { useRouter } from 'next/navigation';
 import Papa from 'papaparse';
@@ -86,6 +87,7 @@ const FileUploadModal: React.FC<FileUploadModalProps> = ({
         }
       });
     } catch (error) {
+      Sentry.captureException(error);
       handleError(error as Error);
     } finally {
       setLoading(false);

@@ -2,6 +2,7 @@ import { Database } from '@/types_db'
 import { createServerComponentClient } from '@supabase/auth-helpers-nextjs'
 import { cookies } from 'next/headers'
 import { cache } from 'react'
+import * as Sentry from '@sentry/nextjs'
 
 export const createServerSupabaseClient = cache(() =>
   createServerComponentClient<Database>({ cookies })
@@ -15,6 +16,7 @@ export async function getSession () {
     } = await supabase.auth.getSession()
     return session
   } catch (error) {
+    Sentry.captureException(error)
     console.error('Error:', error)
     return null
   }
@@ -29,6 +31,7 @@ export async function getUserDetails () {
       .single()
     return userDetails
   } catch (error) {
+    Sentry.captureException(error)
     console.error('Error:', error)
     return null
   }
@@ -45,6 +48,7 @@ export async function getSubscription () {
       .throwOnError()
     return subscription
   } catch (error) {
+    Sentry.captureException(error)
     console.error('Error:', error)
     return null
   }
@@ -61,6 +65,7 @@ export const getActiveProductsWithPrices = async () => {
     .order('unit_amount', { foreignTable: 'prices' })
 
   if (error) {
+    Sentry.captureException(error)
     console.log(error.message)
   }
   return data ?? []

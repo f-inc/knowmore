@@ -15,6 +15,7 @@ import { jsonrepair } from 'jsonrepair'
 import Stripe from 'stripe'
 import type { Database } from 'types_db'
 import { v4 as uuid } from 'uuid'
+import * as Sentry from '@sentry/nextjs'
 
 const logger = new Logger({ name: 'supabase-admin' })
 
@@ -249,6 +250,7 @@ const upsertLeads = async (id: string, Leads: any[]) => {
 
     console.log('Leads upserted successfully:', leadInsertData)
   } catch (error) {
+    Sentry.captureException(error)
     console.error('Error upserting leads:', error)
   }
 }
@@ -341,6 +343,7 @@ const onPaid = async (
         throw new Error('Unsupported document type')
     }
   } catch (error) {
+    Sentry.captureException(error)
     console.error('Error updating document:', error)
   }
 }
@@ -723,6 +726,7 @@ const onProcessed = async (workflowResult: any) => {
       }
     }
   } catch (error) {
+    Sentry.captureException(error)
     console.error('Error updating document:', error)
   }
 }
@@ -812,6 +816,7 @@ const onDomainsProcessed = async (workflowResult: any) => {
     }
     console.log('updated domain data', data)
   } catch (error) {
+    Sentry.captureException(error)
     console.error('Error updating document:', error)
   }
 }

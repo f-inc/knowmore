@@ -4,6 +4,7 @@ import FileUploadModal from './FileUploadModal';
 import { useSupabase } from '@/app/supabase-provider';
 import { faPlus, faPlusCircle } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import * as Sentry from '@sentry/nextjs';
 import { User } from '@supabase/supabase-js';
 import { redirect, useRouter } from 'next/navigation';
 import { useEffect, useState } from 'react';
@@ -64,6 +65,7 @@ const Dashboard: React.FC<DashboardProps> = ({ user, web3 = false }) => {
         setDocuments([...sampleFile, ...data]);
       }
     } catch (error) {
+      Sentry.captureException(error);
       console.error('Error fetching user documents:', error);
     }
   };

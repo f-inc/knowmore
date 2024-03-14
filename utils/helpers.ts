@@ -4,6 +4,8 @@ import axios from 'axios'
 import * as cheerio from 'cheerio'
 import * as https from 'https'
 
+import * as Sentry from '@sentry/nextjs'
+
 type Price = Database['public']['Tables']['prices']['Row']
 
 export const getURL = () => {
@@ -37,6 +39,7 @@ export const postData = async ({ url, data }: { url: string; data?: any }) => {
 
     return res.json()
   } catch (error) {
+    Sentry.captureException(error)
     console.error('Error in postData', { url, data, error })
     throw error
   }
@@ -70,6 +73,7 @@ export async function getOgTitle (url: string): Promise<string> {
 
     return ogSiteName || ogTitle || title || url
   } catch (error: any) {
+    Sentry.captureException(error)
     console.error('Error fetching data from URL:', url, error?.message)
     return url
   }
@@ -118,6 +122,7 @@ export const doesTelegramUsernameExist = async (username: string) => {
       return false
     }
   } catch (error) {
+    Sentry.captureException(error)
     if (error instanceof Error) {
       console.error('Error fetching the URL:', error.message)
     } else {

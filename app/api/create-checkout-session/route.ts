@@ -4,6 +4,7 @@ import { stripe } from '@/utils/stripe'
 import { createOrRetrieveCustomer } from '@/utils/supabase-admin'
 import { createRouteHandlerClient } from '@supabase/auth-helpers-nextjs'
 import { cookies, headers } from 'next/headers'
+import * as Sentry from '@sentry/nextjs'
 
 export async function POST (req: Request) {
   if (req.method === 'POST') {
@@ -103,6 +104,7 @@ export async function POST (req: Request) {
         )
       }
     } catch (err: any) {
+      Sentry.captureException(err)
       console.log(err)
       return new Response(JSON.stringify(err), { status: 500 })
     }
