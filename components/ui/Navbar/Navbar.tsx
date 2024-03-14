@@ -5,7 +5,6 @@ import SignInButton from './SignInButton';
 import SignOutButton from './SignOutButton';
 import { useSupabase } from '@/app/supabase-provider';
 import Logo from '@/components/icons/Logo';
-import useAuthStore from '@/stores/auth';
 import { Database } from '@/types_db';
 import {
   User,
