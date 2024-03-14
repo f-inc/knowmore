@@ -69,7 +69,7 @@ const useLeadTable = (
   const domainColumns: Column<LeadDataType>[] = useMemo(
     () => [
       {
-        Header: 'Domain Names',
+        Header: 'Domain Name',
         accessor: 'domain'
       },
       {
@@ -81,7 +81,7 @@ const useLeadTable = (
         accessor: 'person_email'
       },
       {
-        header: 'LinkedIn',
+        Header: 'LinkedIn',
         accessor: 'person_linkedin_url'
       },
 
@@ -167,7 +167,6 @@ const useLeadTable = (
 
   const getDomainData = async (id: string) => {
     const { data: leadData, error: leadError } = await supabase
-
       .from('domains')
       .select('*')
       .eq('document_id', id);
@@ -338,7 +337,15 @@ const useLeadTable = (
     };
 
     fetchData();
-  }, [documentId, currentPage]);
+
+    if (numProcessedLeads !== numLeads) {
+      const intervalId = setInterval(() => {
+        fetchData();
+      }, 5000);
+
+      return () => clearInterval(intervalId);
+    }
+  }, [documentId, currentPage, numProcessedLeads, numLeads]);
 
   return {
     getTableProps,

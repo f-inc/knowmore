@@ -1,5 +1,6 @@
 'use client';
 
+import useAuthStore from '@/stores/auth';
 import type { Database } from '@/types_db';
 import { createPagesBrowserClient } from '@supabase/auth-helpers-nextjs';
 import type { SupabaseClient } from '@supabase/auth-helpers-nextjs';
@@ -21,19 +22,20 @@ export default function SupabaseProvider({
   const [supabase] = useState(() => createPagesBrowserClient());
   const router = useRouter();
 
+  const setUser = useAuthStore((state) => state.setUser);
+
   useEffect(() => {
     const { data: authListener } = supabase.auth.onAuthStateChange(
       async (event, session) => {
-        if (session) {
-          if (event === 'SIGNED_IN') {
-            console.log('signed in', session);
-            posthog.identify(session.user.id, {
-              email: session.user.email,
-              name: session.user.user_metadata.full_name
-            });
-          } else if (event === 'SIGNED_OUT') {
-            posthog.reset();
-          }
+        if (event === 'SIGNED_IN' && session) {
+          setUser(session.user);
+          posthog.identify(session.user.id, {
+            email: session.user.email,
+            name: session.user.user_metadata.full_name
+          });
+        } else if (event === 'SIGNED_OUT') {
+          posthog.reset();
+          setUser(null);
         }
       }
     );

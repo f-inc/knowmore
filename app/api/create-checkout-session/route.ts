@@ -10,6 +10,11 @@ export async function POST (req: Request) {
     const proto = req.headers.get('x-forwarded-proto')
     const host = req.headers.get('host')
 
+    const stripeSecretKey =
+      process.env.STRIPE_SECRET_KEY_LIVE || process.env.STRIPE_SECRET_KEY
+
+    const isTestMode = stripeSecretKey?.startsWith('sk_test_')
+
     // 1. Destructure the price and quantity from the POST body
     const { price, quantity = 1, metadata = {}, redirectURL } = await req.json()
 
