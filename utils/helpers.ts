@@ -1,10 +1,9 @@
 import { CommonEmailProviders } from './constants/EmailProviders'
 import { Database } from '@/types_db'
+import * as Sentry from '@sentry/nextjs'
 import axios from 'axios'
 import * as cheerio from 'cheerio'
 import * as https from 'https'
-
-import * as Sentry from '@sentry/nextjs'
 
 type Price = Database['public']['Tables']['prices']['Row']
 
@@ -61,15 +60,16 @@ export async function getOgTitle (url: string): Promise<string> {
   if (!url.includes('http')) {
     url = `https://${url}`
   }
-
-  const httpsAgent = new https.Agent({ rejectUnauthorized: false })
   try {
+    const httpsAgent = new https.Agent({ rejectUnauthorized: false })
+
     const { data } = await axios.get(url, { httpsAgent })
     const $ = cheerio.load(data)
 
     const ogSiteName = $('meta[property="og:site_name"]').attr('content')
     const ogTitle = $('meta[property="og:title"]').attr('content')
     const title = $('title').text()
+    console.log('parsed website title', ogSiteName || ogTitle || title || url)
 
     return ogSiteName || ogTitle || title || url
   } catch (error: any) {

@@ -9,13 +9,13 @@ import {
 import { stripe } from './stripe'
 import Logger from '@/logger'
 import { Leap } from '@leap-ai/workflows'
+import * as Sentry from '@sentry/nextjs'
 import { createClient } from '@supabase/supabase-js'
 import { APIClient, SendEmailRequest } from 'customerio-node'
 import { jsonrepair } from 'jsonrepair'
 import Stripe from 'stripe'
 import type { Database } from 'types_db'
 import { v4 as uuid } from 'uuid'
-import * as Sentry from '@sentry/nextjs'
 
 const logger = new Logger({ name: 'supabase-admin' })
 
@@ -516,12 +516,14 @@ const processDomains = async (document_id: string, leadData: any) => {
     logger.info(`Starting leap workflows for lead number ${lead}: ${domain}`)
 
     const websiteTitle = await getOgTitle(domain)
+    console.log('websiteTitle: ', websiteTitle)
 
     logger.info(
       `Starting leap workflows for lead: ${lead}, with query:, ${websiteTitle}`
     )
 
     const LEAP_WEBHOOK_URL = process.env.LEAP_WEBHOOK_URL
+    console.log('LEAP_WEBHOOK_URL: ', LEAP_WEBHOOK_URL)
 
     const webhook_url = `${
       LEAP_WEBHOOK_URL ?? getURL()
