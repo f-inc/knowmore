@@ -342,7 +342,7 @@ const processEmailDocument = async (document_id: string) => {
   for (let i = 0; i < leadData.length; i += 200) {
     const leads = leadData.slice(i, i + 200)
     postData({
-      url: `${getURL()}api/leap/emails/process`,
+      url: `${getURL()}/api/leap/emails/process`,
       data: {
         document_id,
         leads
@@ -369,7 +369,7 @@ export const processDomainDocument = async (document_id: string) => {
     const domains = data.slice(i, i + 200)
 
     postData({
-      url: `${getURL()}api/leap/domains/process`,
+      url: `${getURL()}/api/leap/domains/process`,
       data: {
         document_id,
         domains
@@ -594,6 +594,7 @@ const checkProcessed = async (): Promise<any[]> => {
  */
 
 const onProcessed = async (workflowResult: any) => {
+  console.log('workflowResult: ', workflowResult)
   try {
     const { document_id: documentId, email_of_lead: leadEmail } =
       workflowResult.input
@@ -614,6 +615,7 @@ const onProcessed = async (workflowResult: any) => {
     }
 
     const { linkedin } = workflowResult.output
+    console.log('linkedin: ', linkedin)
 
     if (linkedin) {
       const repairedJSON = jsonrepair(linkedin)
@@ -707,6 +709,7 @@ const onProcessed = async (workflowResult: any) => {
 }
 
 const onDomainsProcessed = async (workflowResult: any) => {
+  console.log('workflowResult: ', workflowResult)
   try {
     const { document_id: documentId, domain } = workflowResult.input
     console.log(workflowResult.output)

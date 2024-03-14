@@ -82,6 +82,7 @@ export type LeadDataType = {
   person_full_name?: string
   person_linkedin_url?: string
   person_twitter_url?: string
+  person_telegram_url?: string
   person_location?: string
   person_employment_title?: string
   person_estimated_salary?: string
