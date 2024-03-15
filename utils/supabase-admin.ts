@@ -389,13 +389,15 @@ export const processDomainDocument = async (document_id: string) => {
   for (let i = 0; i < data.length; i += 200) {
     const domains = data.slice(i, i + 200)
 
-    await postData({
-      url: `${getURL()}/api/leap/domains/process`,
-      data: {
-        document_id,
-        domains
-      }
-    })
+    await processDomains(document_id, domains)
+
+    // await postData({
+    //   url: `${getURL()}/api/leap/domains/process`,
+    //   data: {
+    //     document_id,
+    //     domains
+    //   }
+    // })
   }
 }
 
