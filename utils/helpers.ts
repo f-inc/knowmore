@@ -132,3 +132,18 @@ export const doesTelegramUsernameExist = async (username: string) => {
     return false
   }
 }
+
+export function ensureEnvVars (...vars: string[]): void {
+  const missingVars = vars.filter((varName) => !process.env[varName])
+  if (missingVars.length > 0) {
+    throw new Error(
+      `Missing required environment variables: ${missingVars.join(', ')}`
+    )
+  }
+}
+
+export function ensureEnvVar (varName: string): void {
+  if (!process.env[varName]) {
+    throw new Error(`Missing required environment variable: ${varName}`)
+  }
+}
