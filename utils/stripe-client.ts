@@ -6,15 +6,11 @@ let stripePromise: Promise<Stripe | null>
 
 export const getStripe = () => {
   if (!stripePromise) {
-    const isTestMode = process.env.NEXT_PUBLIC_STRIPE_MODE === 'test'
+    ensureEnvVar("NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY'")
 
-    const stripePublicKey = isTestMode
-      ? 'NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY'
-      : 'NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY_LIVE'
-
-    ensureEnvVar(stripePublicKey)
-
-    stripePromise = loadStripe(process.env[stripePublicKey] ?? '')
+    stripePromise = loadStripe(
+      process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY ?? ''
+    )
   }
 
   return stripePromise

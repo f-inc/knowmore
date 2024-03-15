@@ -1,15 +1,9 @@
 import { ensureEnvVar } from './helpers'
 import Stripe from 'stripe'
 
-const isTestMode = process.env.NEXT_PUBLIC_STRIPE_MODE === 'test'
+ensureEnvVar('STRIPE_SECRET_KEY')
 
-const stripeSecretKey = isTestMode
-  ? 'STRIPE_SECRET_KEY'
-  : 'STRIPE_SECRET_KEY_LIVE'
-
-ensureEnvVar(stripeSecretKey)
-
-export const stripe = new Stripe(process.env[stripeSecretKey]!, {
+export const stripe = new Stripe(process.env.STRIPE_SECRET_KEY!, {
   apiVersion: '2022-11-15',
   appInfo: {
     name: 'Next.js Subscription Starter',
