@@ -55,8 +55,8 @@ export async function POST (req: Request) {
             trial_from_plan: true,
             metadata
           },
-          success_url: `${getURL()}${
-            redirectURL ? `/${redirectURL}` : '/account'
+          success_url: `${proto}://${host}${
+            redirectURL ? `/${redirectURL}` : '/'
           }`,
           cancel_url: `${proto}://${host}/dashboard${
             docType === 'domain' ? '/web3' : ''
@@ -79,9 +79,8 @@ export async function POST (req: Request) {
           ],
           mode: 'payment',
           allow_promotion_codes: true,
-
-          success_url: `${getURL()}${
-            redirectURL ? `/${redirectURL}` : '/account'
+          success_url: `${proto}://${host}${
+            redirectURL ? `/${redirectURL}` : '/'
           }`,
           cancel_url: `${proto}://${host}/dashboard${
             docType === 'domain' ? '/web3' : ''
