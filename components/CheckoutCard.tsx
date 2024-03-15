@@ -149,7 +149,7 @@ const CheckoutCard: React.FC<LeadCardProps> = ({ document, lead, user }) => {
           }}
         >
           {user
-            ? `Process ${numLeads} ${documentType}s (at 50¢ per lead)`
+            ? `Process ${numLeads} ${documentType}s (at $2 per lead)`
             : 'Login to view'}
         </button>
       </div>
