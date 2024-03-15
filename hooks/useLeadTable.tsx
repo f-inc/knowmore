@@ -98,10 +98,10 @@ const useLeadTable = (
         Header: 'Company Name',
         accessor: 'company_name'
       },
-      {
-        Header: 'Company Website',
-        accessor: 'company_website'
-      },
+      // {
+      //   Header: 'Company Website',
+      //   accessor: 'company_website'
+      // },
       {
         Header: 'Company Description',
         accessor: 'company_description'
