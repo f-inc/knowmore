@@ -359,13 +359,15 @@ const processEmailDocument = async (document_id: string) => {
 
   for (let i = 0; i < leadData.length; i += 200) {
     const leads = leadData.slice(i, i + 200)
-    await postData({
-      url: `${getURL()}/api/leap/emails/process`,
-      data: {
-        document_id,
-        leads
-      }
-    })
+
+    await processEmails(document_id, leads)
+    // await postData({
+    //   url: `${getURL()}/api/leap/emails/process`,
+    //   data: {
+    //     document_id,
+    //     leads
+    //   }
+    // })
   }
 }
 
