@@ -32,7 +32,7 @@ export const createOneTimeCheckoutSession = async ({
           type: 'one_time'
         },
         metadata,
-        redirectURL: `success?document_id=${metadata.document_id}`,
+        redirectURL: `/success?document_id=${metadata.document_id}`,
         quantity: quantity
       }
     })

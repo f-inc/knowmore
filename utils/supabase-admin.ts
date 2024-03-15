@@ -329,7 +329,7 @@ const onPaid = async (
       .single()
 
     if (!documentData) throw 'No document found with id: ' + document_id
-    sendEmail(document_id, customer_email, documentData?.total_leads)
+    await sendEmail(document_id, customer_email, documentData?.total_leads)
 
     switch (type) {
       case 'email':
@@ -371,6 +371,9 @@ const processEmailDocument = async (document_id: string) => {
 
 export const processDomainDocument = async (document_id: string) => {
   console.log('document_id: ', document_id)
+
+  console.log('url', `${getURL()}/api/leap/domains/process`)
+
   const { data, error: domainsError } = await supabaseAdmin
     .from('domains')
     .select('*')

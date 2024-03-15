@@ -56,7 +56,7 @@ export async function POST (req: Request) {
             metadata
           },
           success_url: `${proto}://${host}${
-            redirectURL ? `/${redirectURL}` : '/'
+            redirectURL ? `${redirectURL}` : '/'
           }`,
           cancel_url: `${proto}://${host}/dashboard${
             docType === 'domain' ? '/web3' : ''
@@ -80,7 +80,7 @@ export async function POST (req: Request) {
           mode: 'payment',
           allow_promotion_codes: true,
           success_url: `${proto}://${host}${
-            redirectURL ? `/${redirectURL}` : '/'
+            redirectURL ? `${redirectURL}` : '/'
           }`,
           cancel_url: `${proto}://${host}/dashboard${
             docType === 'domain' ? '/web3' : ''
