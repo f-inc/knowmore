@@ -78,8 +78,7 @@ const createOrRetrieveCustomer = async ({
   email: string
   uuid: string
 }) => {
-  const stripeSecretKey =
-    process.env.STRIPE_SECRET_KEY_LIVE || process.env.STRIPE_SECRET_KEY
+  const stripeSecretKey = process.env.STRIPE_SECRET_KEY
 
   const isTestMode = stripeSecretKey?.startsWith('sk_test_')
 

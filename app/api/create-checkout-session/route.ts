@@ -2,17 +2,16 @@ import { Database } from '@/types_db'
 import { getURL } from '@/utils/helpers'
 import { stripe } from '@/utils/stripe'
 import { createOrRetrieveCustomer } from '@/utils/supabase-admin'
+import * as Sentry from '@sentry/nextjs'
 import { createRouteHandlerClient } from '@supabase/auth-helpers-nextjs'
 import { cookies, headers } from 'next/headers'
-import * as Sentry from '@sentry/nextjs'
 
 export async function POST (req: Request) {
   if (req.method === 'POST') {
     const proto = req.headers.get('x-forwarded-proto')
     const host = req.headers.get('host')
 
-    const stripeSecretKey =
-      process.env.STRIPE_SECRET_KEY_LIVE || process.env.STRIPE_SECRET_KEY
+    const stripeSecretKey = process.env.STRIPE_SECRET_KEY
 
     const isTestMode = stripeSecretKey?.startsWith('sk_test_')
 
