@@ -329,7 +329,7 @@ const onPaid = async (
       .single()
 
     if (!documentData) throw 'No document found with id: ' + document_id
-    sendEmail(document_id, customer_email, documentData?.total_leads)
+    await sendEmail(document_id, customer_email, documentData?.total_leads)
 
     switch (type) {
       case 'email':
@@ -359,18 +359,23 @@ const processEmailDocument = async (document_id: string) => {
 
   for (let i = 0; i < leadData.length; i += 200) {
     const leads = leadData.slice(i, i + 200)
-    await postData({
-      url: `${getURL()}/api/leap/emails/process`,
-      data: {
-        document_id,
-        leads
-      }
-    })
+
+    await processEmails(document_id, leads)
+    // await postData({
+    //   url: `${getURL()}/api/leap/emails/process`,
+    //   data: {
+    //     document_id,
+    //     leads
+    //   }
+    // })
   }
 }
 
 export const processDomainDocument = async (document_id: string) => {
   console.log('document_id: ', document_id)
+
+  console.log('url', `${getURL()}/api/leap/domains/process`)
+
   const { data, error: domainsError } = await supabaseAdmin
     .from('domains')
     .select('*')
@@ -386,13 +391,15 @@ export const processDomainDocument = async (document_id: string) => {
   for (let i = 0; i < data.length; i += 200) {
     const domains = data.slice(i, i + 200)
 
-    await postData({
-      url: `${getURL()}/api/leap/domains/process`,
-      data: {
-        document_id,
-        domains
-      }
-    })
+    await processDomains(document_id, domains)
+
+    // await postData({
+    //   url: `${getURL()}/api/leap/domains/process`,
+    //   data: {
+    //     document_id,
+    //     domains
+    //   }
+    // })
   }
 }
 

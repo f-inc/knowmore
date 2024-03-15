@@ -1,4 +1,4 @@
-import { ensureEnvVar, postData } from './helpers'
+import { postData } from './helpers'
 import * as Sentry from '@sentry/nextjs'
 import { loadStripe, Stripe } from '@stripe/stripe-js'
 
@@ -6,8 +6,6 @@ let stripePromise: Promise<Stripe | null>
 
 export const getStripe = () => {
   if (!stripePromise) {
-    ensureEnvVar('NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY')
-
     stripePromise = loadStripe(
       process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY ?? ''
     )
@@ -34,7 +32,7 @@ export const createOneTimeCheckoutSession = async ({
           type: 'one_time'
         },
         metadata,
-        redirectURL: `success?document_id=${metadata.document_id}`,
+        redirectURL: `/success?document_id=${metadata.document_id}`,
         quantity: quantity
       }
     })
