@@ -531,7 +531,7 @@ const processDomains = async (document_id: string, leadData: any) => {
 
     console.log('webhook_url:', webhook_url)
 
-    leap.workflowRuns.workflow({
+    await leap.workflowRuns.workflow({
       workflow_id,
       webhook_url: webhook_url,
       input: {

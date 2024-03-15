@@ -11,7 +11,7 @@ export const dynamic = 'force-dynamic'
 export async function POST (req: Request) {
   const { document_id, domains } = await req.json()
 
-  processDomains(document_id, domains)
+  await processDomains(document_id, domains)
 
   return NextResponse.json({}, { status: 200 })
 }
