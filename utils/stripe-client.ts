@@ -1,16 +1,20 @@
-import { postData } from './helpers'
-import { loadStripe, Stripe } from '@stripe/stripe-js'
+import { ensureEnvVar, postData } from './helpers'
 import * as Sentry from '@sentry/nextjs'
+import { loadStripe, Stripe } from '@stripe/stripe-js'
 
 let stripePromise: Promise<Stripe | null>
 
 export const getStripe = () => {
   if (!stripePromise) {
-    stripePromise = loadStripe(
-      process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY_LIVE ??
-        process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY ??
-        ''
-    )
+    const isTestMode = process.env.NEXT_PUBLIC_STRIPE_MODE === 'test'
+
+    const stripePublicKey = isTestMode
+      ? 'NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY'
+      : 'NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY_LIVE'
+
+    ensureEnvVar(stripePublicKey)
+
+    stripePromise = loadStripe(process.env[stripePublicKey] ?? '')
   }
 
   return stripePromise
