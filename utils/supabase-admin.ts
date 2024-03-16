@@ -1,5 +1,6 @@
 import { DocumentType } from './constants/types'
 import {
+  cleanUrl,
   doesTelegramUsernameExist,
   getOgTitle,
   getURL,
@@ -303,6 +304,23 @@ const onPaid = async (
   type?: DocumentType | undefined
 ): Promise<void> => {
   try {
+    const { data: existingDoc, error: existingDocError } = await supabaseAdmin
+      .from('documents')
+      .select('*')
+      .eq('id', document_id)
+      .maybeSingle()
+
+    console.log('existingDoc: ', existingDoc)
+
+    if (existingDocError) {
+      throw existingDocError
+    }
+
+    // if (existingDoc.paid === true) {
+    //   logger.info(`The document ${document_id} is already paid. Quiting..`)
+    //   return
+    // }
+
     logger.info(`Updating document ${document_id} to be paid`)
 
     const { data: updatedData, error: updatedError } = await supabaseAdmin
@@ -510,7 +528,8 @@ const processEmails = async (document_id: string, leadData: any) => {
 }
 
 const processDomains = async (document_id: string, leadData: any) => {
-  const workflow_id = 'wkf_HtEOPPkrYBKIjl'
+  const workflow_id = 'wkf_sTdAAKT4tD2NLQ'
+  // 'wkf_HtEOPPkrYBKIjl'
 
   logger.info(
     `Starting leap workflows for document: ${document_id} with workflow: ${workflow_id}`
@@ -753,22 +772,15 @@ const onDomainsProcessed = async (workflowResult: any) => {
       throw new Error('Invalid input')
     }
 
-    // await supabaseAdmin
-    //   .from('domains')
-    //   .update({ processed: true })
-    //   .eq('document_id', documentId)
-    //   .eq('domain', domain)
-
     if (!workflowResult.output.linkedin) {
       logger.info(`No linkedin data found for: ${domain}`)
       return
     }
 
-    const repairedJSON = jsonrepair(workflowResult.output.linkedin)
+    let repairedJSON = jsonrepair(workflowResult.output.linkedin)
+    let parsedData = JSON.parse(repairedJSON)
 
-    const parsedData = JSON.parse(repairedJSON)
-
-    const {
+    let {
       person_full_name,
       relevant_info,
       person_email,
@@ -780,29 +792,45 @@ const onDomainsProcessed = async (workflowResult: any) => {
       citations
     } = parsedData
 
-    // check if telegram exists
-
+    let verified_twitter_url
+    let verification_method
     let person_telegram_url
-    if (person_twitter_url) {
-      const url = new URL(person_twitter_url)
+
+    if (workflowResult.output.twitter) {
+      repairedJSON = jsonrepair(workflowResult.output.twitter)
+      parsedData = JSON.parse(repairedJSON)
+      verified_twitter_url = parsedData.verified_twitter_url
+    }
+
+    // check if telegram exists
+    if (verified_twitter_url || person_twitter_url) {
+      const url = new URL(verified_twitter_url || person_twitter_url)
       const username = url.pathname.substring(1)
 
       const telegramExists = await doesTelegramUsernameExist(username)
       console.log('telegramExists: ', telegramExists, username)
 
-      if (telegramExists) person_telegram_url = `https://t.me/${username}`
+      if (telegramExists) {
+        person_telegram_url = `https://t.me/${username}`
+      }
     }
+
+    let personTwitterUrl = verified_twitter_url
+      ? cleanUrl(verified_twitter_url)
+      : person_twitter_url
+      ? cleanUrl(person_twitter_url)
+      : undefined
 
     const updateData = {
       person_full_name,
       relevant_info,
       person_email,
       person_linkedin_url,
-      person_twitter_url,
-      person_telegram_url,
+      person_twitter_url: personTwitterUrl,
       company_name,
       company_website,
       company_description,
+      person_telegram_url,
       processed: true
     }
 

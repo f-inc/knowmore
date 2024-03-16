@@ -132,3 +132,9 @@ export const doesTelegramUsernameExist = async (username: string) => {
     return false
   }
 }
+
+export const cleanUrl = (url: string) => {
+  const urlObject = new URL(url)
+  const urlWithoutQueryParams = urlObject.origin + urlObject.pathname
+  return urlWithoutQueryParams
+}
