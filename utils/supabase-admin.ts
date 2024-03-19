@@ -269,7 +269,8 @@ const onUpload = async (document_id: string, user_email: string) => {
 
   if (!doc.slack_notified) {
     if (
-      doc.total_leads >= Number(process.env.ZAPIER_SLACK_EMAIL_LIMIT || 5000)
+      (doc.total_leads as number) >=
+      Number(process.env.ZAPIER_SLACK_EMAIL_LIMIT || 5000)
     ) {
       fetch(process.env.ZAPIER_SLACK_WEBHOOK as string, {
         method: 'POST',
@@ -348,7 +349,11 @@ const onPaid = async (
       .single()
 
     if (!documentData) throw 'No document found with id: ' + document_id
-    await sendEmail(document_id, customer_email, documentData?.total_leads)
+    await sendEmail(
+      document_id,
+      customer_email,
+      documentData?.total_leads as number
+    )
 
     switch (type) {
       case 'email':
@@ -629,7 +634,7 @@ const checkProcessed = async (): Promise<any[]> => {
         identifiers: {
           id: doc.id
         },
-        to: doc.customer_to_email,
+        to: doc.customer_to_email as string,
         from: 'omar@knowmore.bot'
       })
 
