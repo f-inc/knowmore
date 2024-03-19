@@ -60,6 +60,7 @@ export async function getOgTitle (url: string): Promise<string> {
   if (!url.includes('http')) {
     url = `https://${url}`
   }
+
   try {
     const httpsAgent = new https.Agent({ rejectUnauthorized: false })
 

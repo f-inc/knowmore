@@ -15,6 +15,7 @@ export async function GET (req: Request) {
   }
 
   try {
+    console.log('On Paid')
     let result = await onPaid(document_id, 'amir@f.inc', 'domain')
 
     return new Response(

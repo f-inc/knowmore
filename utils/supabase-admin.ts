@@ -7,6 +7,7 @@ import {
   postData,
   toDateTime
 } from './helpers'
+import { inngest } from './inngest/client'
 import { stripe } from './stripe'
 import Logger from '@/logger'
 import { Leap } from '@leap-ai/workflows'
@@ -32,7 +33,7 @@ const leap = new Leap({
 
 // Note: supabaseAdmin uses the SERVICE_ROLE_KEY which you must only use in a secure server-side context
 // as it has admin privileges and overwrites RLS policies!
-const supabaseAdmin = createClient<Database>(
+export const supabaseAdmin = createClient<Database>(
   process.env.NEXT_PUBLIC_SUPABASE_URL || '',
   process.env.SUPABASE_SERVICE_ROLE_KEY || ''
 )
@@ -389,37 +390,45 @@ const processEmailDocument = async (document_id: string) => {
   }
 }
 
-export const processDomainDocument = async (document_id: string) => {
-  console.log('document_id: ', document_id)
-
-  console.log('url', `${getURL()}/api/leap/domains/process`)
-
-  const { data, error: domainsError } = await supabaseAdmin
-    .from('domains')
-    .select('*')
-    .eq('document_id', document_id)
-
-  if (!data) {
-    throw 'No data found for document_id: ' + document_id
-  }
-  if (domainsError) {
-    throw domainsError
-  }
-
-  for (let i = 0; i < data.length; i += 200) {
-    const domains = data.slice(i, i + 200)
-
-    await processDomains(document_id, domains)
-
-    // await postData({
-    //   url: `${getURL()}/api/leap/domains/process`,
-    //   data: {
-    //     document_id,
-    //     domains
-    //   }
-    // })
-  }
+export const processDomainDocument = async (documentId: string) => {
+  await inngest.send({
+    id: documentId,
+    name: 'app/payment-succeeded',
+    data: {
+      documentId
+    }
+  })
 }
+
+// export const processDomainDocument = async (document_id: string) => {
+//   console.log('document_id: ', document_id)
+
+//   const { data, error: domainsError } = await supabaseAdmin
+//     .from('domains')
+//     .select('*')
+//     .eq('document_id', document_id)
+
+//   if (!data) {
+//     throw 'No data found for document_id: ' + document_id
+//   }
+//   if (domainsError) {
+//     throw domainsError
+//   }
+
+//   for (let i = 0; i < data.length; i += 200) {
+//     const domains = data.slice(i, i + 200)
+
+//     await processDomains(document_id, domains)
+
+//     // await postData({
+//     //   url: `${getURL()}/api/leap/domains/process`,
+//     //   data: {
+//     //     document_id,
+//     //     domains
+//     //   }
+//     // })
+//   }
+// }
 
 const sendEmail = async (
   document_id: string,
@@ -759,10 +768,9 @@ const onProcessed = async (workflowResult: any) => {
 }
 
 const onDomainsProcessed = async (workflowResult: any) => {
-  console.log('workflowResult: ', workflowResult)
+  logger.debug('workflowResult: ', workflowResult)
   try {
     const { document_id: documentId, domain } = workflowResult.input
-    console.log(workflowResult.output)
 
     logger.info(
       `Leap returned results for ${domain} for document ${documentId}`
@@ -808,7 +816,6 @@ const onDomainsProcessed = async (workflowResult: any) => {
       const username = url.pathname.substring(1)
 
       const telegramExists = await doesTelegramUsernameExist(username)
-      console.log('telegramExists: ', telegramExists, username)
 
       if (telegramExists) {
         person_telegram_url = `https://t.me/${username}`
