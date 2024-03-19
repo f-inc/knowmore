@@ -7,7 +7,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import * as Sentry from '@sentry/nextjs';
 import { User } from '@supabase/supabase-js';
 import { redirect, useRouter } from 'next/navigation';
-import { useEffect, useState } from 'react';
+import { useCallback, useEffect, useState } from 'react';
 
 type UserDocument = {
   name: string;
@@ -32,6 +32,15 @@ const Dashboard: React.FC<DashboardProps> = ({ user, web3 = false }) => {
   useEffect(() => {
     fetchUserDocuments();
   }, [user]);
+
+  const transformDocuments = useCallback((data: any[]): UserDocument[] => {
+    return data.map(({ name, id, paid, total_leads }) => ({
+      name: name ?? 'Unnamed Document',
+      id,
+      paid: paid ?? false,
+      total_leads: total_leads ?? 0
+    }));
+  }, []);
 
   const openModal = () => {
     console.log('open modal');
@@ -62,7 +71,8 @@ const Dashboard: React.FC<DashboardProps> = ({ user, web3 = false }) => {
           }
         ];
 
-        setDocuments([...sampleFile, ...data]);
+        const transformedData = transformDocuments(data);
+        setDocuments([...sampleFile, ...transformedData]);
       }
     } catch (error) {
       Sentry.captureException(error);
