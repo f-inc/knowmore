@@ -155,6 +155,7 @@ const useLeadTable = (
           'email',
           paginatedLeads.map((lead) => lead.email)
         );
+
       if (profileError) {
         console.log(profileError);
         throw profileError;
@@ -216,9 +217,9 @@ const useLeadTable = (
       return;
     }
 
-    setIsPaid(documentData.paid);
-    setNumLeads(documentData.total_leads);
-    setType(documentData.type);
+    setIsPaid(documentData.paid!);
+    setNumLeads(documentData.total_leads!);
+    setType(documentData.type!);
 
     switch (documentData.type) {
       case 'email':
