@@ -8,13 +8,13 @@ const leap = new Leap({
   apiKey: process.env.LEAP_API_KEY as string
 })
 
-export const processDocument = inngest.createFunction(
-  { id: 'process-document' },
-  { event: 'app/payment-succeeded' },
+export const processDomainDocument = inngest.createFunction(
+  { id: 'process-domain-document' },
+  { event: 'app/process-domain-document-triggered' },
   async ({ event, step, logger }) => {
     const { documentId } = event.data
 
-    logger.debug('Processing document', documentId)
+    logger.debug('Processing domain document', documentId)
 
     const { data: domains, error: domainsError } = await supabaseAdmin
       .from('domains')
@@ -35,7 +35,6 @@ export const processDocument = inngest.createFunction(
       data: { documentId: domain.document_id, domain: domain.domain }
     }))
 
-    console.log('events: ', events)
     logger.debug('Sending events to inngest', events.length)
     const { ids } = await inngest.send(events)
 
@@ -47,7 +46,8 @@ export const processDomain = inngest.createFunction(
   { id: 'process-domain' },
   { event: 'app/process-domain' },
   async ({ event, step, logger }) => {
-    const workflow_id = 'wkf_sTdAAKT4tD2NLQ'
+    // const workflow_id = 'wkf_sTdAAKT4tD2NLQ' // playground
+    const workflow_id = 'wkf_H2EahyOnNQ37xb' // playground 2
 
     const { domain, documentId } = event.data
 

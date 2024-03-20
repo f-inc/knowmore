@@ -385,20 +385,23 @@ const processEmailDocument = async (document_id: string) => {
     const leads = leadData.slice(i, i + 200)
 
     await processEmails(document_id, leads)
-    // await postData({
-    //   url: `${getURL()}/api/leap/emails/process`,
-    //   data: {
-    //     document_id,
-    //     leads
-    //   }
-    // })
   }
 }
+
+// export const processEmailDocument = async (documentId: string) => {
+//   await inngest.send({
+//     id: documentId,
+//     name: 'app/process-email-document-triggered',
+//     data: {
+//       documentId
+//     }
+//   })
+// }
 
 export const processDomainDocument = async (documentId: string) => {
   await inngest.send({
     id: documentId,
-    name: 'app/payment-succeeded',
+    name: 'app/process-domain-document-triggered',
     data: {
       documentId
     }
@@ -774,8 +777,11 @@ const onProcessed = async (workflowResult: any) => {
 
 const onDomainsProcessed = async (workflowResult: any) => {
   logger.debug('workflowResult: ', workflowResult)
+
   try {
     const { document_id: documentId, domain } = workflowResult.input
+
+    let updateData: {} = { processed: true }
 
     logger.info(
       `Leap returned results for ${domain} for document ${documentId}`
@@ -785,65 +791,69 @@ const onDomainsProcessed = async (workflowResult: any) => {
       throw new Error('Invalid input')
     }
 
-    if (!workflowResult.output.linkedin) {
+    if (workflowResult.error) {
+      logger.debug('Workflow returned error', workflowResult.workflow_id)
+    }
+
+    if (!workflowResult.output || !workflowResult.output.linkedin) {
       logger.info(`No linkedin data found for: ${domain}`)
-      return
     }
 
-    let repairedJSON = jsonrepair(workflowResult.output.linkedin)
-    let parsedData = JSON.parse(repairedJSON)
+    if (workflowResult.output && workflowResult.output.linkedin) {
+      let repairedJSON = jsonrepair(workflowResult.output.linkedin)
+      let parsedData = JSON.parse(repairedJSON)
 
-    let {
-      person_full_name,
-      relevant_info,
-      person_email,
-      person_linkedin_url,
-      person_twitter_url,
-      company_name,
-      company_website,
-      company_description,
-      citations
-    } = parsedData
+      let {
+        person_full_name,
+        relevant_info,
+        person_email,
+        person_linkedin_url,
+        person_twitter_url,
+        company_name,
+        company_website,
+        company_description,
+        citations
+      } = parsedData
 
-    let verified_twitter_url
-    let verification_method
-    let person_telegram_url
+      let verified_twitter_url
+      let verification_method
+      let person_telegram_url
 
-    if (workflowResult.output.twitter) {
-      repairedJSON = jsonrepair(workflowResult.output.twitter)
-      parsedData = JSON.parse(repairedJSON)
-      verified_twitter_url = parsedData.verified_twitter_url
-    }
-
-    // check if telegram exists
-    if (verified_twitter_url || person_twitter_url) {
-      const url = new URL(verified_twitter_url || person_twitter_url)
-      const username = url.pathname.substring(1)
-
-      const telegramExists = await doesTelegramUsernameExist(username)
-
-      if (telegramExists) {
-        person_telegram_url = `https://t.me/${username}`
+      if (workflowResult.output.twitter) {
+        repairedJSON = jsonrepair(workflowResult.output.twitter)
+        parsedData = JSON.parse(repairedJSON)
+        verified_twitter_url = parsedData.verified_twitter_url
       }
-    }
 
-    let personTwitterUrl = verified_twitter_url
-      ? cleanUrl(verified_twitter_url)
-      : person_twitter_url
-      ? cleanUrl(person_twitter_url)
-      : undefined
+      if (verified_twitter_url || person_twitter_url) {
+        const url = new URL(verified_twitter_url || person_twitter_url)
+        const username = url.pathname.substring(1)
 
-    const updateData = {
-      person_full_name,
-      relevant_info,
-      person_email,
-      person_linkedin_url,
-      person_twitter_url: personTwitterUrl,
-      company_name,
-      company_website,
-      company_description,
-      person_telegram_url,
-      processed: true
+        const telegramExists = await doesTelegramUsernameExist(username)
+
+        if (telegramExists) {
+          person_telegram_url = `https://t.me/${username}`
+        }
+      }
+
+      let personTwitterUrl = verified_twitter_url
+        ? cleanUrl(verified_twitter_url)
+        : person_twitter_url
+        ? cleanUrl(person_twitter_url)
+        : undefined
+
+      updateData = {
+        ...updateData,
+        person_full_name,
+        relevant_info,
+        person_email,
+        person_linkedin_url,
+        person_twitter_url: personTwitterUrl,
+        company_name,
+        company_website,
+        company_description,
+        person_telegram_url
+      }
     }
 
     const { data, error } = await supabaseAdmin
