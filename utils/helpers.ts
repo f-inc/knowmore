@@ -60,6 +60,7 @@ export async function getOgTitle (url: string): Promise<string> {
   if (!url.includes('http')) {
     url = `https://${url}`
   }
+
   try {
     const httpsAgent = new https.Agent({ rejectUnauthorized: false })
 
@@ -102,12 +103,11 @@ export type LeadDataType = {
   company_address?: string
   company_linkedin_url?: string
   company_twitter_url?: string
-  company_num_employees?: number
+  company_num_employees?: string
   company_money_raised?: string
   company_metrics_annual_revenue?: string
   company_tech_stack?: string
-
-  person_email: string
+  person_email?: string
 }
 
 export const doesTelegramUsernameExist = async (username: string) => {

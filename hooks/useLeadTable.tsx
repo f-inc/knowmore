@@ -1,4 +1,5 @@
 import { useSupabase } from '@/app/supabase-provider';
+import { Database, Tables } from '@/types_db';
 import { DocumentType } from '@/utils/constants/types';
 import { LeadDataType } from '@/utils/helpers';
 import * as Sentry from '@sentry/nextjs';
@@ -77,10 +78,10 @@ const useLeadTable = (
         Header: 'Full Name',
         accessor: 'person_full_name'
       },
-      {
-        Header: 'Email',
-        accessor: 'person_email'
-      },
+      // {
+      //   Header: 'Email',
+      //   accessor: 'person_email'
+      // },
       {
         Header: 'LinkedIn',
         accessor: 'person_linkedin_url'
@@ -155,6 +156,7 @@ const useLeadTable = (
           'email',
           paginatedLeads.map((lead) => lead.email)
         );
+
       if (profileError) {
         console.log(profileError);
         throw profileError;
@@ -216,9 +218,9 @@ const useLeadTable = (
       return;
     }
 
-    setIsPaid(documentData.paid);
-    setNumLeads(documentData.total_leads);
-    setType(documentData.type);
+    setIsPaid(documentData.paid!);
+    setNumLeads(documentData.total_leads!);
+    setType(documentData.type!);
 
     switch (documentData.type) {
       case 'email':
@@ -299,25 +301,25 @@ const useLeadTable = (
       return;
     }
 
-    const batchSize = 300;
-    let result = [];
-    result.push(...(domainsData || []));
-
-    // for (let i = 0; i < domainsData.length; i += batchSize) {
-    //   let domains = domainsData.map((domain) => domain.domain);
-
-    //   let { data: profileData, error: profileError } = await supabase
-    //     .from('profiles')
-    //     .select('*')
-    //     .in('email', emails.slice(i, i + batchSize));
-
-    //   profiles.push(...(profileData || []));
-
-    //   if (profileError) {
-    //     console.error('Error fetching profiles:', profileError);
-    //     return;
-    //   }
-    // }
+    let result = domainsData.map(
+      ({
+        domain,
+        person_full_name,
+        person_linkedin_url,
+        person_twitter_url,
+        person_telegram_url,
+        company_name,
+        company_description
+      }: Tables<'domains'>) => ({
+        Domain: domain,
+        'Full Name': person_full_name,
+        Linkedin: person_linkedin_url,
+        Twitter: person_twitter_url,
+        Telegram: person_telegram_url,
+        'Company Name': company_name,
+        'Company Description': company_description
+      })
+    );
 
     const csvData = Papa.unparse(result, { header: true });
 

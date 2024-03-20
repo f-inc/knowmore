@@ -8,7 +8,7 @@
     "start": "next start",
     "lint": "next lint",
     "stripe:listen": "stripe listen --forward-to=localhost:3000/api/webhooks",
-    "generate-types": "npx supabase gen types typescript --project-id YOUR_PROJECT_ID --schema public > types_db.ts",
+    "generate-types": "npx supabase gen types typescript --project-id btgfcmgltmtcketlaszp --schema public > types_db.ts",
     "test": "jest"
   },
   "dependencies": {
@@ -33,10 +33,13 @@
     "cheerio": "^1.0.0-rc.12",
     "classnames": "^2.3.2",
     "customerio-node": "^4.1.1",
+    "encoding": "^0.1.13",
+    "inngest": "^3.16.0",
     "jsonrepair": "^3.6.0",
     "next": "13.5",
     "next-logger": "^4.0.0",
     "ngrok": "^5.0.0-beta.2",
+    "node-fetch": "^3.3.2",
     "papaparse": "^5.4.1",
     "posthog-js": "^1.104.2",
     "react": "^18.2.0",

@@ -70,12 +70,6 @@ export async function POST (req: Request) {
           if (checkoutSession.mode === 'payment') {
             const metadata = checkoutSession?.metadata
 
-            console.log('CHEKOUT', {
-              docID: metadata?.document_id as string,
-              email: checkoutSession?.customer_details?.email as string,
-              docType: metadata?.document_type as DocumentType
-            })
-
             await onPaid(
               metadata?.document_id as string,
               checkoutSession?.customer_details?.email as string,

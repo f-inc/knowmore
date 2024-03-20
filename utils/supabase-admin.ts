@@ -7,6 +7,7 @@ import {
   postData,
   toDateTime
 } from './helpers'
+import { inngest } from './inngest/client'
 import { stripe } from './stripe'
 import Logger from '@/logger'
 import { Leap } from '@leap-ai/workflows'
@@ -32,7 +33,7 @@ const leap = new Leap({
 
 // Note: supabaseAdmin uses the SERVICE_ROLE_KEY which you must only use in a secure server-side context
 // as it has admin privileges and overwrites RLS policies!
-const supabaseAdmin = createClient<Database>(
+export const supabaseAdmin = createClient<Database>(
   process.env.NEXT_PUBLIC_SUPABASE_URL || '',
   process.env.SUPABASE_SERVICE_ROLE_KEY || ''
 )
@@ -268,7 +269,8 @@ const onUpload = async (document_id: string, user_email: string) => {
 
   if (!doc.slack_notified) {
     if (
-      doc.total_leads >= Number(process.env.ZAPIER_SLACK_EMAIL_LIMIT || 5000)
+      (doc.total_leads as number) >=
+      Number(process.env.ZAPIER_SLACK_EMAIL_LIMIT || 5000)
     ) {
       fetch(process.env.ZAPIER_SLACK_WEBHOOK as string, {
         method: 'POST',
@@ -347,7 +349,11 @@ const onPaid = async (
       .single()
 
     if (!documentData) throw 'No document found with id: ' + document_id
-    await sendEmail(document_id, customer_email, documentData?.total_leads)
+    await sendEmail(
+      document_id,
+      customer_email,
+      documentData?.total_leads as number
+    )
 
     switch (type) {
       case 'email':
@@ -379,47 +385,58 @@ const processEmailDocument = async (document_id: string) => {
     const leads = leadData.slice(i, i + 200)
 
     await processEmails(document_id, leads)
-    // await postData({
-    //   url: `${getURL()}/api/leap/emails/process`,
-    //   data: {
-    //     document_id,
-    //     leads
-    //   }
-    // })
   }
 }
 
-export const processDomainDocument = async (document_id: string) => {
-  console.log('document_id: ', document_id)
+// export const processEmailDocument = async (documentId: string) => {
+//   await inngest.send({
+//     id: documentId,
+//     name: 'app/process-email-document-triggered',
+//     data: {
+//       documentId
+//     }
+//   })
+// }
 
-  console.log('url', `${getURL()}/api/leap/domains/process`)
-
-  const { data, error: domainsError } = await supabaseAdmin
-    .from('domains')
-    .select('*')
-    .eq('document_id', document_id)
-
-  if (!data) {
-    throw 'No data found for document_id: ' + document_id
-  }
-  if (domainsError) {
-    throw domainsError
-  }
-
-  for (let i = 0; i < data.length; i += 200) {
-    const domains = data.slice(i, i + 200)
-
-    await processDomains(document_id, domains)
-
-    // await postData({
-    //   url: `${getURL()}/api/leap/domains/process`,
-    //   data: {
-    //     document_id,
-    //     domains
-    //   }
-    // })
-  }
+export const processDomainDocument = async (documentId: string) => {
+  await inngest.send({
+    id: documentId,
+    name: 'app/process-domain-document-triggered',
+    data: {
+      documentId
+    }
+  })
 }
+
+// export const processDomainDocument = async (document_id: string) => {
+//   console.log('document_id: ', document_id)
+
+//   const { data, error: domainsError } = await supabaseAdmin
+//     .from('domains')
+//     .select('*')
+//     .eq('document_id', document_id)
+
+//   if (!data) {
+//     throw 'No data found for document_id: ' + document_id
+//   }
+//   if (domainsError) {
+//     throw domainsError
+//   }
+
+//   for (let i = 0; i < data.length; i += 200) {
+//     const domains = data.slice(i, i + 200)
+
+//     await processDomains(document_id, domains)
+
+//     // await postData({
+//     //   url: `${getURL()}/api/leap/domains/process`,
+//     //   data: {
+//     //     document_id,
+//     //     domains
+//     //   }
+//     // })
+//   }
+// }
 
 const sendEmail = async (
   document_id: string,
@@ -620,7 +637,7 @@ const checkProcessed = async (): Promise<any[]> => {
         identifiers: {
           id: doc.id
         },
-        to: doc.customer_to_email,
+        to: doc.customer_to_email as string,
         from: 'omar@knowmore.bot'
       })
 
@@ -759,10 +776,12 @@ const onProcessed = async (workflowResult: any) => {
 }
 
 const onDomainsProcessed = async (workflowResult: any) => {
-  console.log('workflowResult: ', workflowResult)
+  logger.debug('workflowResult: ', workflowResult)
+
   try {
     const { document_id: documentId, domain } = workflowResult.input
-    console.log(workflowResult.output)
+
+    let updateData: {} = { processed: true }
 
     logger.info(
       `Leap returned results for ${domain} for document ${documentId}`
@@ -772,66 +791,69 @@ const onDomainsProcessed = async (workflowResult: any) => {
       throw new Error('Invalid input')
     }
 
-    if (!workflowResult.output.linkedin) {
+    if (workflowResult.error) {
+      logger.debug('Workflow returned error', workflowResult.workflow_id)
+    }
+
+    if (!workflowResult.output || !workflowResult.output.linkedin) {
       logger.info(`No linkedin data found for: ${domain}`)
-      return
     }
 
-    let repairedJSON = jsonrepair(workflowResult.output.linkedin)
-    let parsedData = JSON.parse(repairedJSON)
+    if (workflowResult.output && workflowResult.output.linkedin) {
+      let repairedJSON = jsonrepair(workflowResult.output.linkedin)
+      let parsedData = JSON.parse(repairedJSON)
 
-    let {
-      person_full_name,
-      relevant_info,
-      person_email,
-      person_linkedin_url,
-      person_twitter_url,
-      company_name,
-      company_website,
-      company_description,
-      citations
-    } = parsedData
+      let {
+        person_full_name,
+        relevant_info,
+        person_email,
+        person_linkedin_url,
+        person_twitter_url,
+        company_name,
+        company_website,
+        company_description,
+        citations
+      } = parsedData
 
-    let verified_twitter_url
-    let verification_method
-    let person_telegram_url
+      let verified_twitter_url
+      let verification_method
+      let person_telegram_url
 
-    if (workflowResult.output.twitter) {
-      repairedJSON = jsonrepair(workflowResult.output.twitter)
-      parsedData = JSON.parse(repairedJSON)
-      verified_twitter_url = parsedData.verified_twitter_url
-    }
-
-    // check if telegram exists
-    if (verified_twitter_url || person_twitter_url) {
-      const url = new URL(verified_twitter_url || person_twitter_url)
-      const username = url.pathname.substring(1)
-
-      const telegramExists = await doesTelegramUsernameExist(username)
-      console.log('telegramExists: ', telegramExists, username)
-
-      if (telegramExists) {
-        person_telegram_url = `https://t.me/${username}`
+      if (workflowResult.output.twitter) {
+        repairedJSON = jsonrepair(workflowResult.output.twitter)
+        parsedData = JSON.parse(repairedJSON)
+        verified_twitter_url = parsedData.verified_twitter_url
       }
-    }
 
-    let personTwitterUrl = verified_twitter_url
-      ? cleanUrl(verified_twitter_url)
-      : person_twitter_url
-      ? cleanUrl(person_twitter_url)
-      : undefined
+      if (verified_twitter_url || person_twitter_url) {
+        const url = new URL(verified_twitter_url || person_twitter_url)
+        const username = url.pathname.substring(1)
 
-    const updateData = {
-      person_full_name,
-      relevant_info,
-      person_email,
-      person_linkedin_url,
-      person_twitter_url: personTwitterUrl,
-      company_name,
-      company_website,
-      company_description,
-      person_telegram_url,
-      processed: true
+        const telegramExists = await doesTelegramUsernameExist(username)
+
+        if (telegramExists) {
+          person_telegram_url = `https://t.me/${username}`
+        }
+      }
+
+      let personTwitterUrl = verified_twitter_url
+        ? cleanUrl(verified_twitter_url)
+        : person_twitter_url
+        ? cleanUrl(person_twitter_url)
+        : undefined
+
+      updateData = {
+        ...updateData,
+        person_full_name,
+        relevant_info,
+        person_email,
+        person_linkedin_url,
+        person_twitter_url: personTwitterUrl,
+        company_name,
+        company_website,
+        company_description,
+        person_telegram_url
+      }
     }
 
     const { data, error } = await supabaseAdmin

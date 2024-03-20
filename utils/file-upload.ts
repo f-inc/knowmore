@@ -1,28 +1,28 @@
-import { CommonEmailProviders } from './constants/EmailProviders';
-import { DocumentType } from './constants/types';
-import { SupabaseClient, User } from '@supabase/supabase-js';
+import { CommonEmailProviders } from './constants/EmailProviders'
+import { DocumentType } from './constants/types'
+import { SupabaseClient, User } from '@supabase/supabase-js'
 
 interface EmailObject {
-  email: string;
-  document_id: string;
-  processed: boolean;
+  email: string
+  document_id: string
+  processed: boolean
 }
 
-export async function uploadFile(
+export async function uploadFile (
   supabase: SupabaseClient,
   file: File,
   id: string
 ): Promise<void> {
-  const filePath = `public/${id}.csv`;
+  const filePath = `public/${id}.csv`
   const { error } = await supabase.storage
     .from('documents')
-    .upload(filePath, file);
+    .upload(filePath, file)
 
-  if (error) throw new Error(`Error uploading CSV: ${error.message}`);
-  console.log('Uploaded CSV...');
+  if (error) throw new Error(`Error uploading CSV: ${error.message}`)
+  console.log('Uploaded CSV...')
 }
 
-export async function addDocumentToDB(
+export async function addDocumentToDB (
   supabase: SupabaseClient,
   file: File,
   id: string,
@@ -41,14 +41,14 @@ export async function addDocumentToDB(
       processed: true,
       type: type
     }
-  ]);
+  ])
 
   if (error)
-    throw new Error(`Error inserting document into DB: ${error.message}`);
-  console.log('Added document to database...');
+    throw new Error(`Error inserting document into DB: ${error.message}`)
+  console.log('Added document to database...')
 }
 
-export async function addEmailsToDB(
+export async function addEmailsToDB (
   supabase: SupabaseClient,
   emails: Set<string>,
   documentId: string
@@ -57,16 +57,15 @@ export async function addEmailsToDB(
     email,
     document_id: documentId,
     processed: false
-  }));
+  }))
 
-  const { error } = await supabase.from('leads').insert(emailObjects);
+  const { error } = await supabase.from('leads').insert(emailObjects)
 
-  if (error)
-    throw new Error(`Error inserting emails into DB: ${error.message}`);
-  console.log('Added emails to database...');
+  if (error) throw new Error(`Error inserting emails into DB: ${error.message}`)
+  console.log('Added emails to database...')
 }
 
-export async function addDomainsToDB(
+export async function addDomainsToDB (
   supabase: SupabaseClient,
   domains: Set<string>,
   documentId: string
@@ -75,36 +74,64 @@ export async function addDomainsToDB(
     domain,
     document_id: documentId,
     processed: false
-  }));
+  }))
 
-  const { error } = await supabase.from('domains').insert(domainObjects);
+  const { error } = await supabase.from('domains').insert(domainObjects)
 
   if (error)
-    throw new Error(`Error inserting domains into DB: ${error.message}`);
-  console.log('Added domains to database...');
+    throw new Error(`Error inserting domains into DB: ${error.message}`)
+  console.log('Added domains to database...')
 }
 
-export function extractValidData(
+export function extractValidData (
   data: any[][],
   type: DocumentType
 ): Set<string> {
-  let items = new Set<string>();
-  const emailRegex = /\S+@\S+\.\S+/;
+  let items = new Set<string>()
+  const emailRegex = /\S+@\S+\.\S+/
   const domainRegex =
-    /^[a-zA-Z0-9][a-zA-Z0-9-]{1,61}[a-zA-Z0-9](?:\.[a-zA-Z]{2,})+$/;
+    /^[a-zA-Z0-9][a-zA-Z0-9-]{1,61}[a-zA-Z0-9](?:\.[a-zA-Z]{2,})+$/
 
   data.forEach((row) => {
     row.forEach((cell) => {
       if (type === 'email' && emailRegex.test(cell)) {
-        const emailDomain = cell.split('@')[1].toLowerCase();
+        const emailDomain = cell.split('@')[1].toLowerCase()
         if (!CommonEmailProviders.includes(emailDomain)) {
-          items.add(cell);
+          items.add(cell)
         }
-      } else if (type === 'domain' && domainRegex.test(cell)) {
-        items.add(cell.toLowerCase());
+      } else if (type === 'domain') {
+        const extractedDomain = extractDomain(cell)
+        if (extractedDomain) {
+          items.add(extractedDomain)
+        }
       }
-    });
-  });
+    })
+  })
 
-  return items;
+  return items
+}
+
+const extractDomain = (url: string): string | null => {
+  const match = url.match(
+    /^(https?:\/\/)?(?:[^@\n]+@)?(?:www\.)?([^\/\n?]+)(\/|\?|#|$)/i
+  )
+  if (!match) return null
+
+  let domainParts = match[2].split('.').reverse()
+  if (domainParts.length >= 3) {
+    const secondLevelTLDs = ['com', 'co', 'org', 'net', 'edu', 'gov', 'mil']
+    // Detecting ccSLD patterns (e.g., ".com.co")
+    if (
+      secondLevelTLDs.includes(domainParts[1]) &&
+      domainParts[0].length === 2
+    ) {
+      return domainParts.slice(0, 3).reverse().join('.')
+    } else {
+      return domainParts.slice(0, 2).reverse().join('.')
+    }
+  } else if (domainParts.length === 2) {
+    return domainParts.reverse().join('.').toLowerCase()
+  }
+
+  return null
 }
