@@ -25,11 +25,13 @@ type LeadProps = {
 export default function Document({
   id,
   user,
-  lead_limit
+  lead_limit,
+  price
 }: {
   id: string;
   user: User | undefined;
   lead_limit: number;
+  price?: number;
 }) {
   const { supabase } = useSupabase();
 
@@ -233,7 +235,7 @@ export default function Document({
                   <p></p>
                 </div>
               ) : (
-                <CheckoutCard user={user} document={document} />
+                <CheckoutCard user={user} document={document} price={price} />
               )}
             </>
           )}
