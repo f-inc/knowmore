@@ -76,8 +76,6 @@ export async function addDomainsToDB (
     processed: false
   }))
 
-  console.log('domainObjects: ', domainObjects)
-
   const { error } = await supabase.from('domains').insert(domainObjects)
 
   if (error)
