@@ -76,6 +76,8 @@ export async function addDomainsToDB (
     processed: false
   }))
 
+  console.log('domainObjects: ', domainObjects)
+
   const { error } = await supabase.from('domains').insert(domainObjects)
 
   if (error)
@@ -89,8 +91,6 @@ export function extractValidData (
 ): Set<string> {
   let items = new Set<string>()
   const emailRegex = /\S+@\S+\.\S+/
-  const domainRegex =
-    /^[a-zA-Z0-9][a-zA-Z0-9-]{1,61}[a-zA-Z0-9](?:\.[a-zA-Z]{2,})+$/
 
   data.forEach((row) => {
     row.forEach((cell) => {
@@ -112,26 +112,38 @@ export function extractValidData (
 }
 
 const extractDomain = (url: string): string | null => {
-  const match = url.match(
-    /^(https?:\/\/)?(?:[^@\n]+@)?(?:www\.)?([^\/\n?]+)(\/|\?|#|$)/i
-  )
-  if (!match) return null
-
-  let domainParts = match[2].split('.').reverse()
-  if (domainParts.length >= 3) {
-    const secondLevelTLDs = ['com', 'co', 'org', 'net', 'edu', 'gov', 'mil']
-    // Detecting ccSLD patterns (e.g., ".com.co")
-    if (
-      secondLevelTLDs.includes(domainParts[1]) &&
-      domainParts[0].length === 2
-    ) {
-      return domainParts.slice(0, 3).reverse().join('.')
-    } else {
-      return domainParts.slice(0, 2).reverse().join('.')
+  // Regex to check if the string is a valid URL or a domain name
+  const regex = /^(https?:\/\/)?([a-zA-Z0-9-]+(\.[a-zA-Z0-9-]+)+)(\/|$)/
+  const match = url.match(regex)
+  if (match) {
+    let domain = match[2]
+    // Split the domain into parts
+    const parts = domain.split('.').reverse()
+    if (parts.length >= 2) {
+      // Handle known second-level TLDs and ccTLDs (like .co.uk)
+      const secondLevelTLDs = [
+        'co',
+        'com',
+        'org',
+        'net',
+        'edu',
+        'gov',
+        'mil',
+        'ac'
+      ]
+      // If the second part is a known SLD and the third part is a ccTLD (e.g., "uk" in "co.uk")
+      if (
+        parts.length > 2 &&
+        secondLevelTLDs.includes(parts[1]) &&
+        parts[0].length === 2
+      ) {
+        domain = parts.slice(0, 3).reverse().join('.')
+      } else {
+        // Standard domain, just take the last two parts
+        domain = parts.slice(0, 2).reverse().join('.')
+      }
     }
-  } else if (domainParts.length === 2) {
-    return domainParts.reverse().join('.').toLowerCase()
+    return domain.toLowerCase()
   }
-
   return null
 }
