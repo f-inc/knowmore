@@ -875,7 +875,7 @@ const onDomainsProcessed = async (workflowResult: any) => {
     console.log('updated domain data', data)
   } catch (error) {
     Sentry.captureException(error)
-    console.error('Error updating document:', error)
+    logger.error('Error updating doc', { error, workflowResult })
   }
 }
 
