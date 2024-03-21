@@ -17,7 +17,7 @@ import { User } from '@supabase/supabase-js';
 import { useRouter } from 'next/navigation';
 import Papa from 'papaparse';
 import posthog from 'posthog-js';
-import React, { ChangeEvent, useState } from 'react';
+import React, { ChangeEvent, useCallback, useState } from 'react';
 import { BarLoader } from 'react-spinners';
 import { v4 as uuid } from 'uuid';
 
@@ -54,47 +54,53 @@ const FileUploadModal: React.FC<FileUploadModalProps> = ({
 
   const router = useRouter();
   const [loading, setLoading] = useState(false);
+
   const { supabase } = useSupabase();
 
-  const handleFileUpload = async (e: ChangeEvent<HTMLInputElement>) => {
-    const file = e.target.files?.[0];
+  const handleFileUpload = useCallback(
+    async (e: ChangeEvent<HTMLInputElement>) => {
+      const file = e.target.files?.[0];
 
-    if (!file || !file.name.endsWith('.csv')) {
-      return;
-    }
+      if (!file || !file.name.endsWith('.csv')) {
+        return;
+      }
 
-    posthog.capture(AnalyticsEvents.Upload.FileUploading);
-    setLoading(true);
-    console.log('Uploading file...');
+      posthog.capture(AnalyticsEvents.Upload.FileUploading);
+      setLoading(true);
+      console.log('Uploading file...');
 
-    try {
       Papa.parse(file, {
         complete: async function (results) {
-          const items = extractValidData(results.data as any[][], type);
+          try {
+            const items = extractValidData(results.data as any[][], type);
 
-          const id = uuid();
-          await uploadFile(supabase, file, id);
-          await addDocumentToDB(supabase, file, id, user, items.size, type);
+            const id = uuid();
+            await uploadFile(supabase, file, id);
+            await addDocumentToDB(supabase, file, id, user, items.size, type);
 
-          if (type === 'email') {
-            await addEmailsToDB(supabase, items, id);
-          } else if (type === 'domain') {
-            await addDomainsToDB(supabase, items, id);
+            if (type === 'email') {
+              await addEmailsToDB(supabase, items, id);
+            } else if (type === 'domain') {
+              await addDomainsToDB(supabase, items, id);
+            }
+
+            posthog.capture(AnalyticsEvents.Upload.FileUploaded, { id });
+            router.push(`/view/${id}`);
+          } catch (error) {
+            Sentry.captureException(error);
+            handleError(error as Error);
+            setLoading(false);
+          } finally {
+            // setLoading(false);
           }
-
-          posthog.capture(AnalyticsEvents.Upload.FileUploaded, { id });
-          router.push(`/view/${id}`);
         }
       });
-    } catch (error) {
-      Sentry.captureException(error);
-      handleError(error as Error);
-    } finally {
-      setLoading(false);
-    }
-  };
+    },
+    [setLoading]
+  );
 
   const handleError = (error: Error) => {
+    Sentry.captureException(error);
     posthog.capture(AnalyticsEvents.Upload.FileUploadFailed, {
       error: error.message
     });
@@ -120,7 +126,7 @@ const FileUploadModal: React.FC<FileUploadModalProps> = ({
           {loading ? (
             <div className="loading-spinner py-10">
               <BarLoader className="m-auto" color="white" />
-              <p className="text-xs text-center mt-5">uploading your file</p>
+              <p className="text-xs text-center mt-5">Uploading your file</p>
             </div>
           ) : (
             <>
